@@ -4,18 +4,12 @@
         "es6": true
     },
     "extends": ["eslint:recommended", "next/core-web-vitals"],
-    "plugins": ["import", "unused-imports", "return-type"],
+    "plugins": ["import", "unused-imports", "return-type", "prefer-arrow-functions"],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "project": "./tsconfig.json"
     },
-    "ignorePatterns": [
-        "node_modules/*",
-        ".next/*",
-        ".out/*",
-        "!.prettierrc.js",
-        "src/generated/*"
-    ],
+    "ignorePatterns": ["node_modules/*", ".next/*", ".out/*", "!.prettierrc.js", "src/generated/*"],
     "rules": {
         // "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
         "unused-imports/no-unused-imports": "error",
@@ -119,13 +113,13 @@
         "arrow-body-style": ["error", "as-needed"],
         "func-style": "error",
         "prefer-arrow-functions/prefer-arrow-functions": [
-          "error",
-          {
-            "classPropertiesAllowed": false,
-            "disallowPrototype": false,
-            "returnStyle": "unchanged",
-            "singleReturnOnly": false
-          }
+            "error",
+            {
+                "classPropertiesAllowed": false,
+                "disallowPrototype": false,
+                "returnStyle": "unchanged",
+                "singleReturnOnly": false
+            }
         ]
     }
 }
