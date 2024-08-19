@@ -1,5 +1,8 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Metadata } from "next";
 import React from "react";
+
+import { guardUndef } from "@/utils";
 import "./globals.css";
 
 const siteName = "東京大学制作展";
@@ -41,6 +44,7 @@ export const metadata: Metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <html lang="ja">
         <body>{children}</body>
+        <GoogleAnalytics gaId={guardUndef(process.env.NEXT_PUBLIC_GA_ID)} />
     </html>
 );
 
