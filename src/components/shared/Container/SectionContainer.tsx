@@ -18,7 +18,7 @@ export const SectionContainer: FC<Props> = ({
 }) => (
     <div className={wrapper}>
         <section className={clsx(container, backgroundStyle[backgroundColor])}>
-            {title && <h2>{title}</h2>}
+            {title && <h1>{title}</h1>}
             {children}
         </section>
     </div>

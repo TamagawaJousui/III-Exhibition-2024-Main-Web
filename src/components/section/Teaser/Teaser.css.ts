@@ -1,4 +1,7 @@
 import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
+
+import { typography } from "@/styles/typography.css";
 
 import { vars } from "@/styles";
 
@@ -15,6 +18,7 @@ export const styles = {
         flex: 1,
         flexDirection: "column",
         alignItems: "center",
+        gap: vars.spacing.md,
     }),
     icon: style({
         height: "100%",
@@ -25,12 +29,39 @@ export const styles = {
             },
         },
     }),
+    dl: style({
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        gap: vars.spacing.sm,
+    }),
+    info: recipe({
+        base: {
+            textAlign: "center",
+            margin: 0,
+        },
+        variants: {
+            bold: {
+                true: typography({ fontWeight: "bold" }),
+            },
+        },
+        defaultVariants: { bold: false },
+    }),
     ul: style({
         display: "flex",
         listStyle: "none",
         marginLeft: "0",
         padding: "0",
         flexDirection: "row",
+        justifyContent: "center",
         gap: vars.spacing.md,
+    }),
+    link: style({
+        textDecoration: "underline",
+        selectors: {
+            "&:hover": {
+                color: vars.color.textSecondary,
+            },
+        },
     }),
 };

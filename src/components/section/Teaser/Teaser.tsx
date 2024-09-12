@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import { WithWordBreak } from "@/utils/hocs/WithWordBreak/withWordBreak";
+
 import { SnsData, TeaserInfo } from "./model";
 
 import { SectionContainer } from "@/components/shared/Container";
@@ -35,25 +37,46 @@ export const TeaserSection = () => (
         <div className={styles.root}>
             <Icon src="/bg/circle.png" align="left" className={styles.icon} />
             <div className={styles.content}>
-                <h4>2024年度 東京大学 制作展 開催決定</h4>
-                <dl>
+                <h2>2024年度 東京大学制作展 開催決定</h2>
+                <dl className={styles.dl}>
                     {TeaserInfoList.map((data) => (
                         <div key={data.item}>
-                            <dt>{data.item}</dt>
-                            <dd>{data.info}</dd>
+                            <dt className={styles.info({ bold: true })}>{data.item}</dt>
+                            <dd className={styles.info()}>{data.info}</dd>
                         </div>
                     ))}
                 </dl>
-                <p>↓各種SNSはこちら↓</p>
-                <ul className={styles.ul}>
-                    {snsLinks.map(({ href, src, text }) => (
-                        <li key={href}>
-                            <a target="_blank" href={href} title={`${text}へのリンク`}>
-                                <Image src={src} alt={`${text}のアイコン`} height={24} width={24} />
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+                <div>
+                    <h4>↓各種SNSはこちら↓</h4>
+                    <ul className={styles.ul}>
+                        {snsLinks.map(({ href, src, text }) => (
+                            <li key={href}>
+                                <a target="_blank" href={href} title={`${text}へのリンク`}>
+                                    <Image
+                                        src={src}
+                                        alt={`${text}のアイコン`}
+                                        height={24}
+                                        width={24}
+                                    />
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div>
+                    <WithWordBreak>
+                        今年度前期に開催した
+                        <wbr />
+                        制作展EXTRAのWebサイトは
+                        <a
+                            target="_blank"
+                            href="https://iii-exhibition-2024-web.vercel.app/"
+                            className={styles.link}
+                        >
+                            こちら
+                        </a>
+                    </WithWordBreak>
+                </div>
             </div>
             <Icon src="/bg/question.png" align="right" className={styles.icon} />
         </div>
