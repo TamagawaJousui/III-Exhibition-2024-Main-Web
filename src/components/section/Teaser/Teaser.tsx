@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { WithWordBreak } from "@/utils/hocs/WithWordBreak/withWordBreak";
+import { WithWordBreak } from "@/utils/hocs";
 
 import { SnsData, TeaserInfo } from "./model";
 

@@ -10,13 +10,13 @@ const siteName = "東京大学制作展";
 const description = "東京大学制作展 2024 Mainのホームページです。";
 const url = "https://iiiexhibition.com";
 
-export const dotGothic = Local({
+const dotGothic = Local({
     src: "../../public/fonts/DotGothic16-Regular.ttf",
     display: "swap",
     variable: "--font-dotgothic",
 });
 
-export const pressStart2p = Local({
+const pressStart2p = Local({
     src: "../../public/fonts/PressStart2P-Regular.ttf",
     display: "swap",
     variable: "--font-pressstart2p",
