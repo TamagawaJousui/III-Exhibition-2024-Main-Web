@@ -38,14 +38,15 @@ globalStyle("h1", {
 
 globalStyle("h2", {
     fontSize: vars.fontSize.lg,
+    fontFamily: "var(--font-dotgothic)",
 });
 
 globalStyle("h3", {
-    fontSize: vars.fontSize.md,
+    fontSize: vars.fontSize.base,
 });
 
 globalStyle("h4", {
-    fontSize: vars.fontSize.md,
+    fontSize: vars.fontSize.base,
     fontFamily: "var(--font-dotgothic)",
 });
 
