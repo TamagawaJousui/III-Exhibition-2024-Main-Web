@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 
-import { HomePage } from "@/components/page/home";
+import { HomePage } from "@/page/home";
 
 const Page: NextPage = () => <HomePage />;
 
