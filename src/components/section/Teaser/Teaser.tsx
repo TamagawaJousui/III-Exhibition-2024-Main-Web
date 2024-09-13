@@ -11,7 +11,7 @@ import { styles } from "./Teaser.css";
 
 const TeaserInfoList = [
     { item: "日程", info: "11月 7日 (木) 〜 11日 (月)" },
-    { item: "場所", info: "オープンスタジオ" },
+    { item: "場所", info: "本郷キャンパス" },
 ] as const satisfies TeaserInfo[];
 
 const snsLinks = [
@@ -33,7 +33,7 @@ const snsLinks = [
 ] as const satisfies SnsData[];
 
 export const TeaserSection = () => (
-    <SectionContainer title="COMING SOON">
+    <SectionContainer title="! COMING SOON !">
         <div className={styles.root}>
             <Icon src="/bg/circle.png" align="left" className={styles.icon} />
             <div className={styles.content}>
