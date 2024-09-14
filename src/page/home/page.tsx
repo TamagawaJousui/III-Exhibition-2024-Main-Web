@@ -2,8 +2,10 @@
 
 import { useEffect, useRef } from "react";
 
-import { ConceptSection } from "@/components/section/concept";
-import { WorksSection } from "@/components/section/works";
+import { sectionInfo } from "@/models/section";
+import { WithHeader } from "@/utils/hocs/WithHeader/WithHeader";
+
+import { HeroareaSection } from "@/components/section/heroarea";
 import { Footer } from "@/components/shared/Footer";
 
 import { styles } from "./page.css";
@@ -30,8 +32,12 @@ export const HomePage = () => {
 
     return (
         <div className={styles.root} ref={scrollContainer}>
-            <ConceptSection />
-            <WorksSection />
+            <HeroareaSection />
+            <WithHeader>
+                {sectionInfo.map((section) => (
+                    <section.node key={section.id} />
+                ))}
+            </WithHeader>
             <Footer />
         </div>
     );
