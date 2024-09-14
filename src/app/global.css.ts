@@ -7,9 +7,8 @@ globalStyle("html, body", {
 
     backgroundRepeat: "no-repeat repeat",
     backgroundPosition: "center top",
-    backgroundColor: vars.color.primaryBackground,
-    fontFamily: `var(--font-dotgothic), var(--font-pressstart2p), sans-serif`,
-    scrollbarColor: `${vars.color.black} ${vars.color.primaryBackground}`,
+    background: vars.color.background.default,
+    fontFamily: `var(--font-playfair), sans-serif`,
 });
 
 globalStyle("*", {
@@ -23,7 +22,6 @@ globalStyle(":root", {
 
 globalStyle("h1, h2, h3, h4, h5, h6", {
     fontWeight: "normal",
-    color: vars.color.black,
     fontFamily: "var(--font-pressstart2p)",
 });
 
@@ -33,7 +31,7 @@ globalStyle("a", {
 });
 
 globalStyle("h1", {
-    fontSize: vars.fontSize.xl,
+    fontSize: vars.fontSize["3xl"],
 });
 
 globalStyle("h2", {
