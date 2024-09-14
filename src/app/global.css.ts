@@ -5,11 +5,9 @@ import { vars } from "@/styles";
 globalStyle("html, body", {
     margin: 0,
 
-    backgroundRepeat: "no-repeat repeat",
-    backgroundPosition: "center top",
-    backgroundColor: vars.color.primaryBackground,
-    fontFamily: `var(--font-dotgothic), var(--font-pressstart2p), sans-serif`,
-    scrollbarColor: `${vars.color.black} ${vars.color.primaryBackground}`,
+    height: "100vh",
+    width: "auto",
+    fontFamily: `var(--font-playfair), sans-serif`,
 });
 
 globalStyle("*", {
@@ -23,7 +21,6 @@ globalStyle(":root", {
 
 globalStyle("h1, h2, h3, h4, h5, h6", {
     fontWeight: "normal",
-    color: vars.color.black,
     fontFamily: "var(--font-pressstart2p)",
 });
 
@@ -33,7 +30,7 @@ globalStyle("a", {
 });
 
 globalStyle("h1", {
-    fontSize: vars.fontSize.xl,
+    fontSize: vars.fontSize["3xl"],
 });
 
 globalStyle("h2", {
@@ -80,11 +77,11 @@ globalStyle("img", {
     msUserSelect: "none",
 });
 
-globalStyle("::-webkit-scrollbar", {
-    width: "12px",
-});
+// globalStyle("::-webkit-scrollbar", {
+//     width: "12px",
+// });
 
-globalStyle("::-webkit-scrollbar-thumb", {
-    backgroundColor: "black",
-    borderRadius: "5px",
-});
+// globalStyle("::-webkit-scrollbar-thumb", {
+//     backgroundColor: "black",
+//     borderRadius: "5px",
+// });

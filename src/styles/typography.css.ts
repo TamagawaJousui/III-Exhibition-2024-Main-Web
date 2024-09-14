@@ -73,15 +73,12 @@ export const typography = recipe({
             "text.secondary": {
                 color: vars.color.textSecondary,
             },
-
-            background: {
-                color: vars.color.primaryBackground,
-            },
         },
 
         defaultVariants: {
             fontSize: "base",
             fontWeight: "regular",
+            color: "text",
         },
     },
 });

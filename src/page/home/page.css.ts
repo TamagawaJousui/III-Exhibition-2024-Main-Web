@@ -1,14 +1,19 @@
 import { style } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
+import { typography } from "@/styles/typography.css";
 
 export const styles = {
-    root: style({
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        backgroundColor: vars.color.primaryBackground,
-        height: "100vh",
-        maxHeight: "100vh",
-    }),
+    root: style([
+        typography({}),
+        {
+            display: "flex",
+            height: "100vh",
+            overflowX: "scroll",
+            /*スクロールバー非表示（IE・Edge）*/
+            msOverflowStyle: "none",
+            /*スクロールバー非表示（Firefox）*/
+            scrollbarWidth: "none",
+            whiteSpace: "nowrap",
+        },
+    ]),
 };

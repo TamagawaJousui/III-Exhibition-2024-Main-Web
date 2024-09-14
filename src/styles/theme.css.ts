@@ -13,6 +13,10 @@ export const color = {
         main: "#979693",
         light: "#DDDCD6",
     },
+    background: {
+        default:
+            "linear-gradient(to right, rgb(237, 231, 233) 0%, rgb(109, 170, 214) 15%, rgb(103, 100, 120) 65%, rgb(69, 60, 60) 85%, rgb(20, 20, 20) 100%)",
+    },
 
     orange: "#EA542F",
     red: "#C12A20",
@@ -22,10 +26,8 @@ export const color = {
     black: "#000000",
     gray: "#E4E2E2",
 
-    text: "#000000",
+    text: "#F9F6F7",
     textSecondary: "#909498",
-    primaryBackground: "#E1DED9",
-    secondaryBackground: "linear-gradient(to bottom,#DDDCD6, #767573)",
 } as const;
 
 export const breakpoint = {
@@ -73,9 +75,9 @@ export const vars = createGlobalTheme(":root", {
          */
         "2xl": "1.25rem",
         /**
-         * 24px
+         * 60px
          */
-        "3xl": "1.5rem",
+        "3xl": "3.7rem",
     },
 
     fontWeight: {
