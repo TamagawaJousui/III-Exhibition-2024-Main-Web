@@ -23,7 +23,7 @@ import { SectionContainer } from '@/components/shared/Container';
 import { styles } from './{{ inputs.name | pascal }}Section.css';
 
 export const {{ inputs.name | pascal }}Section: FC = () => (
-    <SectionContainer title="Concept">
+    <SectionContainer title="{{ inputs.name | pascal }}">
         <div className={styles.root}>Concept</div>
     </SectionContainer>
 );
