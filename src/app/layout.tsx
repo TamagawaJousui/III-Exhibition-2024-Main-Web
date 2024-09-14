@@ -1,13 +1,26 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Metadata } from "next";
+import Local from "next/font/local";
 import React from "react";
 
 import { guardUndef } from "@/utils";
-import "./globals.css";
+import "./global.css";
 
 const siteName = "東京大学制作展";
-const description = "東京大学制作展 2024 Extraのホームページです。";
+const description = "東京大学制作展 2024 Mainのホームページです。";
 const url = "https://iiiexhibition.com";
+
+const dotGothic = Local({
+    src: "../../public/fonts/DotGothic16-Regular.ttf",
+    display: "swap",
+    variable: "--font-dotgothic",
+});
+
+const pressStart2p = Local({
+    src: "../../public/fonts/PressStart2P-Regular.ttf",
+    display: "swap",
+    variable: "--font-pressstart2p",
+});
 
 export const metadata: Metadata = {
     title: "東京大学制作展",
@@ -43,7 +56,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <html lang="ja">
-        <body>{children}</body>
+        <body className={`${dotGothic.variable} ${pressStart2p.variable}`}>{children}</body>
         <GoogleAnalytics gaId={guardUndef(process.env.NEXT_PUBLIC_GA_ID)} />
     </html>
 );

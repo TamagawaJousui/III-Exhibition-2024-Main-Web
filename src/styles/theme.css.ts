@@ -23,6 +23,7 @@ export const color = {
     gray: "#E4E2E2",
 
     text: "#000000",
+    textSecondary: "#909498",
     primaryBackground: "#E1DED9",
     secondaryBackground: "linear-gradient(to bottom,#DDDCD6, #767573)",
 } as const;
@@ -46,18 +47,66 @@ export const vars = createGlobalTheme(":root", {
         xl: "4rem",
     },
 
-    font: {
-        display: "",
-        highlight: "",
+    fontSize: {
+        /**
+         * 10px
+         */
+        xs: "0.625rem",
+        /**
+         * 12px
+         */
+        sm: "0.75rem",
+        /**
+         * 14px
+         */
+        base: "0.875rem",
+        /**
+         * 16px
+         */
+        lg: "1rem",
+        /**
+         * 18px
+         */
+        xl: "1.125rem",
+        /**
+         * 20px
+         */
+        "2xl": "1.25rem",
+        /**
+         * 24px
+         */
+        "3xl": "1.5rem",
     },
 
-    fontSize: {
-        xs: "0.75rem",
-        sm: "0.875rem",
-        md: "1rem",
-        lg: "1.25rem",
-        xl: "1.5rem",
-        hg: "3rem",
+    fontWeight: {
+        thin: "100",
+        extraLight: "200",
+        light: "300",
+        normal: "400",
+        medium: "500",
+        semiBold: "600",
+        bold: "600",
+        extraBold: "800",
+        black: "900",
+    },
+
+    lineHeight: {
+        sm: "1rem",
+        base: "1.25rem",
+        lg: "1.5rem",
+        xl: "1.75rem",
+        "2xl": "1.75rem",
+        "3xl": "2rem",
+    },
+
+    radius: {
+        sm: "0.125rem",
+        md: "0.375rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        "3xl": "1.5rem",
+        full: "9999px",
     },
 
     breakpoint: breakpoint,

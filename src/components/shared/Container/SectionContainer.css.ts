@@ -39,6 +39,7 @@ export const backgroundStyle = styleVariants<Record<colorType, ComplexStyleRule>
     white: { background: color.white },
     black: { background: color.black },
     text: { background: color.text },
+    textSecondary: { background: color.textSecondary },
     primaryBackground: { background: color.primaryBackground },
     secondaryBackground: { background: color.secondaryBackground },
 });
@@ -60,6 +61,7 @@ export const textColorStyle = styleVariants<Record<colorType | "inherit", Comple
     white: { color: color.white },
     black: { color: color.black },
     text: { color: color.text },
+    textSecondary: { color: color.textSecondary },
     primaryBackground: { color: color.primaryBackground },
     secondaryBackground: { color: color.secondaryBackground },
 });
