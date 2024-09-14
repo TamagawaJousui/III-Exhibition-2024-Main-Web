@@ -5,9 +5,8 @@ import { vars } from "@/styles";
 globalStyle("html, body", {
     margin: 0,
 
-    backgroundRepeat: "no-repeat repeat",
-    backgroundPosition: "center top",
-    background: vars.color.background.default,
+    height: "100vh",
+    width: "auto",
     fontFamily: `var(--font-playfair), sans-serif`,
 });
 
@@ -78,11 +77,11 @@ globalStyle("img", {
     msUserSelect: "none",
 });
 
-globalStyle("::-webkit-scrollbar", {
-    width: "12px",
-});
+// globalStyle("::-webkit-scrollbar", {
+//     width: "12px",
+// });
 
-globalStyle("::-webkit-scrollbar-thumb", {
-    backgroundColor: "black",
-    borderRadius: "5px",
-});
+// globalStyle("::-webkit-scrollbar-thumb", {
+//     backgroundColor: "black",
+//     borderRadius: "5px",
+// });

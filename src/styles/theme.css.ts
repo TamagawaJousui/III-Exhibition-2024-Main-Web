@@ -75,9 +75,9 @@ export const vars = createGlobalTheme(":root", {
          */
         "2xl": "1.25rem",
         /**
-         * 30px
+         * 60px
          */
-        "3xl": "1.875rem",
+        "3xl": "3.7rem",
     },
 
     fontWeight: {
