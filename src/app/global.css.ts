@@ -31,6 +31,7 @@ globalStyle("a", {
 
 globalStyle("h1", {
     fontSize: vars.fontSize["3xl"],
+    margin: 0,
 });
 
 globalStyle("h2", {

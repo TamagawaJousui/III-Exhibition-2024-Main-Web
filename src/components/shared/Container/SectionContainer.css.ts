@@ -5,10 +5,10 @@ import { color, colorType, vars } from "@/styles";
 export const styles = {
     root: style({
         display: "flex",
-        width: "100dvw",
         flexDirection: "column",
+        width: "100dvw",
         height: "100%",
-        padding: `${vars.spacing.lg} ${vars.spacing.xl}`,
+        padding: `${vars.spacing.sm} ${vars.spacing.lg}`,
     }),
 };
 

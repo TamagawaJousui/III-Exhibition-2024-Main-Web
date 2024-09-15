@@ -13,7 +13,6 @@ export const styles = {
             msOverflowStyle: "none",
             /*スクロールバー非表示（Firefox）*/
             scrollbarWidth: "none",
-            whiteSpace: "nowrap",
         },
     ]),
 };

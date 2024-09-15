@@ -4,7 +4,7 @@ export const styles = {
     root: style({
         display: "flex",
         flexDirection: "column",
-        height: "100%",
+        height: "80%",
         width: "100vw",
     }),
 };
