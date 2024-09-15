@@ -22,6 +22,12 @@ importers:
             embla-carousel:
                 specifier: ^8.3.0
                 version: 8.3.0
+            embla-carousel-autoplay:
+                specifier: ^8.3.0
+                version: 8.3.0(embla-carousel@8.3.0)
+            embla-carousel-fade:
+                specifier: ^8.3.0
+                version: 8.3.0(embla-carousel@8.3.0)
             embla-carousel-react:
                 specifier: ^8.3.0
                 version: 8.3.0(react@18.3.1)
@@ -2903,6 +2909,22 @@ packages:
             {
                 integrity: sha512-6FTNWIWMxMy/ZY6799nBlPtF1DFDQ6VQJ7yyDP27SJNt5lwtQ5ufqVvHylb3fdQefvRcgA3fKcFMJi9OLwBRNw==,
             }
+
+    embla-carousel-autoplay@8.3.0:
+        resolution:
+            {
+                integrity: sha512-h7DFJLf9uQD+XDxr1NwA3/oFIjsnj/iED2RjET5u6/svMec46IbF1CYPhmB5Q/1Fc0WkcvhPpsEsrtVXQLxNzA==,
+            }
+        peerDependencies:
+            embla-carousel: 8.3.0
+
+    embla-carousel-fade@8.3.0:
+        resolution:
+            {
+                integrity: sha512-m0NbkNPTAr6ghINhJrCnI0BRgWWoGRIGUd1tYCxTK00Exm9+kzOVL5KBPkrMVzXRXHe6TRgkmsCkb/7npfwRFQ==,
+            }
+        peerDependencies:
+            embla-carousel: 8.3.0
 
     embla-carousel-react@8.3.0:
         resolution:
@@ -9220,6 +9242,14 @@ snapshots:
             time-span: 4.0.0
 
     electron-to-chromium@1.5.7: {}
+
+    embla-carousel-autoplay@8.3.0(embla-carousel@8.3.0):
+        dependencies:
+            embla-carousel: 8.3.0
+
+    embla-carousel-fade@8.3.0(embla-carousel@8.3.0):
+        dependencies:
+            embla-carousel: 8.3.0
 
     embla-carousel-react@8.3.0(react@18.3.1):
         dependencies:
