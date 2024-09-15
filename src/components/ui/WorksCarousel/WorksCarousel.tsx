@@ -8,7 +8,7 @@ import {
     PrevButton,
     useDotButton,
     usePrevNextButtons,
-} from "@/components/section/ui/WorksCarousel/Button";
+} from "@/components/ui/WorksCarousel/Button";
 
 import { styles } from "./WorksCarousel.css";
 
