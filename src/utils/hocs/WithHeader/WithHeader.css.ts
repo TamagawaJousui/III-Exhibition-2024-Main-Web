@@ -7,8 +7,10 @@ export const styles = {
         display: "flex",
         flexDirection: "column",
         background: vars.color.background.default,
+        height: "100vh",
     }),
     content: style({
         display: "flex",
+        height: "100%",
     }),
 };
