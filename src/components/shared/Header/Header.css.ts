@@ -6,9 +6,6 @@ export const styles = {
     root: style({
         display: "flex",
         alignItems: "center",
-        position: "sticky",
-        top: 0,
-        left: 0,
         width: "fit-content",
         maxHeight: "3vh",
 

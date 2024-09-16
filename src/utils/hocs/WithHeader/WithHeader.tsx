@@ -10,7 +10,7 @@ type Props = {
 
 export const WithHeader: FC<Props> = ({ children }) => (
     <div className={styles.root}>
-        <Header />
+        <Header className={styles.header} />
         <div className={styles.content}>{children}</div>
     </div>
 );
