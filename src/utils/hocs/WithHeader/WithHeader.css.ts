@@ -9,6 +9,11 @@ export const styles = {
         background: vars.color.background.default,
         height: "100vh",
     }),
+    header: style({
+        position: "sticky",
+        top: 0,
+        left: 0,
+    }),
     content: style({
         display: "flex",
         height: "100%",

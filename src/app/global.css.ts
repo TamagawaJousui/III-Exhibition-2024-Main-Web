@@ -7,7 +7,7 @@ globalStyle("html, body", {
 
     height: "100vh",
     width: "auto",
-    fontFamily: `var(--font-playfair), sans-serif`,
+    fontFamily: `var(--font-playfair), var(--font-klee) sans-serif`,
 });
 
 globalStyle("*", {
@@ -17,11 +17,6 @@ globalStyle("*", {
 
 globalStyle(":root", {
     fontSize: "min(calc(0.25rem + 2vh), 32px)",
-});
-
-globalStyle("h1, h2, h3, h4, h5, h6", {
-    fontWeight: "normal",
-    fontFamily: "var(--font-pressstart2p)",
 });
 
 globalStyle("a", {

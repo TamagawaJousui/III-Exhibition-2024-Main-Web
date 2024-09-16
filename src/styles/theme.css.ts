@@ -3,10 +3,9 @@ export type colorType = RecursiveLeafKeys<typeof color>;
 
 export const color = {
     primary: {
-        dark: "#8E2B1D",
-        main: "#C12A20",
-        light: "#d84035",
-        ultraLight: "#ccf0f2",
+        dark: "#384A5E",
+        main: "#6C9CC4",
+        light: "#6DAAD6",
     },
     secondary: {
         dark: "#515050",
@@ -75,9 +74,9 @@ export const vars = createGlobalTheme(":root", {
          */
         "2xl": "1.25rem",
         /**
-         * 60px
+         * 45px
          */
-        "3xl": "3.7rem",
+        "3xl": "2.8125rem",
     },
 
     fontWeight: {
