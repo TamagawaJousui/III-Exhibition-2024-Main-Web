@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { FC } from "react";
 
-import { sectionInfo } from "@/models/section";
+import { sectionInfo } from "@/models";
 
 import { styles } from "./Header.css";
 

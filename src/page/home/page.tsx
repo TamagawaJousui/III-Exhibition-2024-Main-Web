@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-import { sectionInfo } from "@/models/section";
+import { sectionInfo } from "@/models";
 import { WithHeader } from "@/utils/hocs/WithHeader/WithHeader";
 
 import { HeroareaSection } from "@/components/section/heroarea";
