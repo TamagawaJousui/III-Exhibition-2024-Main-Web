@@ -16,6 +16,12 @@ const playfairDisplay = Local({
     variable: "--font-playfair",
 });
 
+const kleeOne = Local({
+    src: "../../public/fonts/KleeOne-Regular.ttf",
+    display: "swap",
+    variable: "--font-klee",
+});
+
 export const metadata: Metadata = {
     title: "東京大学制作展",
 
@@ -50,7 +56,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <html lang="ja">
-        <body className={`${playfairDisplay.variable} `}>{children}</body>
+        <body className={`${playfairDisplay.variable} ${kleeOne.variable}`}>{children}</body>
         <GoogleAnalytics gaId={guardUndef(process.env.NEXT_PUBLIC_GA_ID)} />
     </html>
 );

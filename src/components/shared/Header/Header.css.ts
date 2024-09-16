@@ -10,7 +10,7 @@ export const styles = {
         top: 0,
         left: 0,
         width: "fit-content",
-        maxHeight: "5vh",
+        maxHeight: "3vh",
 
         zIndex: vars.zIndex.header,
     }),

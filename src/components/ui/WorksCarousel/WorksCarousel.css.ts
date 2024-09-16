@@ -12,7 +12,7 @@ export const styles = {
         height: "100%",
         width: "fit-content",
         vars: {
-            [slideHeight]: "400px",
+            [slideHeight]: "300px",
             [slideSpacing]: "1rem",
             [slideSize]: "40%",
         },
