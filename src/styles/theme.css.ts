@@ -15,6 +15,7 @@ export const color = {
     background: {
         default:
             "linear-gradient(to right, rgb(237, 231, 233) 0%, rgb(109, 170, 214) 15%, rgb(103, 100, 120) 65%, rgb(69, 60, 60) 85%, rgb(20, 20, 20) 100%)",
+        dark: "#3B3B3B",
     },
 
     orange: "#EA542F",
@@ -92,6 +93,7 @@ export const vars = createGlobalTheme(":root", {
     },
 
     lineHeight: {
+        xs: "0.75rem",
         sm: "1rem",
         base: "1.25rem",
         lg: "1.5rem",
@@ -116,6 +118,6 @@ export const vars = createGlobalTheme(":root", {
         background: "10",
         content: "50",
         header: "100",
-        drawer: "200",
+        modal: "200",
     },
 });

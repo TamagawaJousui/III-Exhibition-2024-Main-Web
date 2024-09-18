@@ -24,14 +24,17 @@ globalStyle("a", {
     color: vars.color.text,
 });
 
+globalStyle("h1, h2, h3, h4, h5, h6", {
+    fontFamily: "var(--font-playfair)",
+});
+
 globalStyle("h1", {
     fontSize: vars.fontSize["3xl"],
     margin: 0,
 });
 
 globalStyle("h2", {
-    fontSize: vars.fontSize.lg,
-    fontFamily: "var(--font-dotgothic)",
+    fontSize: vars.fontSize["2xl"],
 });
 
 globalStyle("h3", {
@@ -40,7 +43,6 @@ globalStyle("h3", {
 
 globalStyle("h4", {
     fontSize: vars.fontSize.base,
-    fontFamily: "var(--font-dotgothic)",
 });
 
 globalStyle("h5", {
@@ -53,12 +55,10 @@ globalStyle("h6", {
 
 globalStyle("p", {
     fontSize: vars.fontSize.sm,
-    fontFamily: "var(--font-dotgothic)",
 });
 
 globalStyle("span", {
     fontSize: vars.fontSize.sm,
-    fontFamily: "var(--font-dotgothic)",
 });
 
 globalStyle("ul", {

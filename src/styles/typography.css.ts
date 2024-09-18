@@ -9,6 +9,13 @@ export const typography = recipe({
          */
         fontSize: {
             /**
+             * 10px
+             */
+            xs: {
+                fontSize: vars.fontSize.xs,
+                lineHeight: vars.lineHeight.xs,
+            },
+            /**
              * 12px
              */
             sm: {
@@ -72,6 +79,9 @@ export const typography = recipe({
 
             "text.secondary": {
                 color: vars.color.textSecondary,
+            },
+            black: {
+                color: vars.color.black,
             },
         },
 
