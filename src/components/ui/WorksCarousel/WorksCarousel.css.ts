@@ -1,6 +1,8 @@
 import { createVar, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
+import { typography } from "@/styles/typography.css";
+
 import { vars } from "@/styles";
 
 const slideHeight = createVar();
@@ -8,15 +10,31 @@ const slideSpacing = createVar();
 const slideSize = createVar();
 
 export const styles = {
-    embla: style({
-        height: "100%",
-        width: "fit-content",
-        vars: {
-            [slideHeight]: "300px",
-            [slideSpacing]: "1rem",
-            [slideSize]: "40%",
-        },
+    root: style({
+        textAlign: "center",
+        width: "15em",
+        border: `1px solid ${vars.color.textSecondary}`,
     }),
+    heading: style({
+        borderBottom: `1px solid ${vars.color.textSecondary}`,
+        margin: 0,
+        padding: `${vars.spacing.sm} ${vars.spacing.md}`,
+    }),
+    embla: style([
+        typography({
+            color: "text.secondary",
+        }),
+        {
+            textAlign: "center",
+            height: "100%",
+            width: "100%",
+            vars: {
+                [slideHeight]: "350px",
+                [slideSpacing]: "1rem",
+                [slideSize]: "40%",
+            },
+        },
+    ]),
     emblaViewport: style({
         padding: slideSpacing,
         overflow: "hidden",

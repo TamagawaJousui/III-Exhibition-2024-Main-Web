@@ -7,8 +7,10 @@ export const styles = {
     root: style({
         display: "flex",
         height: "100%",
-        width: "100vw",
         gap: vars.spacing.xl,
+    }),
+    allWorks: style({
+        display: "flex",
     }),
     subLabel: recipe({
         base: {
