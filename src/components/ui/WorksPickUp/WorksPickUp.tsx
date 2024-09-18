@@ -2,13 +2,16 @@ import { EmblaOptionsType } from "embla-carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Fade from "embla-carousel-fade";
 import useEmblaCarousel from "embla-carousel-react";
-import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
+
+import { Content } from "./Content";
+
+import { WorkData } from "@/components/section/works/model";
 
 import { styles } from "./WorksPickUp.css";
 
 type PropType = {
-    slides: string[];
+    slides: WorkData[];
 };
 
 const options = { align: "start", loop: true } as const satisfies EmblaOptionsType;
@@ -18,6 +21,12 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
         Fade(),
         Autoplay({ playOnInit: true, delay: 3000 }),
     ]);
+    const [currentIndex, setCurrentIndex] = useState<number>(0);
+
+    const onSelect = useCallback(() => {
+        if (!emblaApi) return;
+        setCurrentIndex(emblaApi.selectedScrollSnap()); // Get the current index
+    }, [emblaApi]);
     /**
      * 現状利用していないのでコメントアウトする
      * hover時にauto playをdisableする際などに参考に
@@ -51,31 +60,29 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
     // }, [emblaApi]);
 
     useEffect(() => {
+        if (emblaApi) {
+            emblaApi.on("select", onSelect);
+            onSelect();
+        }
         const autoplay = emblaApi?.plugins()?.autoplay;
         if (!autoplay) return;
-
         setIsPlaying(autoplay.isPlaying());
         emblaApi
             .on("autoplay:play", () => setIsPlaying(true))
             .on("autoplay:stop", () => setIsPlaying(false))
             .on("reInit", () => setIsPlaying(autoplay.isPlaying()));
-    }, [emblaApi]);
+    }, [emblaApi, onSelect]);
 
     return (
         <div className={styles.embla}>
             <div className={styles.emblaViewport} ref={emblaRef}>
                 <div className={styles.emblaContainer}>
-                    {slides.map((src) => (
-                        <div className={styles.emblaSlide} key={src}>
-                            <div className={styles.emblaSlideContent}>
-                                <Image
-                                    src={src}
-                                    alt="works image"
-                                    width={150}
-                                    height={150}
-                                    className={styles.emblaSlideContent}
-                                />
-                            </div>
+                    {slides.map((slide) => (
+                        <div className={styles.emblaSlide} key={slide.title}>
+                            <Content
+                                data={slides[currentIndex]}
+                                className={styles.emblaSlideContent}
+                            />
                         </div>
                     ))}
                 </div>

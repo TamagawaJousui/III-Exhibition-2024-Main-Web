@@ -11,14 +11,14 @@ export const styles = {
         height: "100%",
         width: "fit-content",
         vars: {
-            [slideHeight]: "400px",
+            [slideHeight]: "500px",
             [slideSpacing]: "1rem",
             [slideSize]: "100%",
         },
     }),
     emblaViewport: style({
         width: "400px",
-        overflow: "hidden",
+        // overflow: "hidden",
     }),
     emblaContainer: style({
         display: "flex",
@@ -32,11 +32,9 @@ export const styles = {
         paddingLeft: `${slideSpacing}`,
     }),
     emblaSlideContent: style({
-        borderRadius: "1.8rem",
         display: "block",
-        height: slideHeight,
         width: "100%",
-        objectFit: "cover",
+        height: slideHeight,
     }),
     arrowButtonContainer: style({
         textAlign: "center",
