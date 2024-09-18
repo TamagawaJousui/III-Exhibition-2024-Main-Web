@@ -6,7 +6,6 @@ export const styles = {
     root: style({
         display: "flex",
         flexDirection: "column",
-        width: "100dvw",
         height: "100%",
         padding: `${vars.spacing.sm} ${vars.spacing.lg}`,
     }),

@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import { placeList } from "@/models/place";
+
 import { workList } from "./model";
 
 import { SectionContainer } from "@/components/shared/Container";
@@ -8,28 +10,23 @@ import { WorksPickUp } from "@/components/ui/WorksPickUp";
 
 import { styles } from "./WorksSection.css";
 
-export const WorksSection: FC = () => {
-    const SLIDES = [
-        "https://placehold.jp/150x150.png",
-        "https://placehold.jp/3d4070/ffffff/150x150.png",
-        "https://placehold.jp/150x150.png",
-        "https://placehold.jp/3d4070/ffffff/150x150.png",
-        "https://placehold.jp/150x150.png",
-        "https://placehold.jp/3d4070/ffffff/150x150.png",
-    ];
-    return (
-        <SectionContainer title="Works">
-            <div className={styles.root}>
-                <SubContainer label="ピックアップ" withBorder>
-                    <WorksPickUp slides={workList} />
-                </SubContainer>
-                <SubContainer label="全作品">
-                    <WorksCarousel slides={SLIDES} />
-                </SubContainer>
-            </div>
-        </SectionContainer>
-    );
-};
+export const WorksSection: FC = () => (
+    <SectionContainer title="Works">
+        <div className={styles.root}>
+            <SubContainer label="ピックアップ" withBorder>
+                <WorksPickUp slides={workList} />
+            </SubContainer>
+            <SubContainer label="全作品">
+                <div className={styles.allWorks}>
+                    {placeList.map((place) => {
+                        const works = workList.filter((work) => work.place === place);
+                        return <WorksCarousel works={works} place={place} key={place} />;
+                    })}
+                </div>
+            </SubContainer>
+        </div>
+    </SectionContainer>
+);
 
 type SubContainerProps = {
     label: string;
