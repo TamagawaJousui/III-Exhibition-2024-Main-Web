@@ -20,9 +20,26 @@ export const WorksSection: FC = () => {
     return (
         <SectionContainer title="Works">
             <div className={styles.root}>
-                <WorksPickUp slides={workList} />
-                <WorksCarousel slides={SLIDES} />
+                <SubContainer label="ピックアップ" withBorder>
+                    <WorksPickUp slides={workList} />
+                </SubContainer>
+                <SubContainer label="全作品">
+                    <WorksCarousel slides={SLIDES} />
+                </SubContainer>
             </div>
         </SectionContainer>
     );
 };
+
+type SubContainerProps = {
+    label: string;
+    children: React.ReactNode;
+    withBorder?: boolean;
+};
+
+export const SubContainer: FC<SubContainerProps> = ({ label, withBorder = false, children }) => (
+    <div>
+        <h2 className={styles.subLabel({ withBorder })}>{label}</h2>
+        {children}
+    </div>
+);
