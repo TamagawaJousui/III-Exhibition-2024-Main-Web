@@ -35,6 +35,7 @@ globalStyle("h1", {
 
 globalStyle("h2", {
     fontSize: vars.fontSize["2xl"],
+    fontFamily: "var(--font-klee)",
 });
 
 globalStyle("h3", {
