@@ -2,16 +2,18 @@
 
 import { useEffect, useRef } from "react";
 
-import { sectionInfo } from "@/models/section";
+import { sectionInfo } from "@/models";
 import { WithHeader } from "@/utils/hocs/WithHeader/WithHeader";
 
 import { HeroareaSection } from "@/components/section/heroarea";
 import { Footer } from "@/components/shared/Footer";
+import { useWorksModal } from "@/components/ui/WorksModal";
 
 import { styles } from "./page.css";
 
 export const HomePage = () => {
     const scrollContainer = useRef<HTMLDivElement>(null);
+    const { isOpen, renderModal } = useWorksModal();
 
     /**
      * NOTE: 横スクロールにするための処理
@@ -32,6 +34,7 @@ export const HomePage = () => {
 
     return (
         <div className={styles.root} ref={scrollContainer}>
+            {isOpen && renderModal()}
             <HeroareaSection />
             <WithHeader>
                 {sectionInfo.map((section) => (

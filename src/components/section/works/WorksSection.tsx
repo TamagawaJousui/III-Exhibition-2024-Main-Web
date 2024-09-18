@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import { workList } from "./model";
+
 import { SectionContainer } from "@/components/shared/Container";
 import { WorksCarousel } from "@/components/ui/WorksCarousel";
 import { WorksPickUp } from "@/components/ui/WorksPickUp";
@@ -18,7 +20,7 @@ export const WorksSection: FC = () => {
     return (
         <SectionContainer title="Works">
             <div className={styles.root}>
-                <WorksPickUp slides={SLIDES} />
+                <WorksPickUp slides={workList} />
                 <WorksCarousel slides={SLIDES} />
             </div>
         </SectionContainer>
