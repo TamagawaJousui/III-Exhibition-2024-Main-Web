@@ -27,7 +27,7 @@ export const color = {
     gray: "#E4E2E2",
 
     text: "#F9F6F7",
-    textSecondary: "#909498",
+    textSecondary: "#EDE7E9",
 } as const;
 
 export const breakpoint = {
