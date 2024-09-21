@@ -1,14 +1,17 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
+import { typography } from "@/styles/typography.css";
+
 import { vars } from "@/styles";
 
 export const styles = {
     modal: style({
         backgroundColor: vars.color.background.dark,
         padding: `${vars.spacing.lg} ${vars.spacing.xl}`,
-        width: "80%",
-        height: "80%",
+        width: "80vw",
+        maxHeight: "90vh",
+        minHeight: "70vh",
     }),
     overlay: style({
         position: "fixed",
@@ -23,28 +26,19 @@ export const styles = {
     }),
     wrapper: style({
         display: "flex",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         borderTop: `3px solid ${vars.color.text}`,
         borderBottom: `3px solid ${vars.color.text}`,
         width: "100%",
         height: "100%",
-        padding: `${vars.spacing.sm} 0`,
-    }),
-    content: style({
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        borderTop: `1px solid ${vars.color.text}`,
-        borderBottom: `1px solid ${vars.color.text}`,
-        padding: `0 ${vars.spacing.lg}`,
-        width: "100%",
-        height: "100%",
+        padding: `${vars.spacing.md} 0`,
     }),
     heading: style({
         display: "flex",
         gap: vars.spacing.md,
+        borderTop: `1px solid ${vars.color.text}`,
         borderBottom: `1px solid ${vars.color.text}`,
         padding: `${vars.spacing.md} 0`,
         width: "100%",
@@ -52,32 +46,65 @@ export const styles = {
     headingContent: recipe({
         base: {
             flex: 1,
-            height: "100%",
         },
         variants: {
             align: {
                 left: {
                     textAlign: "left",
-                    borderRight: `1px solid ${vars.color.text}`,
                 },
                 center: {
+                    flexBasis: "fit-content",
                     textAlign: "center",
+                    borderLeft: `1px solid ${vars.color.text}`,
+                    borderRight: `1px solid ${vars.color.text}`,
                 },
                 right: {
-                    textAlign: "right",
-                    borderLeft: `1px solid ${vars.color.text}`,
+                    display: "flex",
+                    alignItems: "flex-end",
+                    justifyContent: "flex-end",
                 },
             },
         },
     }),
-    works: style({
+    place: style({
+        display: "flex",
+    }),
+    title: style([
+        typography({ color: "background" }),
+        {
+            margin: `0 ${vars.spacing.lg}`,
+            backgroundColor: vars.color.white,
+        },
+    ]),
+    content: style({
         display: "flex",
         flexWrap: "wrap",
+        borderBottom: `1px solid ${vars.color.text}`,
+        height: "100%",
+        width: "100%",
+        padding: `${vars.spacing.sm} 0`,
+    }),
+    imageAuthor: style({
+        display: "flex",
+        flex: 1,
+        height: "auto",
     }),
     image: style({
-        flex: 1,
+        position: "relative",
+        height: "auto",
+        width: "60%",
+    }),
+    author: style({
+        display: "flex",
+        flexDirection: "column",
+        gap: vars.spacing.md,
+        listStyle: "none",
     }),
     description: style({
         flex: 1,
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-around",
+        height: "auto",
     }),
 };
