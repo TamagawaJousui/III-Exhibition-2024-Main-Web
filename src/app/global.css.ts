@@ -7,7 +7,7 @@ globalStyle("html, body", {
 
     height: "100vh",
     width: "auto",
-    fontFamily: `var(--font-playfair), var(--font-klee) sans-serif`,
+    fontFamily: "var(--font-klee), var(--font-playfair), sans-serif",
 });
 
 globalStyle("*", {
@@ -25,17 +25,17 @@ globalStyle("a", {
 });
 
 globalStyle("h1, h2, h3, h4, h5, h6", {
-    fontFamily: "var(--font-playfair)",
+    fontFamily: "var(--font-playfair), var(--font-klee)",
+    margin: 0,
+    padding: 0,
 });
 
 globalStyle("h1", {
     fontSize: vars.fontSize["3xl"],
-    margin: 0,
 });
 
 globalStyle("h2", {
     fontSize: vars.fontSize["2xl"],
-    fontFamily: "var(--font-klee)",
 });
 
 globalStyle("h3", {
@@ -56,6 +56,8 @@ globalStyle("h6", {
 
 globalStyle("p", {
     fontSize: vars.fontSize.sm,
+    margin: 0,
+    padding: 0,
 });
 
 globalStyle("span", {

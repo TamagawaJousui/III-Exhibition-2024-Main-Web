@@ -7,7 +7,7 @@ export const styles = {
         display: "flex",
         flexDirection: "column",
         background: vars.color.background.default,
-        height: "100vh",
+        height: "100%",
     }),
     header: style({
         position: "sticky",
