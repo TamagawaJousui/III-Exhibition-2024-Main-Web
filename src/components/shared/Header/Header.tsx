@@ -15,7 +15,7 @@ export const Header: FC<Props> = (props) => {
                 <ul className={styles.ul}>
                     {sectionInfo.map((section) => (
                         <li key={section.id}>
-                            <a href={`#${section.id}`}>{section.label}</a>
+                            <a href={`#${section.id}`}>{section.title}</a>
                         </li>
                     ))}
                 </ul>

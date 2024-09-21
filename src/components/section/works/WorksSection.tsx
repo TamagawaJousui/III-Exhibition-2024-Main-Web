@@ -11,7 +11,7 @@ import { WorksPickUp } from "@/components/ui/WorksPickUp";
 import { styles } from "./WorksSection.css";
 
 export const WorksSection: FC = () => (
-    <SectionContainer title="Works">
+    <SectionContainer id="works" title="WORKS">
         <div className={styles.root}>
             <SubContainer label="ピックアップ" withBorder>
                 <WorksPickUp slides={workList} />
