@@ -46,6 +46,9 @@ importers:
             react-dom:
                 specifier: ^18
                 version: 18.3.1(react@18.3.1)
+            ts-pattern:
+                specifier: ^5.3.1
+                version: 5.3.1
         devDependencies:
             "@cloudflare/next-on-pages":
                 specifier: ^1.13.2
@@ -3941,7 +3944,6 @@ packages:
             }
         engines: { node: ^8.16.0 || ^10.6.0 || >=11.0.0 }
         os: [darwin]
-        deprecated: '"Please update to latest v2.3 or v2.2"'
 
     fsevents@2.3.3:
         resolution:
@@ -6933,6 +6935,12 @@ packages:
                 optional: true
             "@swc/wasm":
                 optional: true
+
+    ts-pattern@5.3.1:
+        resolution:
+            {
+                integrity: sha512-1RUMKa8jYQdNfmnK4jyzBK3/PS/tnjcZ1CW0v1vWDeYe5RBklc/nquw03MEoB66hVBm4BnlCfmOqDVxHyT1DpA==,
+            }
 
     ts-toolbelt@6.15.5:
         resolution:
@@ -11896,6 +11904,8 @@ snapshots:
             v8-compile-cache-lib: 3.0.1
             yn: 3.1.1
         optional: true
+
+    ts-pattern@5.3.1: {}
 
     ts-toolbelt@6.15.5: {}
 
