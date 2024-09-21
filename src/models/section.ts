@@ -1,4 +1,5 @@
 import { AccessSection } from "@/components/section/access";
+import { ArchivesSection } from "@/components/section/archives";
 import { ConceptSection } from "@/components/section/concept";
 import { MembersSection } from "@/components/section/members";
 import { WorksSection } from "@/components/section/works";
@@ -23,6 +24,11 @@ export const sectionInfo = [
         id: "members",
         title: "MEMBERS",
         node: MembersSection,
+    },
+    {
+        id: "archives",
+        title: "ARCHIVES",
+        node: ArchivesSection,
     },
 ] as const;
 
