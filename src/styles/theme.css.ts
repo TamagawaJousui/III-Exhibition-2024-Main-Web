@@ -71,9 +71,9 @@ export const vars = createGlobalTheme(":root", {
          */
         xl: "1.125rem",
         /**
-         * 20px
+         * 30px
          */
-        "2xl": "1.25rem",
+        "2xl": "1.875rem",
         /**
          * 45px
          */
