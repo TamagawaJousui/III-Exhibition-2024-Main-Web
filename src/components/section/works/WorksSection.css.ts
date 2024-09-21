@@ -7,6 +7,7 @@ export const styles = {
     root: style({
         display: "flex",
         height: "100%",
+        padding: `${vars.spacing.md} 0`,
         gap: vars.spacing.xl,
     }),
     allWorks: style({
