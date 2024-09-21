@@ -24,7 +24,7 @@ import { styles } from './{{ inputs.name | pascal }}Section.css';
 
 export const {{ inputs.name | pascal }}Section: FC = () => (
     <SectionContainer id="{{ inputs.name }}" title="{{ inputs.name | pascal }}">
-        <div className={styles.root}>{inputs.name}</div>
+        <div className={styles.root}>{{ inputs.name | pascal }}</div>
     </SectionContainer>
 );
 ```
@@ -40,7 +40,7 @@ export const styles = {
     root: style({
         display: "flex",
         flexDirection: "column",
-        padding: `${vars.spacing.md} 0`
+        padding: `${vars.spacing.md} 0`,
         height: "100%",
     }),
 };

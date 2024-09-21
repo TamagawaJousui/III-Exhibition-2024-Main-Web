@@ -39,11 +39,11 @@ globalStyle("h2", {
 });
 
 globalStyle("h3", {
-    fontSize: vars.fontSize.base,
+    fontSize: vars.fontSize.xl,
 });
 
 globalStyle("h4", {
-    fontSize: vars.fontSize.base,
+    fontSize: vars.fontSize.lg,
 });
 
 globalStyle("h5", {
@@ -55,7 +55,7 @@ globalStyle("h6", {
 });
 
 globalStyle("p", {
-    fontSize: vars.fontSize.sm,
+    fontSize: vars.fontSize.base,
     margin: 0,
     padding: 0,
 });
