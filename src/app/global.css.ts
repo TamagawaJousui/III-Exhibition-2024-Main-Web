@@ -47,11 +47,11 @@ globalStyle("h4", {
 });
 
 globalStyle("h5", {
-    fontSize: vars.fontSize.sm,
+    fontSize: vars.fontSize.base,
 });
 
 globalStyle("h6", {
-    fontSize: vars.fontSize.xs,
+    fontSize: vars.fontSize.sm,
 });
 
 globalStyle("p", {

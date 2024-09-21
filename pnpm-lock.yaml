@@ -10,6 +10,9 @@ importers:
             "@next/third-parties":
                 specifier: ^14.2.5
                 version: 14.2.5(next@14.2.4(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+            "@phosphor-icons/react":
+                specifier: ^2.1.7
+                version: 2.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
             "@vanilla-extract/css":
                 specifier: ^1.15.3
                 version: 1.15.3
@@ -1075,6 +1078,16 @@ packages:
                 integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==,
             }
         engines: { node: ">= 8" }
+
+    "@phosphor-icons/react@2.1.7":
+        resolution:
+            {
+                integrity: sha512-g2e2eVAn1XG2a+LI09QU3IORLhnFNAFkNbo2iwbX6NOKSLOwvEMmTa7CgOzEbgNWR47z8i8kwjdvYZ5fkGx1mQ==,
+            }
+        engines: { node: ">=10" }
+        peerDependencies:
+            react: ">= 16.8"
+            react-dom: ">= 16.8"
 
     "@pkgjs/parseargs@0.11.0":
         resolution:
@@ -8039,6 +8052,11 @@ snapshots:
         dependencies:
             "@nodelib/fs.scandir": 2.1.5
             fastq: 1.17.1
+
+    "@phosphor-icons/react@2.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)":
+        dependencies:
+            react: 18.3.1
+            react-dom: 18.3.1(react@18.3.1)
 
     "@pkgjs/parseargs@0.11.0":
         optional: true
