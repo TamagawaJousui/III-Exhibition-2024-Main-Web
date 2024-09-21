@@ -1,23 +1,17 @@
-import { FunctionComponent } from "react";
-
 import { ConceptSection } from "@/components/section/concept";
 import { WorksSection } from "@/components/section/works";
-
-type SectionData = {
-    id: string;
-    label: string;
-    node: FunctionComponent;
-};
 
 export const sectionInfo = [
     {
         id: "concept",
-        label: "CONCEPT",
+        title: "CONCEPT",
         node: ConceptSection,
     },
     {
         id: "works",
-        label: "WORKS",
+        title: "WORKS",
         node: WorksSection,
     },
-] as const satisfies SectionData[];
+] as const;
+
+export type Section = (typeof sectionInfo)[number];
