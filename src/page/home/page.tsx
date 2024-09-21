@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 
 import { sectionInfo } from "@/models";
-import { WithHeader } from "@/utils/hocs/WithHeader/WithHeader";
+import { WithHeader } from "@/utils/hocs/WithHeader/";
 
 import { HeroareaSection } from "@/components/section/heroarea";
 import { Footer } from "@/components/shared/Footer";

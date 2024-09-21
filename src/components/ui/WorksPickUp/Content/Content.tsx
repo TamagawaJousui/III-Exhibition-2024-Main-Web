@@ -2,6 +2,8 @@ import clsx from "clsx";
 import Image from "next/image";
 import { FC } from "react";
 
+import { WithTitle } from "@/utils/hocs/WithTitle";
+
 import { useWorksModal } from "../../WorksModal";
 
 import { WorkData } from "@/components/section/works/model";
@@ -28,9 +30,11 @@ export const Content: FC<Props> = (props) => {
                     className={styles.image}
                 />
                 <div className={styles.overlay}>
-                    <h2 className={styles.title}>{data.title}</h2>
-                    <p className={styles.member}>{data.member}</p>
-                    <p className={styles.place}>{data.place}</p>
+                    <WithTitle title={data.title} size="2xl">
+                        <p className={styles.member}>{data.member}</p>
+                        <p className={styles.place}>{data.place}</p>
+                    </WithTitle>
+
                     <div className={styles.buttonContainer}>
                         <button className={styles.button} onClick={() => handleOpen(data)}>
                             詳細を見る

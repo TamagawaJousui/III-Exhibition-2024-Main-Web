@@ -12,7 +12,7 @@ const slideSize = createVar();
 export const styles = {
     root: style({
         textAlign: "center",
-        width: "15em",
+        width: "20em",
         border: `1px solid ${vars.color.textSecondary}`,
     }),
     heading: style({
