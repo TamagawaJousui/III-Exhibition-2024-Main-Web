@@ -78,7 +78,7 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
             <div className={styles.emblaViewport} ref={emblaRef}>
                 <div className={styles.emblaContainer}>
                     {slides.map((slide) => (
-                        <div className={styles.emblaSlide} key={slide.title}>
+                        <div className={styles.emblaSlide} key={`${slide.title}-${slide.place}`}>
                             <Content
                                 data={slides[currentIndex]}
                                 className={styles.emblaSlideContent}
