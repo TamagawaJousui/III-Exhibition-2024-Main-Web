@@ -35,5 +35,5 @@ export const getExtraPageLink = (id: (typeof extraPageInfo)[number]["id"]) =>
 
 export const getMainPageLink = (id: (typeof mainPageInfo)[number]["id"]) =>
     match(id)
-        .with(25, () => `https://iii-exhibition2023-main-kakeru-miyazaki-s-team.vercel.app/`)
+        .with(25, () => `https://iii-exhibition2023-main.vercel.app/`)
         .otherwise((id) => `https://archive.iiiexhibition.com/log/i3e${id}`);
