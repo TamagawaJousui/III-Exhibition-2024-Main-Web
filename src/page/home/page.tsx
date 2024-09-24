@@ -24,8 +24,10 @@ export const HomePage = () => {
         const ctx = gsap.context(() => {
             if (slider.current) {
                 const sections = gsap.utils.toArray<HTMLDivElement>(slider.current.children);
-                console.log(sections);
 
+                /**
+                 * NOTE: 子要素の幅を取得しているが，明示的にスタイリングを当てないと計算に含まれないので注意
+                 */
                 const getTotalWidth = () =>
                     sections.reduce((width, el) => width + el.offsetWidth, 0);
 
