@@ -17,9 +17,13 @@ export const styles = {
             scrollbarWidth: "none",
         },
     ]),
+    wrapper: style({
+        display: "flex",
+        background: vars.color.background.default,
+        // width: "12000px",
+    }),
     container: style({
         display: "flex",
         height: "100%",
-        background: vars.color.background.default,
     }),
 };

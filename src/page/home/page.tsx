@@ -5,7 +5,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
 
 import { sectionInfo } from "@/models"; // Assuming sectionInfo is typed
+import { WithHeader } from "@/utils/hocs/WithHeader";
 
+import { HeroareaSection } from "@/components/section/heroarea";
 import { Footer } from "@/components/shared/Footer";
 import { useWorksModal } from "@/components/ui/WorksModal";
 
@@ -22,14 +24,16 @@ export const HomePage = () => {
         const ctx = gsap.context(() => {
             if (slider.current) {
                 const sections = gsap.utils.toArray<HTMLDivElement>(slider.current.children);
+                console.log(sections);
 
-                const totalWidth = sections.reduce((width, el) => width + el.offsetWidth, 0);
+                const getTotalWidth = () =>
+                    sections.reduce((width, el) => width + el.offsetWidth, 0);
 
                 let snap: (value: number) => number;
 
                 if (sections.length) {
                     gsap.to(sections, {
-                        x: () => -totalWidth + window.innerWidth, // セクション全体の幅に基づいて移動
+                        x: () => -getTotalWidth(), // セクション全体の幅に基づいて移動
                         ease: "none",
                         scrollTrigger: {
                             trigger: component.current,
@@ -40,7 +44,10 @@ export const HomePage = () => {
                                     const threshold = 0.05;
                                     const closestSnapPoint = snap(value); // 最も近いスナップポイントを計算
 
-                                    // スナップポイントとの差がしきい値以内の場合のみスナップ
+                                    /**
+                                     * NOTE: スナップポイントとの差がしきい値以内の場合のみスナップ
+                                     * TODO: 利用を検討・UX検討
+                                     */
                                     if (Math.abs(closestSnapPoint - value) <= threshold) {
                                         return closestSnapPoint; // スナップ
                                     } else {
@@ -51,7 +58,7 @@ export const HomePage = () => {
                                 delay: 0.01,
                                 ease: "sine.inOut",
                             },
-                            end: () => "+=" + (slider.current!.scrollWidth - window.innerWidth), // スクロール終了を全体の幅に基づいて設定
+                            end: () => "+=" + slider.current!.scrollWidth, // スクロール終了を全体の幅に基づいて設定
                             invalidateOnRefresh: true,
                             onRefresh: () => {
                                 let accumulatedWidth = 0;
@@ -59,7 +66,7 @@ export const HomePage = () => {
                                 // スナップポイントを動的に生成
                                 const progressArray = sections.map((el) => {
                                     accumulatedWidth += el.offsetWidth;
-                                    return accumulatedWidth / totalWidth;
+                                    return accumulatedWidth / getTotalWidth();
                                 });
 
                                 progressArray.unshift(0); // 最初のスナップポイントを追加
@@ -77,16 +84,18 @@ export const HomePage = () => {
 
     return (
         <div className={styles.root} ref={component}>
-            <div className={styles.container} ref={slider}>
-                {isOpen && renderModal()}
-                {/* <HeroareaSection /> */}
-                {/* <WithHeader> */}
-                {sectionInfo.map((section: (typeof sectionInfo)[number]) => (
-                    <section.node key={section.id} />
-                ))}
-                {/* </WithHeader> */}
-                <Footer />
-            </div>
+            {isOpen && renderModal()}
+            <WithHeader>
+                <div className={styles.container} ref={slider}>
+                    <div className={styles.wrapper}>
+                        <HeroareaSection />
+                        {sectionInfo.map((section: (typeof sectionInfo)[number]) => (
+                            <section.node key={section.id} />
+                        ))}
+                        <Footer />
+                    </div>
+                </div>
+            </WithHeader>
         </div>
     );
 };

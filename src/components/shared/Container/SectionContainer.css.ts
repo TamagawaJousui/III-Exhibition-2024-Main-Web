@@ -7,7 +7,6 @@ export const styles = {
         display: "flex",
         flexDirection: "column",
         height: "100%",
-        minWidth: "100vw",
         padding: `${vars.spacing.sm} ${vars.spacing.lg}`,
     }),
 };

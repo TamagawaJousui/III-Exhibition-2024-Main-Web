@@ -8,7 +8,7 @@ export const styles = {
         flexDirection: "column",
         alignItems: "center",
         backgroundColor: vars.color.black,
-
+        width: "fit-content",
         padding: `${vars.spacing.md} 0 ${vars.spacing.md} 0`,
         color: vars.color.white,
     }),

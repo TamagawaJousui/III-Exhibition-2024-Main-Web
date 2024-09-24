@@ -6,13 +6,14 @@ export const styles = {
     root: style({
         display: "flex",
         flexDirection: "column",
-        background: vars.color.background.default,
+        position: "relative",
         height: "100%",
     }),
     header: style({
-        position: "sticky",
+        position: "absolute",
         top: 0,
         left: 0,
+        zIndex: vars.zIndex.header,
     }),
     content: style({
         display: "flex",
