@@ -58,22 +58,34 @@ export const Title: React.FC = () => {
             velocities: THREE.Vector3[];
             planeArea: THREE.Mesh<THREE.PlaneGeometry, THREE.MeshBasicMaterial>;
             data: ParticleData;
+            font: THREE.Font;
             geometryCopy: THREE.BufferGeometry | null = null;
+            frustumHeight: number;
+            frustumWidth: number;
 
             constructor(font: THREE.Font, particleImg: THREE.Texture, data: ParticleData) {
                 this.data = data;
+                this.font = font;
 
                 // シーンの作成
                 this.scene = new THREE.Scene();
 
                 // カメラの設定
+                const fov = 60;
+                const aspect = magicRef.current!.clientWidth / magicRef.current!.clientHeight;
+                const fovRad = (fov / 2) * (Math.PI / 180);
+                const dist = magicRef.current!.clientHeight / 2 / Math.tan(fovRad);
                 this.camera = new THREE.PerspectiveCamera(
-                    65,
+                    fov,
                     magicRef.current!.clientWidth / magicRef.current!.clientHeight,
                     1,
-                    10000
+                    dist * 2
                 );
-                this.camera.position.set(0, 0, 100);
+                this.camera.position.set(0, 0, dist);
+
+                // フラスタムサイズの計算
+                this.frustumHeight = 2 * dist * Math.tan(fovRad);
+                this.frustumWidth = this.frustumHeight * aspect;
 
                 // レンダラーの設定
                 this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -87,18 +99,18 @@ export const Title: React.FC = () => {
 
                 // Raycasterとマウスベクトルの初期化
                 this.raycaster = new THREE.Raycaster();
-                this.mouse = new THREE.Vector2(-200, 200); // 初期位置
+                this.mouse = new THREE.Vector2(-100, 100); // 初期位置
 
                 // 色変更用カラー
                 this.colorChange = new THREE.Color();
 
                 // planeAreaの作成（隠し平面）
                 const geometry = new THREE.PlaneGeometry(
-                    this.visibleWidthAtZDepth(100, this.camera),
-                    this.visibleHeightAtZDepth(100, this.camera)
+                    this.visibleWidthAtZDepth(0, this.camera),
+                    this.visibleHeightAtZDepth(0, this.camera)
                 );
                 const material = new THREE.MeshBasicMaterial({
-                    color: 0x00ff00,
+                    color: 0x000000,
                     transparent: true,
                 });
                 this.planeArea = new THREE.Mesh(geometry, material);
@@ -106,7 +118,7 @@ export const Title: React.FC = () => {
                 this.scene.add(this.planeArea);
 
                 // パーティクルの作成
-                this.createParticles(font, particleImg);
+                this.createParticles(particleImg);
 
                 // 初期速度の設定
                 this.velocities = [];
@@ -121,22 +133,19 @@ export const Title: React.FC = () => {
                     );
                 }
 
+                // ジオメトリのコピーを作成
+                this.geometryCopy = new THREE.BufferGeometry();
+                this.geometryCopy.copy(this.particles.geometry);
+
                 // アニメーションループの開始
                 this.animate = this.animate.bind(this);
                 this.renderer.setAnimationLoop(this.animate);
             }
 
-            createParticles(font: THREE.Font, particleImg: THREE.Texture) {
+            createParticles(particleImg: THREE.Texture) {
                 const text = this.data.text;
                 const fontSize = this.data.textSize;
-                const shapes = font.generateShapes(text, fontSize);
-
-                // シェイプの中心を原点に移動
-                const geometry = new THREE.ShapeGeometry(shapes);
-                geometry.computeBoundingBox();
-                const xMid = -0.5 * (geometry.boundingBox!.max.x - geometry.boundingBox!.min.x);
-                const yMid = -0.5 * (geometry.boundingBox!.max.y - geometry.boundingBox!.min.y);
-                geometry.translate(xMid, yMid, 0);
+                const shapes = this.font.generateShapes(text, fontSize);
 
                 // ホールシェイプの処理
                 const allShapes: THREE.Shape[] = [];
@@ -185,10 +194,30 @@ export const Title: React.FC = () => {
                 });
 
                 this.particles = new THREE.Points(geoParticles, material);
-                this.scene.add(this.particles);
 
-                // geometryCopyを保持（元の位置情報を保持するため）
-                this.geometryCopy = new THREE.BufferGeometry().copy(this.particles.geometry);
+                // シェイプのバウンディングボックスを計算
+                const geometry = new THREE.ShapeGeometry(shapes);
+                geometry.computeBoundingBox();
+                const xMin = geometry.boundingBox!.min.x;
+                const yMin = geometry.boundingBox!.min.y;
+                const yMax = geometry.boundingBox!.max.y;
+                const yMid = -0.5 * (yMax - yMin);
+
+                // Recompute offset based on new frustumWidth
+                const offsetX = -this.frustumWidth * 0.25; // 同じ割合でシフト
+                const offsetY = 0; // 必要に応じて調整
+
+                // ジオメトリを左寄せにシフト
+                geometry.translate(-xMin + offsetX, yMid + offsetY, 0);
+
+                // パーティクルジオメトリに移動を適用
+                geoParticles.translate(-xMin + offsetX, yMid + offsetY, 0);
+
+                // オブジェクトの位置をリセット（必要に応じて）
+                this.particles.position.set(0, 0, 0);
+
+                // シーンに追加
+                this.scene.add(this.particles);
             }
 
             animate() {
@@ -203,52 +232,32 @@ export const Title: React.FC = () => {
                 this.raycaster.setFromCamera(this.mouse, this.camera);
 
                 const intersects = this.raycaster.intersectObject(this.planeArea!);
+                // リロード時の応急処置
+                if (this.mouse.x === -100 && this.mouse.y === 100) {
+                    intersects.length = 0;
+                }
 
-                if (intersects.length > 0 && this.particles && this.geometryCopy) {
+                if (this.particles && this.geometryCopy) {
                     const pos = this.particles.geometry.attributes.position;
                     const copy = this.geometryCopy.attributes.position;
                     const colors = this.particles.geometry.attributes.customColor;
                     const size = this.particles.geometry.attributes.size;
 
-                    const mx = intersects[0].point.x;
-                    const my = intersects[0].point.y;
+                    if (intersects.length > 0) {
+                        const mx = intersects[0].point.x;
+                        const my = intersects[0].point.y;
 
-                    for (let i = 0, l = pos.count; i < l; i++) {
-                        const initX = copy.getX(i);
-                        const initY = copy.getY(i);
-                        const initZ = copy.getZ(i);
+                        for (let i = 0, l = pos.count; i < l; i++) {
+                            const initX = copy.getX(i);
+                            const initY = copy.getY(i);
+                            const initZ = copy.getZ(i);
 
-                        let px = pos.getX(i);
-                        let py = pos.getY(i);
-                        let pz = pos.getZ(i);
+                            let px = pos.getX(i);
+                            let py = pos.getY(i);
+                            let pz = pos.getZ(i);
 
-                        // 色を変更
-                        this.colorChange.setHSL(0.5, 0, 0);
-                        colors.setXYZ(
-                            i,
-                            this.colorChange.r,
-                            this.colorChange.g,
-                            this.colorChange.b
-                        );
-                        colors.needsUpdate = true;
-
-                        // サイズをリセット
-                        size.array[i] = this.data.particleSize;
-                        size.needsUpdate = true;
-
-                        let dx = mx - px;
-                        let dy = my - py;
-
-                        // const mouseDistance = this.distance(mx, my, px, py);
-                        const d = (dx = mx - px) * dx + (dy = my - py) * dy;
-                        const f = -this.data.area / d;
-
-                        if (i % 5 === 0) {
-                            const t = Math.atan2(dy, dx);
-                            px -= 0.03 * Math.cos(t);
-                            py -= 0.03 * Math.sin(t);
-
-                            this.colorChange.setHSL(0.15, 1.0, 0.5); // 後ろの文字色
+                            // 色を変更
+                            this.colorChange.setHSL(0.1, 0.8, 0.5); // 前の文字色
                             colors.setXYZ(
                                 i,
                                 this.colorChange.r,
@@ -257,47 +266,110 @@ export const Title: React.FC = () => {
                             );
                             colors.needsUpdate = true;
 
-                            size.array[i] = this.data.particleSize / 1.5;
+                            // サイズをリセット
+                            size.array[i] = this.data.particleSize;
                             size.needsUpdate = true;
-                        } else {
-                            const t = Math.atan2(dy, dx);
-                            px += f * Math.cos(t);
-                            py += f * Math.sin(t);
-                            pz += 0.001;
+
+                            const dx = mx - px;
+                            const dy = my - py;
+
+                            // const mouseDistance = this.distance(mx, my, px, py);
+                            const d = dx * dx + dy * dy;
+                            // const f = -this.data.area / d;
+                            const f = Math.abs(d) < 20 ? -this.data.area / 20 : -this.data.area / d;
+
+                            if (i % 5 === 0) {
+                                const t = Math.atan2(dy, dx);
+                                px -= 0.03 * Math.cos(t);
+                                py -= 0.03 * Math.sin(t);
+
+                                this.colorChange.setHSL(0, 0, 0.9); // 後ろの文字色
+                                colors.setXYZ(
+                                    i,
+                                    this.colorChange.r,
+                                    this.colorChange.g,
+                                    this.colorChange.b
+                                );
+                                colors.needsUpdate = true;
+
+                                size.array[i] = this.data.particleSize / 1.5;
+                                size.needsUpdate = true;
+                            } else {
+                                const t = Math.atan2(dy, dx);
+                                px += f * Math.cos(t);
+                                py += f * Math.sin(t);
+                                pz += 0.001;
+
+                                pos.setXYZ(i, px, py, pz);
+                                pos.needsUpdate = true;
+
+                                size.array[i] = this.data.particleSize * 1.5;
+                                size.needsUpdate = true;
+                            }
+
+                            if (
+                                px > initX + 10 ||
+                                px < initX - 10 ||
+                                py > initY + 10 ||
+                                py < initY - 10
+                            ) {
+                                this.colorChange.setHSL(0, 0, 0.9); // カーソル付近の文字色
+                                colors.setXYZ(
+                                    i,
+                                    this.colorChange.r,
+                                    this.colorChange.g,
+                                    this.colorChange.b
+                                );
+                                colors.needsUpdate = true;
+
+                                size.array[i] = this.data.particleSize / 1.8;
+                                size.needsUpdate = true;
+                            }
+
+                            // イージング
+                            px += (initX - px) * this.data.ease;
+                            py += (initY - py) * this.data.ease;
+                            pz += (initZ - pz) * this.data.ease;
 
                             pos.setXYZ(i, px, py, pz);
                             pos.needsUpdate = true;
-
-                            size.array[i] = this.data.particleSize * 1.5;
-                            size.needsUpdate = true;
                         }
+                    } else {
+                        // マウスが平面に触れていない場合
+                        for (let i = 0, l = pos.count; i < l; i++) {
+                            const initX = copy.getX(i);
+                            const initY = copy.getY(i);
+                            const initZ = copy.getZ(i);
 
-                        if (
-                            px > initX + 10 ||
-                            px < initX - 10 ||
-                            py > initY + 10 ||
-                            py < initY - 10
-                        ) {
-                            this.colorChange.setHSL(0.15, 1.0, 0.5); // カーソル付近の文字色
-                            colors.setXYZ(
-                                i,
-                                this.colorChange.r,
-                                this.colorChange.g,
-                                this.colorChange.b
-                            );
-                            colors.needsUpdate = true;
+                            let px = pos.getX(i);
+                            let py = pos.getY(i);
+                            let pz = pos.getZ(i);
 
-                            size.array[i] = this.data.particleSize / 1.8;
-                            size.needsUpdate = true;
+                            if (i % 5 !== 0) {
+                                if (this.distance(initX, initY, px, py) < 10) {
+                                    pz += 0.001;
+
+                                    this.colorChange.setHSL(0.1, 0.8, 0.5); // 前の文字色
+                                    colors.setXYZ(
+                                        i,
+                                        this.colorChange.r,
+                                        this.colorChange.g,
+                                        this.colorChange.b
+                                    );
+                                    colors.needsUpdate = true;
+
+                                    size.array[i] = this.data.particleSize * 1.5;
+                                    size.needsUpdate = true;
+                                }
+                            }
+
+                            px += (initX - px) * this.data.ease;
+                            py += (initY - py) * this.data.ease;
+                            pz += (initZ - pz) * this.data.ease;
+
+                            pos.setXYZ(i, px, py, pz);
+                            pos.needsUpdate = true;
                         }
-
-                        // イージング
-                        px += (initX - px) * this.data.ease;
-                        py += (initY - py) * this.data.ease;
-                        pz += (initZ - pz) * this.data.ease;
-
-                        pos.setXYZ(i, px, py, pz);
-                        pos.needsUpdate = true;
                     }
                 }
             }
@@ -322,12 +394,53 @@ export const Title: React.FC = () => {
             }
 
             onWindowResize() {
-                this.camera.aspect = magicRef.current!.clientWidth / magicRef.current!.clientHeight;
+                if (!magicRef.current) return;
+
+                const aspect = magicRef.current.clientWidth / magicRef.current.clientHeight;
+                this.camera.aspect = aspect;
                 this.camera.updateProjectionMatrix();
-                this.renderer.setSize(
-                    magicRef.current!.clientWidth,
-                    magicRef.current!.clientHeight
-                );
+
+                // フラスタムサイズの再計算
+                const fovRad = (this.camera.fov / 2) * (Math.PI / 180);
+                const dist = this.camera.position.z;
+                this.frustumHeight = 2 * dist * Math.tan(fovRad);
+                this.frustumWidth = this.frustumHeight * aspect;
+
+                // レンダラーのサイズを更新
+                this.renderer.setSize(magicRef.current.clientWidth, magicRef.current.clientHeight);
+
+                // パーティクルのオフセットを再計算
+                if (this.particles && this.geometryCopy) {
+                    const text = this.data.text;
+                    const fontSize = this.data.textSize;
+                    const shapes = this.font.generateShapes(text, fontSize);
+
+                    // Reset geometry to original
+                    this.particles.geometry.dispose();
+                    this.particles.geometry = this.geometryCopy.clone();
+
+                    // Recompute the translation
+                    const geometry = new THREE.ShapeGeometry(shapes);
+                    geometry.computeBoundingBox();
+                    const xMin = geometry.boundingBox!.min.x;
+                    const yMin = geometry.boundingBox!.min.y;
+                    const yMax = geometry.boundingBox!.max.y;
+                    const yMid = -0.5 * (yMax - yMin);
+
+                    // Recompute offset based on new frustumWidth
+                    const offsetX = -this.frustumWidth * 0.25; // 同じ割合でシフト
+                    const offsetY = 0; // 必要に応じて調整
+
+                    // Apply translation
+                    (this.particles.geometry as THREE.BufferGeometry).translate(
+                        -xMin + offsetX,
+                        yMid + offsetY,
+                        0
+                    );
+
+                    this.geometryCopy = new THREE.BufferGeometry();
+                    this.geometryCopy.copy(this.particles.geometry);
+                }
             }
 
             bindEvents() {
@@ -341,8 +454,17 @@ export const Title: React.FC = () => {
             }
 
             updateMousePosition(event: MouseEvent) {
-                this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-                this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+                if (!magicRef.current) return;
+
+                const rect = magicRef.current.getBoundingClientRect();
+
+                // マウスの位置をキャンバス要素内の相対座標に変換
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+
+                // キャンバス内の相対位置を正規化された座標（-1から1）に変換
+                this.mouse.x = (x / rect.width) * 2 - 1;
+                this.mouse.y = -(y / rect.height) * 2 + 1;
             }
 
             dispose() {
@@ -360,8 +482,7 @@ export const Title: React.FC = () => {
             const manager = new THREE.LoadingManager();
             let typo: THREE.Font | null = null;
             const loader = new FontLoader(manager);
-            const fontUrl =
-                "https://res.cloudinary.com/dydre7amr/raw/upload/v1612950355/font_zsd4dr.json";
+            const fontUrl = "/fonts/KleeOne-Regular.json";
             loader.load(fontUrl, (font) => {
                 typo = font;
             });
@@ -372,11 +493,11 @@ export const Title: React.FC = () => {
 
             // データオブジェクトの定義
             const data: ParticleData = {
-                text: "Duration\nUndulation",
-                amount: 2000,
+                text: "付いて離れて",
+                amount: 10000,
                 particleSize: 1,
-                textSize: 16,
-                area: 250,
+                textSize: 40,
+                area: 1000,
                 ease: 0.05,
             };
 
