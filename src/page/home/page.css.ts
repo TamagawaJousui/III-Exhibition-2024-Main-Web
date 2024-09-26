@@ -19,11 +19,10 @@ export const styles = {
     ]),
     wrapper: style({
         display: "flex",
-        background: vars.color.background.default,
-        // width: "12000px",
+        height: "100%",
     }),
     container: style({
         display: "flex",
-        height: "100%",
+        background: vars.color.background.default,
     }),
 };

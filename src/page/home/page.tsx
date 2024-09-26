@@ -24,7 +24,6 @@ export const HomePage = () => {
         const ctx = gsap.context(() => {
             if (slider.current) {
                 const sections = gsap.utils.toArray<HTMLDivElement>(slider.current.children);
-
                 /**
                  * NOTE: 子要素の幅を取得しているが，明示的にスタイリングを当てないと計算に含まれないので注意
                  */
@@ -35,7 +34,7 @@ export const HomePage = () => {
 
                 if (sections.length) {
                     gsap.to(sections, {
-                        x: () => -getTotalWidth(), // セクション全体の幅に基づいて移動
+                        x: () => -(getTotalWidth() - window.innerWidth), // セクション全体の幅に基づいて移動
                         ease: "none",
                         scrollTrigger: {
                             trigger: component.current,
@@ -60,7 +59,7 @@ export const HomePage = () => {
                                 delay: 0.01,
                                 ease: "sine.inOut",
                             },
-                            end: () => "+=" + slider.current!.scrollWidth, // スクロール終了を全体の幅に基づいて設定
+                            end: () => "+=" + (component.current!.scrollWidth - window.innerWidth), // スクロール終了を全体の幅に基づいて設定
                             invalidateOnRefresh: true,
                             onRefresh: () => {
                                 let accumulatedWidth = 0;
@@ -74,7 +73,7 @@ export const HomePage = () => {
                                 progressArray.unshift(0); // 最初のスナップポイントを追加
                                 snap = gsap.utils.snap(progressArray); // スナップ機能のセットアップ
                             },
-                            markers: false, // デバッグ用
+                            markers: true, // デバッグ用
                         },
                     });
                 }
@@ -88,8 +87,8 @@ export const HomePage = () => {
         <div className={styles.root} ref={component}>
             {isOpen && renderModal()}
             <WithHeader>
-                <div className={styles.container} ref={slider}>
-                    <div className={styles.wrapper}>
+                <div className={styles.wrapper} ref={slider}>
+                    <div className={styles.container}>
                         <HeroareaSection />
                         {sectionInfo.map((section: (typeof sectionInfo)[number]) => (
                             <section.node key={section.id} />
