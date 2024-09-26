@@ -48,7 +48,7 @@ export const WorksModal: FC<Props> = ({ isOpen, onClose: handleClose, currentWor
                         </div>
                         <ul className={styles.author}>
                             {currentWork.member.map((name) => (
-                                <li key={name}>{name}</li>
+                                <li key={`${name}-${currentWork.place}`}>{name}</li>
                             ))}
                         </ul>
                     </div>

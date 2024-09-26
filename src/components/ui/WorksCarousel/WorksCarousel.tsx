@@ -54,7 +54,7 @@ export const WorksCarousel: React.FC<PropType> = ({ place, works }) => {
                                     className={styles.emblaSlide({
                                         indexDiff: clampedDiff,
                                     })}
-                                    key={work.title}
+                                    key={`${work.title}-${work.place}`}
                                 >
                                     <Image
                                         src={work.imagePath}
