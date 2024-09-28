@@ -46,6 +46,9 @@ importers:
       eslint-plugin-prefer-arrow-functions:
         specifier: 3.3.0
         version: 3.3.0(eslint@8.57.0)
+      gl-matrix:
+        specifier: ^3.4.3
+        version: 3.4.3
       gsap:
         specifier: ^3.12.5
         version: 3.12.5
@@ -55,6 +58,9 @@ importers:
       next:
         specifier: 14.2.4
         version: 14.2.4(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      postprocessing:
+        specifier: ^6.36.3
+        version: 6.36.3(three@0.169.0(patch_hash=t5vd6mip5hxhu7h3qzkkybr6fe))
       react:
         specifier: ^18
         version: 18.3.1
@@ -65,8 +71,8 @@ importers:
         specifier: ^2.0.1
         version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       three:
-        specifier: ^0.168.0
-        version: 0.168.0(patch_hash=t5vd6mip5hxhu7h3qzkkybr6fe)
+        specifier: ^0.169.0
+        version: 0.169.0(patch_hash=t5vd6mip5hxhu7h3qzkkybr6fe)
       ts-pattern:
         specifier: ^5.3.1
         version: 5.3.1
@@ -122,6 +128,9 @@ importers:
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
+      raw-loader:
+        specifier: ^4.0.2
+        version: 4.0.2(webpack@5.93.0(esbuild@0.17.19))
       scaffdog:
         specifier: ^4.0.0
         version: 4.0.0
@@ -2500,6 +2509,9 @@ packages:
   get-tsconfig@4.7.6:
     resolution: {integrity: sha512-ZAqrLlu18NbDdRaHq+AKXzAmqIUPswPWKUchfytdAjiRFnCe5ojG2bstg6mRiZabkKfCoL/e98pbBELIV/YCeA==}
 
+  gl-matrix@3.4.3:
+    resolution: {integrity: sha512-wcCp8vu8FT22BnvKVPjXa/ICBWRq/zjFfdofZy1WSpQZpphblv12/bOQLBC1rMM7SGOFS9ltVmKOHil5+Ml7gA==}
+
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
     engines: {node: '>= 6'}
@@ -3579,6 +3591,11 @@ packages:
     resolution: {integrity: sha512-TesUflQ0WKZqAvg52PWL6kHgLKP6xB6heTOdoYM0Wt2UHyxNa4K25EZZMgKns3BH1RLVbZCREPpLY0rhnNoHVQ==}
     engines: {node: ^10 || ^12 || >=14}
 
+  postprocessing@6.36.3:
+    resolution: {integrity: sha512-GtMLwoqg0xdYAgm9lbf6qlKay7HQPb8Z+xAPSzbCUspud/qBj3Y/orJSkqEQVlfxTtm7YAUSv+J39ir51/IwaQ==}
+    peerDependencies:
+      three: '>= 0.157.0 < 0.170.0'
+
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -3624,6 +3641,12 @@ packages:
   raw-body@2.4.1:
     resolution: {integrity: sha512-9WmIKF6mkvA0SLmA2Knm9+qj89e+j1zqgyn8aXGd7+nAduPoqgI9lO57SAZNn/Byzo5P7JhXTyg9PzaJbH73bA==}
     engines: {node: '>= 0.8'}
+
+  raw-loader@4.0.2:
+    resolution: {integrity: sha512-ZnScIV3ag9A4wPX/ZayxL/jZH+euYb6FcUinPcgiQW0+UBtEv0O6Q3lGd3cqJ+GHH+rksEv3Pj99oxJ3u3VIKA==}
+    engines: {node: '>= 10.13.0'}
+    peerDependencies:
+      webpack: ^4.0.0 || ^5.0.0
 
   rc@1.2.8:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
@@ -4094,8 +4117,8 @@ packages:
   third-party-capital@1.0.20:
     resolution: {integrity: sha512-oB7yIimd8SuGptespDAZnNkzIz+NWaJCu2RMsbs4Wmp9zSDUM8Nhi3s2OOcqYuv3mN4hitXc8DVx+LyUmbUDiA==}
 
-  three@0.168.0:
-    resolution: {integrity: sha512-6m6jXtDwMJEK/GGMbAOTSAmxNdzKvvBzgd7q8bE/7Tr6m7PaBh5kKLrN7faWtlglXbzj7sVba48Idwx+NRsZXw==}
+  three@0.169.0:
+    resolution: {integrity: sha512-Ed906MA3dR4TS5riErd4QBsRGPcx+HBDX2O5yYE5GqJeFQTPU+M56Va/f/Oph9X7uZo3W3o4l2ZhBZ6f6qUv0w==}
 
   time-span@4.0.0:
     resolution: {integrity: sha512-MyqZCTGLDZ77u4k+jqg4UlrzPTPZ49NDlaekU6uuFaJLzPIN1woaRXCbGeqOfxwc3Y37ZROGAJ614Rdv7Olt+g==}
@@ -7117,6 +7140,8 @@ snapshots:
     dependencies:
       resolve-pkg-maps: 1.0.0
 
+  gl-matrix@3.4.3: {}
+
   glob-parent@5.1.2:
     dependencies:
       is-glob: 4.0.3
@@ -8241,6 +8266,10 @@ snapshots:
       picocolors: 1.0.1
       source-map-js: 1.2.0
 
+  postprocessing@6.36.3(three@0.169.0(patch_hash=t5vd6mip5hxhu7h3qzkkybr6fe)):
+    dependencies:
+      three: 0.169.0(patch_hash=t5vd6mip5hxhu7h3qzkkybr6fe)
+
   prelude-ls@1.2.1: {}
 
   prettier@3.3.3: {}
@@ -8284,6 +8313,12 @@ snapshots:
       http-errors: 1.7.3
       iconv-lite: 0.4.24
       unpipe: 1.0.0
+
+  raw-loader@4.0.2(webpack@5.93.0(esbuild@0.17.19)):
+    dependencies:
+      loader-utils: 2.0.4
+      schema-utils: 3.3.0
+      webpack: 5.93.0(esbuild@0.17.19)
 
   rc@1.2.8:
     dependencies:
@@ -8848,7 +8883,7 @@ snapshots:
 
   third-party-capital@1.0.20: {}
 
-  three@0.168.0(patch_hash=t5vd6mip5hxhu7h3qzkkybr6fe): {}
+  three@0.169.0(patch_hash=t5vd6mip5hxhu7h3qzkkybr6fe): {}
 
   time-span@4.0.0:
     dependencies:
