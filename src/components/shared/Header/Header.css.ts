@@ -16,4 +16,10 @@ export const styles = {
         listStyle: "none",
         gap: vars.spacing.md,
     }),
+    separator: style({
+        // display: "flex",
+        // listStyle: "none",
+        // gap: vars.spacing.md,
+        marginLeft: vars.spacing.md,
+    }),
 };

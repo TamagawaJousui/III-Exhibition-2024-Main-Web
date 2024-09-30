@@ -13,9 +13,12 @@ export const Header: FC<Props> = (props) => {
         <header className={clsx(styles.root, className)} {...otherProps}>
             <nav>
                 <ul className={styles.ul}>
-                    {sectionInfo.map((section) => (
+                    {sectionInfo.map((section, index) => (
                         <li key={section.id}>
                             <a href={`#${section.id}`}>{section.title}</a>
+                            <span className={styles.separator}>
+                                {index < sectionInfo.length - 1 && "・"}
+                            </span>
                         </li>
                     ))}
                 </ul>
