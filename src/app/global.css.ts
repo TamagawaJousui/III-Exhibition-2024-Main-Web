@@ -1,6 +1,6 @@
 import { globalStyle } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 globalStyle("html, body", {
     margin: 0,
@@ -8,6 +8,14 @@ globalStyle("html, body", {
     height: "100vh",
     width: "auto",
     fontFamily: "var(--font-klee), var(--font-playfair), sans-serif",
+
+    "@media": {
+        [`${mediaUtils.mobile}`]: {
+            height: "auto",
+            width: "100vw",
+            maxWidth: "100vw",
+        },
+    },
 });
 
 globalStyle("*", {

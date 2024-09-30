@@ -1,13 +1,20 @@
 import { ComplexStyleRule, style, styleVariants } from "@vanilla-extract/css";
 
-import { color, colorType, vars } from "@/styles";
+import { color, colorType, mediaUtils, vars } from "@/styles";
 
 export const styles = {
     root: style({
         display: "flex",
         flexDirection: "column",
-        height: "100%",
+        height: "100vh",
         padding: `${vars.spacing.sm} ${vars.spacing.lg}`,
+        "@media": {
+            [mediaUtils.mobile]: {
+                width: "100vw",
+                maxWidth: "100vw",
+                height: "fit-content",
+            },
+        },
     }),
 };
 
@@ -18,7 +25,8 @@ export const backgroundStyle = styleVariants<Record<colorType, ComplexStyleRule>
     "secondary.dark": { background: color.secondary.dark },
     "secondary.main": { background: color.secondary.main },
     "secondary.light": { background: color.secondary.light },
-    "background.default": { background: color.background.default },
+    "background.desktop": { background: color.background.desktop },
+    "background.mobile": { background: color.background.mobile },
     "background.dark": { background: color.background.dark },
     red: { background: color.red },
     green: { background: color.green },
@@ -39,7 +47,8 @@ export const textColorStyle = styleVariants<Record<colorType | "inherit", Comple
     "secondary.dark": { color: color.secondary.dark },
     "secondary.main": { color: color.secondary.main },
     "secondary.light": { color: color.secondary.light },
-    "background.default": { color: color.background.default },
+    "background.desktop": { color: color.background.desktop },
+    "background.mobile": { color: color.background.mobile },
     "background.dark": { background: color.background.dark },
     red: { color: color.red },
     green: { color: color.green },

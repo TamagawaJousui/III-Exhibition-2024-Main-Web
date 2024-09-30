@@ -2,14 +2,15 @@ import { style } from "@vanilla-extract/css";
 
 import { typography } from "@/styles/typography.css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 export const styles = {
     root: style([
         typography({}),
         {
             display: "flex",
-            height: "100vh",
+            height: "100%",
+            width: "100%",
             // overflowX: "scroll",
             /*スクロールバー非表示（IE・Edge）*/
             msOverflowStyle: "none",
@@ -23,6 +24,13 @@ export const styles = {
     }),
     container: style({
         display: "flex",
-        background: vars.color.background.default,
+        background: vars.color.background.desktop,
+
+        "@media": {
+            [mediaUtils.mobile]: {
+                flexDirection: "column",
+                background: vars.color.background.mobile,
+            },
+        },
     }),
 };
