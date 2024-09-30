@@ -6,7 +6,7 @@ export const styles = {
     root: style({
         display: "flex",
         flexDirection: "column",
-        height: "100%",
+        height: "100vh",
         padding: `${vars.spacing.sm} ${vars.spacing.lg}`,
         "@media": {
             [mediaUtils.mobile]: {
