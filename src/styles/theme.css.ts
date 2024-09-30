@@ -13,8 +13,9 @@ export const color = {
         light: "#DDDCD6",
     },
     background: {
-        default:
+        desktop:
             "linear-gradient(to right, rgb(237, 231, 233) 0%, rgb(109, 170, 214) 15%, rgb(103, 100, 120) 65%, rgb(69, 60, 60) 85%, rgb(20, 20, 20) 100%)",
+        mobile: "linear-gradient(to bottom, rgb(237, 231, 233) 0%, rgb(109, 170, 214) 15%, rgb(103, 100, 120) 65%, rgb(69, 60, 60) 85%, rgb(20, 20, 20) 100%)",
         dark: "#3B3B3B",
     },
 
@@ -31,11 +32,7 @@ export const color = {
 } as const;
 
 export const breakpoint = {
-    xs: "0px",
-    sm: "650px",
-    md: "960px",
-    lg: "1100px",
-    xl: "1440px",
+    mobile: 750,
 } as const;
 
 export const vars = createGlobalTheme(":root", {
@@ -111,8 +108,6 @@ export const vars = createGlobalTheme(":root", {
         "3xl": "1.5rem",
         full: "9999px",
     },
-
-    breakpoint: breakpoint,
 
     zIndex: {
         background: "10",
