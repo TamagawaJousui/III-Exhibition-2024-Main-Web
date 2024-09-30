@@ -6,7 +6,7 @@ export const styles = {
         justifyContent: "center",
         alignItems: "center",
         width: "100vw",
-        height: "100%",
-        // background: vars.color.background.default,
+        height: "100vh",
+        minHeight: "100vh",
     }),
 };
