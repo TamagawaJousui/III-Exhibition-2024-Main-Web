@@ -11,8 +11,7 @@ export const styles = {
         "@media": {
             [mediaUtils.mobile]: {
                 width: "100vw",
-                maxWidth: "100vw",
-                height: "fit-content",
+                height: "auto",
             },
         },
     }),

@@ -1,14 +1,17 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
+import { styleUtils, vars } from "@/styles";
 
 export const styles = {
-    root: style({
-        display: "flex",
-        padding: `${vars.spacing.md} 0`,
-        height: "100%",
-        gap: vars.spacing.lg,
-    }),
+    root: style([
+        styleUtils.alignVertical,
+        {
+            display: "flex",
+            padding: `${vars.spacing.md} 0`,
+            height: "100%",
+            gap: vars.spacing.lg,
+        },
+    ]),
 };
 
 globalStyle(`${styles.root} ul`, {
