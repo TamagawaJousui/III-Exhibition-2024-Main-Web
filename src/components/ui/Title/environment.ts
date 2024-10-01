@@ -128,8 +128,8 @@ export class Environment {
         this.geometryCopy = new THREE.BufferGeometry();
         this.geometryCopy.copy(this.particles.geometry);
 
-        this.initAxes();
-        this.initRuler();
+        // this.initAxes();
+        // this.initRuler();
 
         // アニメーションループの開始
         this.animate = this.animate.bind(this);
@@ -459,22 +459,22 @@ export class Environment {
         this.magicRef.current?.removeChild(this.renderer.domElement);
     }
 
-    initAxes() {
-        // 创建坐标轴辅助对象，长度为5
-        const axesHelper = new THREE.AxesHelper(300);
-        this.scene.add(axesHelper);
-    }
+    // initAxes() {
+    //     // 创建坐标轴辅助对象，长度为5
+    //     const axesHelper = new THREE.AxesHelper(300);
+    //     this.scene.add(axesHelper);
+    // }
 
-    initRuler() {
-        // 在 X, Y, Z 轴上添加标尺，长度为 5，间隔为 1
-        const xRuler = this.createRuler("x", 300, 50);
-        const yRuler = this.createRuler("y", 300, 50);
-        const zRuler = this.createRuler("z", 300, 50);
+    // initRuler() {
+    //     // 在 X, Y, Z 轴上添加标尺，长度为 5，间隔为 1
+    //     const xRuler = this.createRuler("x", 300, 50);
+    //     const yRuler = this.createRuler("y", 300, 50);
+    //     const zRuler = this.createRuler("z", 300, 50);
 
-        this.scene.add(xRuler);
-        this.scene.add(yRuler);
-        this.scene.add(zRuler);
-    }
+    //     this.scene.add(xRuler);
+    //     this.scene.add(yRuler);
+    //     this.scene.add(zRuler);
+    // }
 
     createRuler(axis: string, length: number, interval: number) {
         const rulerGroup = new THREE.Group();
