@@ -10,14 +10,14 @@ export type WorkData = {
 
 export const workList = [
     {
-        title: "帝大下水",
+        title: "帝大下水1",
         member: ["あんどうやすし", "十河 翔"],
         place: "情報学環オープンスタジオ",
         description: `春は赤門に桜が舞い、夏は三四郎池に蝉時雨が降る。秋は銀杏並木が黄金色に染まり、冬は……まぁなんかさみしい。そんな東大本郷キャンパスにはあなたの知らない裏がある。「帝大下水」は目に映るキャンパスの姿を大きく変える。刮目。`,
         imagePath: "/works/manhole-bw.png",
     },
     {
-        title: "zip or",
+        title: "zip or2",
         member: ["増田 凌", "大平 麻以", "加藤 遼真", "石川 虎之介", "永田 莉紗", "金田 昌也"],
         place: "情報学環オープンスタジオ",
         description: `ジッパーは「金属やプラスチック製の角張った構造が互いに噛み合い、直線を形成する」という強い人工物らしさをもっている。そんなジッパーを用いながら自然がもつ有機的な形を表現することはできるのだろうか。
@@ -28,14 +28,14 @@ export const workList = [
         imagePath: "/works/zip-bw.png",
     },
     {
-        title: "Prismatic Diary",
+        title: "Prismatic Diary3",
         member: ["横井 総太朗", "小西 優多郎", "李 伊婧", "平林 晴馬", "吉田 翼", "都築 あい"],
         place: "情報学環オープンスタジオ",
         description: `本作品では、日記の執筆中に生成AIによる複数の解釈を展開し、少し違う「私」へ出会う体験を実現した。出来事の異なった解釈の可能性に気付いた瞬間、あなたの世界の見え方は虹色に変わっていくだろう。`,
         imagePath: "/works/prismatic-bw.png",
     },
     {
-        title: "裏地図",
+        title: "裏地図4",
         member: ["井上 国太郎", "田中 祐玖", "機田 悠希", "花岡 桃可", "鈴木 健"],
         place: "情報学環オープンスタジオ",
         description:
@@ -43,7 +43,7 @@ export const workList = [
         imagePath: "/works/backmap-bw.png",
     },
     {
-        title: "空間新聞",
+        title: "空間新聞5",
         member: ["森田 匠", "高橋 一成"],
         place: "情報学環オープンスタジオ",
         description:
@@ -51,7 +51,7 @@ export const workList = [
         imagePath: "/works/newspaper-bw.png",
     },
     {
-        title: "The Tower",
+        title: "The Tower6",
         member: ["友利 未夢", "國仲 杏", "常盤 優菜", "増澤 茉利子", "谷 なぎさ"],
         place: "情報学環オープンスタジオ",
         description:
@@ -59,7 +59,7 @@ export const workList = [
         imagePath: "/works/tower-bw.png",
     },
     {
-        title: "Tシャツのトポロジー最適化",
+        title: "Tシャツのトポロジー最適化7",
         member: ["金田 昌也", "福田 晴紀", "増田 凌", "永田 莉紗"],
         place: "情報学環オープンスタジオ",
         description:
@@ -67,7 +67,7 @@ export const workList = [
         imagePath: "/works/tshirt-bw.png",
     },
     {
-        title: "Area of Landscape",
+        title: "Area of Landscape8",
         member: ["真田 将太朗", "森 達也", "八木 新平", "桶家 武尊", "池田 翔", "仲村 友杜"],
         place: "情報学環オープンスタジオ",
         description:
@@ -75,14 +75,14 @@ export const workList = [
         imagePath: "/works/landscape-bw.png",
     },
     {
-        title: "帝大下水",
+        title: "帝大下水9",
         member: ["あんどうやすし", "十河 翔"],
         place: "工学部2号館9階92B",
         description: `春は赤門に桜が舞い、夏は三四郎池に蝉時雨が降る。秋は銀杏並木が黄金色に染まり、冬は……まぁなんかさみしい。そんな東大本郷キャンパスにはあなたの知らない裏がある。「帝大下水」は目に映るキャンパスの姿を大きく変える。刮目。`,
         imagePath: "/works/manhole-bw.png",
     },
     {
-        title: "zip or",
+        title: "zip or0",
         member: ["増田 凌", "大平 麻以", "加藤 遼真", "石川 虎之介", "永田 莉紗", "金田 昌也"],
         place: "工学部2号館9階92B",
         description: `ジッパーは「金属やプラスチック製の角張った構造が互いに噛み合い、直線を形成する」という強い人工物らしさをもっている。そんなジッパーを用いながら自然がもつ有機的な形を表現することはできるのだろうか。
@@ -93,14 +93,14 @@ export const workList = [
         imagePath: "/works/zip-bw.png",
     },
     {
-        title: "Prismatic Diary",
+        title: "Prismatic Diary1",
         member: ["横井 総太朗", "小西 優多郎", "李 伊婧", "平林 晴馬", "吉田 翼", "都築 あい"],
         place: "工学部2号館9階92B",
         description: `本作品では、日記の執筆中に生成AIによる複数の解釈を展開し、少し違う「私」へ出会う体験を実現した。出来事の異なった解釈の可能性に気付いた瞬間、あなたの世界の見え方は虹色に変わっていくだろう。`,
         imagePath: "/works/prismatic-bw.png",
     },
     {
-        title: "裏地図",
+        title: "裏地図2",
         member: ["井上 国太郎", "田中 祐玖", "機田 悠希", "花岡 桃可", "鈴木 健"],
         place: "工学部2号館9階92B",
         description:
@@ -108,7 +108,7 @@ export const workList = [
         imagePath: "/works/backmap-bw.png",
     },
     {
-        title: "空間新聞",
+        title: "空間新聞3",
         member: ["森田 匠", "高橋 一成"],
         place: "工学部2号館9階92B",
         description:
@@ -116,7 +116,7 @@ export const workList = [
         imagePath: "/works/newspaper-bw.png",
     },
     {
-        title: "The Tower",
+        title: "The Tower4",
         member: ["友利 未夢", "國仲 杏", "常盤 優菜", "増澤 茉利子", "谷 なぎさ"],
         place: "工学部2号館9階92B",
         description:
@@ -124,7 +124,7 @@ export const workList = [
         imagePath: "/works/tower-bw.png",
     },
     {
-        title: "Tシャツのトポロジー最適化",
+        title: "Tシャツのトポロジー最適化5",
         member: ["金田 昌也", "福田 晴紀", "増田 凌", "永田 莉紗"],
         place: "工学部2号館9階92B",
         description:
@@ -132,7 +132,7 @@ export const workList = [
         imagePath: "/works/tshirt-bw.png",
     },
     {
-        title: "Area of Landscape",
+        title: "Area of Landscape6",
         member: ["真田 将太朗", "森 達也", "八木 新平", "桶家 武尊", "池田 翔", "仲村 友杜"],
         place: "工学部2号館9階92B",
         description:
@@ -140,14 +140,14 @@ export const workList = [
         imagePath: "/works/landscape-bw.png",
     },
     {
-        title: "帝大下水",
+        title: "帝大下水7",
         member: ["あんどうやすし", "十河 翔"],
         place: "工学部2号館展示室",
         description: `春は赤門に桜が舞い、夏は三四郎池に蝉時雨が降る。秋は銀杏並木が黄金色に染まり、冬は……まぁなんかさみしい。そんな東大本郷キャンパスにはあなたの知らない裏がある。「帝大下水」は目に映るキャンパスの姿を大きく変える。刮目。`,
         imagePath: "/works/manhole-bw.png",
     },
     {
-        title: "zip or",
+        title: "zip or8",
         member: ["増田 凌", "大平 麻以", "加藤 遼真", "石川 虎之介", "永田 莉紗", "金田 昌也"],
         place: "工学部2号館展示室",
         description: `ジッパーは「金属やプラスチック製の角張った構造が互いに噛み合い、直線を形成する」という強い人工物らしさをもっている。そんなジッパーを用いながら自然がもつ有機的な形を表現することはできるのだろうか。
@@ -158,14 +158,14 @@ export const workList = [
         imagePath: "/works/zip-bw.png",
     },
     {
-        title: "Prismatic Diary",
+        title: "Prismatic Diary9",
         member: ["横井 総太朗", "小西 優多郎", "李 伊婧", "平林 晴馬", "吉田 翼", "都築 あい"],
         place: "工学部2号館展示室",
         description: `本作品では、日記の執筆中に生成AIによる複数の解釈を展開し、少し違う「私」へ出会う体験を実現した。出来事の異なった解釈の可能性に気付いた瞬間、あなたの世界の見え方は虹色に変わっていくだろう。`,
         imagePath: "/works/prismatic-bw.png",
     },
     {
-        title: "裏地図",
+        title: "裏地図0",
         member: ["井上 国太郎", "田中 祐玖", "機田 悠希", "花岡 桃可", "鈴木 健"],
         place: "工学部2号館展示室",
         description:
@@ -173,7 +173,7 @@ export const workList = [
         imagePath: "/works/backmap-bw.png",
     },
     {
-        title: "空間新聞",
+        title: "空間新聞1",
         member: ["森田 匠", "高橋 一成"],
         place: "工学部2号館展示室",
         description:
@@ -181,7 +181,7 @@ export const workList = [
         imagePath: "/works/newspaper-bw.png",
     },
     {
-        title: "The Tower",
+        title: "The Tower2",
         member: ["友利 未夢", "國仲 杏", "常盤 優菜", "増澤 茉利子", "谷 なぎさ"],
         place: "工学部2号館展示室",
         description:
@@ -189,7 +189,7 @@ export const workList = [
         imagePath: "/works/tower-bw.png",
     },
     {
-        title: "Tシャツのトポロジー最適化",
+        title: "Tシャツのトポロジー最適化3",
         member: ["金田 昌也", "福田 晴紀", "増田 凌", "永田 莉紗"],
         place: "工学部2号館展示室",
         description:
@@ -197,7 +197,7 @@ export const workList = [
         imagePath: "/works/tshirt-bw.png",
     },
     {
-        title: "Area of Landscape",
+        title: "Area of Landscape4",
         member: ["真田 将太朗", "森 達也", "八木 新平", "桶家 武尊", "池田 翔", "仲村 友杜"],
         place: "工学部2号館展示室",
         description:
@@ -205,14 +205,14 @@ export const workList = [
         imagePath: "/works/landscape-bw.png",
     },
     {
-        title: "帝大下水",
+        title: "帝大下水5",
         member: ["あんどうやすし", "十河 翔"],
         place: "工学部2号館フォーラム",
         description: `春は赤門に桜が舞い、夏は三四郎池に蝉時雨が降る。秋は銀杏並木が黄金色に染まり、冬は……まぁなんかさみしい。そんな東大本郷キャンパスにはあなたの知らない裏がある。「帝大下水」は目に映るキャンパスの姿を大きく変える。刮目。`,
         imagePath: "/works/manhole-bw.png",
     },
     {
-        title: "zip or",
+        title: "zip or6",
         member: ["増田 凌", "大平 麻以", "加藤 遼真", "石川 虎之介", "永田 莉紗", "金田 昌也"],
         place: "工学部2号館フォーラム",
         description: `ジッパーは「金属やプラスチック製の角張った構造が互いに噛み合い、直線を形成する」という強い人工物らしさをもっている。そんなジッパーを用いながら自然がもつ有機的な形を表現することはできるのだろうか。
@@ -223,14 +223,14 @@ export const workList = [
         imagePath: "/works/zip-bw.png",
     },
     {
-        title: "Prismatic Diary",
+        title: "Prismatic Diary7",
         member: ["横井 総太朗", "小西 優多郎", "李 伊婧", "平林 晴馬", "吉田 翼", "都築 あい"],
         place: "工学部2号館フォーラム",
         description: `本作品では、日記の執筆中に生成AIによる複数の解釈を展開し、少し違う「私」へ出会う体験を実現した。出来事の異なった解釈の可能性に気付いた瞬間、あなたの世界の見え方は虹色に変わっていくだろう。`,
         imagePath: "/works/prismatic-bw.png",
     },
     {
-        title: "裏地図",
+        title: "裏地図8",
         member: ["井上 国太郎", "田中 祐玖", "機田 悠希", "花岡 桃可", "鈴木 健"],
         place: "工学部2号館フォーラム",
         description:
@@ -238,7 +238,7 @@ export const workList = [
         imagePath: "/works/backmap-bw.png",
     },
     {
-        title: "空間新聞",
+        title: "空間新聞9",
         member: ["森田 匠", "高橋 一成"],
         place: "工学部2号館フォーラム",
         description:
@@ -246,7 +246,7 @@ export const workList = [
         imagePath: "/works/newspaper-bw.png",
     },
     {
-        title: "The Tower",
+        title: "The Tower0",
         member: ["友利 未夢", "國仲 杏", "常盤 優菜", "増澤 茉利子", "谷 なぎさ"],
         place: "工学部2号館フォーラム",
         description:
@@ -254,7 +254,7 @@ export const workList = [
         imagePath: "/works/tower-bw.png",
     },
     {
-        title: "Tシャツのトポロジー最適化",
+        title: "Tシャツのトポロジー最適化1",
         member: ["金田 昌也", "福田 晴紀", "増田 凌", "永田 莉紗"],
         place: "工学部2号館フォーラム",
         description:
@@ -262,7 +262,7 @@ export const workList = [
         imagePath: "/works/tshirt-bw.png",
     },
     {
-        title: "Area of Landscape",
+        title: "Area of Landscape2",
         member: ["真田 将太朗", "森 達也", "八木 新平", "桶家 武尊", "池田 翔", "仲村 友杜"],
         place: "工学部2号館フォーラム",
         description:
