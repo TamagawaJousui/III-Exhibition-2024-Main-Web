@@ -15,6 +15,7 @@ declare module "react-water-wave" {
         dropRadius?: number;
         perturbance?: number;
         resolution?: number;
+        className?: string;
         children?: () => React.ReactNode;
     }
 
