@@ -7,6 +7,7 @@ export const styles = {
         display: "flex",
         flexDirection: "column",
         gap: vars.spacing.sm,
+        padding: `0 ${vars.spacing.lg}`,
     }),
     members: style({
         display: "grid",

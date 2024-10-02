@@ -10,6 +10,6 @@ export const styles = {
         gridTemplateRows: "repeat(auto-fill, minmax(10rem, max-content))",
         gap: vars.spacing.md,
         height: "100%",
-        padding: `${vars.spacing.xl} 0`,
+        padding: `${vars.spacing.md} 0`,
     }),
 };
