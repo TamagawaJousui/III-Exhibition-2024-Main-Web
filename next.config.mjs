@@ -19,7 +19,7 @@ const nextConfig = {
             new FontOptimizationPlugin({
                 fontPath: "./public/fonts/KleeOne-Regular-Master.json.gz",
                 outputPath: "./public/fonts/KleeOne-Regular.json",
-                chars: "付いて離れて",
+                chars: "FUTURE\nIS NOW",
             })
         );
         return config;

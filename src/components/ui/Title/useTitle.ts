@@ -12,12 +12,12 @@ export const useTitle = (magicRef: React.RefObject<HTMLDivElement>) => {
         if (!magicRef.current) return;
 
         const particleOptions: ParticleData = {
-            text: "付いて離れて",
+            text: "FUTURE\nIS NOW",
             amount: 1500,
             particleSize: 1,
             particleColor: 0xffffff,
-            textSize: 14,
-            area: 150,
+            textSize: 16,
+            area: 250,
             ease: 0.05,
         };
 
