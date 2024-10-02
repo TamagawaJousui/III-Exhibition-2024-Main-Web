@@ -24,7 +24,7 @@ export const initGUI = (renderer) => {
             color_Z_minus: { r: 0.7758, g: 0.5395, b: 0.5906 }, // 柔和的粉红色
         },
         afterImage: {
-            damp: 0.96,
+            damp: 0.8,
             enabled: true,
         },
         bloom: {
@@ -33,7 +33,7 @@ export const initGUI = (renderer) => {
             intensity: 1.0,
             mipmapBlur: true,
             radius: 0.45,
-            opacity: 1.0,
+            opacity: 0.4,
             blendFunction: BlendFunction.ADD,
         },
         particleParams: {
