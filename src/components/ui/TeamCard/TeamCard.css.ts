@@ -8,10 +8,6 @@ export const styles = {
         flexDirection: "column",
         gap: vars.spacing.sm,
     }),
-    team: style({
-        width: "fit-content",
-        borderBottom: `1px solid ${vars.color.textSecondary}`,
-    }),
     members: style({
         display: "grid",
         gridTemplateColumns: "repeat(5, 1fr)",
