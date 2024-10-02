@@ -47,22 +47,23 @@ export const useTitle = (magicRef: React.RefObject<HTMLDivElement>) => {
             }
         };
 
+        const particleOptions: ParticleData = {
+            text: "付いて離れて",
+            amount: 20,
+            particleSize: 1,
+            particleColor: 0xffffff,
+            textSize: getTextSize(),
+            area: 250,
+            ease: 0.1,
+        };
+
         if (
             document.readyState === "complete" ||
             (document.readyState !== "loading" && !document.documentElement.scrollTop)
         ) {
-            const particleOptions: ParticleData = {
-                text: "付いて離れて",
-                amount: 20,
-                particleSize: 1,
-                particleColor: 0xffffff,
-                textSize: getTextSize(),
-                area: 250,
-                ease: 0.1,
-            };
             preload(particleOptions);
         } else {
-            document.addEventListener("DOMContentLoaded", preload);
+            document.addEventListener("DOMContentLoaded", () => preload(particleOptions));
         }
 
         // クリーンアップ
@@ -70,7 +71,7 @@ export const useTitle = (magicRef: React.RefObject<HTMLDivElement>) => {
             if (environment) {
                 environment = null;
             }
-            document.removeEventListener("DOMContentLoaded", preload);
+            document.removeEventListener("DOMContentLoaded", () => preload(particleOptions));
         };
     }, [magicRef]);
 };
