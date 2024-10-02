@@ -5,23 +5,23 @@ export const initGUI = (renderer) => {
     const gui = new GUI();
     const params = {
         isPaused: false,
-        // 他の色プリセット
+        // Other color presets
         // colorParams: {
-        //     color_X_plus: { r: 1.0, g: 0.2745, b: 0.0 }, // 鲜艳的橘红色
-        //     color_X_minus: { r: 1.0, g: 0.1961, b: 0.0 }, // 亮丽的红橘色
-        //     color_Y_plus: { r: 1.0, g: 0.3333, b: 0.0 }, // 热情的亮橘色
-        //     color_Y_minus: { r: 1.0, g: 0.1569, b: 0.0 }, // 活力的深橘红
-        //     color_Z_plus: { r: 1.0, g: 0.4, b: 0.0 }, // 明亮的橙红色
-        //     color_Z_minus: { r: 1.0, g: 0.2353, b: 0.0 }, // 生机勃勃的橘色
+        //     color_X_plus: { r: 1.0, g: 0.2745, b: 0.0 }, // Vivid orange-red
+        //     color_X_minus: { r: 1.0, g: 0.1961, b: 0.0 }, // Bright red-orange
+        //     color_Y_plus: { r: 1.0, g: 0.3333, b: 0.0 }, // Enthusiastic bright orange
+        //     color_Y_minus: { r: 1.0, g: 0.1569, b: 0.0 }, // Energetic deep orange-red
+        //     color_Z_plus: { r: 1.0, g: 0.4, b: 0.0 }, // Bright orange-red
+        //     color_Z_minus: { r: 1.0, g: 0.2353, b: 0.0 }, // Vibrant orange
         // },
-        // 他の色プリセット
+        // Other color presets
         colorParams: {
-            color_X_plus: { r: 0.8469, g: 0.7991, b: 0.8148 }, // 柔和的灰紫色
-            color_X_minus: { r: 0.8308, g: 0.2747, b: 0.3185 }, // 暗红色
-            color_Y_plus: { r: 0.8228, g: 0.0437, b: 0.0742 }, // 深红色
-            color_Y_minus: { r: 0.9647, g: 0.2016, b: 0.0409 }, // 鲜艳的橙红色
-            color_Z_plus: { r: 0.552, g: 0.7305, b: 0.6308 }, // 柔和的青绿色
-            color_Z_minus: { r: 0.7758, g: 0.5395, b: 0.5906 }, // 柔和的粉红色
+            color_X_plus: { r: 0.8469, g: 0.7991, b: 0.8148 }, // Soft gray-purple
+            color_X_minus: { r: 0.8308, g: 0.2747, b: 0.3185 }, // Dark red
+            color_Y_plus: { r: 0.8228, g: 0.0437, b: 0.0742 }, // Deep red
+            color_Y_minus: { r: 0.9647, g: 0.2016, b: 0.0409 }, // Vivid orange-red
+            color_Z_plus: { r: 0.552, g: 0.7305, b: 0.6308 }, // Soft cyan-green
+            color_Z_minus: { r: 0.7758, g: 0.5395, b: 0.5906 }, // Soft pink
         },
         afterImage: {
             damp: 0.8,
@@ -64,25 +64,25 @@ export const initGUI = (renderer) => {
             translationValues: { x: 0, y: 0, z: 0 },
         },
         saveScreenshot: () => {
-            // 获取渲染器的画布内容并转换为 data URL
+            // Get the renderer's canvas content and convert it to a data URL
             const imgData = renderer.domElement.toDataURL("image/png");
 
-            // 创建一个临时的 <a> 标签，用于下载图片
+            // Create a temporary <a> tag for downloading the image
             const link = document.createElement("a");
             link.href = imgData;
             const date = new Date();
             const [month, day, minute, second] = [
-                (date.getMonth() + 1).toString().padStart(2, "0"), // 将月份转换为两位数
-                date.getDate().toString().padStart(2, "0"), // 将日期转换为两位数
-                date.getMinutes().toString().padStart(2, "0"), // 将分钟转换为两位数
-                date.getSeconds().toString().padStart(2, "0"), // 将秒数转换为两位数
+                (date.getMonth() + 1).toString().padStart(2, "0"), // Convert month to two digits
+                date.getDate().toString().padStart(2, "0"), // Convert date to two digits
+                date.getMinutes().toString().padStart(2, "0"), // Convert minutes to two digits
+                date.getSeconds().toString().padStart(2, "0"), // Convert seconds to two digits
             ];
             const fileName = `particle-${month}${day}${minute}${second}`;
             link.download = `${fileName}.png`;
             link.click();
 
             setTimeout(() => {
-                // 保存 params 为 JSON 文件
+                // Save params as a JSON file
                 const jsonLink = document.createElement("a");
                 const jsonData = new Blob([JSON.stringify(params, null, 2)], {
                     type: "application/json",
@@ -128,16 +128,16 @@ export const initGUI = (renderer) => {
     noisePara.add(params.noiseParams, "periodX", 1, 10, 1);
     noisePara.add(params.noiseParams, "periodY", 1, 10, 1);
     noisePara.add(params.noiseParams, "periodZ", 1, 10, 1);
-    // 使用通用函数来创建矩阵控制
+    // Use a generic function to create matrix controls
     addMatrixControls(gui, "background transformation matrix", params.backgroundMatrix);
     addMatrixControls(gui, "noise transformation matrix", params.noiseMatrix);
     addMatrixControls(gui, "position transformation matrix", params.positionMatrix);
-    // 在 lil-gui 中添加按钮
+    // Add button in lil-gui
     gui.add(params, "saveScreenshot").name("Save PNG");
     return params;
 };
 
-// 通用的函数，用于创建矩阵相关的 GUI 控件
+// Generic function to create matrix-related GUI controls
 const addMatrixControls = (gui, folderName, matrixParams) => {
     const folder = gui.addFolder(folderName);
 

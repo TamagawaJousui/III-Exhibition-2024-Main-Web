@@ -5,16 +5,16 @@ import Stats from "three/examples/jsm/libs/stats.module.js";
 import { FontLoader } from "three/examples/jsm/loaders/FontLoader";
 
 export const initControls = (camera, renderer) => {
-    // 创建 OrbitControls 实例
+    // Create an instance of OrbitControls
     const controls = new OrbitControls(camera, renderer.domElement);
 
-    // 可选配置
-    controls.enableDamping = true; // 启用阻尼（惯性），需要在动画循环中调用 controls.update()
-    controls.dampingFactor = 0.05; // 阻尼系数
-    controls.minDistance = 0.01; // 相机与目标的最小距离
-    controls.maxDistance = 100; // 相机与目标的最大距离
-    controls.enablePan = true; // 启用平移
-    controls.enableZoom = true; // 启用缩放
+    // Optional configurations
+    controls.enableDamping = true; // Enable damping (inertia), needs to call controls.update() in the animation loop
+    controls.dampingFactor = 0.05; // Damping factor
+    controls.minDistance = 0.01; // Minimum distance between the camera and the target
+    controls.maxDistance = 100; // Maximum distance between the camera and the target
+    controls.enablePan = true; // Enable panning
+    controls.enableZoom = true; // Enable zooming
 
     return controls;
 };
@@ -27,13 +27,13 @@ export const initStats = () => {
 };
 
 export const initAxes = (scene) => {
-    // 创建坐标轴辅助对象，长度为5
+    // Create an axes helper object with a length of 5
     const axesHelper = new THREE.AxesHelper(3);
     scene.add(axesHelper);
 };
 
 export const initRuler = (scene) => {
-    // 在 X, Y, Z 轴上添加标尺，长度为 5，间隔为 1
+    // Add rulers on the X, Y, Z axes with a length of 5 and an interval of 1
     const xRuler = createRuler("x", 3, 1);
     const yRuler = createRuler("y", 3, 1);
     const zRuler = createRuler("z", 3, 1);
@@ -44,13 +44,13 @@ export const initRuler = (scene) => {
 };
 
 export const initCaption = (scene) => {
-    // 创建字体加载器
+    // Create a font loader
     const fontLoader = new FontLoader();
-    // 加载字体文件
+    // Load the font file
     fontLoader.load(
         "node_modules/three/examples/fonts/helvetiker_regular.typeface.json",
         (font) => {
-            // 创建 X、Y、Z 的字母标记
+            // Create letter markers for X, Y, Z
             const textMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 
             const textOptions = {
@@ -59,28 +59,28 @@ export const initCaption = (scene) => {
                 depth: 0.01,
             };
 
-            // X 轴标记
+            // X axis marker
             const xTextGeometry = new TextGeometry("X", textOptions);
             const xTextMesh = new THREE.Mesh(xTextGeometry, textMaterial);
-            xTextMesh.position.set(3.5, 0, 0); // 放置在 X 轴末端
+            xTextMesh.position.set(3.5, 0, 0); // Place at the end of the X axis
             scene.add(xTextMesh);
 
-            // Y 轴标记
+            // Y axis marker
             const yTextGeometry = new TextGeometry("Y", textOptions);
             const yTextMesh = new THREE.Mesh(yTextGeometry, textMaterial);
-            yTextMesh.position.set(0, 3.5, 0); // 放置在 Y 轴末端
+            yTextMesh.position.set(0, 3.5, 0); // Place at the end of the Y axis
             scene.add(yTextMesh);
 
-            // Z 轴标记
+            // Z axis marker
             const zTextGeometry = new TextGeometry("Z", textOptions);
             const zTextMesh = new THREE.Mesh(zTextGeometry, textMaterial);
-            zTextMesh.position.set(0, 0, 3.5); // 放置在 Z 轴末端
+            zTextMesh.position.set(0, 0, 3.5); // Place at the end of the Z axis
             scene.add(zTextMesh);
         }
     );
 };
 
-// 添加标尺函数
+// Add ruler function
 const createRuler = (axis, length, interval) => {
     const rulerGroup = new THREE.Group();
     for (let i = -length; i <= length; i += interval) {
@@ -88,11 +88,11 @@ const createRuler = (axis, length, interval) => {
         const markerVertices = [];
 
         if (axis === "x") {
-            markerVertices.push(i, 0, 0, i, 0.2, 0); // 在 X 轴上创建垂直小线段
+            markerVertices.push(i, 0, 0, i, 0.2, 0); // Create vertical segments on the X axis
         } else if (axis === "y") {
-            markerVertices.push(0, i, 0, 0.2, i, 0); // 在 Y 轴上创建水平小线段
+            markerVertices.push(0, i, 0, 0.2, i, 0); // Create horizontal segments on the Y axis
         } else if (axis === "z") {
-            markerVertices.push(0, 0, i, 0, 0.2, i); // 在 Z 轴上创建垂直小线段
+            markerVertices.push(0, 0, i, 0, 0.2, i); // Create vertical segments on the Z axis
         }
 
         markerGeometry.setAttribute(

@@ -1,36 +1,36 @@
 import pnoise3D from "./shaders/classicnoise3D.vert";
 
 export const positionComputeFragmentShader = /* glsl */ `
-  ${pnoise3D} // 包含 Perlin 噪声函数的 GLSL 代码
+  ${pnoise3D} // Include GLSL code for Perlin noise function
 
-  uniform mat4 noiseTransformMatrix;        // 4x4 变换矩阵用于计算 Noise
-  uniform mat4 positionTransformMatrix;     // 新的 4x4 变换矩阵，用于对粒子位置进行变换
-  uniform vec3 rep;                         // 周期参数
-  uniform float seed;                         // 周期参数
+  uniform mat4 noiseTransformMatrix;        // 4x4 transformation matrix for noise calculation
+  uniform mat4 positionTransformMatrix;     // New 4x4 transformation matrix for particle position transformation
+  uniform vec3 rep;                         // Periodic parameter
+  uniform float seed;                       // Seed parameter
   
   void main() {
     vec2 uv = gl_FragCoord.xy / resolution.xy;
     
-    // 从上一帧获取位置
+    // Get position from the previous frame
     vec4 previousPosition = texture(position, uv);
 
-    // 获取背景点云的位置
+    // Get the position of the background point cloud
     vec4 backgroundPosition = texture(backgroundPosition, uv);
     
-    // 使用 noiseTransformMatrix 进行噪声计算
+    // Use noiseTransformMatrix for noise calculation
     vec3 transformedPosition = (noiseTransformMatrix * vec4(previousPosition.xyz, 1.0)).xyz;
-    float noiseValue = pnoise(transformedPosition, rep, seed);  // 计算噪声值，范围 [-1, 1]
+    float noiseValue = pnoise(transformedPosition, rep, seed);  // Calculate noise value, range [-1, 1]
 
-    // 使用 positionTransformMatrix 对 previousPosition 进行位置变换
+    // Use positionTransformMatrix to transform previousPosition
     vec3 newPosition = (positionTransformMatrix * vec4(previousPosition.xyz, 1.0)).xyz;
 
-    // 对 previousPosition 和 newPosition 进行线性插值，噪声值 noiseValue 作为权重
+    // Linearly interpolate between previousPosition and newPosition, using noiseValue as the weight
     vec3 interpolatedPosition = mix(previousPosition.xyz, newPosition, noiseValue);
 
-    // 混合 interpolatedPosition 和 transformedBackgroundPosition, alpha 为 0.99
+    // Mix interpolatedPosition and transformedBackgroundPosition, alpha is 0.99
     vec3 finalPosition = mix(backgroundPosition.xyz, interpolatedPosition.xyz, 0.99);
 
-    // 设置最终的位置
+    // Set the final position
     gl_FragColor = vec4(finalPosition.xyz, 1.0);
   }
 `;
@@ -40,7 +40,7 @@ export const colorComputeFragmentShader = /* glsl */ `
   uniform float radius;
   uniform int colorPattern;
 
-  // 函数：根据顶点的空间位置确定其所在的区域
+  // Function: Determine the area based on the vertex's spatial position
   vec3 getColorByPositionArea(float x, float y, float z) {
     vec3 color_X_plus = colors[0];
     vec3 color_X_minus = colors[1];
@@ -57,11 +57,11 @@ export const colorComputeFragmentShader = /* glsl */ `
     }
   }
 
-  // 函数：根据距离映射颜色
+  // Function: Map color based on distance
   vec3 getColorByPositionDistance(float distance, float maxDistance) {
     vec3 colorStops[6] = colors;
 
-    // 计算距离比例
+    // Calculate distance ratio
     float ratio = distance / maxDistance;
     int numStops = 6;
     float scaledRatio = ratio * float(numStops - 1);
@@ -69,7 +69,7 @@ export const colorComputeFragmentShader = /* glsl */ `
     int upperIndex = min(lowerIndex + 1, numStops - 1);
     float blendFactor = scaledRatio - float(lowerIndex);
 
-    // 混合颜色
+    // Blend colors
     vec3 color = mix(colorStops[lowerIndex], colorStops[upperIndex], blendFactor);
     return color;
   }
@@ -77,7 +77,7 @@ export const colorComputeFragmentShader = /* glsl */ `
   void main() {
     vec2 uv = gl_FragCoord.xy / resolution.xy;
     
-    // 获取背景点云的位置
+    // Get the position of the background point cloud
     vec4 backgroundPosition = texture(backgroundPosition, uv);
 
     vec3 color = vec3(1.0);
@@ -85,30 +85,30 @@ export const colorComputeFragmentShader = /* glsl */ `
     if (colorPattern == 0) {
       color = getColorByPositionArea(backgroundPosition.x, backgroundPosition.y, backgroundPosition.z);
     } else if (colorPattern == 1) {
-     // 计算最大距离和当前距离
+      // Calculate maximum distance and current distance
       float maxDistance = radius;
       float distance = length(backgroundPosition.xyz);
       color = getColorByPositionDistance(distance, maxDistance);
     }
 
-    // 设置片元颜色
+    // Set fragment color
     gl_FragColor = vec4(color, 1.0);
   }
 `;
 
 export const backgroundComputeFragmentShader = /* glsl */ `
-  uniform mat4 backgroundTransformMatrix;  // 背景点云的变换矩阵
+  uniform mat4 backgroundTransformMatrix;  // Transformation matrix for the background point cloud
 
   void main() {
     vec2 uv = gl_FragCoord.xy / resolution.xy;
     
-    // 从上一帧获取背景点云的位置
-    vec4 backgroundPosition = texture(backgroundPosition, uv);  // 获取背景点云的 4 分量位置
+    // Get the position of the background point cloud from the previous frame
+    vec4 backgroundPosition = texture(backgroundPosition, uv);  // Get the 4-component position of the background point cloud
 
-    // 对背景点云应用背景矩阵的变换
+    // Apply the transformation matrix to the background point cloud
     vec3 transformedBackgroundPosition = (backgroundTransformMatrix * vec4(backgroundPosition.xyz, 1.0)).xyz;
 
-    // 设置新的背景点云位置
+    // Set the new position of the background point cloud
     gl_FragColor = vec4(transformedBackgroundPosition.xyz, 1.0);
   }
 `;
@@ -120,40 +120,39 @@ export const vertexShader = /* glsl */ `
   uniform float pointSize;
   attribute float vertexIndex;
   attribute vec4 color;
-  varying vec4 vColor; // 用于传递颜色到片段着色器
+  varying vec4 vColor; // Used to pass color to the fragment shader
 
   void main() {
-    // 计算 UV 坐标
+    // Calculate UV coordinates
     float index = vertexIndex;
     float u = (mod(index, resolution.x) + 0.5) / resolution.x;
     float v = (floor(index / resolution.x) + 0.5) / resolution.y;
     vec2 uv = vec2(u, v);
 
-    // 从 positionTexture 获取位置数据
+    // Get position data from positionTexture
     vec4 posData = texture(positionTexture, uv);
     vec3 pos = posData.xyz;
 
-    // 从 colorTexture 获取颜色数据
+    // Get color data from colorTexture
     vColor = texture(colorTexture, uv);
 
-
-    // 变换到视图空间
+    // Transform to view space
     vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
 
-    // 设置点大小
+    // Set point size
     gl_PointSize = pointSize;
 
-    // 设置最终位置
+    // Set final position
     gl_Position = projectionMatrix * mvPosition;
   }
 `;
 
 export const fragmentShader = /* glsl */ `
-  uniform float transparent;  // 透明度
-  uniform bool useColor;      // 是否使用颜色
-  varying vec4 vColor; // 接收来自顶点着色器的颜色
+  uniform float transparent;  // Transparency
+  uniform bool useColor;      // Whether to use color
+  varying vec4 vColor; // Receive color from the vertex shader
 
   void main() {
-      gl_FragColor = vec4(useColor ? vColor.rgb : vec3(1.0), transparent); // 使用传递的颜色
+      gl_FragColor = vec4(useColor ? vColor.rgb : vec3(1.0), transparent); // Use the passed color
   }
 `;
