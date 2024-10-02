@@ -5,3 +5,13 @@ declare type RecursiveLeafKeys<T, Prefix = ""> = {
             : RecursiveLeafKeys<T[K], `${Prefix}${K}.`>
         : `${Prefix}${K}`;
 }[keyof T];
+
+export interface ParticleData {
+    text: string;
+    amount: number;
+    particleSize: number;
+    particleColor: number;
+    textSize: number;
+    area: number;
+    ease: number;
+}
