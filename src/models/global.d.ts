@@ -18,8 +18,17 @@ declare module "react-water-wave" {
         className?: string;
         children?: () => React.ReactNode;
     }
+}
 
-    const WaterWave: React.FC<WaterWaveProps>;
+const WaterWave: React.FC<WaterWaveProps>;
 
-    export default WaterWave;
+export default WaterWave;
+export interface ParticleData {
+    text: string;
+    amount: number;
+    particleSize: number;
+    particleColor: number;
+    textSize: number;
+    area: number;
+    ease: number;
 }
