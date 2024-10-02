@@ -10,7 +10,7 @@ export const styles = {
         display: "grid",
         gap: vars.spacing.md,
         gridTemplateRows: "repeat(auto-fill, 20vh)",
-        gridTemplateColumns: "max(50vw, 300px)",
+        gridTemplateColumns: "auto",
         gridAutoFlow: "column",
         width: "100%",
         height: "100%",
@@ -22,6 +22,9 @@ export const styles = {
                 height: "auto",
             },
         },
+    }),
+    gap: style({
+        padding: `0 ${vars.spacing.xl}`,
     }),
     mapContainer: style({
         position: "relative",
