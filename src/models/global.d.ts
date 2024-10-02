@@ -5,3 +5,12 @@ declare type RecursiveLeafKeys<T, Prefix = ""> = {
             : RecursiveLeafKeys<T[K], `${Prefix}${K}.`>
         : `${Prefix}${K}`;
 }[keyof T];
+
+declare module "*.vert" {
+    const src: string;
+    export default src;
+}
+declare module "*.frag" {
+    const src: string;
+    export default src;
+}

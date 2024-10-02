@@ -2,13 +2,14 @@ import { BloomEffect, EffectComposer, EffectPass, RenderPass } from "postprocess
 import { FC, useEffect, useRef } from "react";
 import * as THREE from "three";
 
-import { initStats } from "./controls.js";
-import { initSpherePoints } from "./geometry.js";
-import { initGPUComputationRenderer } from "./gpgpu.js";
-import { initGUI } from "./lilGUI.js";
-import { initParticle } from "./particle.js";
-import { initScene } from "./scene.js";
-import { generateTransformationMatrices } from "./transformationMatrix.js";
+import { AfterimagePass } from "./internal/AfterimagePass.js";
+import { initStats } from "./internal/controls.js";
+import { initSpherePoints } from "./internal/geometry.js";
+import { initGPUComputationRenderer } from "./internal/gpgpu.js";
+import { initGUI } from "./internal/lilGUI.js";
+import { initParticle } from "./internal/particle.js";
+import { initScene } from "./internal/scene.js";
+import { generateTransformationMatrices } from "./internal/transformationMatrix.js";
 
 import { styles } from "./HeroareaSection.css";
 
@@ -23,10 +24,6 @@ export const HeroareaSection: FC = () => {
         const { scene, camera, renderer } = initScene(canvas);
 
         const params = initGUI(renderer);
-        let renderOneFrame = false;
-        params.renderOneFrame = () => {
-            renderOneFrame = true;
-        };
 
         // const controls = initControls(camera, renderer);
         const stats = initStats();
@@ -49,6 +46,8 @@ export const HeroareaSection: FC = () => {
         const composer = new EffectComposer(renderer);
         const renderPass = new RenderPass(scene, camera);
         composer.addPass(renderPass);
+        const afterImagePass = new AfterimagePass(params.afterImage.damp);
+        composer.addPass(afterImagePass);
         const bloomPass = new BloomEffect(params.bloom);
         composer.addPass(new EffectPass(camera, bloomPass));
 
@@ -58,7 +57,7 @@ export const HeroareaSection: FC = () => {
         let lastFrameTime = performance.now();
 
         const animate = () => {
-            if (!params.isPaused || renderOneFrame) {
+            if (!params.isPaused) {
                 const currentTime = performance.now();
                 const elapsedTime = currentTime - startTime;
                 // 计算从上一帧到现在的时间差（毫秒）
@@ -67,6 +66,9 @@ export const HeroareaSection: FC = () => {
                     lastFrameTime = currentTime;
 
                     params.noiseMatrix.translationValues.y = (elapsedTime / 1000) * 0.08;
+
+                    afterImagePass.uniforms["damp"].value = params.afterImage.damp;
+                    afterImagePass.enabled = params.afterImage.enabled;
 
                     bloomPass.luminanceMaterial.threshold = params.bloom.luminanceThreshold;
                     bloomPass.luminanceMaterial.smoothing = params.bloom.luminanceSmoothing;
@@ -141,10 +143,9 @@ export const HeroareaSection: FC = () => {
                     composer.render();
                 }
             }
-            requestAnimationFrame(animate);
         };
 
-        animate();
+        renderer.setAnimationLoop(animate);
 
         return () => {
             canvas.removeChild(renderer.domElement);

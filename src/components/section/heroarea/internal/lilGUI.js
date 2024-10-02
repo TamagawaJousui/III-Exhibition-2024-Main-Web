@@ -5,15 +5,16 @@ export const initGUI = (renderer) => {
     const gui = new GUI();
     const params = {
         isPaused: false,
-        renderOneFrame: () => {},
+        // 他の色プリセット
         // colorParams: {
-        //   color_X_plus: { r: 1.0, g: 0.2745, b: 0.0 },   // 鲜艳的橘红色
-        //   color_X_minus: { r: 1.0, g: 0.1961, b: 0.0 },  // 亮丽的红橘色
-        //   color_Y_plus: { r: 1.0, g: 0.3333, b: 0.0 },   // 热情的亮橘色
-        //   color_Y_minus: { r: 1.0, g: 0.1569, b: 0.0 },  // 活力的深橘红
-        //   color_Z_plus: { r: 1.0, g: 0.4, b: 0.0 },      // 明亮的橙红色
-        //   color_Z_minus: { r: 1.0, g: 0.2353, b: 0.0 },  // 生机勃勃的橘色
+        //     color_X_plus: { r: 1.0, g: 0.2745, b: 0.0 }, // 鲜艳的橘红色
+        //     color_X_minus: { r: 1.0, g: 0.1961, b: 0.0 }, // 亮丽的红橘色
+        //     color_Y_plus: { r: 1.0, g: 0.3333, b: 0.0 }, // 热情的亮橘色
+        //     color_Y_minus: { r: 1.0, g: 0.1569, b: 0.0 }, // 活力的深橘红
+        //     color_Z_plus: { r: 1.0, g: 0.4, b: 0.0 }, // 明亮的橙红色
+        //     color_Z_minus: { r: 1.0, g: 0.2353, b: 0.0 }, // 生机勃勃的橘色
         // },
+        // 他の色プリセット
         colorParams: {
             color_X_plus: { r: 0.8469, g: 0.7991, b: 0.8148 }, // 柔和的灰紫色
             color_X_minus: { r: 0.8308, g: 0.2747, b: 0.3185 }, // 暗红色
@@ -21,6 +22,10 @@ export const initGUI = (renderer) => {
             color_Y_minus: { r: 0.9647, g: 0.2016, b: 0.0409 }, // 鲜艳的橙红色
             color_Z_plus: { r: 0.552, g: 0.7305, b: 0.6308 }, // 柔和的青绿色
             color_Z_minus: { r: 0.7758, g: 0.5395, b: 0.5906 }, // 柔和的粉红色
+        },
+        afterImage: {
+            damp: 0.96,
+            enabled: true,
         },
         bloom: {
             luminanceThreshold: 0.3,
@@ -94,7 +99,10 @@ export const initGUI = (renderer) => {
         .onChange((value) => {
             params.isPaused = value;
         });
-    // gui.add(params, 'renderOneFrame').name('Render One Frame > ').listen().disable(!params.isPaused);
+
+    const afterImageFolder = gui.addFolder("afterImage parameters");
+    afterImageFolder.add(params.afterImage, "damp", 0, 1, 0.001);
+    afterImageFolder.add(params.afterImage, "enabled");
 
     const bloomPara = gui.addFolder("bloom parameters");
     bloomPara.add(params.bloom, "luminanceThreshold", 0, 1, 0.001).name("lumiThreshold");
