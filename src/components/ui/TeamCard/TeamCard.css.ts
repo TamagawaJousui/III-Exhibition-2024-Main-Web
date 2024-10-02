@@ -7,10 +7,7 @@ export const styles = {
         display: "flex",
         flexDirection: "column",
         gap: vars.spacing.sm,
-    }),
-    team: style({
-        width: "fit-content",
-        borderBottom: `1px solid ${vars.color.textSecondary}`,
+        padding: `0 ${vars.spacing.lg}`,
     }),
     members: style({
         display: "grid",
