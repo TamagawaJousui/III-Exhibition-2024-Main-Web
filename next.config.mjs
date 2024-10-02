@@ -17,7 +17,7 @@ const nextConfig = {
     webpack: (config) => {
         config.plugins.push(
             new FontOptimizationPlugin({
-                fontPath: "./public/fonts/KleeOne-Regular-Master.json",
+                fontPath: "./public/fonts/KleeOne-Regular-Master.json.gz",
                 outputPath: "./public/fonts/KleeOne-Regular.json",
                 chars: "付いて離れて",
             })

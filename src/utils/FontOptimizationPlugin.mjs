@@ -1,4 +1,5 @@
 import fs from "fs";
+import zlib from "zlib";
 
 export class FontOptimizationPlugin {
     options;
@@ -11,18 +12,25 @@ export class FontOptimizationPlugin {
             const fontPath = this.options.fontPath;
             const neededChars = new Set(this.options.chars);
 
-            // 读取字体文件
-            const fontData = JSON.parse(fs.readFileSync(fontPath, "utf8"));
+            // 读取并解压 gzip 字体文件
+            const compressedData = fs.readFileSync(fontPath);
+            zlib.gunzip(compressedData, (err, buffer) => {
+                if (err) {
+                    return callback(err);
+                }
 
-            // 筛选需要的字符
-            fontData.glyphs = Object.fromEntries(
-                Object.entries(fontData.glyphs).filter(([char]) => neededChars.has(char))
-            );
+                const fontData = JSON.parse(buffer.toString("utf8"));
 
-            // 写回精简后的字体文件
-            fs.writeFileSync(this.options.outputPath, JSON.stringify(fontData));
+                // 筛选需要的字符
+                fontData.glyphs = Object.fromEntries(
+                    Object.entries(fontData.glyphs).filter(([char]) => neededChars.has(char))
+                );
 
-            callback();
+                // 写回精简后的字体文件
+                fs.writeFileSync(this.options.outputPath, JSON.stringify(fontData));
+
+                callback();
+            });
         });
     }
 }
