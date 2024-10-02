@@ -31,8 +31,8 @@ export const useParticles = (
         // initRuler(scene);
         // initCaption(scene);
 
-        // 设置纹理大小
-        // 初始化球体上的点
+        // Set texture size
+        // Initialize points on the sphere
         initSpherePoints(size * size, radius);
 
         const { gpuCompute, colorVariable, positionVariable, backgroundPositionVariable } =
@@ -50,15 +50,15 @@ export const useParticles = (
         composer.addPass(new EffectPass(camera, bloomPass));
 
         const startTime = performance.now();
-        const targetFPS = 70; // 目标帧率
-        const frameDuration = 1000 / targetFPS; // 每帧的时间（毫秒）
+        const targetFPS = 70; // Target frame rate
+        const frameDuration = 1000 / targetFPS; // Time per frame (milliseconds)
         let lastFrameTime = performance.now();
 
         const animate = () => {
             if (!params.isPaused) {
                 const currentTime = performance.now();
                 const elapsedTime = currentTime - startTime;
-                // 计算从上一帧到现在的时间差（毫秒）
+                // Calculate the time difference from the last frame to now (milliseconds)
                 const deltaTime = currentTime - lastFrameTime;
                 if (deltaTime >= frameDuration) {
                     lastFrameTime = currentTime;
@@ -90,7 +90,7 @@ export const useParticles = (
                         params.noiseParams.periodZ
                     );
 
-                    // 设置 Uniforms
+                    // Set Uniforms
                     colorVariable.material.uniforms.colors = {
                         value: Object.values(params.colorParams).map(
                             (color) => new THREE.Vector3(color.r, color.g, color.b)
@@ -114,28 +114,28 @@ export const useParticles = (
                         value: backgroundTransformationMatrix,
                     };
 
-                    // 计算下一帧的位置
+                    // Calculate the position for the next frame
                     gpuCompute.compute();
 
-                    // 获取计算后的颜色
+                    // Get the computed color
                     const colorTexture = gpuCompute.getCurrentRenderTarget(colorVariable).texture;
 
-                    // 获取计算后的纹理
+                    // Get the computed texture
                     const posTexture = gpuCompute.getCurrentRenderTarget(positionVariable).texture;
 
-                    // 获取背景点云的位置纹理
+                    // Get the position texture of the background point cloud
                     // const backgroundPositionTexture = gpuCompute.getCurrentRenderTarget(
                     //     backgroundPositionVariable
                     // ).texture;
 
-                    // 更新材质的 Uniform
+                    // Update material uniforms
                     points.material.uniforms.positionTexture.value = posTexture;
                     points.material.uniforms.colorTexture.value = colorTexture;
                     points.material.uniforms.pointSize.value = params.particleParams.pointSize;
                     points.material.uniforms.transparent.value = params.particleParams.transparent;
                     points.material.uniforms.useColor.value = params.particleParams.useColor;
 
-                    // 更新 OrbitControls
+                    // Update OrbitControls
                     // controls.update();
                     stats.update();
                     composer.render();
@@ -146,7 +146,7 @@ export const useParticles = (
         renderer.setAnimationLoop(animate);
 
         return () => {
-            renderer.setAnimationLoop(null); // 停止动画循环
+            renderer.setAnimationLoop(null); // Stop animation loop
             canvas.removeChild(renderer.domElement);
         };
     }, [canvasRef, radius, size]);

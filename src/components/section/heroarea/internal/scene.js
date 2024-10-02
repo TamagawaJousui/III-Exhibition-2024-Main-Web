@@ -1,10 +1,10 @@
 import * as THREE from "three";
 
 export const initScene = (canvas) => {
-    // 创建场景
+    // Create scene
     const scene = new THREE.Scene();
 
-    // 创建相机
+    // Create camera
     const camera = new THREE.PerspectiveCamera(
         75,
         window.innerWidth / window.innerHeight,
@@ -15,7 +15,7 @@ export const initScene = (canvas) => {
     // camera.position.y = 1;
     camera.position.z = 1;
 
-    // 创建渲染器
+    // Create renderer
     const renderer = new THREE.WebGLRenderer({
         preserveDrawingBuffer: true,
         powerPreference: "high-performance",
@@ -24,11 +24,11 @@ export const initScene = (canvas) => {
         depth: false,
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(window.devicePixelRatio); // 设置像素比
+    renderer.setPixelRatio(window.devicePixelRatio); // Set pixel ratio
     renderer.setClearColor(0x000000, 0);
     canvas.appendChild(renderer.domElement);
 
-    //     // 设置画布的背景为渐变色
+    //     // Set canvas background to gradient
     //     renderer.domElement.style.background = `linear-gradient(
     //   to bottom,
     //   rgb(237, 231, 233) 0%,
@@ -38,13 +38,13 @@ export const initScene = (canvas) => {
     //   rgb(20, 20, 20) 100%
     // )`;
 
-    // 处理窗口大小变化
+    // Handle window resize
     window.addEventListener("resize", () => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
 
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio); // 确保在调整大小时也设置像素比
+        renderer.setPixelRatio(window.devicePixelRatio); // Ensure pixel ratio is set on resize
     });
 
     return { scene, camera, renderer };

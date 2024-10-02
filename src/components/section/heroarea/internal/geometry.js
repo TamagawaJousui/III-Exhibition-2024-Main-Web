@@ -17,13 +17,13 @@ const getSpherePointsPostion = (numParticles, radius) => {
 };
 
 const getSpherePointsColor = (postions, radius) => {
-    // 生成球面上的粒子并为每个粒子赋予不同的颜色
+    // Generate particles on the sphere and assign different colors to each particle
     const numParticles = postions.length / 4;
     const colors = new Float32Array(numParticles * 4);
     for (let i = 0; i < numParticles; i++) {
-        const [x, y, z] = postions.slice(i * 4, i * 4 + 3); // 获取位置
+        const [x, y, z] = postions.slice(i * 4, i * 4 + 3); // Get position
 
-        // 根据位置获取颜色
+        // Get color based on position
         const distance = Math.sqrt(x * x + y * y + z * z);
         const [r, g, b] = getColorByPositionDistance(distance, radius);
         colors[i * 4] = r;
@@ -34,7 +34,7 @@ const getSpherePointsColor = (postions, radius) => {
     return colors;
 };
 
-// 生成球面上的随机点
+// Generate random points on the surface of the sphere
 // const getRandomPositionOnSphere = (radius) => {
 //     const u = Math.random();
 //     const v = Math.random();
@@ -48,13 +48,13 @@ const getSpherePointsColor = (postions, radius) => {
 //     return [x, y, z];
 // };
 
-// 生成球体内部均匀分布的随机点
+// Generate uniformly distributed random points inside the sphere
 const getRandomPositionInSphere = (radius) => {
     const u = Math.random();
     const v = Math.random();
     const theta = 2 * Math.PI * u;
     const phi = Math.acos(2 * v - 1);
-    const r = Math.cbrt(Math.random()) * radius; // 随机半径，均匀分布在球体内部
+    const r = Math.cbrt(Math.random()) * radius; // Random radius, uniformly distributed inside the sphere
 
     const x = r * Math.sin(phi) * Math.cos(theta);
     const y = r * Math.sin(phi) * Math.sin(theta);
@@ -63,17 +63,17 @@ const getRandomPositionInSphere = (radius) => {
     return [x, y, z];
 };
 
-// 定义球面区域的颜色
+// Define the colors of the spherical regions
 // const faceColors = {
-//     "+X": [1.0, 0.2745, 0.0], // 鲜艳的橘红色
-//     "-X": [1.0, 0.1961, 0.0], // 亮丽的红橘色
-//     "+Y": [1.0, 0.3333, 0.0], // 热情的亮橘色
-//     "-Y": [1.0, 0.1569, 0.0], // 活力的深橘红
-//     "+Z": [1.0, 0.4, 0.0], // 明亮的橙红色
-//     "-Z": [1.0, 0.2353, 0.0], // 生机勃勃的橘色
+//     "+X": [1.0, 0.2745, 0.0], // Vivid orange-red
+//     "-X": [1.0, 0.1961, 0.0], // Bright red-orange
+//     "+Y": [1.0, 0.3333, 0.0], // Enthusiastic bright orange
+//     "-Y": [1.0, 0.1569, 0.0], // Energetic deep orange-red
+//     "+Z": [1.0, 0.4, 0.0], // Bright orange-red
+//     "-Z": [1.0, 0.2353, 0.0], // Vibrant orange
 // };
 
-// 根据顶点的空间位置确定其所在的区域
+// Determine the region based on the spatial position of the vertex
 // const getColorByPositionArea = (x, y, z) => {
 //     if (Math.abs(x) >= Math.abs(y) && Math.abs(x) >= Math.abs(z)) {
 //         return x >= 0 ? faceColors["+X"] : faceColors["-X"];
@@ -84,17 +84,17 @@ const getRandomPositionInSphere = (radius) => {
 //     }
 // };
 
-// 创建用于颜色渐变的色板
+// Create a color palette for gradient
 const colorStops = [
-    new THREE.Color(0xede7e9), // 到球心最近的颜色
+    new THREE.Color(0xede7e9), // Color closest to the center of the sphere
     new THREE.Color(0xeb8f99),
     new THREE.Color(0xea3b4d),
     new THREE.Color(0xfb7c39),
     new THREE.Color(0xc4ded0),
-    new THREE.Color(0xe4c2ca), // 到球心最远的颜色
+    new THREE.Color(0xe4c2ca), // Color farthest from the center of the sphere
 ];
 
-// 函数：根据距离映射颜色
+// Function: Map color based on distance
 const getColorByPositionDistance = (distance, maxDistance) => {
     const ratio = distance / maxDistance;
     const numStops = colorStops.length;
