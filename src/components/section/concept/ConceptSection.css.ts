@@ -6,7 +6,20 @@ export const styles = {
     root: style({
         display: "flex",
         flexDirection: "column",
-        padding: `${vars.spacing.md} 0`,
+        justifyContent: "center",
         height: "100%",
+        // backgroundImage: "url(/bg/bg.jpg)",
+        width: "100%",
+    }),
+    wrapper: style({
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-evenly",
+        height: "100%",
+        width: "60%",
+    }),
+    concept: style({
+        textAlign: "center",
+        lineHeight: vars.lineHeight["3xl"],
     }),
 };
