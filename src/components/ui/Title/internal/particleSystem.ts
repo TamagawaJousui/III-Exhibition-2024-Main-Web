@@ -35,7 +35,7 @@ export class particleSystem {
         this.renderer = renderer;
 
         this.raycaster = new THREE.Raycaster();
-        this.mouse = new THREE.Vector2(-200, 200);
+        this.mouse = new THREE.Vector2(-1, -1);
 
         this.colorChange = new THREE.Color();
 
@@ -235,38 +235,36 @@ export class particleSystem {
 
         geometry.center();
 
-        const holeShapes = [];
-
-        for (let q = 0; q < shapes.length; q++) {
-            const shape = shapes[q];
-
-            if (shape.holes && shape.holes.length > 0) {
-                for (let j = 0; j < shape.holes.length; j++) {
-                    const hole = shape.holes[j];
-                    holeShapes.push(hole);
-                }
-            }
-        }
-        shapes.push(...(holeShapes as THREE.Shape[]));
-
         const colors: number[] = [];
         const sizes: number[] = [];
 
         for (let x = 0; x < shapes.length; x++) {
             const shape = shapes[x];
 
-            const amountPoints =
-                shape.type == "Path"
-                    ? this.particleOptions.amount / 2
-                    : this.particleOptions.amount;
+            // Get contour and holes points
+            const { shape: shapeVertices, holes: holeVertices } = shape.extractPoints(10);
 
-            const points = shape.getSpacedPoints(amountPoints);
+            // Triangulate the shape to get the interior points
+            const triangles = THREE.ShapeUtils.triangulateShape(shapeVertices, holeVertices);
 
-            points.forEach((element /*, z */) => {
-                const a = new THREE.Vector3(element.x, element.y, 0);
-                thePoints.push(a);
-                colors.push(this.colorChange.r, this.colorChange.g, this.colorChange.b);
-                sizes.push(1);
+            // Add points inside the shape
+            triangles.forEach((triangle) => {
+                const [a, b, c] = triangle.map((index) => shapeVertices[index]);
+
+                // Generate random points inside the triangle
+                for (let i = 0; i < this.particleOptions.amount; i++) {
+                    const r1 = Math.random();
+                    const r2 = Math.random();
+                    const sqrtR1 = Math.sqrt(r1);
+
+                    const x = (1 - sqrtR1) * a.x + sqrtR1 * (1 - r2) * b.x + sqrtR1 * r2 * c.x;
+                    const y = (1 - sqrtR1) * a.y + sqrtR1 * (1 - r2) * b.y + sqrtR1 * r2 * c.y;
+
+                    const point = new THREE.Vector3(x, y, 0);
+                    thePoints.push(point);
+                    colors.push(this.colorChange.r, this.colorChange.g, this.colorChange.b);
+                    sizes.push(1);
+                }
             });
         }
 

@@ -11,18 +11,8 @@ export const useTitle = (magicRef: React.RefObject<HTMLDivElement>) => {
         let environment: Environment | null = null;
         if (!magicRef.current) return;
 
-        const particleOptions: ParticleData = {
-            text: "FUTURE\nIS NOW",
-            amount: 1500,
-            particleSize: 1,
-            particleColor: 0xffffff,
-            textSize: 16,
-            area: 250,
-            ease: 0.05,
-        };
-
         // フォントとテクスチャのプリロード
-        const preload = () => {
+        const preload = (particleOptions: ParticleData) => {
             const manager = new THREE.LoadingManager();
 
             let typo: Font | null = null;
@@ -45,11 +35,32 @@ export const useTitle = (magicRef: React.RefObject<HTMLDivElement>) => {
             });
         };
 
+        const getTextSize = () => {
+            if (window.innerWidth > 1024) {
+                return 8;
+            } else if (window.innerWidth > 768) {
+                return 6;
+            } else if (window.innerWidth > 500) {
+                return 4;
+            } else {
+                return 4;
+            }
+        };
+
         if (
             document.readyState === "complete" ||
             (document.readyState !== "loading" && !document.documentElement.scrollTop)
         ) {
-            preload();
+            const particleOptions: ParticleData = {
+                text: "付いて離れて",
+                amount: 20,
+                particleSize: 1,
+                particleColor: 0xffffff,
+                textSize: getTextSize(),
+                area: 250,
+                ease: 0.1,
+            };
+            preload(particleOptions);
         } else {
             document.addEventListener("DOMContentLoaded", preload);
         }
