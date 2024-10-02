@@ -76,7 +76,8 @@ export class Environment {
         this.renderer = new THREE.WebGLRenderer();
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
 
-        this.renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        this.renderer.setPixelRatio(window.devicePixelRatio);
+        this.renderer.setClearColor(0x000000, 0);
 
         this.renderer.outputColorSpace = THREE.SRGBColorSpace;
         this.container.appendChild(this.renderer.domElement);
