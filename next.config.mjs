@@ -1,5 +1,5 @@
 import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin";
-
+import { FontOptimizationPlugin } from "./src/utils/FontOptimizationPlugin.mjs";
 const withVanillaExtract = createVanillaExtractPlugin();
 
 const nextConfig = {
@@ -13,6 +13,16 @@ const nextConfig = {
                 port: "",
             },
         ],
+    },
+    webpack: (config) => {
+        config.plugins.push(
+            new FontOptimizationPlugin({
+                fontPath: "./public/fonts/KleeOne-Regular-Master.json",
+                outputPath: "./public/fonts/KleeOne-Regular.json",
+                chars: "付いて離れて",
+            })
+        );
+        return config;
     },
 };
 
