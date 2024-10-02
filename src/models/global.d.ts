@@ -33,3 +33,11 @@ export interface ParticleData {
     area: number;
     ease: number;
 }
+declare module "*.vert" {
+    const src: string;
+    export default src;
+}
+declare module "*.frag" {
+    const src: string;
+    export default src;
+}
