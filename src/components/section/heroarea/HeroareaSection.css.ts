@@ -4,7 +4,6 @@ import { vars } from "@/styles";
 
 export const styles = {
     root: style({
-        display: "flex",
         justifyContent: "center",
         alignItems: "center",
         flex: "0 0 100vw",
