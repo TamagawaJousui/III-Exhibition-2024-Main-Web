@@ -11,14 +11,14 @@ export const sectionInfo = [
         node: ConceptSection,
     },
     {
-        id: "access",
-        title: "ACCESS",
-        node: AccessSection,
-    },
-    {
         id: "works",
         title: "WORKS",
         node: WorksSection,
+    },
+    {
+        id: "access",
+        title: "ACCESS",
+        node: AccessSection,
     },
     {
         id: "members",
