@@ -16,9 +16,13 @@ export const styles = {
         border: `1px solid ${vars.color.textSecondary}`,
     }),
     heading: style({
+        height: vars.spacing.xl,
         borderBottom: `1px solid ${vars.color.textSecondary}`,
         margin: 0,
-        padding: `${vars.spacing.sm} ${vars.spacing.md}`,
+        padding: `${vars.spacing.xs} ${vars.spacing.md}`,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
     }),
     embla: style([
         typography({
