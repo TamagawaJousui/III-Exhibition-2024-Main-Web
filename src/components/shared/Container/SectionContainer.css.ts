@@ -7,7 +7,7 @@ export const styles = {
         display: "flex",
         flexDirection: "column",
         height: "100vh",
-        padding: `${vars.spacing.sm} ${vars.spacing.lg}`,
+        padding: `${vars.spacing.lg} ${vars.spacing.lg}`,
         "@media": {
             [mediaUtils.mobile]: {
                 width: "100vw",
