@@ -11,7 +11,6 @@ export const styles = {
         flexWrap: "wrap",
         gap: vars.spacing.sm,
         height: "100%",
-        overflow: "hidden",
         padding: `${vars.spacing.md} 0`,
         width: MEMBER_SECTION_WIDTH,
         "@media": {

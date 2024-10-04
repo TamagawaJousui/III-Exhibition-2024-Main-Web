@@ -10,11 +10,13 @@ export const styles = {
         flexDirection: "column",
         gap: vars.spacing.sm,
         padding: `0 ${vars.spacing.lg}`,
+        width: "100%",
     }),
     members: style({
         display: "flex",
         flexWrap: "wrap",
         width: TEAM_CARD_WIDTH,
+        maxWidth: "100%",
         gap: vars.spacing.md,
     }),
 };
