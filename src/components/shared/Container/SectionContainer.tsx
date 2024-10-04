@@ -15,6 +15,6 @@ type Props = {
 export const SectionContainer: FC<Props> = ({ id, title, children }) => (
     <section id={id} className={styles.root}>
         {title && <h1>{title}</h1>}
-        {children}
+        <div className={styles.container}>{children}</div>
     </section>
 );
