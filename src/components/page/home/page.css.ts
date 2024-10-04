@@ -12,10 +12,6 @@ export const styles = {
             height: "100%",
             width: "100%",
             // overflowX: "scroll",
-            /*スクロールバー非表示（IE・Edge）*/
-            msOverflowStyle: "none",
-            /*スクロールバー非表示（Firefox）*/
-            scrollbarWidth: "none",
         },
     ]),
     wrapper: style({

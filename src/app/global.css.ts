@@ -7,6 +7,10 @@ globalStyle("html, body", {
 
     height: "100vh",
     width: "auto",
+    /*スクロールバー非表示（IE・Edge）*/
+    msOverflowStyle: "none",
+    /*スクロールバー非表示（Firefox）*/
+    scrollbarWidth: "none",
     fontFamily: "var(--font-klee), var(--font-playfair), sans-serif",
 
     "@media": {
@@ -84,11 +88,6 @@ globalStyle("img", {
     msUserSelect: "none",
 });
 
-// globalStyle("::-webkit-scrollbar", {
-//     width: "12px",
-// });
-
-// globalStyle("::-webkit-scrollbar-thumb", {
-//     backgroundColor: "black",
-//     borderRadius: "5px",
-// });
+globalStyle("::-webkit-scrollbar", {
+    display: "none",
+});
