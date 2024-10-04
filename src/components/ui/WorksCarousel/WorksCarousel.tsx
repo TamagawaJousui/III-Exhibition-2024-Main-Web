@@ -5,6 +5,8 @@ import React from "react";
 
 import { placeColorPalette, type Place } from "@/models/place";
 
+import { PlaceCard } from "../PlaceCard";
+
 import { WorkData, workList } from "@/components/section/works/model";
 import {
     NextButton,
@@ -33,7 +35,7 @@ export const WorksCarousel: React.FC<PropType> = ({ place, works }) => {
     return (
         <div className={styles.root}>
             <h3 className={styles.heading} style={{ backgroundColor: placeColorPalette[place] }}>
-                {place}
+                <PlaceCard name={place} />
             </h3>
             <section className={styles.embla}>
                 <div className={styles.arrowButtonContainer}>

@@ -31,7 +31,7 @@ export const AccessSection: FC = () => (
             <WithTitle title="日時" size="xl" fit className={styles.gap}>
                 <div className={styles.info}>
                     <p>2024/11/7(木) - 11/11(月)</p>
-                    <p>11:00 - 19:00 (最終日17:00開場)</p>
+                    <p>11:00 - 19:00 (最終日17:00閉場)</p>
                 </div>
             </WithTitle>
 
