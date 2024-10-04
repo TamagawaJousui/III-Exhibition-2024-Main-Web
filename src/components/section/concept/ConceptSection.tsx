@@ -3,6 +3,7 @@ import { FC } from "react";
 
 import { conceptData } from "@/models/concept";
 import { WithWordBreak } from "@/utils/hocs/WithWordBreak";
+import { BreakWord } from "@/utils/wordBreak";
 
 import { SectionContainer } from "@/components/shared/Container";
 
@@ -17,12 +18,7 @@ export const ConceptSection: FC = () => (
             {() => (
                 <div className={styles.wrapper}>
                     <WithWordBreak className={styles.concept}>
-                        {conceptData.ja.map((sentence) => (
-                            <>
-                                {sentence}
-                                <wbr />
-                            </>
-                        ))}
+                        <BreakWord content={conceptData.ja} />
                     </WithWordBreak>
                     <p className={styles.concept}>{conceptData.en}</p>
                 </div>
