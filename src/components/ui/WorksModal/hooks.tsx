@@ -5,6 +5,8 @@ import { WorksModal } from "./WorksModal";
 
 import { WorkData } from "@/components/section/works/model";
 
+import { styles } from "./WorksModal.css";
+
 const modalAtom = atom<boolean>(false);
 const workAtom = atom<WorkData | null>(null);
 
@@ -26,7 +28,11 @@ export const useWorksModal = () => {
 
     const renderModal = () => {
         if (work) {
-            return <WorksModal isOpen={isOpen} onClose={handleClose} currentWork={work} />;
+            return (
+                <div className={styles.overlay} onClick={handleClose}>
+                    <WorksModal isOpen={isOpen} currentWork={work} />
+                </div>
+            );
         }
     };
 

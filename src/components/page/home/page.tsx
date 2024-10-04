@@ -4,14 +4,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
 
+import { useWindow } from "@/hooks/window";
 import { sectionInfo } from "@/models"; // Assuming sectionInfo is typed
 import { WithHeader } from "@/utils/hocs/WithHeader";
 
 import { HeroareaSection } from "@/components/section/heroarea";
 import { Footer } from "@/components/shared/Footer";
 import { useWorksModal } from "@/components/ui/WorksModal";
-
-import { breakpoint } from "@/styles";
 
 import { styles } from "./page.css";
 
@@ -22,8 +21,10 @@ export const HomePage = () => {
     const component = useRef<HTMLDivElement>(null);
     const slider = useRef<HTMLDivElement>(null);
 
+    const { isMobile } = useWindow();
+
     useLayoutEffect(() => {
-        if (window.innerWidth > breakpoint.mobile) {
+        if (!isMobile) {
             const ctx = gsap.context(() => {
                 if (slider.current) {
                     const sections = gsap.utils.toArray<HTMLDivElement>(slider.current.children);
