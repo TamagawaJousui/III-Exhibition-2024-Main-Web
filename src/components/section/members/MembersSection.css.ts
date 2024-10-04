@@ -1,15 +1,23 @@
 import { style } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
+
+const MEMBER_SECTION_WIDTH = "180em" as const;
 
 export const styles = {
     root: style({
-        display: "grid",
-        gridAutoFlow: "column", // 縦に並べる
-        gridTemplateColumns: "auto",
-        gridTemplateRows: "repeat(auto-fill, minmax(10rem, max-content))",
-        gap: vars.spacing.md,
+        display: "flex",
+        flexDirection: "column",
+        flexWrap: "wrap",
+        gap: vars.spacing.sm,
         height: "100%",
+        overflow: "hidden",
         padding: `${vars.spacing.md} 0`,
+        width: MEMBER_SECTION_WIDTH,
+        "@media": {
+            [mediaUtils.mobile]: {
+                width: "100%",
+            },
+        },
     }),
 };
