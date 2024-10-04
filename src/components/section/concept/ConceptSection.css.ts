@@ -4,22 +4,19 @@ import { vars } from "@/styles";
 
 export const styles = {
     root: style({
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
         height: "100%",
-        width: "100%",
     }),
     wrapper: style({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-evenly",
         height: "100%",
-        width: "60%",
     }),
     concept: style({
+        display: "flex",
+        flexDirection: "column",
+        gap: vars.spacing.md,
         textAlign: "center",
-        lineHeight: vars.lineHeight["3xl"],
+        // lineHeight: vars.lineHeight.xl,
     }),
 };

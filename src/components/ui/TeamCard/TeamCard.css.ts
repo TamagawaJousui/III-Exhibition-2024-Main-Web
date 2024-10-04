@@ -10,7 +10,7 @@ export const styles = {
         flexDirection: "column",
         gap: vars.spacing.sm,
         padding: `0 ${vars.spacing.lg}`,
-        width: "100%",
+        flex: 1,
     }),
     members: style({
         display: "flex",

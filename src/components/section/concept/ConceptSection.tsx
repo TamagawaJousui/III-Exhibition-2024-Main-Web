@@ -17,9 +17,13 @@ export const ConceptSection: FC = () => (
         <WaterWave className={styles.root} dropRadius={100}>
             {() => (
                 <div className={styles.wrapper}>
-                    <WithWordBreak className={styles.concept}>
-                        <BreakWord content={conceptData.ja} />
-                    </WithWordBreak>
+                    <div className={styles.concept}>
+                        {conceptData.ja.map((concept) => (
+                            <WithWordBreak key={concept}>
+                                <BreakWord content={concept} optional />
+                            </WithWordBreak>
+                        ))}
+                    </div>
                     <p className={styles.concept}>{conceptData.en}</p>
                 </div>
             )}
