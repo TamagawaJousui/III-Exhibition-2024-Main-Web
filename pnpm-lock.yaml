@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  three:
+    hash: t5vd6mip5hxhu7h3qzkkybr6fe
+    path: patches/three.patch
+
 importers:
 
   .:
@@ -61,7 +66,7 @@ importers:
         version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       three:
         specifier: ^0.168.0
-        version: 0.168.0
+        version: 0.168.0(patch_hash=t5vd6mip5hxhu7h3qzkkybr6fe)
       ts-pattern:
         specifier: ^5.3.1
         version: 5.3.1
@@ -8843,7 +8848,7 @@ snapshots:
 
   third-party-capital@1.0.20: {}
 
-  three@0.168.0: {}
+  three@0.168.0(patch_hash=t5vd6mip5hxhu7h3qzkkybr6fe): {}
 
   time-span@4.0.0:
     dependencies:

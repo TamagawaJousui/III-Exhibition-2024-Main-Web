@@ -242,14 +242,16 @@ export class particleSystem {
             const shape = shapes[x];
 
             // Get contour and holes points
-            const { shape: shapeVertices, holes: holeVertices } = shape.extractPoints(10);
+            const { shape: shapeVertices, holes: holeVertices } = shape.extractPoints(12);
 
             // Triangulate the shape to get the interior points
             const triangles = THREE.ShapeUtils.triangulateShape(shapeVertices, holeVertices);
+            const vertices = [...shapeVertices];
+            vertices.push(...holeVertices.flat(2));
 
             // Add points inside the shape
             triangles.forEach((triangle) => {
-                const [a, b, c] = triangle.map((index) => shapeVertices[index]);
+                const [a, b, c] = triangle.map((index) => vertices[index]);
 
                 // Generate random points inside the triangle
                 for (let i = 0; i < this.particleOptions.amount; i++) {
