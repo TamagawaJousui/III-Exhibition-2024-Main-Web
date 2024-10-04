@@ -1,9 +1,20 @@
-import { style } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 
 export const styles = {
-    root: style({
-        wordBreak: "keep-all",
-        overflowWrap: "break-word",
-        textAlign: "center",
+    root: recipe({
+        base: {
+            wordBreak: "keep-all",
+            overflowWrap: "break-word",
+        },
+        variants: {
+            align: {
+                center: {
+                    textAlign: "center",
+                },
+                left: {
+                    textAlign: "left",
+                },
+            },
+        },
     }),
 };

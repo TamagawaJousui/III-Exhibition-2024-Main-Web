@@ -4,8 +4,8 @@ import Image from "next/image";
 import React from "react";
 
 import { placeColorPalette, type Place } from "@/models/place";
-
-import { PlaceCard } from "../PlaceCard";
+import { WithWordBreak } from "@/utils/hocs/WithWordBreak";
+import { BreakWord } from "@/utils/wordBreak";
 
 import { WorkData, workList } from "@/components/section/works/model";
 import {
@@ -34,9 +34,11 @@ export const WorksCarousel: React.FC<PropType> = ({ place, works }) => {
 
     return (
         <div className={styles.root}>
-            <h3 className={styles.heading} style={{ backgroundColor: placeColorPalette[place] }}>
-                <PlaceCard name={place} />
-            </h3>
+            <div className={styles.heading} style={{ backgroundColor: placeColorPalette[place] }}>
+                <WithWordBreak as="h3">
+                    <BreakWord content={place} />
+                </WithWordBreak>
+            </div>
             <section className={styles.embla}>
                 <div className={styles.arrowButtonContainer}>
                     <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
