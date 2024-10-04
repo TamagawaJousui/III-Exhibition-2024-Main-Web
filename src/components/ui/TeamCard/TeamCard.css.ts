@@ -2,6 +2,8 @@ import { style } from "@vanilla-extract/css";
 
 import { vars } from "@/styles";
 
+const TEAM_CARD_WIDTH = "40em" as const;
+
 export const styles = {
     root: style({
         display: "flex",
@@ -10,8 +12,9 @@ export const styles = {
         padding: `0 ${vars.spacing.lg}`,
     }),
     members: style({
-        display: "grid",
-        gridTemplateColumns: "repeat(5, 1fr)",
+        display: "flex",
+        flexWrap: "wrap",
+        width: TEAM_CARD_WIDTH,
         gap: vars.spacing.md,
     }),
 };
