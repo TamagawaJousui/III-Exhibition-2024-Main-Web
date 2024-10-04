@@ -253,8 +253,14 @@ export class particleSystem {
             triangles.forEach((triangle) => {
                 const [a, b, c] = triangle.map((index) => vertices[index]);
 
+                // Calculate the area of the triangle
+                const area = Math.abs((b.x - a.x) * (c.y - a.y) - (c.x - a.x) * (b.y - a.y)) / 2;
+
+                // Determine the number of points based on the area
+                const numPoints = Math.floor(this.particleOptions.amount * area);
+
                 // Generate random points inside the triangle
-                for (let i = 0; i < this.particleOptions.amount; i++) {
+                for (let i = 0; i < numPoints; i++) {
                     const r1 = Math.random();
                     const r2 = Math.random();
                     const sqrtR1 = Math.sqrt(r1);

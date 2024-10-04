@@ -49,7 +49,7 @@ export const useTitle = (magicRef: React.RefObject<HTMLDivElement>) => {
 
         const particleOptions: ParticleData = {
             text: "付いて離れて",
-            amount: 20,
+            amount: 350,
             particleSize: 1,
             particleColor: 0xffffff,
             textSize: getTextSize(),
