@@ -4,6 +4,7 @@ export const styles = {
         height: "100vh",
         top: 0,
         left: 0,
-        zIndex: 9999,
+        zIndex: 2,
+        position: "absolute" as const,
     },
 };
