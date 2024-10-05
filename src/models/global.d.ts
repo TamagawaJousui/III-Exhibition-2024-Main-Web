@@ -23,3 +23,13 @@ declare module "react-water-wave" {
 
     export default WaterWave;
 }
+
+declare module "*.vert" {
+    const src: string;
+    export default src;
+}
+
+declare module "*.frag" {
+    const src: string;
+    export default src;
+}
