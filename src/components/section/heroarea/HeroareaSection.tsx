@@ -1,5 +1,7 @@
 import { FC, useRef } from "react";
 
+import { Title } from "@components/ui/Title";
+
 import { useParticles } from "./useParticles";
 
 import { styles } from "./HeroareaSection.css";
@@ -9,8 +11,31 @@ export const HeroareaSection: FC = () => {
     useParticles(canvasRef, 1024, 0.7);
 
     return (
-        <div className={styles.root} ref={canvasRef}>
-            ついて離れて
+        <div style={{ position: "relative" }}>
+            <div
+                className={styles.root}
+                ref={canvasRef}
+                style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    zIndex: 1,
+                }}
+            >
+                ついて離れて
+            </div>
+            <Title
+                style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    zIndex: 2,
+                }}
+            />
         </div>
     );
 };
