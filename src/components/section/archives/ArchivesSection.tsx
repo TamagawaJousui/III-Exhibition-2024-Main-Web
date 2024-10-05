@@ -18,7 +18,7 @@ export const ArchivesSection: FC = () => (
                             <li key={page.id}>
                                 <a href={getExtraPageLink(page.id)}>
                                     <WithWordBreak align="left">
-                                        {`iiiExhibition Extra ${page.id}`}
+                                        {`iiiExhibition Extra ${page.id} `}
                                         <wbr />
                                         {page.concept}
                                     </WithWordBreak>
@@ -35,7 +35,7 @@ export const ArchivesSection: FC = () => (
                             <li key={page.id}>
                                 <a href={getMainPageLink(page.id)}>
                                     <WithWordBreak align="left">
-                                        {`iiiExhibition ${page.id + 1998}`}
+                                        {`iiiExhibition ${page.id + 1998} `}
                                         <wbr />
                                         {page.concept}
                                     </WithWordBreak>
