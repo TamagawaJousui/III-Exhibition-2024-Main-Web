@@ -1,7 +1,7 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { styleUtils, vars } from "@/styles";
+import { mediaUtils, styleUtils, vars } from "@/styles";
 
 export const styles = {
     root: style([
@@ -14,12 +14,13 @@ export const styles = {
         },
     ]),
 
-    allWorks: style([
-        styleUtils.alignVertical,
-        {
-            display: "flex",
+    pickUp: style({
+        "@media": {
+            [mediaUtils.mobile]: { height: "600px" },
         },
-    ]),
+    }),
+
+    allWorks: styleUtils.alignVertical,
 };
 
 export const subContainerStyles = {
@@ -42,7 +43,10 @@ export const subContainerStyles = {
         },
     }),
     content: style({
-        flex: 1,
+        flex: "auto",
         overflow: "hidden",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
     }),
 };

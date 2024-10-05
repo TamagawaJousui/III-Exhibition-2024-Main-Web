@@ -15,6 +15,7 @@ export const styles = {
         flexDirection: "column",
         textAlign: "center",
         width: "20em",
+        maxWidth: "100%",
         border: `1px solid ${vars.color.textSecondary}`,
         height: "100%",
     }),
