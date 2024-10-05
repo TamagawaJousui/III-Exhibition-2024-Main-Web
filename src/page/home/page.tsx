@@ -5,10 +5,10 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
 
 import { sectionInfo } from "@/models"; // Assuming sectionInfo is typed
-import { WithHeader } from "@/utils/hocs/WithHeader";
 
 import { HeroareaSection } from "@/components/section/heroarea";
 import { Footer } from "@/components/shared/Footer";
+import { Header } from "@/components/shared/Header";
 import { useWorksModal } from "@/components/ui/WorksModal";
 
 import { breakpoint } from "@/styles";
@@ -91,17 +91,16 @@ export const HomePage = () => {
     return (
         <div className={styles.root} ref={component}>
             {isOpen && renderModal()}
-            <WithHeader>
-                <div className={styles.wrapper} ref={slider}>
-                    <div className={styles.container}>
-                        <HeroareaSection />
-                        {sectionInfo.map((section: (typeof sectionInfo)[number]) => (
-                            <section.node key={section.id} />
-                        ))}
-                        <Footer />
-                    </div>
+            <Header className={styles.header} />
+            <div className={styles.wrapper} ref={slider}>
+                <div className={styles.container}>
+                    <HeroareaSection />
+                    {sectionInfo.map((section: (typeof sectionInfo)[number]) => (
+                        <section.node key={section.id} />
+                    ))}
+                    <Footer />
                 </div>
-            </WithHeader>
+            </div>
         </div>
     );
 };
