@@ -26,6 +26,7 @@ export const styles = {
         "@media": {
             [mediaUtils.mobile]: {
                 position: "sticky",
+                left: "100vw",
             },
         },
     }),
