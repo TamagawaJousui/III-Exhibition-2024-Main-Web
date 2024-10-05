@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 const TEAM_CARD_WIDTH = "40em" as const;
 
@@ -11,6 +11,12 @@ export const styles = {
         gap: vars.spacing.sm,
         padding: `0 ${vars.spacing.lg}`,
         flex: 1,
+        "@media": {
+            [mediaUtils.mobile]: {
+                width: "100%",
+                padding: 0,
+            },
+        },
     }),
     members: style({
         display: "flex",
@@ -18,5 +24,11 @@ export const styles = {
         width: TEAM_CARD_WIDTH,
         maxWidth: "100%",
         gap: vars.spacing.md,
+        "@media": {
+            [mediaUtils.mobile]: {
+                justifyContent: "space-evenly",
+                width: "100%",
+            },
+        },
     }),
 };

@@ -11,7 +11,7 @@ import { styles } from "./ArchivesSection.css";
 export const ArchivesSection: FC = () => (
     <SectionContainer id="archives" title="ARCHIVES">
         <div className={styles.root}>
-            <WithTitle title="EXTRA" size="lg">
+            <WithTitle title="EXTRA" size="lg" padding="sm">
                 <nav>
                     <ul>
                         {extraPageInfo.map((page) => (
@@ -28,7 +28,7 @@ export const ArchivesSection: FC = () => (
                     </ul>
                 </nav>
             </WithTitle>
-            <WithTitle title="III Exhibition" size="lg">
+            <WithTitle title="III Exhibition" size="lg" padding="sm">
                 <nav>
                     <ul>
                         {mainPageInfo.map((page) => (
