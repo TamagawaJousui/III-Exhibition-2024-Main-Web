@@ -14,12 +14,15 @@ export class particleSystem {
     raycaster: THREE.Raycaster;
     mouse: THREE.Vector2;
     colorChange: THREE.Color;
-    buttom: boolean;
+    mouseDown: boolean;
     particleOptions: ParticleData;
     planeArea: THREE.Mesh = new THREE.Mesh();
     currenPosition: THREE.Vector3 = new THREE.Vector3();
     particles: THREE.Points = new THREE.Points();
-    geometryCopy: THREE.BufferGeometry = new THREE.BufferGeometry();
+    outlineParticles: THREE.Points = new THREE.Points();
+    planeParticles: THREE.Points = new THREE.Points();
+    planeParticlesGeometryCopy: THREE.BufferGeometry = new THREE.BufferGeometry();
+    outlineParticlesGeometryCopy: THREE.BufferGeometry = new THREE.BufferGeometry();
     constructor(
         scene: THREE.Scene,
         font: Font,
@@ -39,7 +42,7 @@ export class particleSystem {
 
         this.colorChange = new THREE.Color();
 
-        this.buttom = false;
+        this.mouseDown = false;
 
         this.particleOptions = particleOptions;
 
@@ -80,13 +83,13 @@ export class particleSystem {
     //     this.currenPosition = this.camera.position.clone().add(dir.multiplyScalar(distance));
 
     //     // const pos = this.particles.geometry.attributes.position;
-    //     this.buttom = true;
+    //     this.mouseDown = true;
     //     this.particleOptions.ease = 0.01;
     // }
 
     // disable mouse click event
     // onMouseUp() {
-    //     this.buttom = false;
+    //     this.mouseDown = false;
     //     this.particleOptions.ease = 0.05;
     // }
 
@@ -104,50 +107,47 @@ export class particleSystem {
         const intersects = this.raycaster.intersectObject(this.planeArea);
 
         if (intersects.length > 0) {
-            const pos = this.particles.geometry.attributes.position;
-            const copy = this.geometryCopy.attributes.position;
-            const coulors = this.particles.geometry.attributes.customColor;
-            const size = this.particles.geometry.attributes.size;
+            // plane particles
+            {
+                const pos = this.planeParticles.geometry.attributes.position;
+                const copy = this.planeParticlesGeometryCopy.attributes.position;
+                const coulors = this.planeParticles.geometry.attributes.customColor;
+                const size = this.planeParticles.geometry.attributes.size;
 
-            const mx = intersects[0].point.x;
-            const my = intersects[0].point.y;
-            // const mz = intersects[0].point.z;
+                const mx = intersects[0].point.x;
+                const my = intersects[0].point.y;
+                // const mz = intersects[0].point.z;
 
-            for (let i = 0, l = pos.count; i < l; i++) {
-                const initX = copy.getX(i);
-                const initY = copy.getY(i);
-                const initZ = copy.getZ(i);
+                for (let i = 0, l = pos.count; i < l; i++) {
+                    const initX = copy.getX(i);
+                    const initY = copy.getY(i);
+                    const initZ = copy.getZ(i);
 
-                let px = pos.getX(i);
-                let py = pos.getY(i);
-                let pz = pos.getZ(i);
+                    let px = pos.getX(i);
+                    let py = pos.getY(i);
+                    let pz = pos.getZ(i);
 
-                this.colorChange.setHSL(0.5, 1, 1);
-                coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
-                coulors.needsUpdate = true;
-
-                size.array[i] = this.particleOptions.particleSize;
-                size.needsUpdate = true;
-
-                let dx = mx - px;
-                let dy = my - py;
-                // const dz = mz - pz;
-
-                const mouseDistance = this.distance(mx, my, px, py);
-                const d = (dx = mx - px) * dx + (dy = my - py) * dy;
-                const f = -this.particleOptions.area / d;
-
-                if (this.buttom) {
-                    const t = Math.atan2(dy, dx);
-                    px -= f * Math.cos(t);
-                    py -= f * Math.sin(t);
-
-                    this.colorChange.setHSL(0.5 + zigzagTime, 1.0, 0.5);
+                    this.colorChange.setHSL(0.5, 1, 1);
                     coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
                     coulors.needsUpdate = true;
 
-                    if (px > initX + 70 || px < initX - 70 || py > initY + 70 || py < initY - 70) {
-                        this.colorChange.setHSL(0.15, 1.0, 0.5);
+                    size.array[i] = this.particleOptions.particleSize;
+                    size.needsUpdate = true;
+
+                    let dx = mx - px;
+                    let dy = my - py;
+                    // const dz = mz - pz;
+
+                    const mouseDistance = this.distance(mx, my, px, py);
+                    const d = (dx = mx - px) * dx + (dy = my - py) * dy;
+                    const f = -this.particleOptions.area / d;
+
+                    if (this.mouseDown) {
+                        const t = Math.atan2(dy, dx);
+                        px -= f * Math.cos(t);
+                        py -= f * Math.sin(t);
+
+                        this.colorChange.setHSL(0.5 + zigzagTime, 1.0, 0.5);
                         coulors.setXYZ(
                             i,
                             this.colorChange.r,
@@ -155,42 +155,12 @@ export class particleSystem {
                             this.colorChange.b
                         );
                         coulors.needsUpdate = true;
-                    }
-                } else {
-                    if (mouseDistance < this.particleOptions.area) {
-                        if (i % 5 == 0) {
-                            const t = Math.atan2(dy, dx);
-                            px -= 0.03 * Math.cos(t);
-                            py -= 0.03 * Math.sin(t);
-
-                            this.colorChange.setHSL(0.15, 1.0, 0.5);
-                            coulors.setXYZ(
-                                i,
-                                this.colorChange.r,
-                                this.colorChange.g,
-                                this.colorChange.b
-                            );
-                            coulors.needsUpdate = true;
-
-                            size.array[i] = this.particleOptions.particleSize / 1.2;
-                            size.needsUpdate = true;
-                        } else {
-                            const t = Math.atan2(dy, dx);
-                            px += f * Math.cos(t);
-                            py += f * Math.sin(t);
-
-                            pos.setXYZ(i, px, py, pz);
-                            pos.needsUpdate = true;
-
-                            size.array[i] = this.particleOptions.particleSize * 1.3;
-                            size.needsUpdate = true;
-                        }
 
                         if (
-                            px > initX + 10 ||
-                            px < initX - 10 ||
-                            py > initY + 10 ||
-                            py < initY - 10
+                            px > initX + 70 ||
+                            px < initX - 70 ||
+                            py > initY + 70 ||
+                            py < initY - 70
                         ) {
                             this.colorChange.setHSL(0.15, 1.0, 0.5);
                             coulors.setXYZ(
@@ -200,26 +170,169 @@ export class particleSystem {
                                 this.colorChange.b
                             );
                             coulors.needsUpdate = true;
+                        }
+                    } else {
+                        if (mouseDistance < this.particleOptions.area) {
+                            // plane particles logic
+                            {
+                                const t = Math.atan2(dy, dx);
+                                px += f * Math.cos(t);
+                                py += f * Math.sin(t);
 
-                            size.array[i] = this.particleOptions.particleSize / 1.8;
-                            size.needsUpdate = true;
+                                pos.setXYZ(i, px, py, pz);
+                                pos.needsUpdate = true;
+
+                                size.array[i] = this.particleOptions.particleSize * 1.3;
+                                size.needsUpdate = true;
+                            }
+
+                            if (
+                                px > initX + 10 ||
+                                px < initX - 10 ||
+                                py > initY + 10 ||
+                                py < initY - 10
+                            ) {
+                                this.colorChange.setHSL(0.15, 1.0, 0.5);
+                                coulors.setXYZ(
+                                    i,
+                                    this.colorChange.r,
+                                    this.colorChange.g,
+                                    this.colorChange.b
+                                );
+                                coulors.needsUpdate = true;
+
+                                size.array[i] = this.particleOptions.particleSize / 1.8;
+                                size.needsUpdate = true;
+                            }
                         }
                     }
+
+                    px += (initX - px) * this.particleOptions.ease;
+                    py += (initY - py) * this.particleOptions.ease;
+                    pz += (initZ - pz) * this.particleOptions.ease;
+
+                    pos.setXYZ(i, px, py, pz);
+                    pos.needsUpdate = true;
                 }
+            }
+            // outline particles
+            {
+                const pos = this.outlineParticles.geometry.attributes.position;
+                const copy = this.outlineParticlesGeometryCopy.attributes.position;
+                const coulors = this.outlineParticles.geometry.attributes.customColor;
+                const size = this.outlineParticles.geometry.attributes.size;
 
-                px += (initX - px) * this.particleOptions.ease;
-                py += (initY - py) * this.particleOptions.ease;
-                pz += (initZ - pz) * this.particleOptions.ease;
+                const mx = intersects[0].point.x;
+                const my = intersects[0].point.y;
+                // const mz = intersects[0].point.z;
 
-                pos.setXYZ(i, px, py, pz);
-                pos.needsUpdate = true;
+                for (let i = 0, l = pos.count; i < l; i++) {
+                    const initX = copy.getX(i);
+                    const initY = copy.getY(i);
+                    const initZ = copy.getZ(i);
+
+                    let px = pos.getX(i);
+                    let py = pos.getY(i);
+                    let pz = pos.getZ(i);
+
+                    this.colorChange.setHSL(0.5, 1, 1);
+                    coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
+                    coulors.needsUpdate = true;
+
+                    size.array[i] = this.particleOptions.particleSize;
+                    size.needsUpdate = true;
+
+                    let dx = mx - px;
+                    let dy = my - py;
+                    // const dz = mz - pz;
+
+                    const mouseDistance = this.distance(mx, my, px, py);
+                    const d = (dx = mx - px) * dx + (dy = my - py) * dy;
+                    const f = -this.particleOptions.area / d;
+
+                    if (this.mouseDown) {
+                        const t = Math.atan2(dy, dx);
+                        px -= f * Math.cos(t);
+                        py -= f * Math.sin(t);
+
+                        this.colorChange.setHSL(0.5 + zigzagTime, 1.0, 0.5);
+                        coulors.setXYZ(
+                            i,
+                            this.colorChange.r,
+                            this.colorChange.g,
+                            this.colorChange.b
+                        );
+                        coulors.needsUpdate = true;
+
+                        if (
+                            px > initX + 70 ||
+                            px < initX - 70 ||
+                            py > initY + 70 ||
+                            py < initY - 70
+                        ) {
+                            this.colorChange.setHSL(0.15, 1.0, 0.5);
+                            coulors.setXYZ(
+                                i,
+                                this.colorChange.r,
+                                this.colorChange.g,
+                                this.colorChange.b
+                            );
+                            coulors.needsUpdate = true;
+                        }
+                    } else {
+                        if (mouseDistance < this.particleOptions.area) {
+                            // outline particles logic
+                            {
+                                const t = Math.atan2(dy, dx);
+                                px -= 0.03 * Math.cos(t);
+                                py -= 0.03 * Math.sin(t);
+
+                                this.colorChange.setHSL(0.15, 1.0, 0.5);
+                                coulors.setXYZ(
+                                    i,
+                                    this.colorChange.r,
+                                    this.colorChange.g,
+                                    this.colorChange.b
+                                );
+                                coulors.needsUpdate = true;
+
+                                size.array[i] = this.particleOptions.particleSize / 1.2;
+                                size.needsUpdate = true;
+                            }
+
+                            if (
+                                px > initX + 10 ||
+                                px < initX - 10 ||
+                                py > initY + 10 ||
+                                py < initY - 10
+                            ) {
+                                this.colorChange.setHSL(0.15, 1.0, 0.5);
+                                coulors.setXYZ(
+                                    i,
+                                    this.colorChange.r,
+                                    this.colorChange.g,
+                                    this.colorChange.b
+                                );
+                                coulors.needsUpdate = true;
+
+                                size.array[i] = this.particleOptions.particleSize / 1.8;
+                                size.needsUpdate = true;
+                            }
+                        }
+                    }
+
+                    px += (initX - px) * this.particleOptions.ease;
+                    py += (initY - py) * this.particleOptions.ease;
+                    pz += (initZ - pz) * this.particleOptions.ease;
+
+                    pos.setXYZ(i, px, py, pz);
+                    pos.needsUpdate = true;
+                }
             }
         }
     }
 
     createText() {
-        const thePoints: THREE.Vector3[] = [];
-
         const shapes = this.font.generateShapes(
             this.particleOptions.text,
             this.particleOptions.textSize
@@ -235,6 +348,84 @@ export class particleSystem {
 
         geometry.center();
 
+        this.outlineParticles = this.outlineParticle(shapes, xMid, yMid);
+        this.planeParticles = this.planeParticle(shapes, xMid, yMid);
+
+        this.particles = this.planeParticles;
+
+        this.scene.add(this.outlineParticles);
+        this.scene.add(this.planeParticles);
+
+        this.planeParticlesGeometryCopy = new THREE.BufferGeometry();
+        this.planeParticlesGeometryCopy.copy(this.particles.geometry);
+        this.outlineParticlesGeometryCopy = new THREE.BufferGeometry();
+        this.outlineParticlesGeometryCopy.copy(this.outlineParticles.geometry);
+    }
+
+    outlineParticle(shapes: THREE.Shape[], xMid: number, yMid: number) {
+        const points: THREE.Vector3[] = [];
+        const colors: number[] = [];
+        const sizes: number[] = [];
+
+        const holeShapes = [...shapes];
+
+        for (let q = 0; q < shapes.length; q++) {
+            const shape = shapes[q];
+
+            if (shape.holes && shape.holes.length > 0) {
+                for (let j = 0; j < shape.holes.length; j++) {
+                    const hole = shape.holes[j];
+                    holeShapes.push(hole as THREE.Shape);
+                }
+            }
+        }
+
+        for (let x = 0; x < holeShapes.length; x++) {
+            const shape = holeShapes[x];
+
+            // Calculate the length of the shape
+            const shapeLength = shape.getLength();
+
+            const amountPoints = Math.floor(
+                shapeLength * this.particleOptions.outlineParticleAmount
+            );
+
+            const shaprePoints = shape.getSpacedPoints(amountPoints);
+
+            shaprePoints.forEach((element) => {
+                const a = new THREE.Vector3(element.x, element.y, 0);
+                points.push(a);
+                colors.push(this.colorChange.r, this.colorChange.g, this.colorChange.b);
+                sizes.push(1);
+            });
+        }
+
+        const geoParticles = new THREE.BufferGeometry().setFromPoints(points);
+        geoParticles.translate(xMid, yMid, 0);
+
+        geoParticles.setAttribute("customColor", new THREE.Float32BufferAttribute(colors, 3));
+        geoParticles.setAttribute("size", new THREE.Float32BufferAttribute(sizes, 1));
+
+        const material = new THREE.ShaderMaterial({
+            uniforms: {
+                color: { value: new THREE.Color(0x00ff00) },
+                pointTexture: { value: this.particleImg },
+            },
+            vertexShader: vertexShader,
+            fragmentShader: fragmentShader,
+
+            blending: THREE.AdditiveBlending,
+            depthTest: false,
+            transparent: true,
+        });
+
+        const outlineParticles = new THREE.Points(geoParticles, material);
+
+        return outlineParticles;
+    }
+
+    planeParticle(shapes: THREE.Shape[], xMid: number, yMid: number) {
+        const points: THREE.Vector3[] = [];
         const colors: number[] = [];
         const sizes: number[] = [];
 
@@ -257,7 +448,7 @@ export class particleSystem {
                 const area = Math.abs((b.x - a.x) * (c.y - a.y) - (c.x - a.x) * (b.y - a.y)) / 2;
 
                 // Determine the number of points based on the area
-                const numPoints = Math.floor(this.particleOptions.amount * area);
+                const numPoints = Math.floor(this.particleOptions.planeParticleAmount * area);
 
                 // Generate random points inside the triangle
                 for (let i = 0; i < numPoints; i++) {
@@ -269,14 +460,14 @@ export class particleSystem {
                     const y = (1 - sqrtR1) * a.y + sqrtR1 * (1 - r2) * b.y + sqrtR1 * r2 * c.y;
 
                     const point = new THREE.Vector3(x, y, 0);
-                    thePoints.push(point);
+                    points.push(point);
                     colors.push(this.colorChange.r, this.colorChange.g, this.colorChange.b);
                     sizes.push(1);
                 }
             });
         }
 
-        const geoParticles = new THREE.BufferGeometry().setFromPoints(thePoints);
+        const geoParticles = new THREE.BufferGeometry().setFromPoints(points);
         geoParticles.translate(xMid, yMid, 0);
 
         geoParticles.setAttribute("customColor", new THREE.Float32BufferAttribute(colors, 3));
@@ -295,11 +486,9 @@ export class particleSystem {
             transparent: true,
         });
 
-        this.particles = new THREE.Points(geoParticles, material);
-        this.scene.add(this.particles);
+        const planeParticles = new THREE.Points(geoParticles, material);
 
-        this.geometryCopy = new THREE.BufferGeometry();
-        this.geometryCopy.copy(this.particles.geometry);
+        return planeParticles;
     }
 
     visibleHeightAtZDepth(depth: number, camera: THREE.PerspectiveCamera) {
