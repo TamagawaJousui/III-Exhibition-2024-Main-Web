@@ -1,10 +1,13 @@
+import { List, X } from "@phosphor-icons/react/dist/ssr";
 import clsx from "clsx";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { FC, useCallback } from "react";
+import { FC } from "react";
 
 import { useWindow } from "@/hooks/window";
 import { sectionInfo } from "@/models";
+
+import { useHeader } from "./hooks";
 
 import { styles } from "./Header.css";
 
@@ -14,44 +17,45 @@ gsap.registerPlugin(ScrollToPlugin);
 
 export const Header: FC<Props> = (props) => {
     const { className, ...otherProps } = props;
-
     const { isMobile } = useWindow();
 
-    const handleScrollToSection = useCallback((id: string) => {
-        const targetElem = document.getElementById(id);
-        if (targetElem) {
-            const offset = targetElem.offsetLeft;
-            gsap.to(window, {
-                scrollTo: { y: offset, autoKill: false },
-                duration: 1, // Scroll duration
-                ease: "power2.inOut",
-            });
-        }
-    }, []);
-    return (
+    const { mobile, desktop } = useHeader();
+
+    return isMobile ? (
+        <>
+            <List weight="bold" size={36} className={className} onClick={mobile.handleOpen} />
+            <dialog open={mobile.isOpen} className={styles.modal}>
+                <X weight="bold" size={32} onClick={mobile.handleClose} />
+                <HeaderContent onClick={mobile.handleClose} />
+            </dialog>
+        </>
+    ) : (
         <header className={clsx(styles.root, className)} {...otherProps}>
-            <nav>
-                <ul className={styles.ul}>
-                    {sectionInfo.map((section, index) => (
-                        <li key={section.id}>
-                            <a
-                                href={`#${section.id}`}
-                                onClick={(e) => {
-                                    if (!isMobile) {
-                                        e.preventDefault();
-                                        handleScrollToSection(section.id);
-                                    }
-                                }}
-                            >
-                                {section.title}
-                            </a>
-                            <span className={styles.separator}>
-                                {index < sectionInfo.length - 1 && "・"}
-                            </span>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+            <HeaderContent onClick={desktop.handleScrollToSection} />
         </header>
     );
 };
+
+type HeaderContentProps = {
+    onClick: (id: string) => void;
+};
+
+const HeaderContent: FC<HeaderContentProps> = ({ onClick: handleClick }) => (
+    <nav>
+        <ul className={styles.ul}>
+            {sectionInfo.map((section, index) => (
+                <li key={section.id} className={styles.li}>
+                    <a
+                        href={`#${section.id}`}
+                        onClick={() => {
+                            handleClick(section.id);
+                        }}
+                    >
+                        {section.title}
+                    </a>
+                    {index < sectionInfo.length - 1 && "・"}
+                </li>
+            ))}
+        </ul>
+    </nav>
+);

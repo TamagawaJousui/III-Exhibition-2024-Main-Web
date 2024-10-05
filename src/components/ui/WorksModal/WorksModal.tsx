@@ -3,11 +3,10 @@ import Image from "next/image";
 import { FC } from "react";
 
 import { useWindow } from "@/hooks/window";
+import { WorkData } from "@/models/works";
 import { typography } from "@/styles/typography.css";
 import { WithScroll } from "@/utils/hocs/WithScroll";
 import { WithTitle } from "@/utils/hocs/WithTitle";
-
-import { WorkData } from "@/components/section/works/model";
 
 import { styles } from "./WorksModal.css";
 

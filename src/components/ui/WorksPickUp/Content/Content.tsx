@@ -2,11 +2,10 @@ import clsx from "clsx";
 import Image from "next/image";
 import React, { FC } from "react";
 
+import { WorkData } from "@/models/works";
 import { WithTitle } from "@/utils/hocs/WithTitle";
 
 import { useWorksModal } from "../../WorksModal";
-
-import { WorkData } from "@/components/section/works/model";
 
 import { styles } from "./Content.css";
 
