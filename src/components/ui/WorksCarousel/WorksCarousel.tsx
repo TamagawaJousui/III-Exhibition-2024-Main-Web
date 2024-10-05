@@ -4,12 +4,12 @@ import Image from "next/image";
 import React from "react";
 
 import { placeColorPalette, type Place } from "@/models/place";
+import { WorkData, workList } from "@/models/works";
 import { WithWordBreak } from "@/utils/hocs/WithWordBreak";
 import { BreakWord } from "@/utils/wordBreak";
 
 import { useWorksModal } from "../WorksModal";
 
-import { WorkData, workList } from "@/components/section/works/model";
 import {
     NextButton,
     PrevButton,
