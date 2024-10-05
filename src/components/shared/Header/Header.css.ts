@@ -40,8 +40,7 @@ export const styles = {
         left: 0,
         width: "100vw",
         height: "100vh",
-        background: "#B6CEE4",
-        opacity: 0.5,
+        background: "rgba(182, 206, 228, 0.5)",
         zIndex: vars.zIndex.modal,
     }),
 };
