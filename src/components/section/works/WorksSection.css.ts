@@ -13,9 +13,7 @@ export const styles = {
             gap: vars.spacing.xl,
         },
     ]),
-    pickUp: style({
-        height: "100%",
-    }),
+
     allWorks: style([
         styleUtils.alignVertical,
         {
@@ -45,5 +43,6 @@ export const subContainerStyles = {
     }),
     content: style({
         flex: 1,
+        overflow: "hidden",
     }),
 };

@@ -13,7 +13,7 @@ import { styles, subContainerStyles } from "./WorksSection.css";
 
 export const WorksSection: FC = () => (
     <SectionContainer id="works" title="WORKS" className={styles.root}>
-        <SubContainer label="ピックアップ" withBorder className={styles.pickUp}>
+        <SubContainer label="ピックアップ" withBorder>
             <WorksPickUp slides={workList} />
         </SubContainer>
         <SubContainer label="全作品" className={styles.allWorks}>
