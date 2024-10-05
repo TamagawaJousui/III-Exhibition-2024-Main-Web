@@ -7,13 +7,16 @@ export const styles = {
         display: "flex",
         alignItems: "center",
         width: "fit-content",
-        maxHeight: "3vh",
 
         zIndex: vars.zIndex.header,
     }),
     ul: style({
         display: "flex",
+        flexWrap: "wrap",
         listStyle: "none",
         gap: vars.spacing.md,
+    }),
+    separator: style({
+        marginLeft: vars.spacing.md,
     }),
 };

@@ -1,12 +1,18 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 export const styles = {
     root: style({
         display: "flex",
         flexDirection: "column",
+        width: "max-content",
+        "@media": {
+            [mediaUtils.mobile]: {
+                width: "fit-content",
+            },
+        },
     }),
     heading: recipe({
         base: {
@@ -20,7 +26,16 @@ export const styles = {
             },
         },
     }),
-    content: style({
-        padding: vars.spacing.xs,
+    content: recipe({
+        variants: {
+            padding: {
+                sm: {
+                    padding: vars.spacing.sm,
+                },
+                md: {
+                    padding: vars.spacing.md,
+                },
+            },
+        },
     }),
 };

@@ -1,13 +1,25 @@
 import { globalStyle } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 globalStyle("html, body", {
     margin: 0,
 
     height: "100vh",
     width: "auto",
-    fontFamily: "var(--font-klee), var(--font-playfair), sans-serif",
+    /*スクロールバー非表示（IE・Edge）*/
+    msOverflowStyle: "none",
+    /*スクロールバー非表示（Firefox）*/
+    scrollbarWidth: "none",
+    fontFamily: "var(--font-klee), sans-serif",
+
+    "@media": {
+        [`${mediaUtils.mobile}`]: {
+            height: "auto",
+            width: "100vw",
+            maxWidth: "100vw",
+        },
+    },
 });
 
 globalStyle("*", {
@@ -76,11 +88,6 @@ globalStyle("img", {
     msUserSelect: "none",
 });
 
-// globalStyle("::-webkit-scrollbar", {
-//     width: "12px",
-// });
-
-// globalStyle("::-webkit-scrollbar-thumb", {
-//     backgroundColor: "black",
-//     borderRadius: "5px",
-// });
+globalStyle("::-webkit-scrollbar", {
+    display: "none",
+});

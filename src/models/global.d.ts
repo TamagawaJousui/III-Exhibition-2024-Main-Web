@@ -6,10 +6,29 @@ declare type RecursiveLeafKeys<T, Prefix = ""> = {
         : `${Prefix}${K}`;
 }[keyof T];
 
+// types/react-water-wave.d.ts
+declare module "react-water-wave" {
+    import * as React from "react";
+
+    interface WaterWaveProps {
+        imageUrl?: string;
+        dropRadius?: number;
+        perturbance?: number;
+        resolution?: number;
+        className?: string;
+        children?: () => React.ReactNode;
+    }
+
+    const WaterWave: React.FC<WaterWaveProps>;
+
+    export default WaterWave;
+}
+
 declare module "*.vert" {
     const src: string;
     export default src;
 }
+
 declare module "*.frag" {
     const src: string;
     export default src;

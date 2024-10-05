@@ -4,6 +4,10 @@ import Image from "next/image";
 import React from "react";
 
 import { placeColorPalette, type Place } from "@/models/place";
+import { WithWordBreak } from "@/utils/hocs/WithWordBreak";
+import { BreakWord } from "@/utils/wordBreak";
+
+import { useWorksModal } from "../WorksModal";
 
 import { WorkData, workList } from "@/components/section/works/model";
 import {
@@ -30,11 +34,17 @@ export const WorksCarousel: React.FC<PropType> = ({ place, works }) => {
     const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
         usePrevNextButtons(emblaApi);
 
+    const {
+        mutator: { handleOpen },
+    } = useWorksModal();
+
     return (
         <div className={styles.root}>
-            <h3 className={styles.heading} style={{ backgroundColor: placeColorPalette[place] }}>
-                {place}
-            </h3>
+            <div className={styles.heading} style={{ backgroundColor: placeColorPalette[place] }}>
+                <WithWordBreak as="h3">
+                    <BreakWord content={place} />
+                </WithWordBreak>
+            </div>
             <section className={styles.embla}>
                 <div className={styles.arrowButtonContainer}>
                     <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
@@ -55,6 +65,11 @@ export const WorksCarousel: React.FC<PropType> = ({ place, works }) => {
                                         indexDiff: clampedDiff,
                                     })}
                                     key={`${work.title}-${work.place}`}
+                                    onClick={() => {
+                                        if (clampedDiff === "0") {
+                                            handleOpen(work);
+                                        }
+                                    }}
                                 >
                                     <Image
                                         src={work.imagePath}

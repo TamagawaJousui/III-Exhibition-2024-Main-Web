@@ -3,15 +3,13 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import { typography } from "@/styles/typography.css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 export const styles = {
     modal: style({
         backgroundColor: vars.color.background.dark,
-        padding: `${vars.spacing.lg} ${vars.spacing.xl}`,
         width: "80vw",
-        maxHeight: "90vh",
-        minHeight: "70vh",
+        height: "80vh",
     }),
     overlay: style({
         position: "fixed",
@@ -27,25 +25,37 @@ export const styles = {
     wrapper: style({
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
         borderTop: `3px solid ${vars.color.text}`,
         borderBottom: `3px solid ${vars.color.text}`,
-        width: "100%",
         height: "100%",
-        padding: `${vars.spacing.md} 0`,
+        padding: `${vars.spacing.lg} ${vars.spacing.xl}`,
+        "@media": {
+            [mediaUtils.mobile]: {
+                padding: `${vars.spacing.sm} ${vars.spacing.md}`,
+            },
+        },
     }),
     heading: style({
         display: "flex",
+        justifyContent: "center",
         gap: vars.spacing.md,
         borderTop: `1px solid ${vars.color.text}`,
         borderBottom: `1px solid ${vars.color.text}`,
         padding: `${vars.spacing.md} 0`,
+    }),
+    subHeading: style({
+        display: "flex",
+        justifyContent: "space-between",
         width: "100%",
     }),
     headingContent: recipe({
         base: {
             flex: 1,
+            "@media": {
+                [mediaUtils.mobile]: {
+                    fontSize: vars.fontSize.sm,
+                },
+            },
         },
         variants: {
             align: {
@@ -55,6 +65,7 @@ export const styles = {
                 center: {
                     flexBasis: "fit-content",
                     textAlign: "center",
+                    maxWidth: "80%",
                     borderLeft: `1px solid ${vars.color.text}`,
                     borderRight: `1px solid ${vars.color.text}`,
                 },
@@ -74,37 +85,46 @@ export const styles = {
         {
             margin: `0 ${vars.spacing.lg}`,
             backgroundColor: vars.color.white,
+            "@media": {
+                [mediaUtils.mobile]: {
+                    fontSize: vars.fontSize.lg,
+                },
+            },
         },
     ]),
     content: style({
         display: "flex",
-        flexWrap: "wrap",
+        gap: vars.spacing.md,
         borderBottom: `1px solid ${vars.color.text}`,
-        height: "100%",
         width: "100%",
+        flex: 1,
         padding: `${vars.spacing.sm} 0`,
+        overflow: "hidden",
     }),
-    imageAuthor: style({
+    leftContent: style({
         display: "flex",
         flex: 1,
-        height: "auto",
+        height: "100%",
     }),
     image: style({
         position: "relative",
-        height: "auto",
-        width: "60%",
+        width: "100%",
+        height: "100%",
     }),
     author: style({
         display: "flex",
         flexDirection: "column",
+        minWidth: "10em",
         gap: vars.spacing.md,
         listStyle: "none",
+        "@media": {
+            [mediaUtils.mobile]: {
+                flexDirection: "row",
+                flexWrap: "wrap",
+            },
+        },
     }),
     description: style({
         flex: 1,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-around",
-        height: "auto",
     }),
 };

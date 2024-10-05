@@ -64,6 +64,9 @@ importers:
             three:
                 specifier: ^0.169.0
                 version: 0.169.0
+            react-water-wave:
+                specifier: ^2.0.1
+                version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
             ts-pattern:
                 specifier: ^5.3.1
                 version: 5.3.1
@@ -4835,6 +4838,20 @@ packages:
             react:
                 optional: true
 
+    jquery.ripples@0.6.3:
+        resolution:
+            {
+                integrity: sha512-ZZQtIoPdesJCx59eDpmbUThZs8HkAxNWG7eFogdziqwFx19oktRbC5XNIjY1PKbSx4YtmoQLHfbl4NHR1z9Wmw==,
+            }
+        peerDependencies:
+            jquery: ">=1.7.0"
+
+    jquery@3.7.1:
+        resolution:
+            {
+                integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==,
+            }
+
     js-tokens@4.0.0:
         resolution:
             {
@@ -6161,6 +6178,15 @@ packages:
             {
                 integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==,
             }
+
+    react-water-wave@2.0.1:
+        resolution:
+            {
+                integrity: sha512-+iu4pUzDebh2cIQbupzckCSAMok+dYx6hTOziVdLt2gIbB4erceMmlnzF2TmUg7FZDvFW7NJYWXEbfi7gzOsfA==,
+            }
+        peerDependencies:
+            react: ^16 | ^17 | ^18
+            react-dom: ^16 | ^17 | ^18
 
     react@18.3.1:
         resolution:
@@ -10641,6 +10667,12 @@ snapshots:
             "@types/react": 18.3.3
             react: 18.3.1
 
+    jquery.ripples@0.6.3(jquery@3.7.1):
+        dependencies:
+            jquery: 3.7.1
+
+    jquery@3.7.1: {}
+
     js-tokens@4.0.0: {}
 
     js-yaml@3.14.1:
@@ -11455,6 +11487,13 @@ snapshots:
             scheduler: 0.23.2
 
     react-is@16.13.1: {}
+
+    react-water-wave@2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+        dependencies:
+            jquery: 3.7.1
+            jquery.ripples: 0.6.3(jquery@3.7.1)
+            react: 18.3.1
+            react-dom: 18.3.1(react@18.3.1)
 
     react@18.3.1:
         dependencies:
