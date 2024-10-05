@@ -24,7 +24,7 @@ declare module "react-water-wave" {
     export default WaterWave;
 }
 
-export interface ParticleData {
+interface ParticleData {
     text: string;
     planeParticleAmount: number;
     outlineParticleAmount: number;
