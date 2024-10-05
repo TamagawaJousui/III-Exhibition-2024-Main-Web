@@ -48,6 +48,7 @@ export const styles = {
     info: style([
         typography({ fontSize: "lg" }),
         {
+            width: "100%",
             display: "flex",
             flexDirection: "column",
             gap: vars.spacing.xs,
