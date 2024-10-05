@@ -56,7 +56,7 @@ export class particleSystem {
             this.visibleHeightAtZDepth(100, this.camera)
         );
         const material = new THREE.MeshBasicMaterial({
-            color: 0x00ff00,
+            color: 0xffffff,
             transparent: true,
         });
         this.planeArea = new THREE.Mesh(geometry, material);
@@ -127,7 +127,7 @@ export class particleSystem {
                     let py = pos.getY(i);
                     let pz = pos.getZ(i);
 
-                    this.colorChange.setHSL(0.5, 1, 1);
+                    this.colorChange.setHSL(1.0, 1.0, 1.0);
                     coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
                     coulors.needsUpdate = true;
 
@@ -146,7 +146,6 @@ export class particleSystem {
                         const t = Math.atan2(dy, dx);
                         px -= f * Math.cos(t);
                         py -= f * Math.sin(t);
-
                         this.colorChange.setHSL(0.5 + zigzagTime, 1.0, 0.5);
                         coulors.setXYZ(
                             i,
@@ -155,7 +154,6 @@ export class particleSystem {
                             this.colorChange.b
                         );
                         coulors.needsUpdate = true;
-
                         if (
                             px > initX + 70 ||
                             px < initX - 70 ||
@@ -187,10 +185,10 @@ export class particleSystem {
                             }
 
                             if (
-                                px > initX + 10 ||
-                                px < initX - 10 ||
-                                py > initY + 10 ||
-                                py < initY - 10
+                                px > initX + 1.5 ||
+                                px < initX - 1.5 ||
+                                py > initY + 1.5 ||
+                                py < initY - 1.5
                             ) {
                                 this.colorChange.setHSL(0.15, 1.0, 0.5);
                                 coulors.setXYZ(
@@ -254,7 +252,6 @@ export class particleSystem {
                         const t = Math.atan2(dy, dx);
                         px -= f * Math.cos(t);
                         py -= f * Math.sin(t);
-
                         this.colorChange.setHSL(0.5 + zigzagTime, 1.0, 0.5);
                         coulors.setXYZ(
                             i,
@@ -263,7 +260,6 @@ export class particleSystem {
                             this.colorChange.b
                         );
                         coulors.needsUpdate = true;
-
                         if (
                             px > initX + 70 ||
                             px < initX - 70 ||
@@ -287,7 +283,7 @@ export class particleSystem {
                                 px -= 0.03 * Math.cos(t);
                                 py -= 0.03 * Math.sin(t);
 
-                                this.colorChange.setHSL(0.15, 1.0, 0.5);
+                                this.colorChange.setHSL(0.9, 1.0, 1.0);
                                 coulors.setXYZ(
                                     i,
                                     this.colorChange.r,
@@ -301,12 +297,12 @@ export class particleSystem {
                             }
 
                             if (
-                                px > initX + 10 ||
-                                px < initX - 10 ||
-                                py > initY + 10 ||
-                                py < initY - 10
+                                px > initX + 1 ||
+                                px < initX - 1 ||
+                                py > initY + 1 ||
+                                py < initY - 1
                             ) {
-                                this.colorChange.setHSL(0.15, 1.0, 0.5);
+                                this.colorChange.setHSL(0.9, 1.0, 1.0);
                                 coulors.setXYZ(
                                     i,
                                     this.colorChange.r,
