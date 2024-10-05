@@ -25,7 +25,8 @@ const WaterWave: React.FC<WaterWaveProps>;
 export default WaterWave;
 export interface ParticleData {
     text: string;
-    amount: number;
+    planeParticleAmount: number;
+    outlineParticleAmount: number;
     particleSize: number;
     particleColor: number;
     textSize: number;
