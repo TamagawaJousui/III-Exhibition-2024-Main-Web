@@ -11,7 +11,7 @@ import { styles } from "./AccessSection.css";
 
 export const AccessSection: FC = () => (
     <SectionContainer id="access" title="ACCESS" className={styles.root}>
-        <div className={clsx(styles.mapContainer, styles.gap)}>
+        <div className={clsx(styles.mapContainer, styles.item)}>
             <Image
                 src="/access/map.png"
                 alt="access map"
@@ -20,24 +20,36 @@ export const AccessSection: FC = () => (
                 className={styles.map}
             />
         </div>
-        <WithTitle title="会場" size="xl" fit className={styles.gap}>
+        <WithTitle title="会場" size="xl" fit mobileAlign="center" className={styles.item}>
             <div className={styles.info}>
                 <p>東京大学本郷キャンパス</p>
                 <p>工学部2号館</p>
                 <p>
                     情報学環本館 <wbr />
-                    地下1階 情報学環オープンスタジオ
+                    地下1階 <wbr />
+                    情報学環オープンスタジオ
                 </p>
             </div>
         </WithTitle>
-        <WithTitle title="日時" size="xl" fit className={styles.gap}>
+        <WithTitle title="日時" size="xl" fit mobileAlign="center" className={styles.item}>
             <div className={styles.info}>
-                <p>2024/11/7(木) - 11/11(月)</p>
-                <p>11:00 - 19:00 (最終日17:00閉場)</p>
+                <p>
+                    2024/11/7(木) <wbr />- 11/11(月)
+                </p>
+                <p>
+                    11:00 - 19:00 <wbr />
+                    (最終日17:00閉場)
+                </p>
             </div>
         </WithTitle>
 
-        <WithTitle title="公共交通機関によるアクセス" size="xl" fit className={styles.gap}>
+        <WithTitle
+            title="公共交通機関によるアクセス"
+            size="xl"
+            fit
+            mobileAlign="center"
+            className={styles.item}
+        >
             <div className={styles.info}>
                 {trainInfo.map((data) => (
                     <p key={data.line}>
@@ -47,7 +59,7 @@ export const AccessSection: FC = () => (
             </div>
         </WithTitle>
 
-        <WithTitle title="お問い合わせ" size="xl" fit className={styles.gap}>
+        <WithTitle title="お問い合わせ" size="xl" fit mobileAlign="center" className={styles.item}>
             <div className={styles.info}>
                 <p>
                     本展覧会は東京大学

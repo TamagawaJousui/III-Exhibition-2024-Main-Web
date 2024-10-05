@@ -1,27 +1,55 @@
-import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { mediaUtils, vars } from "@/styles";
 
 export const styles = {
-    root: style({
-        display: "flex",
-        flexDirection: "column",
-        width: "max-content",
-        "@media": {
-            [mediaUtils.mobile]: {
-                width: "fit-content",
+    root: recipe({
+        base: {
+            display: "flex",
+            flexDirection: "column",
+            width: "max-content",
+        },
+        variants: {
+            mobileAlign: {
+                left: {
+                    "@media": {
+                        [mediaUtils.mobile]: {
+                            width: "fit-content",
+                        },
+                    },
+                },
+                center: {
+                    "@media": {
+                        [mediaUtils.mobile]: {
+                            width: "100%",
+                        },
+                    },
+                },
             },
         },
     }),
     heading: recipe({
         base: {
+            display: "flex",
             borderBottom: `1px solid ${vars.color.textSecondary}`,
         },
         variants: {
             fit: {
                 true: {
                     width: "fit-content",
+                },
+            },
+            mobileAlign: {
+                left: {
+                    alignSelf: "flex-start",
+                },
+                center: {
+                    "@media": {
+                        [mediaUtils.mobile]: {
+                            alignSelf: "center",
+                            fontSize: vars.fontSize.lg,
+                        },
+                    },
                 },
             },
         },

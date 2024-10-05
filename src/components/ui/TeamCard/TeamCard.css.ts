@@ -28,6 +28,7 @@ export const styles = {
             [mediaUtils.mobile]: {
                 justifyContent: "space-evenly",
                 width: "100%",
+                margin: "0 auto",
             },
         },
     }),

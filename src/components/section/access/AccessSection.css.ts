@@ -22,11 +22,13 @@ export const styles = {
             },
         },
     }),
-    gap: style({
+    item: style({
         padding: `0 ${vars.spacing.xl}`,
         "@media": {
             [mediaUtils.mobile]: {
                 padding: 0,
+                margin: "0 auto",
+                textAlign: "center",
             },
         },
     }),
@@ -36,7 +38,7 @@ export const styles = {
         gridRow: "span 2",
         "@media": {
             [mediaUtils.mobile]: {
-                width: "80vw",
+                width: "100%",
                 aspectRatio: "16 / 9",
                 gridRow: "auto",
             },

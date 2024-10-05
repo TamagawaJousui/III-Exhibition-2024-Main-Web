@@ -3,7 +3,7 @@ import { recipe } from "@vanilla-extract/recipes";
 
 import { typography } from "@/styles/typography.css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 const slideHeight = createVar();
 const slideSpacing = createVar();
@@ -28,6 +28,13 @@ export const styles = {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+    }),
+    headingText: style({
+        "@media": {
+            [mediaUtils.mobile]: {
+                fontSize: vars.fontSize.base,
+            },
+        },
     }),
     embla: style([
         typography({
