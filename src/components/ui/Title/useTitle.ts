@@ -2,8 +2,6 @@ import { useEffect } from "react";
 import * as THREE from "three";
 import { Font, FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
 
-import { ParticleData } from "@/models/global";
-
 import { Environment } from "./internal/environment";
 
 export const useTitle = (magicRef: React.RefObject<HTMLDivElement>) => {
@@ -23,7 +21,7 @@ export const useTitle = (magicRef: React.RefObject<HTMLDivElement>) => {
                 }
             };
 
-            const fontUrl = "/fonts/KleeOne-Regular.json";
+            const fontUrl = "/fonts/KleeOne-Title.json";
             new FontLoader(manager).load(fontUrl, (font) => {
                 typo = font;
             });

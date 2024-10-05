@@ -1,6 +1,4 @@
 import { createGlobalTheme } from "@vanilla-extract/css";
-
-import { RecursiveLeafKeys } from "../models/global";
 export type colorType = RecursiveLeafKeys<typeof color>;
 
 export const color = {

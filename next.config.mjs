@@ -5,6 +5,13 @@ const withVanillaExtract = createVanillaExtractPlugin();
 const nextConfig = {
     reactStrictMode: true,
     webpack: (config) => {
+        config.plugins.push(
+            new FontOptimizationPlugin({
+                fontPath: "./public/fonts/KleeOne-Regular-Master.json.gz",
+                outputPath: "./public/fonts/KleeOne-Title.json",
+                chars: "付いて離れて",
+            })
+        );
         config.module.rules.push({
             test: /.(vert|frag)$/,
             use: "raw-loader",
@@ -20,16 +27,6 @@ const nextConfig = {
                 port: "",
             },
         ],
-    },
-    webpack: (config) => {
-        config.plugins.push(
-            new FontOptimizationPlugin({
-                fontPath: "./public/fonts/KleeOne-Regular-Master.json.gz",
-                outputPath: "./public/fonts/KleeOne-Regular.json",
-                chars: "付いて離れて",
-            })
-        );
-        return config;
     },
 };
 
