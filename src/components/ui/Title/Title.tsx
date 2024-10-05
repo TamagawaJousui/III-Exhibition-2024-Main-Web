@@ -10,9 +10,5 @@ export const Title: React.FC = () => {
     const magicRef = useRef<HTMLDivElement>(null);
     useTitle(magicRef);
 
-    return (
-        <>
-            <div style={styles.magic} ref={magicRef}></div>
-        </>
-    );
+    return <div style={styles.magic} ref={magicRef}></div>;
 };
