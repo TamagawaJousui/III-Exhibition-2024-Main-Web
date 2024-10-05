@@ -24,6 +24,16 @@ declare module "react-water-wave" {
     export default WaterWave;
 }
 
+interface ParticleData {
+    text: string;
+    planeParticleAmount: number;
+    outlineParticleAmount: number;
+    particleSize: number;
+    particleColor: number;
+    textSize: number;
+    area: number;
+    ease: number;
+}
 declare module "*.vert" {
     const src: string;
     export default src;

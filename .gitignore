@@ -34,3 +34,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+public/fonts/KleeOne-Regular.json
+public/fonts/KleeOne-Title.json
