@@ -9,6 +9,7 @@ const slideSize = createVar();
 export const styles = {
     embla: style({
         height: "100%",
+        maxHeight: "600px",
         width: "fit-content",
         vars: {
             [slideHeight]: "100%",
