@@ -59,19 +59,18 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
     //     playOrStop();
     // }, [emblaApi]);
 
-    const onWorksPickUpEnter = useCallback(() => {
+    const [isHovering, setIsHovering] = useState(false);
+
+    useEffect(() => {
         const autoplay = emblaApi?.plugins()?.autoplay;
         if (!autoplay) return;
 
-        autoplay.stop();
-    }, [emblaApi]);
-
-    const onWorksPickUpLeave = useCallback(() => {
-        const autoplay = emblaApi?.plugins()?.autoplay;
-        if (!autoplay) return;
-
-        autoplay.play();
-    }, [emblaApi]);
+        if (isHovering) {
+            autoplay.stop();
+        } else {
+            autoplay.play();
+        }
+    }, [emblaApi, isHovering]);
 
     useEffect(() => {
         if (emblaApi) {
@@ -90,8 +89,8 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
     return (
         <div
             className={styles.embla}
-            onMouseEnter={onWorksPickUpEnter}
-            onMouseLeave={onWorksPickUpLeave}
+            onMouseEnter={() => setIsHovering(true)}
+            onMouseLeave={() => setIsHovering(false)}
         >
             <div className={styles.emblaViewport} ref={emblaRef}>
                 <div className={styles.emblaContainer}>
