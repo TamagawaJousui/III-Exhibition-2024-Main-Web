@@ -41,7 +41,11 @@ export const styles = {
             },
             mobileAlign: {
                 left: {
-                    alignSelf: "flex-start",
+                    "@media": {
+                        [mediaUtils.mobile]: {
+                            alignSelf: "flex-start",
+                        },
+                    },
                 },
                 center: {
                     "@media": {
@@ -62,6 +66,23 @@ export const styles = {
                 },
                 md: {
                     padding: vars.spacing.md,
+                },
+            },
+            mobileAlign: {
+                left: {
+                    "@media": {
+                        [mediaUtils.mobile]: {
+                            textAlign: "start",
+                        },
+                    },
+                },
+                center: {
+                    "@media": {
+                        [mediaUtils.mobile]: {
+                            textAlign: "center",
+                            margin: "0 auto",
+                        },
+                    },
                 },
             },
         },

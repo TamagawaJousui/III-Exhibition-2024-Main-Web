@@ -27,8 +27,6 @@ export const styles = {
         "@media": {
             [mediaUtils.mobile]: {
                 padding: 0,
-                margin: "0 auto",
-                textAlign: "center",
             },
         },
     }),

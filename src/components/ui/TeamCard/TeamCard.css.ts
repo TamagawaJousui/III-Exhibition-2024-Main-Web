@@ -26,9 +26,8 @@ export const styles = {
         gap: vars.spacing.md,
         "@media": {
             [mediaUtils.mobile]: {
-                justifyContent: "space-evenly",
+                justifyContent: "flex-start",
                 width: "100%",
-                margin: "0 auto",
             },
         },
     }),

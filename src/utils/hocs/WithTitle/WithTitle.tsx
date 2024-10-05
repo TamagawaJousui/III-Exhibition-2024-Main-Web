@@ -36,6 +36,8 @@ export const WithTitle: FC<Props> = ({
         >
             {title}
         </h3>
-        <div className={styles.content({ padding: padding })}>{children}</div>
+        <div className={styles.content({ padding: padding, mobileAlign: mobileAlign })}>
+            {children}
+        </div>
     </div>
 );
