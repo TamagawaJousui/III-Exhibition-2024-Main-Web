@@ -4,6 +4,7 @@ import { FC } from "react";
 
 import { trainInfo } from "@/models/access";
 import { WithTitle } from "@/utils/hocs/WithTitle";
+import { WithWordBreak } from "@/utils/hocs/WithWordBreak";
 
 import { SectionContainer } from "@/components/shared/Container";
 
@@ -21,7 +22,7 @@ export const AccessSection: FC = () => (
             />
         </div>
         <WithTitle title="会場" size="xl" fit mobileAlign="center" className={styles.item}>
-            <div className={styles.info}>
+            <WithWordBreak className={styles.info} as="div">
                 <p>東京大学本郷キャンパス</p>
                 <p>工学部2号館</p>
                 <p>
@@ -29,10 +30,10 @@ export const AccessSection: FC = () => (
                     地下1階 <wbr />
                     情報学環オープンスタジオ
                 </p>
-            </div>
+            </WithWordBreak>
         </WithTitle>
         <WithTitle title="日時" size="xl" fit mobileAlign="center" className={styles.item}>
-            <div className={styles.info}>
+            <WithWordBreak className={styles.info} as="div">
                 <p>
                     2024/11/7(木) <wbr />- 11/11(月)
                 </p>
@@ -40,7 +41,7 @@ export const AccessSection: FC = () => (
                     11:00 - 19:00 <wbr />
                     (最終日17:00閉場)
                 </p>
-            </div>
+            </WithWordBreak>
         </WithTitle>
 
         <WithTitle
@@ -50,17 +51,17 @@ export const AccessSection: FC = () => (
             mobileAlign="center"
             className={styles.item}
         >
-            <div className={styles.info}>
+            <WithWordBreak className={styles.info} as="div">
                 {trainInfo.map((data) => (
                     <p key={data.line}>
                         {data.line} <wbr /> {data.station} より 徒歩{data.time}分
                     </p>
                 ))}
-            </div>
+            </WithWordBreak>
         </WithTitle>
 
         <WithTitle title="お問い合わせ" size="xl" fit mobileAlign="center" className={styles.item}>
-            <div className={styles.info}>
+            <WithWordBreak className={styles.info} as="div">
                 <p>
                     本展覧会は東京大学
                     <wbr />
@@ -72,7 +73,7 @@ export const AccessSection: FC = () => (
                     (お問い合わせ : <wbr />
                     utokyo.iii.exhibition@gmail.com)
                 </p>
-            </div>
+            </WithWordBreak>
         </WithTitle>
     </SectionContainer>
 );
