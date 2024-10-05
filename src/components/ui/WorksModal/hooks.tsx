@@ -7,26 +7,34 @@ import { WorkData } from "@/components/section/works/model";
 
 import { styles } from "./WorksModal.css";
 
+type ModalOption = {
+    onClose?: () => void;
+};
+
 const modalAtom = atom<boolean>(false);
 const workAtom = atom<WorkData | null>(null);
+const optionAtom = atom<ModalOption | null>(null);
 
-export const useWorksModal = () => {
+export const useWorksModal = (optionInput?: ModalOption) => {
     const [isOpen, setIsOpen] = useAtom(modalAtom);
     const [work, setWork] = useAtom(workAtom);
+    const [option, setOption] = useAtom(optionAtom);
 
     const handleOpen = useCallback(
         (work: WorkData) => {
             setIsOpen(true);
             setWork(work);
+            setOption(optionInput ? optionInput : null);
         },
-        [setIsOpen, setWork]
+        [setIsOpen, setWork, optionInput, setOption]
     );
 
     const handleClose = useCallback(() => {
         setIsOpen(false);
-    }, [setIsOpen]);
+        option?.onClose?.();
+    }, [setIsOpen, option]);
 
-    const renderModal = () => {
+    const renderModal = useCallback(() => {
         if (work) {
             return (
                 <div className={styles.overlay} onClick={handleClose}>
@@ -34,7 +42,7 @@ export const useWorksModal = () => {
                 </div>
             );
         }
-    };
+    }, [handleClose, isOpen, work]);
 
     return {
         isOpen,

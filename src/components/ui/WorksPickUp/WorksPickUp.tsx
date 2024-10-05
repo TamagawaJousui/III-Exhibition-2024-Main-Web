@@ -59,19 +59,18 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
     //     playOrStop();
     // }, [emblaApi]);
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [isHovering, setIsHovering] = useState(false);
+    const handlePlay = useCallback(() => {
+        const autoplay = emblaApi?.plugins()?.autoplay;
+        if (!autoplay) return; // モーダルが開いている場合はAutoPlayを再開しない
+        console.log("play");
+        autoplay.play();
+    }, [emblaApi]);
 
-    useEffect(() => {
+    const handleStop = useCallback(() => {
         const autoplay = emblaApi?.plugins()?.autoplay;
         if (!autoplay) return;
-
-        if (isModalOpen || isHovering) {
-            autoplay.stop();
-        } else {
-            autoplay.play();
-        }
-    }, [emblaApi, isModalOpen, isHovering]);
+        autoplay.stop();
+    }, [emblaApi]);
 
     useEffect(() => {
         if (emblaApi) {
@@ -88,18 +87,14 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
     }, [emblaApi, onSelect]);
 
     return (
-        <div
-            className={styles.embla}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-        >
+        <div className={styles.embla}>
             <div className={styles.emblaViewport} ref={emblaRef}>
                 <div className={styles.emblaContainer}>
                     {slides.map((slide) => (
                         <div className={styles.emblaSlide} key={`${slide.title}-${slide.place}`}>
                             <Content
                                 data={slides[currentIndex]}
-                                setIsModalOpen={setIsModalOpen}
+                                autoPlayHandler={{ handlePlay: handlePlay, handleStop: handleStop }}
                                 className={styles.emblaSlideContent}
                             />
                         </div>
