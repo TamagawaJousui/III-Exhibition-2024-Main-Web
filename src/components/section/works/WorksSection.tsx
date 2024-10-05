@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { FC } from "react";
 
 import { placeList } from "@/models/place";
@@ -8,11 +9,11 @@ import { SectionContainer } from "@/components/shared/Container";
 import { WorksCarousel } from "@/components/ui/WorksCarousel";
 import { WorksPickUp } from "@/components/ui/WorksPickUp";
 
-import { styles } from "./WorksSection.css";
+import { styles, subContainerStyles } from "./WorksSection.css";
 
 export const WorksSection: FC = () => (
     <SectionContainer id="works" title="WORKS" className={styles.root}>
-        <SubContainer label="ピックアップ" withBorder>
+        <SubContainer label="ピックアップ" withBorder className={styles.pickUp}>
             <WorksPickUp slides={workList} />
         </SubContainer>
         <SubContainer label="全作品" className={styles.allWorks}>
@@ -37,8 +38,8 @@ export const SubContainer: FC<SubContainerProps> = ({
     children,
     className,
 }) => (
-    <div>
-        <h2 className={styles.subLabel({ withBorder })}>{label}</h2>
-        <div className={className}>{children}</div>
+    <div className={subContainerStyles.root}>
+        <h2 className={subContainerStyles.label({ withBorder })}>{label}</h2>
+        <div className={clsx(subContainerStyles.content, className)}>{children}</div>
     </div>
 );
