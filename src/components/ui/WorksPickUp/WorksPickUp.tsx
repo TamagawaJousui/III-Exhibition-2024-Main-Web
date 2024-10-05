@@ -59,18 +59,17 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
     //     playOrStop();
     // }, [emblaApi]);
 
-    const onWorksPickUpEnter = useCallback(() => {
+    const handlePlay = useCallback(() => {
         const autoplay = emblaApi?.plugins()?.autoplay;
-        if (!autoplay) return;
-
-        autoplay.stop();
+        if (!autoplay) return; // モーダルが開いている場合はAutoPlayを再開しない
+        console.log("play");
+        autoplay.play();
     }, [emblaApi]);
 
-    const onWorksPickUpLeave = useCallback(() => {
+    const handleStop = useCallback(() => {
         const autoplay = emblaApi?.plugins()?.autoplay;
         if (!autoplay) return;
-
-        autoplay.play();
+        autoplay.stop();
     }, [emblaApi]);
 
     useEffect(() => {
@@ -88,17 +87,14 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
     }, [emblaApi, onSelect]);
 
     return (
-        <div
-            className={styles.embla}
-            onMouseEnter={onWorksPickUpEnter}
-            onMouseLeave={onWorksPickUpLeave}
-        >
+        <div className={styles.embla}>
             <div className={styles.emblaViewport} ref={emblaRef}>
                 <div className={styles.emblaContainer}>
                     {slides.map((slide) => (
                         <div className={styles.emblaSlide} key={`${slide.title}-${slide.place}`}>
                             <Content
                                 data={slides[currentIndex]}
+                                autoPlayHandler={{ handlePlay: handlePlay, handleStop: handleStop }}
                                 className={styles.emblaSlideContent}
                             />
                         </div>

@@ -18,14 +18,15 @@ type Props = {
 
 export const WorksModal: FC<Props> = ({ isOpen, currentWork }) => {
     const { isMobile } = useWindow();
+
     return (
         <dialog open={isOpen} className={styles.modal}>
             <div className={styles.wrapper}>
                 <div className={styles.heading}>
                     {!isMobile && <LeftHeader work={currentWork} />}
-                    <p className={styles.headingContent({ align: "center" })}>
+                    <div className={styles.headingContent({ align: "center" })}>
                         <h2 className={styles.title}>{currentWork?.title}</h2>
-                    </p>
+                    </div>
                     {!isMobile && <RightHeader />}
                 </div>
                 {isMobile && (
