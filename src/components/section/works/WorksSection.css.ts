@@ -13,15 +13,24 @@ export const styles = {
             gap: vars.spacing.xl,
         },
     ]),
+
     allWorks: style([
         styleUtils.alignVertical,
         {
             display: "flex",
         },
     ]),
-    subLabel: recipe({
+};
+
+export const subContainerStyles = {
+    root: style({
+        display: "flex",
+        flexDirection: "column",
+        gap: vars.spacing.md,
+        height: "100%",
+    }),
+    label: recipe({
         base: {
-            margin: `0 ${vars.spacing.md} ${vars.spacing.md} ${vars.spacing.md}`,
             padding: vars.spacing.xs,
         },
         variants: {
@@ -31,5 +40,9 @@ export const styles = {
                 },
             },
         },
+    }),
+    content: style({
+        flex: 1,
+        overflow: "hidden",
     }),
 };

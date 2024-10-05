@@ -10,6 +10,7 @@ export const styleUtils = {
     alignVertical: style({
         "@media": {
             [mediaUtils.mobile]: {
+                width: "100%",
                 flexDirection: "column",
             },
         },

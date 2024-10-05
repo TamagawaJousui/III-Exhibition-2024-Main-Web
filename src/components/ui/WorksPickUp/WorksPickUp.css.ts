@@ -11,21 +11,23 @@ export const styles = {
         height: "100%",
         width: "fit-content",
         vars: {
-            [slideHeight]: "500px",
+            [slideHeight]: "100%",
             [slideSpacing]: "1rem",
             [slideSize]: "100%",
         },
     }),
     emblaViewport: style({
+        height: "100%",
         width: "400px",
-        // overflow: "hidden",
     }),
     emblaContainer: style({
+        height: "100%",
         display: "flex",
         touchAction: "pan-y pinch-zoom",
         marginLeft: `calc(${slideSpacing} * -1)`,
     }),
     emblaSlide: style({
+        height: "100%",
         transform: "translate3d(0, 0, 0)",
         flex: `0 0 ${slideSize}`,
         minWidth: 0,

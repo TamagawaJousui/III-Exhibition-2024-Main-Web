@@ -23,6 +23,9 @@ globalStyle(`${styles.root} ul`, {
 });
 
 globalStyle(`${styles.root} a`, {
+    display: "inline-block",
+    maxWidth: "100%",
+    width: "max-content",
     whiteSpace: "nowrap",
     margin: 0,
 });
