@@ -1,6 +1,6 @@
 import { createVar, style } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 const slideHeight = createVar();
 const slideSpacing = createVar();
@@ -16,10 +16,20 @@ export const styles = {
             [slideSpacing]: "1rem",
             [slideSize]: "100%",
         },
+        "@media": {
+            [mediaUtils.mobile]: {
+                width: "100%",
+            },
+        },
     }),
     emblaViewport: style({
         height: "100%",
         width: "400px",
+        "@media": {
+            [mediaUtils.mobile]: {
+                width: "100%",
+            },
+        },
     }),
     emblaContainer: style({
         height: "100%",

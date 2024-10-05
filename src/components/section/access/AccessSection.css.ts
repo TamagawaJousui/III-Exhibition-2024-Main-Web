@@ -6,10 +6,9 @@ import { mediaUtils, vars } from "@/styles";
 
 export const styles = {
     root: style({
-        padding: `${vars.spacing.md} 0`,
         display: "grid",
         gap: vars.spacing.md,
-        gridTemplateRows: "repeat(auto-fill, 20vh)",
+        gridTemplateRows: "repeat(auto-fill, 25vh)",
         gridTemplateColumns: "auto",
         gridAutoFlow: "column",
         width: "100%",
@@ -25,6 +24,11 @@ export const styles = {
     }),
     gap: style({
         padding: `0 ${vars.spacing.xl}`,
+        "@media": {
+            [mediaUtils.mobile]: {
+                padding: 0,
+            },
+        },
     }),
     mapContainer: style({
         position: "relative",
@@ -46,7 +50,6 @@ export const styles = {
         {
             display: "flex",
             flexDirection: "column",
-            padding: vars.spacing.sm,
             gap: vars.spacing.xs,
         },
     ]),

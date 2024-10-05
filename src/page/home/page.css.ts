@@ -8,16 +8,27 @@ export const styles = {
     root: style([
         typography({}),
         {
-            display: "flex",
             height: "100%",
             width: "100%",
-            // overflowX: "scroll",
-            /*スクロールバー非表示（IE・Edge）*/
-            msOverflowStyle: "none",
-            /*スクロールバー非表示（Firefox）*/
-            scrollbarWidth: "none",
+            position: "relative",
+            "@media": {
+                [mediaUtils.mobile]: {
+                    background: vars.color.background.mobile,
+                },
+            },
         },
     ]),
+    header: style({
+        position: "absolute",
+        top: 0,
+        left: 0,
+        zIndex: vars.zIndex.header,
+        "@media": {
+            [mediaUtils.mobile]: {
+                position: "sticky",
+            },
+        },
+    }),
     wrapper: style({
         display: "flex",
         height: "100%",
@@ -28,8 +39,8 @@ export const styles = {
 
         "@media": {
             [mediaUtils.mobile]: {
+                background: "none",
                 flexDirection: "column",
-                background: vars.color.background.mobile,
             },
         },
     }),
