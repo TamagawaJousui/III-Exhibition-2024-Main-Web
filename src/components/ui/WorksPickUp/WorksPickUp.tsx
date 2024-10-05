@@ -59,18 +59,19 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
     //     playOrStop();
     // }, [emblaApi]);
 
+    const [isModalOpen, setIsModalOpen] = useState(false);
     const [isHovering, setIsHovering] = useState(false);
 
     useEffect(() => {
         const autoplay = emblaApi?.plugins()?.autoplay;
         if (!autoplay) return;
 
-        if (isHovering) {
+        if (isModalOpen || isHovering) {
             autoplay.stop();
         } else {
             autoplay.play();
         }
-    }, [emblaApi, isHovering]);
+    }, [emblaApi, isModalOpen, isHovering]);
 
     useEffect(() => {
         if (emblaApi) {
@@ -98,6 +99,7 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
                         <div className={styles.emblaSlide} key={`${slide.title}-${slide.place}`}>
                             <Content
                                 data={slides[currentIndex]}
+                                setIsModalOpen={setIsModalOpen}
                                 className={styles.emblaSlideContent}
                             />
                         </div>

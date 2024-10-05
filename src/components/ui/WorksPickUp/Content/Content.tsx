@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
-import { FC } from "react";
+import React, { FC, useEffect } from "react";
 
 import { WithTitle } from "@/utils/hocs/WithTitle";
 
@@ -12,13 +12,18 @@ import { styles } from "./Content.css";
 
 type Props = {
     data: WorkData;
+    setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 } & React.ComponentProps<"div">;
 
 export const Content: FC<Props> = (props) => {
-    const { data, className, ...otherProps } = props;
+    const { data, setIsModalOpen, className, ...otherProps } = props;
     const {
+        isOpen,
         mutator: { handleOpen },
     } = useWorksModal();
+    useEffect(() => {
+        setIsModalOpen(isOpen);
+    }, [isOpen, setIsModalOpen]);
     return (
         <>
             <div className={clsx(styles.root, className)} {...otherProps}>
