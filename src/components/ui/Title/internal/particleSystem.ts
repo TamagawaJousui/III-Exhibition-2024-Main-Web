@@ -125,7 +125,7 @@ export class particleSystem {
                     let py = pos.getY(i);
                     let pz = pos.getZ(i);
 
-                    this.colorChange.setHSL(1.0, 1.0, 1.0);
+                    this.colorChange.setHex(0xea3b4d);
                     coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
                     coulors.needsUpdate = true;
 
@@ -158,7 +158,7 @@ export class particleSystem {
                             py > initY + 70 ||
                             py < initY - 70
                         ) {
-                            this.colorChange.setHSL(0.15, 1.0, 0.5);
+                            this.colorChange.setHex(0xc4ded0);
                             coulors.setXYZ(
                                 i,
                                 this.colorChange.r,
@@ -188,7 +188,7 @@ export class particleSystem {
                                 py > initY + 1.5 ||
                                 py < initY - 1.5
                             ) {
-                                this.colorChange.setHSL(0.15, 1.0, 0.5);
+                                this.colorChange.setHex(0xc4ded0);
                                 coulors.setXYZ(
                                     i,
                                     this.colorChange.r,
@@ -281,7 +281,7 @@ export class particleSystem {
                                 px -= 0.03 * Math.cos(t);
                                 py -= 0.03 * Math.sin(t);
 
-                                this.colorChange.setHSL(0.9, 1.0, 1.0);
+                                this.colorChange.setHex(0xe4c2ca);
                                 coulors.setXYZ(
                                     i,
                                     this.colorChange.r,
@@ -300,7 +300,7 @@ export class particleSystem {
                                 py > initY + 1 ||
                                 py < initY - 1
                             ) {
-                                this.colorChange.setHSL(0.9, 1.0, 1.0);
+                                this.colorChange.setHex(0xe4c2ca);
                                 coulors.setXYZ(
                                     i,
                                     this.colorChange.r,
