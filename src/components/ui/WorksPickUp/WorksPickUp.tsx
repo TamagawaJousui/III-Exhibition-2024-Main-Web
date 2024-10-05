@@ -59,6 +59,20 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
     //     playOrStop();
     // }, [emblaApi]);
 
+    const onWorksPickUpEnter = useCallback(() => {
+        const autoplay = emblaApi?.plugins()?.autoplay;
+        if (!autoplay) return;
+
+        autoplay.stop();
+    }, [emblaApi]);
+
+    const onWorksPickUpLeave = useCallback(() => {
+        const autoplay = emblaApi?.plugins()?.autoplay;
+        if (!autoplay) return;
+
+        autoplay.play();
+    }, [emblaApi]);
+
     useEffect(() => {
         if (emblaApi) {
             emblaApi.on("select", onSelect);
@@ -74,7 +88,11 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
     }, [emblaApi, onSelect]);
 
     return (
-        <div className={styles.embla}>
+        <div
+            className={styles.embla}
+            onMouseEnter={onWorksPickUpEnter}
+            onMouseLeave={onWorksPickUpLeave}
+        >
             <div className={styles.emblaViewport} ref={emblaRef}>
                 <div className={styles.emblaContainer}>
                     {slides.map((slide) => (
