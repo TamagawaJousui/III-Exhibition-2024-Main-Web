@@ -1,8 +1,8 @@
 import { FC, useRef } from "react";
 
-import { useParticles } from "./useParticles";
+import { Title } from "@components/ui/Title";
 
-import { Title } from "@/components/ui/Title";
+import { useParticles } from "./useParticles";
 
 import { styles } from "./HeroareaSection.css";
 
@@ -26,7 +26,16 @@ export const HeroareaSection: FC = () => {
             >
                 ついて離れて
             </div>
-            <Title />
+            <Title
+                style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    zIndex: 2,
+                }}
+            />
         </div>
     );
 };
