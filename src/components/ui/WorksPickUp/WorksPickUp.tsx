@@ -59,6 +59,19 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
     //     playOrStop();
     // }, [emblaApi]);
 
+    const handlePlay = useCallback(() => {
+        const autoplay = emblaApi?.plugins()?.autoplay;
+        if (!autoplay) return; // モーダルが開いている場合はAutoPlayを再開しない
+        console.log("play");
+        autoplay.play();
+    }, [emblaApi]);
+
+    const handleStop = useCallback(() => {
+        const autoplay = emblaApi?.plugins()?.autoplay;
+        if (!autoplay) return;
+        autoplay.stop();
+    }, [emblaApi]);
+
     useEffect(() => {
         if (emblaApi) {
             emblaApi.on("select", onSelect);
@@ -78,9 +91,10 @@ export const WorksPickUp: React.FC<PropType> = ({ slides }) => {
             <div className={styles.emblaViewport} ref={emblaRef}>
                 <div className={styles.emblaContainer}>
                     {slides.map((slide) => (
-                        <div className={styles.emblaSlide} key={slide.title}>
+                        <div className={styles.emblaSlide} key={`${slide.title}-${slide.place}`}>
                             <Content
                                 data={slides[currentIndex]}
+                                autoPlayHandler={{ handlePlay: handlePlay, handleStop: handleStop }}
                                 className={styles.emblaSlideContent}
                             />
                         </div>

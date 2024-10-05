@@ -83,6 +83,9 @@ export const typography = recipe({
             black: {
                 color: vars.color.black,
             },
+            background: {
+                color: vars.color.background.dark,
+            },
         },
 
         defaultVariants: {

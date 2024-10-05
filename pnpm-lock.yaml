@@ -12,9 +12,15 @@ patchedDependencies:
 importers:
     .:
         dependencies:
+            "@gsap/react":
+                specifier: ^2.1.1
+                version: 2.1.1
             "@next/third-parties":
                 specifier: ^14.2.5
                 version: 14.2.5(next@14.2.4(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)
+            "@phosphor-icons/react":
+                specifier: ^2.1.7
+                version: 2.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
             "@vanilla-extract/css":
                 specifier: ^1.15.3
                 version: 1.15.3
@@ -39,6 +45,9 @@ importers:
             eslint-plugin-prefer-arrow-functions:
                 specifier: 3.3.0
                 version: 3.3.0(eslint@8.57.0)
+            gsap:
+                specifier: ^3.12.5
+                version: 3.12.5
             jotai:
                 specifier: ^2.9.3
                 version: 2.9.3(@types/react@18.3.3)(react@18.3.1)
@@ -54,6 +63,12 @@ importers:
             three:
                 specifier: ^0.168.0
                 version: 0.168.0(patch_hash=t5vd6mip5hxhu7h3qzkkybr6fe)
+            react-water-wave:
+                specifier: ^2.0.1
+                version: 2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+            ts-pattern:
+                specifier: ^5.3.1
+                version: 5.3.1
         devDependencies:
             "@cloudflare/next-on-pages":
                 specifier: ^1.13.2
@@ -876,6 +891,12 @@ packages:
             }
         engines: { node: ">=14" }
 
+    "@gsap/react@2.1.1":
+        resolution:
+            {
+                integrity: sha512-apGPRrmpqxvl1T6Io1KgT8tFU+IuACI6z4zmT7t8+PASserJeLVRFJdSNUFA2Xb/eVkZI1noE8LIrY/w/oJECw==,
+            }
+
     "@humanwhocodes/config-array@0.11.14":
         resolution:
             {
@@ -1086,6 +1107,16 @@ packages:
                 integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==,
             }
         engines: { node: ">= 8" }
+
+    "@phosphor-icons/react@2.1.7":
+        resolution:
+            {
+                integrity: sha512-g2e2eVAn1XG2a+LI09QU3IORLhnFNAFkNbo2iwbX6NOKSLOwvEMmTa7CgOzEbgNWR47z8i8kwjdvYZ5fkGx1mQ==,
+            }
+        engines: { node: ">=10" }
+        peerDependencies:
+            react: ">= 16.8"
+            react-dom: ">= 16.8"
 
     "@pkgjs/parseargs@0.11.0":
         resolution:
@@ -4210,6 +4241,12 @@ packages:
                 integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==,
             }
 
+    gsap@3.12.5:
+        resolution:
+            {
+                integrity: sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==,
+            }
+
     has-bigints@1.0.2:
         resolution:
             {
@@ -4793,6 +4830,20 @@ packages:
                 optional: true
             react:
                 optional: true
+
+    jquery.ripples@0.6.3:
+        resolution:
+            {
+                integrity: sha512-ZZQtIoPdesJCx59eDpmbUThZs8HkAxNWG7eFogdziqwFx19oktRbC5XNIjY1PKbSx4YtmoQLHfbl4NHR1z9Wmw==,
+            }
+        peerDependencies:
+            jquery: ">=1.7.0"
+
+    jquery@3.7.1:
+        resolution:
+            {
+                integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==,
+            }
 
     js-tokens@4.0.0:
         resolution:
@@ -6104,6 +6155,15 @@ packages:
                 integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==,
             }
 
+    react-water-wave@2.0.1:
+        resolution:
+            {
+                integrity: sha512-+iu4pUzDebh2cIQbupzckCSAMok+dYx6hTOziVdLt2gIbB4erceMmlnzF2TmUg7FZDvFW7NJYWXEbfi7gzOsfA==,
+            }
+        peerDependencies:
+            react: ^16 | ^17 | ^18
+            react-dom: ^16 | ^17 | ^18
+
     react@18.3.1:
         resolution:
             {
@@ -6994,6 +7054,12 @@ packages:
                 optional: true
             "@swc/wasm":
                 optional: true
+
+    ts-pattern@5.3.1:
+        resolution:
+            {
+                integrity: sha512-1RUMKa8jYQdNfmnK4jyzBK3/PS/tnjcZ1CW0v1vWDeYe5RBklc/nquw03MEoB66hVBm4BnlCfmOqDVxHyT1DpA==,
+            }
 
     ts-toolbelt@6.15.5:
         resolution:
@@ -7984,6 +8050,11 @@ snapshots:
 
     "@fastify/busboy@2.1.1": {}
 
+    "@gsap/react@2.1.1":
+        dependencies:
+            gsap: 3.12.5
+            react: 18.3.1
+
     "@humanwhocodes/config-array@0.11.14":
         dependencies:
             "@humanwhocodes/object-schema": 2.0.3
@@ -8099,6 +8170,11 @@ snapshots:
         dependencies:
             "@nodelib/fs.scandir": 2.1.5
             fastq: 1.17.1
+
+    "@phosphor-icons/react@2.1.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)":
+        dependencies:
+            react: 18.3.1
+            react-dom: 18.3.1(react@18.3.1)
 
     "@pkgjs/parseargs@0.11.0":
         optional: true
@@ -10279,6 +10355,8 @@ snapshots:
 
     graphemer@1.4.0: {}
 
+    gsap@3.12.5: {}
+
     has-bigints@1.0.2: {}
 
     has-flag@3.0.0: {}
@@ -10569,6 +10647,12 @@ snapshots:
         optionalDependencies:
             "@types/react": 18.3.3
             react: 18.3.1
+
+    jquery.ripples@0.6.3(jquery@3.7.1):
+        dependencies:
+            jquery: 3.7.1
+
+    jquery@3.7.1: {}
 
     js-tokens@4.0.0: {}
 
@@ -11375,6 +11459,13 @@ snapshots:
 
     react-is@16.13.1: {}
 
+    react-water-wave@2.0.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+        dependencies:
+            jquery: 3.7.1
+            jquery.ripples: 0.6.3(jquery@3.7.1)
+            react: 18.3.1
+            react-dom: 18.3.1(react@18.3.1)
+
     react@18.3.1:
         dependencies:
             loose-envify: 1.4.0
@@ -11987,6 +12078,8 @@ snapshots:
             v8-compile-cache-lib: 3.0.1
             yn: 3.1.1
         optional: true
+
+    ts-pattern@5.3.1: {}
 
     ts-toolbelt@6.15.5: {}
 

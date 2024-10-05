@@ -17,6 +17,7 @@ export const styles = {
         flexDirection: "column",
         position: "absolute",
         bottom: 0,
+        width: "100%",
         padding: vars.spacing.lg,
     }),
     title: style({
@@ -28,11 +29,14 @@ export const styles = {
     ]),
     place: typography({ fontSize: "xs" }),
     buttonContainer: style({
-        display: "flex",
-        justifyContent: "flex-end",
+        width: "100%",
+        padding: vars.spacing.md,
+        position: "relative",
     }),
     button: style([
         {
+            position: "absolute",
+            right: 0,
             width: "fit-content",
             padding: vars.spacing.sm,
             borderRadius: vars.radius["3xl"],

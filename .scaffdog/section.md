@@ -23,8 +23,8 @@ import { SectionContainer } from '@/components/shared/Container';
 import { styles } from './{{ inputs.name | pascal }}Section.css';
 
 export const {{ inputs.name | pascal }}Section: FC = () => (
-    <SectionContainer title="{{ inputs.name | pascal }}">
-        <div className={styles.root}>Concept</div>
+    <SectionContainer id="{{ inputs.name }}" title="{{ inputs.name | pascal }}">
+        <div className={styles.root}>{{ inputs.name | pascal }}</div>
     </SectionContainer>
 );
 ```
@@ -34,10 +34,13 @@ export const {{ inputs.name | pascal }}Section: FC = () => (
 ```typescript
 import { style } from "@vanilla-extract/css";
 
+import { vars } from "@/styles";
+
 export const styles = {
     root: style({
         display: "flex",
         flexDirection: "column",
+        padding: `${vars.spacing.md} 0`,
         height: "100%",
     }),
 };

@@ -1,13 +1,25 @@
 import { globalStyle } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 globalStyle("html, body", {
     margin: 0,
 
     height: "100vh",
     width: "auto",
-    fontFamily: `var(--font-playfair), var(--font-klee) sans-serif`,
+    /*スクロールバー非表示（IE・Edge）*/
+    msOverflowStyle: "none",
+    /*スクロールバー非表示（Firefox）*/
+    scrollbarWidth: "none",
+    fontFamily: "var(--font-klee), sans-serif",
+
+    "@media": {
+        [`${mediaUtils.mobile}`]: {
+            height: "auto",
+            width: "100vw",
+            maxWidth: "100vw",
+        },
+    },
 });
 
 globalStyle("*", {
@@ -25,37 +37,39 @@ globalStyle("a", {
 });
 
 globalStyle("h1, h2, h3, h4, h5, h6", {
-    fontFamily: "var(--font-playfair)",
+    fontFamily: "var(--font-playfair), var(--font-klee)",
+    margin: 0,
+    padding: 0,
 });
 
 globalStyle("h1", {
     fontSize: vars.fontSize["3xl"],
-    margin: 0,
 });
 
 globalStyle("h2", {
     fontSize: vars.fontSize["2xl"],
-    fontFamily: "var(--font-klee)",
 });
 
 globalStyle("h3", {
-    fontSize: vars.fontSize.base,
+    fontSize: vars.fontSize.xl,
 });
 
 globalStyle("h4", {
-    fontSize: vars.fontSize.base,
+    fontSize: vars.fontSize.lg,
 });
 
 globalStyle("h5", {
-    fontSize: vars.fontSize.sm,
+    fontSize: vars.fontSize.base,
 });
 
 globalStyle("h6", {
-    fontSize: vars.fontSize.xs,
+    fontSize: vars.fontSize.sm,
 });
 
 globalStyle("p", {
-    fontSize: vars.fontSize.sm,
+    fontSize: vars.fontSize.base,
+    margin: 0,
+    padding: 0,
 });
 
 globalStyle("span", {
@@ -74,11 +88,6 @@ globalStyle("img", {
     msUserSelect: "none",
 });
 
-// globalStyle("::-webkit-scrollbar", {
-//     width: "12px",
-// });
-
-// globalStyle("::-webkit-scrollbar-thumb", {
-//     backgroundColor: "black",
-//     borderRadius: "5px",
-// });
+globalStyle("::-webkit-scrollbar", {
+    display: "none",
+});

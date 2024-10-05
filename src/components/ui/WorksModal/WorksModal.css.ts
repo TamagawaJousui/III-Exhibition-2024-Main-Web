@@ -1,14 +1,15 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { vars } from "@/styles";
+import { typography } from "@/styles/typography.css";
+
+import { mediaUtils, vars } from "@/styles";
 
 export const styles = {
     modal: style({
         backgroundColor: vars.color.background.dark,
-        padding: `${vars.spacing.lg} ${vars.spacing.xl}`,
-        width: "80%",
-        height: "80%",
+        width: "80vw",
+        height: "80vh",
     }),
     overlay: style({
         position: "fixed",
@@ -23,59 +24,105 @@ export const styles = {
     }),
     wrapper: style({
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+        flexDirection: "column",
         borderTop: `3px solid ${vars.color.text}`,
         borderBottom: `3px solid ${vars.color.text}`,
-        width: "100%",
         height: "100%",
-        padding: `${vars.spacing.sm} 0`,
-    }),
-    content: style({
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        borderTop: `1px solid ${vars.color.text}`,
-        borderBottom: `1px solid ${vars.color.text}`,
-        padding: `0 ${vars.spacing.lg}`,
-        width: "100%",
-        height: "100%",
+        padding: `${vars.spacing.lg} ${vars.spacing.xl}`,
+        "@media": {
+            [mediaUtils.mobile]: {
+                padding: `${vars.spacing.sm} ${vars.spacing.md}`,
+            },
+        },
     }),
     heading: style({
         display: "flex",
+        justifyContent: "center",
         gap: vars.spacing.md,
+        borderTop: `1px solid ${vars.color.text}`,
         borderBottom: `1px solid ${vars.color.text}`,
         padding: `${vars.spacing.md} 0`,
+    }),
+    subHeading: style({
+        display: "flex",
+        justifyContent: "space-between",
         width: "100%",
     }),
     headingContent: recipe({
         base: {
             flex: 1,
-            height: "100%",
+            "@media": {
+                [mediaUtils.mobile]: {
+                    fontSize: vars.fontSize.sm,
+                },
+            },
         },
         variants: {
             align: {
                 left: {
                     textAlign: "left",
-                    borderRight: `1px solid ${vars.color.text}`,
                 },
                 center: {
+                    flexBasis: "fit-content",
                     textAlign: "center",
+                    maxWidth: "80%",
+                    borderLeft: `1px solid ${vars.color.text}`,
+                    borderRight: `1px solid ${vars.color.text}`,
                 },
                 right: {
-                    textAlign: "right",
-                    borderLeft: `1px solid ${vars.color.text}`,
+                    display: "flex",
+                    alignItems: "flex-end",
+                    justifyContent: "flex-end",
                 },
             },
         },
     }),
-    works: style({
+    place: style({
         display: "flex",
-        flexWrap: "wrap",
+    }),
+    title: style([
+        typography({ color: "background" }),
+        {
+            margin: `0 ${vars.spacing.lg}`,
+            backgroundColor: vars.color.white,
+            "@media": {
+                [mediaUtils.mobile]: {
+                    fontSize: vars.fontSize.lg,
+                },
+            },
+        },
+    ]),
+    content: style({
+        display: "flex",
+        gap: vars.spacing.md,
+        borderBottom: `1px solid ${vars.color.text}`,
+        width: "100%",
+        flex: 1,
+        padding: `${vars.spacing.sm} 0`,
+        overflow: "hidden",
+    }),
+    leftContent: style({
+        display: "flex",
+        flex: 1,
+        height: "100%",
     }),
     image: style({
-        flex: 1,
+        position: "relative",
+        width: "100%",
+        height: "100%",
+    }),
+    author: style({
+        display: "flex",
+        flexDirection: "column",
+        minWidth: "10em",
+        gap: vars.spacing.md,
+        listStyle: "none",
+        "@media": {
+            [mediaUtils.mobile]: {
+                flexDirection: "row",
+                flexWrap: "wrap",
+            },
+        },
     }),
     description: style({
         flex: 1,

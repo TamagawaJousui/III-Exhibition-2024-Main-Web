@@ -2,17 +2,46 @@ import { style } from "@vanilla-extract/css";
 
 import { typography } from "@/styles/typography.css";
 
+import { mediaUtils, vars } from "@/styles";
+
 export const styles = {
     root: style([
         typography({}),
         {
-            display: "flex",
-            height: "100vh",
-            overflowX: "scroll",
-            /*スクロールバー非表示（IE・Edge）*/
-            msOverflowStyle: "none",
-            /*スクロールバー非表示（Firefox）*/
-            scrollbarWidth: "none",
+            height: "100%",
+            width: "100%",
+            position: "relative",
+            "@media": {
+                [mediaUtils.mobile]: {
+                    background: vars.color.background.mobile,
+                },
+            },
         },
     ]),
+    header: style({
+        position: "absolute",
+        top: 0,
+        left: 0,
+        zIndex: vars.zIndex.header,
+        "@media": {
+            [mediaUtils.mobile]: {
+                position: "sticky",
+            },
+        },
+    }),
+    wrapper: style({
+        display: "flex",
+        height: "100%",
+    }),
+    container: style({
+        display: "flex",
+        background: vars.color.background.desktop,
+
+        "@media": {
+            [mediaUtils.mobile]: {
+                background: "none",
+                flexDirection: "column",
+            },
+        },
+    }),
 };

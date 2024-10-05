@@ -1,6 +1,6 @@
 import { createVar, style } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 const slideHeight = createVar();
 const slideSpacing = createVar();
@@ -9,23 +9,36 @@ const slideSize = createVar();
 export const styles = {
     embla: style({
         height: "100%",
+        maxHeight: "600px",
         width: "fit-content",
         vars: {
-            [slideHeight]: "500px",
+            [slideHeight]: "100%",
             [slideSpacing]: "1rem",
             [slideSize]: "100%",
         },
+        "@media": {
+            [mediaUtils.mobile]: {
+                width: "100%",
+            },
+        },
     }),
     emblaViewport: style({
+        height: "100%",
         width: "400px",
-        // overflow: "hidden",
+        "@media": {
+            [mediaUtils.mobile]: {
+                width: "100%",
+            },
+        },
     }),
     emblaContainer: style({
+        height: "100%",
         display: "flex",
         touchAction: "pan-y pinch-zoom",
         marginLeft: `calc(${slideSpacing} * -1)`,
     }),
     emblaSlide: style({
+        height: "100%",
         transform: "translate3d(0, 0, 0)",
         flex: `0 0 ${slideSize}`,
         minWidth: 0,

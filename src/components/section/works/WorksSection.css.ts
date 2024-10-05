@@ -1,20 +1,37 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
-import { vars } from "@/styles";
+import { mediaUtils, styleUtils, vars } from "@/styles";
 
 export const styles = {
+    root: style([
+        styleUtils.alignVertical,
+        {
+            display: "flex",
+            height: "100%",
+            padding: `${vars.spacing.md} 0`,
+            gap: vars.spacing.xl,
+        },
+    ]),
+
+    pickUp: style({
+        "@media": {
+            [mediaUtils.mobile]: { height: "600px" },
+        },
+    }),
+
+    allWorks: styleUtils.alignVertical,
+};
+
+export const subContainerStyles = {
     root: style({
         display: "flex",
+        flexDirection: "column",
+        gap: vars.spacing.md,
         height: "100%",
-        gap: vars.spacing.xl,
     }),
-    allWorks: style({
-        display: "flex",
-    }),
-    subLabel: recipe({
+    label: recipe({
         base: {
-            margin: `0 ${vars.spacing.md} ${vars.spacing.md} ${vars.spacing.md}`,
             padding: vars.spacing.xs,
         },
         variants: {
@@ -24,5 +41,12 @@ export const styles = {
                 },
             },
         },
+    }),
+    content: style({
+        flex: "auto",
+        overflow: "hidden",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
     }),
 };
