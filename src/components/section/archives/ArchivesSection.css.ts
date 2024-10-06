@@ -15,8 +15,13 @@ export const styles = {
 };
 
 globalStyle(`${styles.root} ul`, {
+    width: "100%",
+});
+
+globalStyle(`${styles.root} ul`, {
     display: "flex",
     flexDirection: "column",
+    width: "100%",
     gap: vars.spacing.sm,
     paddingLeft: vars.spacing.xs,
     listStyle: "none",

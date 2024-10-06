@@ -8,6 +8,7 @@ export const styles = {
             display: "flex",
             flexDirection: "column",
             width: "max-content",
+            maxWidth: "100%",
         },
         variants: {
             mobileAlign: {
@@ -59,6 +60,9 @@ export const styles = {
         },
     }),
     content: recipe({
+        base: {
+            width: "100%",
+        },
         variants: {
             padding: {
                 sm: {

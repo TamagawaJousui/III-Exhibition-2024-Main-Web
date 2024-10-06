@@ -4,7 +4,7 @@ export const styles = {
     root: recipe({
         base: {
             wordBreak: "keep-all",
-            overflowWrap: "break-word",
+            overflowWrap: "anywhere",
         },
         variants: {
             align: {
