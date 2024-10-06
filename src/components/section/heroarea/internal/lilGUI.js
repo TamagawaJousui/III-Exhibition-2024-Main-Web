@@ -2,7 +2,7 @@ import { BlendFunction } from "postprocessing";
 import { GUI } from "three/examples/jsm/libs/lil-gui.module.min.js";
 
 export const initGUI = (renderer) => {
-    const gui = new GUI();
+    const gui = new GUI({ autoPlace: false });
     const params = {
         isPaused: false,
         // Other color presets

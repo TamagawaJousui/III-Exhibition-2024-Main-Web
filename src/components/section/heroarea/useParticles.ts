@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import * as THREE from "three";
 
 import { AfterimagePass } from "./internal/AfterimagePass.js";
-import { initStats } from "./internal/controls.js";
 import { initSpherePoints } from "./internal/geometry.js";
 import { initGPUComputationRenderer } from "./internal/gpgpu.js";
 import { initGUI } from "./internal/lilGUI.js";
@@ -12,21 +11,21 @@ import { initScene } from "./internal/scene.js";
 import { generateTransformationMatrices } from "./internal/transformationMatrix.js";
 
 export const useParticles = (
-    canvasRef: React.RefObject<HTMLDivElement>,
+    particlesDivRef: React.RefObject<HTMLDivElement>,
     size: number,
     radius: number
 ) => {
     useEffect(() => {
-        if (!canvasRef.current) return;
+        if (!particlesDivRef.current) return;
 
-        const canvas = canvasRef.current;
+        const canvas = particlesDivRef.current;
 
         const { scene, camera, renderer } = initScene(canvas);
 
         const params = initGUI(renderer);
 
         // const controls = initControls(camera, renderer);
-        const stats = initStats();
+        // const stats = initStats();
         // initAxes(scene);
         // initRuler(scene);
         // initCaption(scene);
@@ -137,7 +136,7 @@ export const useParticles = (
 
                     // Update OrbitControls
                     // controls.update();
-                    stats.update();
+                    // stats.update();
                     composer.render();
                 }
             }
@@ -149,5 +148,5 @@ export const useParticles = (
             renderer.setAnimationLoop(null); // Stop animation loop
             canvas.removeChild(renderer.domElement);
         };
-    }, [canvasRef, radius, size]);
+    }, [particlesDivRef, radius, size]);
 };
