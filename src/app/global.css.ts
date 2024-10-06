@@ -28,7 +28,7 @@ globalStyle("*", {
 });
 
 globalStyle(":root", {
-    fontSize: "min(calc(0.25rem + 2vh), 32px)",
+    fontSize: "min(calc(0.25rem + 2vh), 16px)",
 });
 
 globalStyle("a", {
