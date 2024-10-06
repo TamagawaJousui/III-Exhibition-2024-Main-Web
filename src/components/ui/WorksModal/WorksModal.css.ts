@@ -50,6 +50,7 @@ export const styles = {
         overflow: "hidden",
     }),
     leftContent: style({
+        alignSelf: "center",
         position: "relative",
         aspectRatio: "1/1",
         maxWidth: "50%",
