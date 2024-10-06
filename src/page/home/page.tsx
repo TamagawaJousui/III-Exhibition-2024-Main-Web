@@ -7,7 +7,6 @@ import { useLayoutEffect, useRef } from "react";
 import { sectionInfo } from "@/models"; // Assuming sectionInfo is typed
 
 import { HeroareaSection } from "@/components/section/heroarea";
-import { Footer } from "@/components/shared/Footer";
 import { Header } from "@/components/shared/Header";
 import { useWorksModal } from "@/components/ui/WorksModal";
 
@@ -98,7 +97,6 @@ export const HomePage = () => {
                     {sectionInfo.map((section: (typeof sectionInfo)[number]) => (
                         <section.node key={section.id} />
                     ))}
-                    <Footer />
                 </div>
             </div>
         </div>

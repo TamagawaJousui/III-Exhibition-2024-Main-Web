@@ -7,19 +7,7 @@ export const styles = {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        backgroundColor: vars.color.black,
         width: "fit-content",
-        padding: `${vars.spacing.md} 0 ${vars.spacing.md} 0`,
-        color: vars.color.white,
-    }),
-
-    title: style({
-        fontSize: vars.fontSize.sm,
-        color: vars.color.white,
-    }),
-
-    copyRight: style({
-        color: vars.color.white,
-        fontSize: vars.fontSize.xs,
+        gap: vars.spacing.sm,
     }),
 };

@@ -1,4 +1,4 @@
-import { FacebookLogo, InstagramLogo, MapPin, XLogo } from "@phosphor-icons/react/dist/ssr";
+import { MapPin } from "@phosphor-icons/react/dist/ssr";
 import Image from "next/image";
 import { FC } from "react";
 
@@ -7,6 +7,8 @@ import { WorkData } from "@/models/works";
 import { typography } from "@/styles/typography.css";
 import { WithScroll } from "@/utils/hocs/WithScroll";
 import { WithTitle } from "@/utils/hocs/WithTitle";
+
+import { Sns } from "@/components/shared/Sns";
 
 import { styles } from "./WorksModal.css";
 
@@ -77,9 +79,7 @@ const LeftHeader: FC<WorkProps> = ({ work }) => (
 
 const RightHeader: FC = () => (
     <div className={styles.headingContent({ align: "right" })}>
-        <InstagramLogo size={36} />
-        <XLogo size={36} />
-        <FacebookLogo size={36} />
+        <Sns />
     </div>
 );
 
