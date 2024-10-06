@@ -18,10 +18,10 @@ export class particleSystem {
     planeArea: THREE.Mesh = new THREE.Mesh();
     currenPosition: THREE.Vector3 = new THREE.Vector3();
     particles: THREE.Points = new THREE.Points();
-    outlineParticles: THREE.Points = new THREE.Points();
+    outlineParticles: THREE.Group<THREE.Object3DEventMap> = new THREE.Group();
     planeParticles: THREE.Points = new THREE.Points();
     planeParticlesGeometryCopy: THREE.BufferGeometry = new THREE.BufferGeometry();
-    outlineParticlesGeometryCopy: THREE.BufferGeometry = new THREE.BufferGeometry();
+    // outlineParticlesGeometryCopy: THREE.BufferGeometry = new THREE.BufferGeometry();
     constructor(
         scene: THREE.Scene,
         font: Font,
@@ -218,118 +218,118 @@ export class particleSystem {
                 }
             }
             // outline particles
-            {
-                const pos = this.outlineParticles.geometry.attributes.position;
-                const copy = this.outlineParticlesGeometryCopy.attributes.position;
-                const coulors = this.outlineParticles.geometry.attributes.customColor;
-                const size = this.outlineParticles.geometry.attributes.size;
+            // {
+            //     const pos = this.outlineParticles.geometry.attributes.position;
+            //     const copy = this.outlineParticlesGeometryCopy.attributes.position;
+            //     const coulors = this.outlineParticles.geometry.attributes.customColor;
+            //     const size = this.outlineParticles.geometry.attributes.size;
 
-                const mx = intersects[0].point.x;
-                const my = intersects[0].point.y;
-                // const mz = intersects[0].point.z;
+            //     const mx = intersects[0].point.x;
+            //     const my = intersects[0].point.y;
+            //     // const mz = intersects[0].point.z;
 
-                for (let i = 0, l = pos.count; i < l; i++) {
-                    const initX = copy.getX(i);
-                    const initY = copy.getY(i);
-                    const initZ = copy.getZ(i);
+            //     for (let i = 0, l = pos.count; i < l; i++) {
+            //         const initX = copy.getX(i);
+            //         const initY = copy.getY(i);
+            //         const initZ = copy.getZ(i);
 
-                    let px = pos.getX(i);
-                    let py = pos.getY(i);
-                    let pz = pos.getZ(i);
+            //         let px = pos.getX(i);
+            //         let py = pos.getY(i);
+            //         let pz = pos.getZ(i);
 
-                    this.colorChange.setRGB(1, 1, 1);
-                    coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
-                    coulors.needsUpdate = true;
+            //         this.colorChange.setRGB(1, 1, 1);
+            //         coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
+            //         coulors.needsUpdate = true;
 
-                    size.array[i] = this.particleOptions.particleSize;
-                    size.needsUpdate = true;
+            //         size.array[i] = this.particleOptions.particleSize;
+            //         size.needsUpdate = true;
 
-                    const dx = mx - px;
-                    const dy = my - py;
-                    // const dz = mz - pz;
+            //         const dx = mx - px;
+            //         const dy = my - py;
+            //         // const dz = mz - pz;
 
-                    const mouseDistance = this.distance(mx, my, px, py);
-                    // const d = (dx = mx - px) * dx + (dy = my - py) * dy;
-                    // const f = -this.particleOptions.area / d;
+            //         const mouseDistance = this.distance(mx, my, px, py);
+            //         // const d = (dx = mx - px) * dx + (dy = my - py) * dy;
+            //         // const f = -this.particleOptions.area / d;
 
-                    if (this.mouseDown) {
-                        // disable mouse click event
-                        // const t = Math.atan2(dy, dx);
-                        // px -= f * Math.cos(t);
-                        // py -= f * Math.sin(t);
-                        // this.colorChange.setHSL(0.5 + zigzagTime, 1.0, 0.5);
-                        // coulors.setXYZ(
-                        //     i,
-                        //     this.colorChange.r,
-                        //     this.colorChange.g,
-                        //     this.colorChange.b
-                        // );
-                        // coulors.needsUpdate = true;
-                        // if (
-                        //     px > initX + 70 ||
-                        //     px < initX - 70 ||
-                        //     py > initY + 70 ||
-                        //     py < initY - 70
-                        // ) {
-                        //     this.colorChange.setHSL(0.15, 1.0, 0.5);
-                        //     coulors.setXYZ(
-                        //         i,
-                        //         this.colorChange.r,
-                        //         this.colorChange.g,
-                        //         this.colorChange.b
-                        //     );
-                        //     coulors.needsUpdate = true;
-                        // }
-                    } else {
-                        if (mouseDistance < this.particleOptions.area) {
-                            // outline particles logic
-                            {
-                                const t = Math.atan2(dy, dx);
-                                px -= 0.03 * Math.cos(t);
-                                py -= 0.03 * Math.sin(t);
+            //         if (this.mouseDown) {
+            //             // disable mouse click event
+            //             // const t = Math.atan2(dy, dx);
+            //             // px -= f * Math.cos(t);
+            //             // py -= f * Math.sin(t);
+            //             // this.colorChange.setHSL(0.5 + zigzagTime, 1.0, 0.5);
+            //             // coulors.setXYZ(
+            //             //     i,
+            //             //     this.colorChange.r,
+            //             //     this.colorChange.g,
+            //             //     this.colorChange.b
+            //             // );
+            //             // coulors.needsUpdate = true;
+            //             // if (
+            //             //     px > initX + 70 ||
+            //             //     px < initX - 70 ||
+            //             //     py > initY + 70 ||
+            //             //     py < initY - 70
+            //             // ) {
+            //             //     this.colorChange.setHSL(0.15, 1.0, 0.5);
+            //             //     coulors.setXYZ(
+            //             //         i,
+            //             //         this.colorChange.r,
+            //             //         this.colorChange.g,
+            //             //         this.colorChange.b
+            //             //     );
+            //             //     coulors.needsUpdate = true;
+            //             // }
+            //         } else {
+            //             if (mouseDistance < this.particleOptions.area) {
+            //                 // outline particles logic
+            //                 {
+            //                     const t = Math.atan2(dy, dx);
+            //                     px -= 0.03 * Math.cos(t);
+            //                     py -= 0.03 * Math.sin(t);
 
-                                this.colorChange.setRGB(1, 1, 1);
-                                coulors.setXYZ(
-                                    i,
-                                    this.colorChange.r,
-                                    this.colorChange.g,
-                                    this.colorChange.b
-                                );
-                                coulors.needsUpdate = true;
+            //                     this.colorChange.setRGB(1, 1, 1);
+            //                     coulors.setXYZ(
+            //                         i,
+            //                         this.colorChange.r,
+            //                         this.colorChange.g,
+            //                         this.colorChange.b
+            //                     );
+            //                     coulors.needsUpdate = true;
 
-                                size.array[i] = this.particleOptions.particleSize / 1.2;
-                                size.needsUpdate = true;
-                            }
+            //                     size.array[i] = this.particleOptions.particleSize / 1.2;
+            //                     size.needsUpdate = true;
+            //                 }
 
-                            if (
-                                px > initX + 1 ||
-                                px < initX - 1 ||
-                                py > initY + 1 ||
-                                py < initY - 1
-                            ) {
-                                this.colorChange.setRGB(1, 1, 1);
-                                coulors.setXYZ(
-                                    i,
-                                    this.colorChange.r,
-                                    this.colorChange.g,
-                                    this.colorChange.b
-                                );
-                                coulors.needsUpdate = true;
+            //                 if (
+            //                     px > initX + 1 ||
+            //                     px < initX - 1 ||
+            //                     py > initY + 1 ||
+            //                     py < initY - 1
+            //                 ) {
+            //                     this.colorChange.setRGB(1, 1, 1);
+            //                     coulors.setXYZ(
+            //                         i,
+            //                         this.colorChange.r,
+            //                         this.colorChange.g,
+            //                         this.colorChange.b
+            //                     );
+            //                     coulors.needsUpdate = true;
 
-                                size.array[i] = this.particleOptions.particleSize / 1.8;
-                                size.needsUpdate = true;
-                            }
-                        }
-                    }
+            //                     size.array[i] = this.particleOptions.particleSize / 1.8;
+            //                     size.needsUpdate = true;
+            //                 }
+            //             }
+            //         }
 
-                    px += (initX - px) * this.particleOptions.ease;
-                    py += (initY - py) * this.particleOptions.ease;
-                    pz += (initZ - pz) * this.particleOptions.ease;
+            //         px += (initX - px) * this.particleOptions.ease;
+            //         py += (initY - py) * this.particleOptions.ease;
+            //         pz += (initZ - pz) * this.particleOptions.ease;
 
-                    pos.setXYZ(i, px, py, pz);
-                    pos.needsUpdate = true;
-                }
-            }
+            //         pos.setXYZ(i, px, py, pz);
+            //         pos.needsUpdate = true;
+            //     }
+            // }
         }
     }
 
@@ -360,71 +360,29 @@ export class particleSystem {
 
         this.planeParticlesGeometryCopy = new THREE.BufferGeometry();
         this.planeParticlesGeometryCopy.copy(this.particles.geometry);
-        this.outlineParticlesGeometryCopy = new THREE.BufferGeometry();
-        this.outlineParticlesGeometryCopy.copy(this.outlineParticles.geometry);
+        // this.outlineParticlesGeometryCopy = new THREE.BufferGeometry();
+        // this.outlineParticlesGeometryCopy.copy(this.outlineParticles.geometry);
     }
 
     outlineParticle(shapes: THREE.Shape[] /* xMid: number, yMid: number */) {
-        const points: THREE.Vector3[] = [];
-        const colors: number[] = [];
-        const sizes: number[] = [];
+        const lineSegments: THREE.LineSegments[] = [];
 
-        const holeShapes = [...shapes];
+        for (let x = 0; x < shapes.length; x++) {
+            const shape = shapes[x];
 
-        for (let q = 0; q < shapes.length; q++) {
-            const shape = shapes[q];
+            const shapeGeometry = new THREE.ShapeGeometry(shape);
+            const edgesGeometry = new THREE.EdgesGeometry(shapeGeometry);
 
-            if (shape.holes && shape.holes.length > 0) {
-                for (let j = 0; j < shape.holes.length; j++) {
-                    const hole = shape.holes[j];
-                    holeShapes.push(hole as THREE.Shape);
-                }
-            }
+            const lineMaterial = new THREE.LineBasicMaterial({ color: 0x000000, linewidth: 10 });
+            const line = new THREE.LineSegments(edgesGeometry, lineMaterial);
+
+            lineSegments.push(line);
         }
 
-        for (let x = 0; x < holeShapes.length; x++) {
-            const shape = holeShapes[x];
+        const outlineGroup = new THREE.Group();
+        lineSegments.forEach((segment) => outlineGroup.add(segment));
 
-            // Calculate the length of the shape
-            const shapeLength = shape.getLength();
-
-            const amountPoints = Math.floor(
-                shapeLength * this.particleOptions.outlineParticleAmount
-            );
-
-            const shaprePoints = shape.getSpacedPoints(amountPoints);
-
-            shaprePoints.forEach((element) => {
-                const a = new THREE.Vector3(element.x, element.y, 0);
-                points.push(a);
-                colors.push(this.colorChange.r, this.colorChange.g, this.colorChange.b);
-                sizes.push(1);
-            });
-        }
-
-        const geoParticles = new THREE.BufferGeometry().setFromPoints(points);
-        // disable translate
-        // geoParticles.translate(xMid, yMid, 0);
-
-        geoParticles.setAttribute("customColor", new THREE.Float32BufferAttribute(colors, 3));
-        geoParticles.setAttribute("size", new THREE.Float32BufferAttribute(sizes, 1));
-
-        const material = new THREE.ShaderMaterial({
-            uniforms: {
-                color: { value: new THREE.Color(0x000000) },
-                pointTexture: { value: this.particleImg },
-            },
-            vertexShader: vertexShader,
-            fragmentShader: fragmentShader,
-
-            blending: THREE.AdditiveBlending,
-            depthTest: false,
-            transparent: true,
-        });
-
-        const outlineParticles = new THREE.Points(geoParticles, material);
-
-        return outlineParticles;
+        return outlineGroup;
     }
 
     planeParticle(shapes: THREE.Shape[] /* xMid: number, yMid: number */) {
@@ -479,7 +437,7 @@ export class particleSystem {
 
         const material = new THREE.ShaderMaterial({
             uniforms: {
-                color: { value: new THREE.Color(0xffffff) },
+                color: { value: new THREE.Color(0xea3b4d) },
                 pointTexture: { value: this.particleImg },
             },
             vertexShader: vertexShader,
