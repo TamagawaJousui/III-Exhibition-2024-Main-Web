@@ -1,10 +1,13 @@
 import { FC } from "react";
 
+import { Sns } from "../Sns";
+
 import { styles } from "./Footer.css";
 
 export const Footer: FC = () => (
     <footer className={styles.root}>
-        <p className={styles.title}>iiiExhibition 2024</p>
-        <div className={styles.copyRight}>© 2024 - iii exhibition</div>
+        <h3>iiiExhibition 2024</h3>
+        <Sns gap="md" />
+        <p>© 2024 - iii exhibition</p>
     </footer>
 );
