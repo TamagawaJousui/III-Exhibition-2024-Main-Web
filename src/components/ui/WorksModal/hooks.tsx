@@ -1,5 +1,5 @@
 import { atom, useAtom } from "jotai";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 
 import { WorkData } from "@/models/works";
 
@@ -20,6 +20,18 @@ export const useWorksModal = (optionInput?: ModalOption) => {
     const [work, setWork] = useAtom(workAtom);
     const [option, setOption] = useAtom(optionAtom);
 
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [isOpen]);
+
     const handleOpen = useCallback(
         (work: WorkData) => {
             setIsOpen(true);
@@ -38,7 +50,13 @@ export const useWorksModal = (optionInput?: ModalOption) => {
         if (work) {
             return (
                 <div className={styles.overlay} onClick={handleClose}>
-                    <WorksModal isOpen={isOpen} currentWork={work} />
+                    <div
+                        className={styles.modal}
+                        onClick={(e) => e.stopPropagation()}
+                        onScroll={(e) => e.stopPropagation()}
+                    >
+                        <WorksModal isOpen={isOpen} currentWork={work} />
+                    </div>
                 </div>
             );
         }
