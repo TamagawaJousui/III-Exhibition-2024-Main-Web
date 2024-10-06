@@ -7,9 +7,11 @@ import { sectionInfo } from "@/models";
 
 import { useHeader } from "./hooks";
 
+import { vars } from "@/styles";
+
 import { styles } from "./Header.css";
 
-type Props = React.ComponentProps<"header">;
+type Props = React.ComponentProps<"div">;
 
 export const Header: FC<Props> = (props) => {
     const { className, ...otherProps } = props;
@@ -17,17 +19,25 @@ export const Header: FC<Props> = (props) => {
 
     const { mobile, desktop } = useHeader();
 
-    return isMobile ? (
-        <>
-            <List weight="bold" size={36} className={className} onClick={mobile.handleOpen} />
-            <dialog open={mobile.isOpen} className={styles.modal}>
-                <X weight="bold" size={32} onClick={mobile.handleClose} />
-                <HeaderContent onClick={mobile.handleClose} />
-            </dialog>
-        </>
-    ) : (
+    return (
         <header className={clsx(styles.root, className)} {...otherProps}>
-            <HeaderContent onClick={desktop.handleScrollToSection} preventDefault />
+            <h4 className={styles.title}>iii exhibition 2024</h4>
+            {isMobile ? (
+                <>
+                    <List
+                        size={36}
+                        onClick={mobile.handleOpen}
+                        color={vars.color.black}
+                        weight="light"
+                    />
+                    <dialog open={mobile.isOpen} className={styles.modal}>
+                        <X weight="bold" size={32} onClick={mobile.handleClose} />
+                        <HeaderContent onClick={mobile.handleClose} />
+                    </dialog>
+                </>
+            ) : (
+                <HeaderContent onClick={desktop.handleScrollToSection} preventDefault />
+            )}
         </header>
     );
 };

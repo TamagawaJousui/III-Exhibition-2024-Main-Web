@@ -1,20 +1,29 @@
 import { style } from "@vanilla-extract/css";
 
-import { mediaUtils, vars } from "@/styles";
+import { mediaUtils, typography, vars } from "@/styles";
 
 export const styles = {
     root: style({
         display: "flex",
+        justifyContent: "space-between",
         alignItems: "center",
-        width: "fit-content",
-
-        zIndex: vars.zIndex.header,
+        width: "100%",
+        padding: `${vars.spacing.xs} ${vars.spacing.md}`,
     }),
+    title: style([
+        typography({
+            color: "black",
+        }),
+        {
+            lineHeight: "1",
+        },
+    ]),
     ul: style({
         display: "flex",
         flexWrap: "wrap",
         listStyle: "none",
         gap: vars.spacing.md,
+        margin: 0,
         "@media": {
             [mediaUtils.mobile]: {
                 flexDirection: "column",

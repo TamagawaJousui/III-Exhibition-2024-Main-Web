@@ -18,6 +18,7 @@ export const styles = {
             },
         },
     ]),
+
     header: style({
         position: "absolute",
         top: 0,
@@ -26,7 +27,6 @@ export const styles = {
         "@media": {
             [mediaUtils.mobile]: {
                 position: "sticky",
-                left: "100vw",
             },
         },
     }),
