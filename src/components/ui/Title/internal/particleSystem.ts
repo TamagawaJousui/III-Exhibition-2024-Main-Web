@@ -101,8 +101,9 @@ export class particleSystem {
     }
 
     render(/* level */) {
-        const time = ((0.001 * performance.now()) % 12) / 12;
-        const zigzagTime = (1 + Math.sin(time * 2 * Math.PI)) / 6;
+        // disable zigzag
+        // const time = ((0.001 * performance.now()) % 12) / 12;
+        // const zigzagTime = (1 + Math.sin(time * 2 * Math.PI)) / 6;
 
         this.raycaster.setFromCamera(this.mouse, this.camera);
 
@@ -129,7 +130,7 @@ export class particleSystem {
                     let py = pos.getY(i);
                     let pz = pos.getZ(i);
 
-                    this.colorChange.setHex(0xea3b4d);
+                    this.colorChange.setRGB(1, 1, 1);
                     coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
                     coulors.needsUpdate = true;
 
@@ -145,32 +146,33 @@ export class particleSystem {
                     const f = -this.particleOptions.area / d;
 
                     if (this.mouseDown) {
-                        const t = Math.atan2(dy, dx);
-                        px -= f * Math.cos(t);
-                        py -= f * Math.sin(t);
-                        this.colorChange.setHSL(0.5 + zigzagTime, 1.0, 0.5);
-                        coulors.setXYZ(
-                            i,
-                            this.colorChange.r,
-                            this.colorChange.g,
-                            this.colorChange.b
-                        );
-                        coulors.needsUpdate = true;
-                        if (
-                            px > initX + 70 ||
-                            px < initX - 70 ||
-                            py > initY + 70 ||
-                            py < initY - 70
-                        ) {
-                            this.colorChange.setHex(0xc4ded0);
-                            coulors.setXYZ(
-                                i,
-                                this.colorChange.r,
-                                this.colorChange.g,
-                                this.colorChange.b
-                            );
-                            coulors.needsUpdate = true;
-                        }
+                        // disable mouse click event
+                        // const t = Math.atan2(dy, dx);
+                        // px -= f * Math.cos(t);
+                        // py -= f * Math.sin(t);
+                        // this.colorChange.setHSL(0.5 + zigzagTime, 1.0, 0.5);
+                        // coulors.setXYZ(
+                        //     i,
+                        //     this.colorChange.r,
+                        //     this.colorChange.g,
+                        //     this.colorChange.b
+                        // );
+                        // coulors.needsUpdate = true;
+                        // if (
+                        //     px > initX + 70 ||
+                        //     px < initX - 70 ||
+                        //     py > initY + 70 ||
+                        //     py < initY - 70
+                        // ) {
+                        //     this.colorChange.setHex(0xc4ded0);
+                        //     coulors.setXYZ(
+                        //         i,
+                        //         this.colorChange.r,
+                        //         this.colorChange.g,
+                        //         this.colorChange.b
+                        //     );
+                        //     coulors.needsUpdate = true;
+                        // }
                     } else {
                         if (mouseDistance < this.particleOptions.area) {
                             // plane particles logic
@@ -192,7 +194,7 @@ export class particleSystem {
                                 py > initY + 1.5 ||
                                 py < initY - 1.5
                             ) {
-                                this.colorChange.setHex(0xc4ded0);
+                                this.colorChange.setRGB(1, 1, 1);
                                 coulors.setXYZ(
                                     i,
                                     this.colorChange.r,
@@ -235,48 +237,49 @@ export class particleSystem {
                     let py = pos.getY(i);
                     let pz = pos.getZ(i);
 
-                    this.colorChange.setHSL(0.5, 1, 1);
+                    this.colorChange.setRGB(1, 1, 1);
                     coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
                     coulors.needsUpdate = true;
 
                     size.array[i] = this.particleOptions.particleSize;
                     size.needsUpdate = true;
 
-                    let dx = mx - px;
-                    let dy = my - py;
+                    const dx = mx - px;
+                    const dy = my - py;
                     // const dz = mz - pz;
 
                     const mouseDistance = this.distance(mx, my, px, py);
-                    const d = (dx = mx - px) * dx + (dy = my - py) * dy;
-                    const f = -this.particleOptions.area / d;
+                    // const d = (dx = mx - px) * dx + (dy = my - py) * dy;
+                    // const f = -this.particleOptions.area / d;
 
                     if (this.mouseDown) {
-                        const t = Math.atan2(dy, dx);
-                        px -= f * Math.cos(t);
-                        py -= f * Math.sin(t);
-                        this.colorChange.setHSL(0.5 + zigzagTime, 1.0, 0.5);
-                        coulors.setXYZ(
-                            i,
-                            this.colorChange.r,
-                            this.colorChange.g,
-                            this.colorChange.b
-                        );
-                        coulors.needsUpdate = true;
-                        if (
-                            px > initX + 70 ||
-                            px < initX - 70 ||
-                            py > initY + 70 ||
-                            py < initY - 70
-                        ) {
-                            this.colorChange.setHSL(0.15, 1.0, 0.5);
-                            coulors.setXYZ(
-                                i,
-                                this.colorChange.r,
-                                this.colorChange.g,
-                                this.colorChange.b
-                            );
-                            coulors.needsUpdate = true;
-                        }
+                        // disable mouse click event
+                        // const t = Math.atan2(dy, dx);
+                        // px -= f * Math.cos(t);
+                        // py -= f * Math.sin(t);
+                        // this.colorChange.setHSL(0.5 + zigzagTime, 1.0, 0.5);
+                        // coulors.setXYZ(
+                        //     i,
+                        //     this.colorChange.r,
+                        //     this.colorChange.g,
+                        //     this.colorChange.b
+                        // );
+                        // coulors.needsUpdate = true;
+                        // if (
+                        //     px > initX + 70 ||
+                        //     px < initX - 70 ||
+                        //     py > initY + 70 ||
+                        //     py < initY - 70
+                        // ) {
+                        //     this.colorChange.setHSL(0.15, 1.0, 0.5);
+                        //     coulors.setXYZ(
+                        //         i,
+                        //         this.colorChange.r,
+                        //         this.colorChange.g,
+                        //         this.colorChange.b
+                        //     );
+                        //     coulors.needsUpdate = true;
+                        // }
                     } else {
                         if (mouseDistance < this.particleOptions.area) {
                             // outline particles logic
@@ -285,7 +288,7 @@ export class particleSystem {
                                 px -= 0.03 * Math.cos(t);
                                 py -= 0.03 * Math.sin(t);
 
-                                this.colorChange.setHex(0xe4c2ca);
+                                this.colorChange.setRGB(1, 1, 1);
                                 coulors.setXYZ(
                                     i,
                                     this.colorChange.r,
@@ -304,7 +307,7 @@ export class particleSystem {
                                 py > initY + 1 ||
                                 py < initY - 1
                             ) {
-                                this.colorChange.setHex(0xe4c2ca);
+                                this.colorChange.setRGB(1, 1, 1);
                                 coulors.setXYZ(
                                     i,
                                     this.colorChange.r,
@@ -341,13 +344,14 @@ export class particleSystem {
         if (!geometry.boundingBox) {
             throw new Error("Geometry bounding box is null");
         }
-        const xMid = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
-        const yMid = (geometry.boundingBox.max.y - geometry.boundingBox.min.y) / 2.85;
+        // don't cacu
+        // const xMid = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
+        // const yMid = (geometry.boundingBox.max.y - geometry.boundingBox.min.y) / 2.85;
 
         geometry.center();
 
-        this.outlineParticles = this.outlineParticle(shapes, xMid, yMid);
-        this.planeParticles = this.planeParticle(shapes, xMid, yMid);
+        this.outlineParticles = this.outlineParticle(shapes);
+        this.planeParticles = this.planeParticle(shapes);
 
         this.particles = this.planeParticles;
 
@@ -407,7 +411,7 @@ export class particleSystem {
 
         const material = new THREE.ShaderMaterial({
             uniforms: {
-                color: { value: new THREE.Color(0x00ff00) },
+                color: { value: new THREE.Color(0x000000) },
                 pointTexture: { value: this.particleImg },
             },
             vertexShader: vertexShader,

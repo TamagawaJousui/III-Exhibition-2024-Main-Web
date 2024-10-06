@@ -21,7 +21,7 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
                 }
             };
 
-            const fontUrl = "/fonts/KleeOne-Title.json";
+            const fontUrl = "/fonts/Title.json";
             new FontLoader(manager).load(fontUrl, (font) => {
                 typo = font;
             });
@@ -35,7 +35,7 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
 
         const getTextSize = () => {
             if (window.innerWidth > 1024) {
-                return 8;
+                return 12;
             } else if (window.innerWidth > 768) {
                 return 6;
             } else if (window.innerWidth > 500) {
@@ -48,7 +48,7 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
         const particleOptions: ParticleData = {
             text: "付いて離れて",
             planeParticleAmount: 300,
-            outlineParticleAmount: 10,
+            outlineParticleAmount: 20,
             particleSize: 1,
             particleColor: 0xffffff,
             textSize: getTextSize(),
