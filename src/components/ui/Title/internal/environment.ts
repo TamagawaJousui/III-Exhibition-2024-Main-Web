@@ -16,15 +16,15 @@ export class Environment {
     constructor(
         font: Font,
         particle: THREE.Texture,
-        magicRef: React.RefObject<HTMLDivElement>,
+        titleDivRef: React.RefObject<HTMLDivElement>,
         particleOptions: ParticleData
     ) {
         this.font = font;
         this.particle = particle;
-        if (magicRef.current) {
-            this.container = magicRef.current;
+        if (titleDivRef.current) {
+            this.container = titleDivRef.current;
         } else {
-            throw new Error("magicRef.current is null");
+            throw new Error("titleDivRef.current is null");
         }
         this.particleOptions = particleOptions;
         this.scene = new THREE.Scene();
@@ -48,7 +48,8 @@ export class Environment {
             this.particle,
             this.camera,
             this.renderer,
-            this.particleOptions
+            this.particleOptions,
+            this.container
         );
     }
 
@@ -60,14 +61,28 @@ export class Environment {
         this.renderer.render(this.scene, this.camera);
     }
 
+    caculateFrustum() {
+        if (!this.camera) {
+            throw new Error("Camera is not initialized");
+        }
+        const aspect = this.container.clientWidth / this.container.clientHeight;
+        const fovRad = (this.camera.fov / 2) * (Math.PI / 180);
+        const dist = this.camera.position.z;
+        const frustumHeight = 2 * dist * Math.tan(fovRad);
+        const frustumWidth = frustumHeight * aspect;
+        return frustumWidth;
+    }
+
     createCamera() {
-        this.camera = new THREE.PerspectiveCamera(
-            65,
-            this.container.clientWidth / this.container.clientHeight,
-            1,
-            10000
-        );
+        console.log("createCamera");
+        const aspect = this.container.clientWidth / this.container.clientHeight;
+        this.camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
         this.camera.position.set(0, 0, 100);
+
+        const frustumWidth = this.caculateFrustum();
+
+        this.camera.position.set(frustumWidth / 2, 0, 100);
+        this.camera.lookAt(frustumWidth / 2, 0, 0);
     }
 
     createRenderer() {
@@ -92,5 +107,9 @@ export class Environment {
         this.camera.aspect = this.container.clientWidth / this.container.clientHeight;
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
+
+        const frustumWidth = this.caculateFrustum();
+        this.camera.position.set(frustumWidth / 2, 0, 100);
+        this.camera.lookAt(frustumWidth / 2, 0, 0);
     }
 }

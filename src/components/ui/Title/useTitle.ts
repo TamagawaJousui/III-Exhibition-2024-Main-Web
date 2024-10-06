@@ -4,10 +4,10 @@ import { Font, FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
 
 import { Environment } from "./internal/environment";
 
-export const useTitle = (magicRef: React.RefObject<HTMLDivElement>) => {
+export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
     useEffect(() => {
         let environment: Environment | null = null;
-        if (!magicRef.current) return;
+        if (!titleDivRef.current) return;
 
         // フォントとテクスチャのプリロード
         const preload = (particleOptions: ParticleData) => {
@@ -17,7 +17,7 @@ export const useTitle = (magicRef: React.RefObject<HTMLDivElement>) => {
             let particle: THREE.Texture | null = null;
             manager.onLoad = () => {
                 if (typo && particle) {
-                    environment = new Environment(typo, particle, magicRef, particleOptions);
+                    environment = new Environment(typo, particle, titleDivRef, particleOptions);
                 }
             };
 
@@ -72,5 +72,5 @@ export const useTitle = (magicRef: React.RefObject<HTMLDivElement>) => {
             }
             document.removeEventListener("DOMContentLoaded", () => preload(particleOptions));
         };
-    }, [magicRef]);
+    }, [titleDivRef]);
 };

@@ -14,6 +14,7 @@ export class particleSystem {
     colorChange: THREE.Color;
     mouseDown: boolean;
     particleOptions: ParticleData;
+    container: HTMLElement;
     planeArea: THREE.Mesh = new THREE.Mesh();
     currenPosition: THREE.Vector3 = new THREE.Vector3();
     particles: THREE.Points = new THREE.Points();
@@ -27,7 +28,8 @@ export class particleSystem {
         particleImg: THREE.Texture,
         camera: THREE.PerspectiveCamera,
         renderer: THREE.WebGLRenderer,
-        particleOptions: ParticleData
+        particleOptions: ParticleData,
+        container: HTMLElement
     ) {
         this.scene = scene;
         this.font = font;
@@ -43,6 +45,7 @@ export class particleSystem {
         this.mouseDown = false;
 
         this.particleOptions = particleOptions;
+        this.container = container;
 
         this.setup();
         this.bindEvents();
@@ -92,8 +95,9 @@ export class particleSystem {
     // }
 
     onMouseMove(event: MouseEvent) {
-        this.mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-        this.mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        const rect = this.renderer.domElement.getBoundingClientRect();
+        this.mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        this.mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
     }
 
     render(/* level */) {
@@ -356,7 +360,7 @@ export class particleSystem {
         this.outlineParticlesGeometryCopy.copy(this.outlineParticles.geometry);
     }
 
-    outlineParticle(shapes: THREE.Shape[], xMid: number, yMid: number) {
+    outlineParticle(shapes: THREE.Shape[] /* xMid: number, yMid: number */) {
         const points: THREE.Vector3[] = [];
         const colors: number[] = [];
         const sizes: number[] = [];
@@ -395,7 +399,8 @@ export class particleSystem {
         }
 
         const geoParticles = new THREE.BufferGeometry().setFromPoints(points);
-        geoParticles.translate(xMid, yMid, 0);
+        // disable translate
+        // geoParticles.translate(xMid, yMid, 0);
 
         geoParticles.setAttribute("customColor", new THREE.Float32BufferAttribute(colors, 3));
         geoParticles.setAttribute("size", new THREE.Float32BufferAttribute(sizes, 1));
@@ -418,7 +423,7 @@ export class particleSystem {
         return outlineParticles;
     }
 
-    planeParticle(shapes: THREE.Shape[], xMid: number, yMid: number) {
+    planeParticle(shapes: THREE.Shape[] /* xMid: number, yMid: number */) {
         const points: THREE.Vector3[] = [];
         const colors: number[] = [];
         const sizes: number[] = [];
@@ -462,7 +467,8 @@ export class particleSystem {
         }
 
         const geoParticles = new THREE.BufferGeometry().setFromPoints(points);
-        geoParticles.translate(xMid, yMid, 0);
+        // diable translate
+        // geoParticles.translate(xMid, yMid, 0);
 
         geoParticles.setAttribute("customColor", new THREE.Float32BufferAttribute(colors, 3));
         geoParticles.setAttribute("size", new THREE.Float32BufferAttribute(sizes, 1));
