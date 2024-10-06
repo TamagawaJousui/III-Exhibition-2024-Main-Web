@@ -18,9 +18,11 @@ export const styles = {
     }),
     YuMincho: style({
         fontFamily: "YuMincho, Yu Mincho",
+        color: "#EDE7E9",
     }),
     PlayfairDisplay: style({
         fontFamily: "var(--font-playfair)",
+        color: "#EDE7E9",
     }),
     fontSize: style({
         fontSize: "40px",
