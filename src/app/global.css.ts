@@ -28,12 +28,7 @@ globalStyle("*", {
 });
 
 globalStyle(":root", {
-    fontSize: "min(calc(0.25rem + 2vh), 32px)",
-    "@media": {
-        [`${mediaUtils.mobile}`]: {
-            fontSize: "min(calc(0.25rem + 2vh), 16px)",
-        },
-    },
+    fontSize: "min(calc(0.25rem + 2vh), calc(0.25rem + 2vw), 32px)",
 });
 
 globalStyle("a", {
