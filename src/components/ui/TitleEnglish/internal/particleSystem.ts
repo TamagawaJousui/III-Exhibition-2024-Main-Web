@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { SVGResult } from "three/examples/jsm/Addons.js";
+import { Font, SVGResult } from "three/examples/jsm/Addons.js";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 
 import { vertexShader, fragmentShader } from "./shader";
@@ -10,6 +10,7 @@ export class particleSystem {
     xLength: number = 0;
     yLength: number = 0;
     startTime: number = 0;
+    font: Font;
     particleImg: THREE.Texture;
     camera: THREE.PerspectiveCamera;
     renderer: THREE.WebGLRenderer;
@@ -36,6 +37,7 @@ export class particleSystem {
     constructor(
         scene: THREE.Scene,
         svg: SVGResult,
+        font: Font,
         particleImg: THREE.Texture,
         camera: THREE.PerspectiveCamera,
         renderer: THREE.WebGLRenderer,
@@ -44,6 +46,7 @@ export class particleSystem {
     ) {
         this.scene = scene;
         this.svg = svg;
+        this.font = font;
         this.particleImg = particleImg;
         this.camera = camera;
         this.renderer = renderer;
@@ -212,8 +215,8 @@ export class particleSystem {
 
         const outlineGroup = new THREE.Group();
         lineSegments.forEach((segment) => {
-            segment.translateX(xLength / 2);
-            segment.translateY(-yLength / 2);
+            segment.translateX(-xLength - 10);
+            segment.translateY(yLength + 5);
             outlineGroup.add(segment);
         });
 
@@ -267,7 +270,7 @@ export class particleSystem {
 
         const geoParticles = new THREE.BufferGeometry().setFromPoints(points);
 
-        geoParticles.translate(xLength / 2, -yLength / 2, 0);
+        geoParticles.translate(-xLength - 10, yLength + 5, 0);
 
         geoParticles.setAttribute("customColor", new THREE.Float32BufferAttribute(colors, 3));
         geoParticles.setAttribute("opacity", new THREE.Float32BufferAttribute(opacities, 1));
