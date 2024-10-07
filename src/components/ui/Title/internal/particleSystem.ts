@@ -1,10 +1,12 @@
 import * as THREE from "three";
-import { Font } from "three/examples/jsm/Addons.js";
+import { Font, SVGResult } from "three/examples/jsm/Addons.js";
+import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 
 import { vertexShader, fragmentShader } from "./shader";
 
 export class particleSystem {
     scene: THREE.Scene;
+    svg: SVGResult;
     font: Font;
     particleImg: THREE.Texture;
     camera: THREE.PerspectiveCamera;
@@ -24,6 +26,7 @@ export class particleSystem {
     // outlineParticlesGeometryCopy: THREE.BufferGeometry = new THREE.BufferGeometry();
     constructor(
         scene: THREE.Scene,
+        svg: SVGResult,
         font: Font,
         particleImg: THREE.Texture,
         camera: THREE.PerspectiveCamera,
@@ -32,6 +35,7 @@ export class particleSystem {
         container: HTMLElement
     ) {
         this.scene = scene;
+        this.svg = svg;
         this.font = font;
         this.particleImg = particleImg;
         this.camera = camera;
@@ -334,21 +338,22 @@ export class particleSystem {
     }
 
     createText() {
-        const shapes = this.font.generateShapes(
-            this.particleOptions.text,
-            this.particleOptions.textSize
-        );
-        const geometry = new THREE.ShapeGeometry(shapes);
-        geometry.computeBoundingBox();
+        const shapes: THREE.Shape[] = [];
+        this.svg.paths.forEach((path) => {
+            const shape = SVGLoader.createShapes(path);
+            shapes.push(...shape);
+        });
+        // const geometry = new THREE.ShapeGeometry(shapes);
+        // geometry.computeBoundingBox();
 
-        if (!geometry.boundingBox) {
-            throw new Error("Geometry bounding box is null");
-        }
+        // if (!geometry.boundingBox) {
+        //     throw new Error("Geometry bounding box is null");
+        // }
         // don't cacu
         // const xMid = -0.5 * (geometry.boundingBox.max.x - geometry.boundingBox.min.x);
         // const yMid = (geometry.boundingBox.max.y - geometry.boundingBox.min.y) / 2.85;
 
-        geometry.center();
+        // geometry.center();
 
         this.outlineParticles = this.outlineParticle(shapes);
         this.planeParticles = this.planeParticle(shapes);

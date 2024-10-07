@@ -1,10 +1,12 @@
 import * as THREE from "three";
+import { SVGResult } from "three/addons/loaders/SVGLoader.js";
 import { Font } from "three/examples/jsm/Addons.js";
 
 import { particleSystem } from "./particleSystem";
 
 // クラスベースのEnvironmentの定義
 export class Environment {
+    svg: SVGResult;
     font: Font;
     particle: THREE.Texture;
     container: HTMLElement;
@@ -14,11 +16,13 @@ export class Environment {
     particleSystem: particleSystem | undefined;
     particleOptions: ParticleData;
     constructor(
+        svg: SVGResult,
         font: Font,
         particle: THREE.Texture,
         titleDivRef: React.RefObject<HTMLDivElement>,
         particleOptions: ParticleData
     ) {
+        this.svg = svg;
         this.font = font;
         this.particle = particle;
         if (titleDivRef.current) {
@@ -44,6 +48,7 @@ export class Environment {
         }
         this.particleSystem = new particleSystem(
             this.scene,
+            this.svg,
             this.font,
             this.particle,
             this.camera,
@@ -74,14 +79,13 @@ export class Environment {
     }
 
     createCamera() {
-        console.log("createCamera");
         const aspect = this.container.clientWidth / this.container.clientHeight;
         this.camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
-        this.camera.position.set(0, 0, 100);
+        this.camera.position.set(0, 0, 70);
 
         const frustumWidth = this.caculateFrustum();
 
-        this.camera.position.set(frustumWidth / 2, 0, 100);
+        this.camera.position.set(frustumWidth / 2, 0, 70);
         this.camera.lookAt(frustumWidth / 2, 0, 0);
     }
 
@@ -109,7 +113,7 @@ export class Environment {
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
 
         const frustumWidth = this.caculateFrustum();
-        this.camera.position.set(frustumWidth / 2, 0, 100);
+        this.camera.position.set(frustumWidth / 2, 0, 70);
         this.camera.lookAt(frustumWidth / 2, 0, 0);
     }
 }
