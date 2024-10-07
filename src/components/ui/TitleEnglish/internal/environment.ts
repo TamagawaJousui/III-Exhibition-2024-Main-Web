@@ -113,7 +113,7 @@ export class Environment {
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
 
         const frustumWidth = this.caculateFrustum();
-        this.camera.position.set(frustumWidth / 2, 0, 100);
-        this.camera.lookAt(frustumWidth / 2, 0, 0);
+        this.camera.position.set(-frustumWidth / 2, 0, 100);
+        this.camera.lookAt(-frustumWidth / 2, 0, 0);
     }
 }
