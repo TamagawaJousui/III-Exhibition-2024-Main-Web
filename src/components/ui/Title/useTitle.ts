@@ -30,7 +30,7 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
                 }
             };
 
-            const svgUrl = "/Title.svg";
+            const svgUrl = "/Title2.svg";
             new SVGLoader(manager).load(svgUrl, (data) => {
                 svg = data;
             });
@@ -61,7 +61,7 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
 
         const particleOptions: ParticleData = {
             text: "付いて離れて",
-            planeParticleAmount: 300,
+            planeParticleAmount: 500,
             outlineParticleAmount: 20,
             particleSize: 1,
             particleColor: 0xffffff,
