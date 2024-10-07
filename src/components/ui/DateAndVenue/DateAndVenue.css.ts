@@ -1,30 +1,12 @@
 import { style } from "@vanilla-extract/css";
 
 export const styles = {
-    root: style({
+    magic: style({
         position: "absolute",
-        bottom: "20%",
-        right: "50px",
+        width: "100%",
+        height: "100%",
+        top: 0,
+        left: 0,
         zIndex: 2,
-        display: "flex",
-        flexDirection: "column",
-        gap: "10px",
-        textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
-    }),
-    span: style({
-        display: "flex",
-        justifyContent: "space-between",
-        gap: "40px",
-    }),
-    YuMincho: style({
-        fontFamily: "YuMincho, Yu Mincho",
-        color: "#EDE7E9",
-    }),
-    PlayfairDisplay: style({
-        fontFamily: "var(--font-playfair)",
-        color: "#EDE7E9",
-    }),
-    fontSize: style({
-        fontSize: "40px",
     }),
 };

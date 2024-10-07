@@ -76,11 +76,11 @@ export class Environment {
     createCamera() {
         const aspect = this.container.clientWidth / this.container.clientHeight;
         this.camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
-        this.camera.position.set(0, 0, 60);
+        this.camera.position.set(0, 0, 100);
 
         const frustumWidth = this.caculateFrustum();
 
-        this.camera.position.set(frustumWidth / 2, 0, 60);
+        this.camera.position.set(frustumWidth / 2, 0, 100);
         this.camera.lookAt(frustumWidth / 2, 0, 0);
     }
 
@@ -108,7 +108,7 @@ export class Environment {
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
 
         const frustumWidth = this.caculateFrustum();
-        this.camera.position.set(frustumWidth / 2, 0, 60);
+        this.camera.position.set(frustumWidth / 2, 0, 100);
         this.camera.lookAt(frustumWidth / 2, 0, 0);
     }
 }

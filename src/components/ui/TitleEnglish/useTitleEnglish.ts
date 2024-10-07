@@ -60,7 +60,7 @@ export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) =>
 
         const particleOptions: ParticleData = {
             text: "付いて離れて",
-            planeParticleAmount: 250,
+            planeParticleAmount: 300,
             outlineParticleAmount: 20,
             particleSize: 1,
             particleColor: 0xffffff,

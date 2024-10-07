@@ -1,16 +1,12 @@
+import { useRef } from "react";
+
+import { useDateAndVenue } from "./useDateAndVenue";
+
 import { styles } from "./DateAndVenue.css";
 
-export const DateAndVenue: React.FC = () => (
-    <div className={styles.root}>
-        <span className={styles.span}>
-            <span className={styles.PlayfairDisplay + " " + styles.fontSize}>Date</span>
-            <span className={styles.YuMincho + " " + styles.fontSize}>
-                11.7（Thu.）- 11.11（Mon.)
-            </span>
-        </span>
-        <span className={styles.span}>
-            <span className={styles.PlayfairDisplay + " " + styles.fontSize}>Venue</span>
-            <span className={styles.YuMincho + " " + styles.fontSize}>東京大学本郷キャンパス</span>
-        </span>
-    </div>
-);
+export const DateAndVenue: React.FC = () => {
+    const titleDivRef = useRef<HTMLDivElement>(null);
+    useDateAndVenue(titleDivRef);
+
+    return <div className={styles.magic} ref={titleDivRef}></div>;
+};
