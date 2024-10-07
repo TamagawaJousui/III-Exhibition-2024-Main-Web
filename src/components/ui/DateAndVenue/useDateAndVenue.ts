@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import * as THREE from "three";
 import { SVGResult, SVGLoader } from "three/addons/loaders/SVGLoader.js";
+import { Font, FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
 
 import { Environment } from "./internal/environment";
 
-export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
+export const useDateAndVenue = (titleDivRef: React.RefObject<HTMLDivElement>) => {
     useEffect(() => {
         let environment: Environment | null = null;
         if (!titleDivRef.current) return;
@@ -14,20 +15,33 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
             const manager = new THREE.LoadingManager();
 
             let svg: SVGResult | null = null;
+            let typo: Font | null = null;
             let particle: THREE.Texture | null = null;
             manager.onLoad = () => {
-                if (svg && particle) {
+                if (svg && typo && particle) {
                     console.log(svg);
-                    environment = new Environment(svg, particle, titleDivRef, particleOptions);
+                    environment = new Environment(
+                        svg,
+                        typo,
+                        particle,
+                        titleDivRef,
+                        particleOptions
+                    );
                 }
             };
 
-            const svgUrl = "/Title.svg";
+            const svgUrl = "/DateAndVenue.svg";
             new SVGLoader(manager).load(svgUrl, (data) => {
                 svg = data;
             });
 
-            const particleImgUrl = "./particle.png";
+            const fontUrl = "/fonts/Title.json";
+            new FontLoader(manager).load(fontUrl, (font) => {
+                typo = font;
+            });
+
+            const particleImgUrl =
+                "https://res.cloudinary.com/dfvtkoboz/image/upload/v1605013866/particle_a64uzf.png";
             new THREE.TextureLoader(manager).load(particleImgUrl, (texture) => {
                 particle = texture;
             });
