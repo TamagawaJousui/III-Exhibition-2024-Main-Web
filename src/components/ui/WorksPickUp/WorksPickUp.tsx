@@ -4,9 +4,9 @@ import Fade from "embla-carousel-fade";
 import useEmblaCarousel from "embla-carousel-react";
 import React, { useCallback, useEffect, useState } from "react";
 
-import { Content } from "./Content";
+import { WorkData } from "@/models/works";
 
-import { WorkData } from "@/components/section/works/model";
+import { Content } from "./Content";
 
 import { styles } from "./WorksPickUp.css";
 

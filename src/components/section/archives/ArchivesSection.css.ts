@@ -3,11 +3,19 @@ import { globalStyle, style } from "@vanilla-extract/css";
 import { styleUtils, vars } from "@/styles";
 
 export const styles = {
-    root: style([
+    root: style({
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        padding: `${vars.spacing.md} 0`,
+        height: "100%",
+        gap: vars.spacing.lg,
+    }),
+
+    content: style([
         styleUtils.alignVertical,
         {
             display: "flex",
-            padding: `${vars.spacing.md} 0`,
             height: "100%",
             gap: vars.spacing.lg,
         },
@@ -15,8 +23,13 @@ export const styles = {
 };
 
 globalStyle(`${styles.root} ul`, {
+    width: "100%",
+});
+
+globalStyle(`${styles.root} ul`, {
     display: "flex",
     flexDirection: "column",
+    width: "100%",
     gap: vars.spacing.sm,
     paddingLeft: vars.spacing.xs,
     listStyle: "none",

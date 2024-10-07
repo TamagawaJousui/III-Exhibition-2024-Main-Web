@@ -1,9 +1,9 @@
 import { atom, useAtom } from "jotai";
 import { useCallback } from "react";
 
-import { WorksModal } from "./WorksModal";
+import { WorkData } from "@/models/works";
 
-import { WorkData } from "@/components/section/works/model";
+import { WorksModal } from "./WorksModal";
 
 import { styles } from "./WorksModal.css";
 

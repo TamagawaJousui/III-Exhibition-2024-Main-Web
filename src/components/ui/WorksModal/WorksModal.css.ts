@@ -1,7 +1,4 @@
 import { style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
-
-import { typography } from "@/styles/typography.css";
 
 import { mediaUtils, vars } from "@/styles";
 
@@ -27,104 +24,69 @@ export const styles = {
         flexDirection: "column",
         borderTop: `3px solid ${vars.color.text}`,
         borderBottom: `3px solid ${vars.color.text}`,
-        height: "100%",
         padding: `${vars.spacing.lg} ${vars.spacing.xl}`,
+        height: "100%",
         "@media": {
             [mediaUtils.mobile]: {
                 padding: `${vars.spacing.sm} ${vars.spacing.md}`,
             },
         },
     }),
-    heading: style({
+    contentWrapper: style({
         display: "flex",
-        justifyContent: "center",
-        gap: vars.spacing.md,
-        borderTop: `1px solid ${vars.color.text}`,
-        borderBottom: `1px solid ${vars.color.text}`,
-        padding: `${vars.spacing.md} 0`,
-    }),
-    subHeading: style({
-        display: "flex",
-        justifyContent: "space-between",
+        flexDirection: "column",
+        alignItems: "flex-start",
         width: "100%",
+        padding: `${vars.spacing.sm} 0`,
+        borderBottom: `1px solid ${vars.color.text}`,
+        flexGrow: 1,
+        overflow: "hidden",
     }),
-    headingContent: recipe({
-        base: {
-            flex: 1,
-            "@media": {
-                [mediaUtils.mobile]: {
-                    fontSize: vars.fontSize.sm,
-                },
-            },
-        },
-        variants: {
-            align: {
-                left: {
-                    textAlign: "left",
-                },
-                center: {
-                    flexBasis: "fit-content",
-                    textAlign: "center",
-                    maxWidth: "80%",
-                    borderLeft: `1px solid ${vars.color.text}`,
-                    borderRight: `1px solid ${vars.color.text}`,
-                },
-                right: {
-                    display: "flex",
-                    alignItems: "flex-end",
-                    justifyContent: "flex-end",
-                },
-            },
-        },
-    }),
-    place: style({
-        display: "flex",
-    }),
-    title: style([
-        typography({ color: "background" }),
-        {
-            margin: `0 ${vars.spacing.lg}`,
-            backgroundColor: vars.color.white,
-            "@media": {
-                [mediaUtils.mobile]: {
-                    fontSize: vars.fontSize.lg,
-                },
-            },
-        },
-    ]),
     content: style({
         display: "flex",
+        alignItems: "flex-start",
         gap: vars.spacing.md,
-        borderBottom: `1px solid ${vars.color.text}`,
-        width: "100%",
-        flex: 1,
-        padding: `${vars.spacing.sm} 0`,
+        flexGrow: 1,
         overflow: "hidden",
     }),
     leftContent: style({
-        display: "flex",
-        flex: 1,
-        height: "100%",
-    }),
-    image: style({
+        alignSelf: "center",
         position: "relative",
-        width: "100%",
-        height: "100%",
-    }),
-    author: style({
-        display: "flex",
-        flexDirection: "column",
-        minWidth: "10em",
-        gap: vars.spacing.md,
-        listStyle: "none",
+        aspectRatio: "1/1",
+        maxWidth: "50%",
+        height: "80%",
+        flexShrink: 0,
         "@media": {
             [mediaUtils.mobile]: {
-                flexDirection: "row",
-                flexWrap: "wrap",
+                width: "50%",
+                height: "auto",
             },
         },
     }),
+    rightContent: style({
+        display: "flex",
+        flexDirection: "column",
+        flex: "auto",
+        height: "100%",
+        overflow: "hidden",
+    }),
+    author: style({
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        width: "100%",
+        height: "max-content",
+        flexShrink: 0,
+        gap: vars.spacing.md,
+        listStyle: "none",
+        padding: 0,
+    }),
     description: style({
-        flex: 1,
+        width: "100%",
+        flexGrow: 1,
+        overflow: "hidden",
+    }),
+    descriptionText: style({
+        whiteSpace: "wrap",
     }),
 };

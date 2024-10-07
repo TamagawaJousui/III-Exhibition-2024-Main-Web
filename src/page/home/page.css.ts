@@ -18,6 +18,7 @@ export const styles = {
             },
         },
     ]),
+
     header: style({
         position: "absolute",
         top: 0,

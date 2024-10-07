@@ -3,7 +3,7 @@ import { FC } from "react";
 
 import { placeList } from "@/models/place";
 
-import { workList } from "./model";
+import { workList } from "../../../models/works";
 
 import { SectionContainer } from "@/components/shared/Container";
 import { WorksCarousel } from "@/components/ui/WorksCarousel";
