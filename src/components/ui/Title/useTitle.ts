@@ -30,7 +30,7 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
                 }
             };
 
-            const svgUrl = "/Title2.svg";
+            const svgUrl = "/Title.svg";
             new SVGLoader(manager).load(svgUrl, (data) => {
                 svg = data;
             });
