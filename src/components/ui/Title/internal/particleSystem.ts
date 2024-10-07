@@ -7,6 +7,9 @@ import { vertexShader, fragmentShader } from "./shader";
 export class particleSystem {
     scene: THREE.Scene;
     svg: SVGResult;
+    xLength: number = 0;
+    yLength: number = 0;
+    startTime: number = 0;
     font: Font;
     particleImg: THREE.Texture;
     camera: THREE.PerspectiveCamera;
@@ -23,6 +26,14 @@ export class particleSystem {
     outlineContours: THREE.Group<THREE.Object3DEventMap> = new THREE.Group();
     planeParticles: THREE.Points = new THREE.Points();
     planeParticlesGeometryCopy: THREE.BufferGeometry = new THREE.BufferGeometry();
+    colorStops: THREE.Color[] = [
+        // new THREE.Color(0xede7e9),
+        new THREE.Color(0xea3b4d),
+        new THREE.Color(0xfb7c39),
+        new THREE.Color(0xc4ded0),
+        new THREE.Color(0xe4c2ca),
+        new THREE.Color(0xe4c2ca),
+    ];
     constructor(
         scene: THREE.Scene,
         svg: SVGResult,
@@ -66,6 +77,9 @@ export class particleSystem {
         this.planeArea = new THREE.Mesh(geometry, material);
         this.planeArea.visible = false;
         this.createText();
+        if (!this.startTime) {
+            this.startTime = performance.now();
+        }
     }
 
     bindEvents() {
@@ -97,11 +111,9 @@ export class particleSystem {
         for (let i = 0, l = pos.count; i < l; i++) {
             const initX = copy.getX(i);
             const initY = copy.getY(i);
-            const initZ = copy.getZ(i);
 
             let px = pos.getX(i);
             let py = pos.getY(i);
-            let pz = pos.getZ(i);
 
             this.colorChange.setRGB(1, 1, 1);
             coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
@@ -118,34 +130,38 @@ export class particleSystem {
             const f = -this.particleOptions.area / d;
 
             if (mouseDistance < this.particleOptions.area) {
-                {
-                    const t = Math.atan2(dy, dx);
-                    px += f * Math.cos(t);
-                    py += f * Math.sin(t);
+                const t = Math.atan2(dy, dx);
+                px += f * Math.cos(t);
+                py += f * Math.sin(t);
 
-                    pos.setXYZ(i, px, py, pz);
-                    pos.needsUpdate = true;
+                pos.setXYZ(i, px, py, 0);
+                pos.needsUpdate = true;
 
-                    size.array[i] = this.particleOptions.particleSize * 1.3;
-                    size.needsUpdate = true;
-                }
+                size.array[i] = this.particleOptions.particleSize * 1.3;
+                size.needsUpdate = true;
 
-                if (px > initX + 1.5 || px < initX - 1.5 || py > initY + 1.5 || py < initY - 1.5) {
-                    this.colorChange.setHex(0xea3b4d);
-                    coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
+                if (px > initX || px < initX || py > initY || py < initY) {
+                    const distance = mouseDistance / this.particleOptions.area;
+                    const weight = this.smoothstep(0, 1, distance);
+                    const colorIndex = Math.floor(weight * (this.colorStops.length - 1));
+                    const color = this.colorStops[colorIndex];
+
+                    coulors.setXYZ(i, color.r, color.g, color.b);
                     coulors.needsUpdate = true;
 
                     size.array[i] = this.particleOptions.particleSize / 1.8;
                     size.needsUpdate = true;
+
+                    const opacityWeight = this.smoothstep(0, 0.1, weight);
+                    opacities.setX(i, opacityWeight);
+                    opacities.needsUpdate = true;
                 }
             }
 
             px += (initX - px) * this.particleOptions.ease;
             py += (initY - py) * this.particleOptions.ease;
-            pz += (initZ - pz) * this.particleOptions.ease;
 
-            opacities.setX(i, 1.0);
-            pos.setXYZ(i, px, py, pz);
+            pos.setXYZ(i, px, py, 0);
             pos.needsUpdate = true;
         }
     }
@@ -164,6 +180,9 @@ export class particleSystem {
         }
         const xLength = geometry.boundingBox.max.x - geometry.boundingBox.min.x;
         const yLength = geometry.boundingBox.max.y - geometry.boundingBox.min.y;
+
+        this.xLength = xLength;
+        this.yLength = yLength;
 
         console.log(xLength, yLength);
 
@@ -196,7 +215,7 @@ export class particleSystem {
 
         const outlineGroup = new THREE.Group();
         lineSegments.forEach((segment) => {
-            segment.translateX(xLength / 2);
+            segment.translateX(xLength);
             segment.translateY(-yLength / 2);
             outlineGroup.add(segment);
         });
@@ -243,7 +262,7 @@ export class particleSystem {
                     const point = new THREE.Vector3(x, y, 0);
                     points.push(point);
                     colors.push(this.colorChange.r, this.colorChange.g, this.colorChange.b);
-                    opacities.push(1.0);
+                    opacities.push(1);
                     sizes.push(1);
                 }
             });
@@ -251,7 +270,7 @@ export class particleSystem {
 
         const geoParticles = new THREE.BufferGeometry().setFromPoints(points);
 
-        geoParticles.translate(xLength / 2, -yLength / 2, 0);
+        geoParticles.translate(xLength, -yLength / 2, 0);
 
         geoParticles.setAttribute("customColor", new THREE.Float32BufferAttribute(colors, 3));
         geoParticles.setAttribute("opacity", new THREE.Float32BufferAttribute(opacities, 1));
@@ -292,5 +311,15 @@ export class particleSystem {
 
     distance(x1: number, y1: number, x2: number, y2: number) {
         return Math.sqrt(Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2));
+    }
+
+    smoothstep(edge0: number, edge1: number, x: number) {
+        const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
+        return t * t * (3 - 2 * t);
+    }
+
+    customSmoothstep(edge0: number, edge1: number, x: number) {
+        const t = Math.max(-1, Math.min(1, (x - edge0) / (edge1 - edge0)));
+        return t * t * (3 - 2 * Math.abs(t));
     }
 }
