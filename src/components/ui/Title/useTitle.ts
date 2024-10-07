@@ -66,7 +66,7 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
             particleSize: 1,
             particleColor: 0xffffff,
             textSize: getTextSize(),
-            area: 7,
+            area: 100,
             ease: 0.05,
         };
 
