@@ -29,7 +29,7 @@ export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) =>
                 svg = data;
             });
 
-            const particleImgUrl = "/heroarea/particle.png";
+            const particleImgUrl = "/heroarea/particle_texture.png";
             new THREE.TextureLoader(manager).load(particleImgUrl, (texture) => {
                 particle = texture;
             });

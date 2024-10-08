@@ -19,11 +19,13 @@
         ],
         "paths": {
             "@/*": ["./src/*"],
-            "@components/*": ["./src/components/*"]
+            "@components/*": ["./src/components/*"],
+            "@public/*": ["./public/*"]
         }
     },
     "files": ["node_modules/gsap/types/index.d.ts"],
     "include": [
+        "svgr.d.ts",
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",

@@ -1,6 +1,10 @@
 import Image from "next/image";
 import { FC } from "react";
 
+import StaticDateAndVenue from "@/assets/svg/DateAndVenue.svg";
+import StaticTitle from "@/assets/svg/Title.svg";
+import StaticTitleEnglish from "@/assets/svg/TitleEnglish.svg";
+
 import { DateAndVenue } from "@/components/ui/DateAndVenue";
 import { Particles } from "@/components/ui/Particles";
 import { Title } from "@/components/ui/Title";
@@ -17,33 +21,16 @@ export const HeroareaSection: FC = () => (
             <DateAndVenue />
         </div>
         <div className={styles.mobileView}>
-            <div className={styles.container({ label: "title" })}>
-                <HeroareaText label="title" className={styles.text} />
-            </div>
-            <div className={styles.container({ label: "titleEnglish" })}>
-                <HeroareaText label="titleEnglish" className={styles.text} />
-            </div>
-            <div className={styles.container({ label: "dateAndVenue" })}>
-                <HeroareaText label="dateAndVenue" className={styles.text} />
-            </div>
+            <StaticTitle className={styles.title} width={110} />
+            <StaticTitleEnglish className={styles.titleEnglish} width={270} />
+            <StaticDateAndVenue className={styles.dateAndVenue} width={230} />
+            <Image
+                className={styles.particle}
+                src={"/heroarea/particle_mobile.png"}
+                alt="particle"
+                width={1000}
+                height={1000}
+            />
         </div>
     </div>
 );
-
-type TextProps = {
-    label: string;
-    className?: string;
-};
-const HeroareaText: FC<TextProps> = ({ label, className }) => {
-    const svgPath = `/heroarea/static-${label}.svg`;
-    return (
-        <div className={className}>
-            <Image
-                src={svgPath}
-                alt={`${label} of iii exhibition`}
-                fill
-                style={{ objectFit: "contain" }}
-            />
-        </div>
-    );
-};

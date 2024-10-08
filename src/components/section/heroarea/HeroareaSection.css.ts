@@ -1,5 +1,4 @@
 import { style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
 
 import { mediaUtils } from "@/styles";
 
@@ -9,38 +8,6 @@ export const styles = {
         position: "relative",
         width: "100vw",
         height: "100vh",
-    }),
-    container: recipe({
-        base: {
-            position: "absolute",
-        },
-        variants: {
-            label: {
-                title: {
-                    bottom: 20,
-                    left: 0,
-                    width: "30%",
-                    height: "90%",
-                },
-                titleEnglish: {
-                    top: 0,
-                    right: 10,
-                    width: "60%",
-                    height: "20%",
-                },
-                dateAndVenue: {
-                    bottom: 0,
-                    right: 0,
-                    width: "40%",
-                    height: "50%",
-                },
-            },
-        },
-    }),
-    text: style({
-        position: "relative",
-        width: "100%",
-        height: "100%",
     }),
     desktopView: style({
         display: "block",
@@ -57,5 +24,26 @@ export const styles = {
                 display: "block",
             },
         },
+    }),
+    title: style({
+        position: "absolute",
+        top: "170px",
+        left: "5px",
+    }),
+    titleEnglish: style({
+        position: "absolute",
+        top: "70px",
+        right: "5px",
+    }),
+    dateAndVenue: style({
+        position: "absolute",
+        right: "5px",
+        bottom: "60px",
+    }),
+    particle: style({
+        position: "absolute",
+        left: "-200px",
+        top: "-100px",
+        overflow: "hidden",
     }),
 };
