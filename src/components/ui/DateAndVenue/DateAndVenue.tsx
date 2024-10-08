@@ -5,8 +5,8 @@ import { useDateAndVenue } from "./useDateAndVenue";
 import { styles } from "./DateAndVenue.css";
 
 export const DateAndVenue: FC = () => {
-    const titleDivRef = useRef<HTMLDivElement>(null);
-    useDateAndVenue(titleDivRef);
+    const dateAndVenueDivRef = useRef<HTMLDivElement>(null);
+    useDateAndVenue(dateAndVenueDivRef);
 
-    return <div className={styles.magic} ref={titleDivRef}></div>;
+    return <div className={styles.magic} ref={dateAndVenueDivRef}></div>;
 };
