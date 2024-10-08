@@ -35,7 +35,11 @@ export const Content: FC<Props> = (props) => {
             />
             <div className={styles.overlay}>
                 <WithTitle title={data.title} size="2xl">
-                    <p className={styles.member}>{data.member}</p>
+                    <p className={styles.member}>
+                        {data.member.map((name, index) => (
+                            <span key={index}>{name}</span>
+                        ))}
+                    </p>
                     <p className={styles.place}>{data.place}</p>
                 </WithTitle>
 

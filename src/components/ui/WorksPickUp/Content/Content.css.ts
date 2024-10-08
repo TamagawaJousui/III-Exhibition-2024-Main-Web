@@ -25,7 +25,13 @@ export const styles = {
     }),
     member: style([
         typography({ fontSize: "sm" }),
-        { minHeight: `calc(2 * ${vars.lineHeight.sm})` },
+        {
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            gap: vars.spacing.xs,
+            minHeight: `calc(2 * ${vars.lineHeight.sm})`,
+        },
     ]),
     place: typography({ fontSize: "xs" }),
     buttonContainer: style({
