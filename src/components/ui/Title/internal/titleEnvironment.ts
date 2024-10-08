@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { SVGResult } from "three/addons/loaders/SVGLoader.js";
 
-import { particleSystem } from "./particleSystem";
+import { particleSystem } from "./titleParticleSystem";
 
 // クラスベースのEnvironmentの定義
 export class Environment {
@@ -81,8 +81,8 @@ export class Environment {
 
         const frustumWidth = this.caculateFrustum();
 
-        this.camera.position.set(-frustumWidth / 2, 0, 100);
-        this.camera.lookAt(-frustumWidth / 2, 0, 0);
+        this.camera.position.set(frustumWidth / 2, 0, 100);
+        this.camera.lookAt(frustumWidth / 2, 0, 0);
     }
 
     createRenderer() {
@@ -101,6 +101,7 @@ export class Environment {
     }
 
     onWindowResize() {
+        console.log("onWindowResize");
         if (!this.camera || !this.renderer) {
             throw new Error("Camera or Renderer is not initialized");
         }
@@ -109,8 +110,8 @@ export class Environment {
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
 
         const frustumWidth = this.caculateFrustum();
-        this.camera.position.set(-frustumWidth / 2, 0, 100);
-        this.camera.lookAt(-frustumWidth / 2, 0, 0);
+        this.camera.position.set(frustumWidth / 2, 0, 100);
+        this.camera.lookAt(frustumWidth / 2, 0, 0);
     }
 
     debouncedResize() {
