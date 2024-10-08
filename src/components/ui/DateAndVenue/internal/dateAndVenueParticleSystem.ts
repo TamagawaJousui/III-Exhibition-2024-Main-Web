@@ -181,8 +181,6 @@ export class particleSystem {
         this.xLength = xLength;
         this.yLength = yLength;
 
-        console.log(xLength, yLength);
-
         this.outlineContours = this.outlineContour(shapes, xLength, yLength);
         this.planeParticles = this.planeParticle(shapes, xLength, yLength);
 

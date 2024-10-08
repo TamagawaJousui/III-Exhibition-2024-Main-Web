@@ -101,7 +101,6 @@ export class Environment {
     }
 
     onWindowResize() {
-        console.log("onWindowResize");
         if (!this.camera || !this.renderer) {
             throw new Error("Camera or Renderer is not initialized");
         }

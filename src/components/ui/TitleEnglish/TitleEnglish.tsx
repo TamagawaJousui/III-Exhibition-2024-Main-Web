@@ -5,8 +5,8 @@ import { useTitleEnglish } from "./useTitleEnglish";
 import { styles } from "./TitleEnglish.css";
 
 export const TitleEnglish: FC = () => {
-    const titleDivRef = useRef<HTMLDivElement>(null);
-    useTitleEnglish(titleDivRef);
+    const titleEnglishDivRef = useRef<HTMLDivElement>(null);
+    useTitleEnglish(titleEnglishDivRef);
 
-    return <div className={styles.magic} ref={titleDivRef}></div>;
+    return <div className={styles.magic} ref={titleEnglishDivRef}></div>;
 };

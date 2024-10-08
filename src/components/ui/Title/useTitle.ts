@@ -18,7 +18,6 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
             let particle: THREE.Texture | null = null;
             manager.onLoad = () => {
                 if (svg && particle) {
-                    console.log(svg);
                     environment = new Environment(svg, particle, titleDivRef, particleOptions);
                 }
             };
@@ -28,7 +27,7 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
                 svg = data;
             });
 
-            const particleImgUrl = "./particle.png";
+            const particleImgUrl = "/particle.png";
             new THREE.TextureLoader(manager).load(particleImgUrl, (texture) => {
                 particle = texture;
             });
@@ -57,14 +56,17 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
             ease: 0.05,
         };
 
-        (() =>
-            match(document.readyState)
+        (() => {
+            const state = document.readyState;
+            match(state)
                 .with("complete", () => {
                     preload(particleOptions);
                 })
                 .with("loading", () => {
                     match(document.documentElement.scrollTop === 0)
-                        .with(false, () => preload(particleOptions))
+                        .with(false, () => {
+                            preload(particleOptions);
+                        })
                         .otherwise(() => {
                             document.addEventListener("DOMContentLoaded", () =>
                                 preload(particleOptions)
@@ -72,17 +74,9 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
                         });
                 })
                 .otherwise(() => {
-                    document.addEventListener("DOMContentLoaded", () => preload(particleOptions));
-                }))();
-
-        if (
-            document.readyState === "complete" ||
-            (document.readyState !== "loading" && !document.documentElement.scrollTop)
-        ) {
-            preload(particleOptions);
-        } else {
-            document.addEventListener("DOMContentLoaded", () => preload(particleOptions));
-        }
+                    preload(particleOptions);
+                });
+        })();
 
         // クリーンアップ
         return () => {

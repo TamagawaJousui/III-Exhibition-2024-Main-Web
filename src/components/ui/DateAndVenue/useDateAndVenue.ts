@@ -18,7 +18,6 @@ export const useDateAndVenue = (titleDivRef: React.RefObject<HTMLDivElement>) =>
             let particle: THREE.Texture | null = null;
             manager.onLoad = () => {
                 if (svg && particle) {
-                    console.log(svg);
                     environment = new Environment(svg, particle, titleDivRef, particleOptions);
                 }
             };
@@ -28,8 +27,7 @@ export const useDateAndVenue = (titleDivRef: React.RefObject<HTMLDivElement>) =>
                 svg = data;
             });
 
-            const particleImgUrl =
-                "https://res.cloudinary.com/dfvtkoboz/image/upload/v1605013866/particle_a64uzf.png";
+            const particleImgUrl = "/particle.png";
             new THREE.TextureLoader(manager).load(particleImgUrl, (texture) => {
                 particle = texture;
             });
@@ -58,14 +56,17 @@ export const useDateAndVenue = (titleDivRef: React.RefObject<HTMLDivElement>) =>
             ease: 0.05,
         };
 
-        (() =>
-            match(document.readyState)
+        (() => {
+            const state = document.readyState;
+            match(state)
                 .with("complete", () => {
                     preload(particleOptions);
                 })
                 .with("loading", () => {
                     match(document.documentElement.scrollTop === 0)
-                        .with(false, () => preload(particleOptions))
+                        .with(false, () => {
+                            preload(particleOptions);
+                        })
                         .otherwise(() => {
                             document.addEventListener("DOMContentLoaded", () =>
                                 preload(particleOptions)
@@ -73,8 +74,9 @@ export const useDateAndVenue = (titleDivRef: React.RefObject<HTMLDivElement>) =>
                         });
                 })
                 .otherwise(() => {
-                    document.addEventListener("DOMContentLoaded", () => preload(particleOptions));
-                }))();
+                    preload(particleOptions);
+                });
+        })();
 
         // クリーンアップ
         return () => {

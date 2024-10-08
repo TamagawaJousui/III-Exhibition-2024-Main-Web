@@ -27,7 +27,7 @@ export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) =>
                 svg = data;
             });
 
-            const particleImgUrl = "./particle.png";
+            const particleImgUrl = "/particle.png";
             new THREE.TextureLoader(manager).load(particleImgUrl, (texture) => {
                 particle = texture;
             });
@@ -56,14 +56,17 @@ export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) =>
             ease: 0.05,
         };
 
-        (() =>
-            match(document.readyState)
+        (() => {
+            const state = document.readyState;
+            match(state)
                 .with("complete", () => {
                     preload(particleOptions);
                 })
                 .with("loading", () => {
                     match(document.documentElement.scrollTop === 0)
-                        .with(false, () => preload(particleOptions))
+                        .with(false, () => {
+                            preload(particleOptions);
+                        })
                         .otherwise(() => {
                             document.addEventListener("DOMContentLoaded", () =>
                                 preload(particleOptions)
@@ -71,8 +74,9 @@ export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) =>
                         });
                 })
                 .otherwise(() => {
-                    document.addEventListener("DOMContentLoaded", () => preload(particleOptions));
-                }))();
+                    preload(particleOptions);
+                });
+        })();
 
         // クリーンアップ
         return () => {
