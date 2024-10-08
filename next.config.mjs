@@ -1,18 +1,10 @@
 import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin";
 
-import { FontOptimizationPlugin } from "./src/utils/FontOptimizationPlugin.mjs";
 const withVanillaExtract = createVanillaExtractPlugin();
 
 const nextConfig = {
     reactStrictMode: true,
     webpack: (config) => {
-        config.plugins.push(
-            new FontOptimizationPlugin({
-                fontPath: "./public/fonts/rycsminStencily-Regular-Master.json.gz",
-                outputPath: "./public/fonts/Title.json",
-                chars: "付いて離れて",
-            })
-        );
         config.module.rules.push({
             test: /.(vert|frag)$/,
             use: "raw-loader",

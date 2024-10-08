@@ -1,10 +1,10 @@
-import React, { useRef } from "react";
+import { FC, useRef } from "react";
 
 import { useTitleEnglish } from "./useTitleEnglish";
 
 import { styles } from "./TitleEnglish.css";
 
-export const TitleEnglish: React.FC = () => {
+export const TitleEnglish: FC = () => {
     const titleDivRef = useRef<HTMLDivElement>(null);
     useTitleEnglish(titleDivRef);
 
