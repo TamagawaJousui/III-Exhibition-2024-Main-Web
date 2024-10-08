@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { SVGResult } from "three/addons/loaders/SVGLoader.js";
 
-import { particleSystem } from "./DateAndVenueParticleSystem";
+import { particleSystem } from "./dateAndVenueParticleSystem";
 
 // クラスベースのEnvironmentの定義
 export class Environment {
