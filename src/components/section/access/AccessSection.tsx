@@ -17,7 +17,7 @@ export const AccessSection: FC = () => (
                 src="/access/map.png"
                 alt="access map"
                 fill
-                objectFit="contain"
+                style={{ objectFit: "contain" }}
                 className={styles.map}
             />
         </div>
