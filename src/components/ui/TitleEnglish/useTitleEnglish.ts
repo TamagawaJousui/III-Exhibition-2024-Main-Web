@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import * as THREE from "three";
 import { SVGResult, SVGLoader } from "three/addons/loaders/SVGLoader.js";
-import { Font, FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
 
 import { Environment } from "./internal/environment";
 
@@ -15,29 +14,16 @@ export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) =>
             const manager = new THREE.LoadingManager();
 
             let svg: SVGResult | null = null;
-            let typo: Font | null = null;
             let particle: THREE.Texture | null = null;
             manager.onLoad = () => {
-                if (svg && typo && particle) {
-                    console.log(svg);
-                    environment = new Environment(
-                        svg,
-                        typo,
-                        particle,
-                        titleDivRef,
-                        particleOptions
-                    );
+                if (svg && particle) {
+                    environment = new Environment(svg, particle, titleDivRef, particleOptions);
                 }
             };
 
             const svgUrl = "/TitleEnglish.svg";
             new SVGLoader(manager).load(svgUrl, (data) => {
                 svg = data;
-            });
-
-            const fontUrl = "/fonts/Title.json";
-            new FontLoader(manager).load(fontUrl, (font) => {
-                typo = font;
             });
 
             const particleImgUrl = "./particle.png";

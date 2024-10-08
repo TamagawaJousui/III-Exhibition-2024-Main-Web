@@ -1,13 +1,11 @@
 import * as THREE from "three";
 import { SVGResult } from "three/addons/loaders/SVGLoader.js";
-import { Font } from "three/examples/jsm/Addons.js";
 
 import { particleSystem } from "./particleSystem";
 
 // クラスベースのEnvironmentの定義
 export class Environment {
     svg: SVGResult;
-    font: Font;
     particle: THREE.Texture;
     container: HTMLElement;
     scene: THREE.Scene;
@@ -17,13 +15,11 @@ export class Environment {
     particleOptions: ParticleData;
     constructor(
         svg: SVGResult,
-        font: Font,
         particle: THREE.Texture,
         titleDivRef: React.RefObject<HTMLDivElement>,
         particleOptions: ParticleData
     ) {
         this.svg = svg;
-        this.font = font;
         this.particle = particle;
         if (titleDivRef.current) {
             this.container = titleDivRef.current;
@@ -49,7 +45,6 @@ export class Environment {
         this.particleSystem = new particleSystem(
             this.scene,
             this.svg,
-            this.font,
             this.particle,
             this.camera,
             this.renderer,
