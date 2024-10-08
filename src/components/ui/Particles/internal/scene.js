@@ -1,3 +1,4 @@
+import debounce from "debounce";
 import * as THREE from "three";
 
 export const initScene = (canvas) => {
@@ -38,13 +39,16 @@ export const initScene = (canvas) => {
     //   rgb(20, 20, 20) 100%
     // )`;
 
-    // Handle window resize
-    window.addEventListener("resize", () => {
+    const handleResize = debounce(() => {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
 
         renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setPixelRatio(window.devicePixelRatio); // Ensure pixel ratio is set on resize
+        renderer.setPixelRatio(window.devicePixelRatio); // Ensure pixel ratio is set on resize)
+    }, 300);
+
+    window.addEventListener("resize", () => {
+        handleResize();
     });
 
     return { scene, camera, renderer };

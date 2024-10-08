@@ -1,6 +1,8 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
+import { mediaUtils } from "@/styles";
+
 export const styles = {
     root: style({
         display: "flex",
@@ -39,5 +41,21 @@ export const styles = {
         position: "relative",
         width: "100%",
         height: "100%",
+    }),
+    desktopView: style({
+        display: "block",
+        "@media": {
+            [mediaUtils.mobile]: {
+                display: "none",
+            },
+        },
+    }),
+    mobileView: style({
+        display: "none",
+        "@media": {
+            [mediaUtils.mobile]: {
+                display: "block",
+            },
+        },
     }),
 };
