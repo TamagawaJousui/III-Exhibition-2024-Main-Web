@@ -28,7 +28,12 @@ const HeroareaText: FC<TextProps> = ({ label, className }) => {
     const svgPath = `/heroarea/static-${label}.svg`;
     return (
         <div className={className}>
-            <Image src={svgPath} alt={`${label} of iii exhibition`} fill objectFit="contain" />
+            <Image
+                src={svgPath}
+                alt={`${label} of iii exhibition`}
+                fill
+                style={{ objectFit: "contain" }}
+            />
         </div>
     );
 };

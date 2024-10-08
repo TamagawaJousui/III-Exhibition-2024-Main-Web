@@ -56,7 +56,12 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <html lang="ja">
-        <body className={`${playfairDisplay.variable} ${kleeOne.variable}`}>{children}</body>
+        <body
+            suppressHydrationWarning
+            className={`${playfairDisplay.variable} ${kleeOne.variable}`}
+        >
+            {children}
+        </body>
         <GoogleAnalytics gaId={guardUndef(process.env.NEXT_PUBLIC_GA_ID)} />
     </html>
 );
