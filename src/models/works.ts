@@ -14,7 +14,7 @@ export type WorkData = {
 export const workList = [
     {
         title: "帝大下水",
-        member: ["あんどうやすし", "十河 翔"],
+        member: ["あんどうやすし", "十河翔"],
         place: "情報学環オープンスタジオ",
         description: {
             ja: `春は赤門に桜が舞い、夏は三四郎池に蝉時雨が降る。秋は銀杏並木が黄金色に染まり、冬は……まぁなんかさみしい。そんな東大本郷キャンパスにはあなたの知らない裏がある。「帝大下水」は目に映るキャンパスの姿を大きく変える。刮目。`,
@@ -24,7 +24,7 @@ export const workList = [
     },
     {
         title: "zip or",
-        member: ["増田 凌", "大平 麻以", "加藤 遼真", "石川 虎之介", "永田 莉紗", "金田 昌也"],
+        member: ["増田凌", "大平麻以", "加藤遼真", "石川虎之介", "永田莉紗", "金田昌也"],
         place: "情報学環オープンスタジオ",
         description: {
             ja: `ジッパーは「金属やプラスチック製の角張った構造が互いに噛み合い、直線を形成する」という強い人工物らしさをもっている。そんなジッパーを用いながら自然がもつ有機的な形を表現することはできるのだろうか。
@@ -39,7 +39,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "Prismatic Diary",
-        member: ["横井 総太朗", "小西 優多郎", "李 伊婧", "平林 晴馬", "吉田 翼", "都築 あい"],
+        member: ["横井総太朗", "小西優多郎", "李伊婧", "平林晴馬", "吉田翼", "都築あい"],
         place: "情報学環オープンスタジオ",
         description: {
             ja: `本作品では、日記の執筆中に生成AIによる複数の解釈を展開し、少し違う「私」へ出会う体験を実現した。出来事の異なった解釈の可能性に気付いた瞬間、あなたの世界の見え方は虹色に変わっていくだろう。`,
@@ -49,7 +49,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "裏地図",
-        member: ["井上 国太郎", "田中 祐玖", "機田 悠希", "花岡 桃可", "鈴木 健"],
+        member: ["井上国太郎", "田中祐玖", "機田悠希", "花岡桃可", "鈴木健"],
         place: "情報学環オープンスタジオ",
         description: {
             ja: "裏地図は、「三幕物」として構成される。写真とドローイングに支えられた裏地図は、一連の流れを伴う経験である。裏地図は、旗や横断幕を利用したあらゆる運動へのオマージュである。未来の「纏える」地図に向かって、裏地図は歩き始める。布という平面に描き込まれた地図は、裁断/縫合によって将来的には立体的な服に加工され、日常に溶け込む。",
@@ -60,7 +60,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "空間新聞",
-        member: ["森田 匠", "高橋 一成"],
+        member: ["森田匠", "高橋一成"],
         place: "情報学環オープンスタジオ",
         description: {
             ja: "本作品は、情報を人が歩いて運んでくる世界の新聞である。そのため、情報の発信源が遠いほどこの新聞に載る情報は古いものとなっていく。鑑賞者は、今まさに自分が立っている身体空間の広がりを感じることができる。メディアは、これまで遠い地域の情報を集約・分配し、距離的な隔たりを除去することで、社会の一体感や国民意識の醸成に寄与してきた。本作品では「遅いメディア」を通じて、「国民国家」や「グローバル化」が前提としてきた情報の同時性の解体に挑戦している。",
@@ -71,7 +71,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "The Tower",
-        member: ["友利 未夢", "國仲 杏", "常盤 優菜", "増澤 茉利子", "谷 なぎさ"],
+        member: ["友利未夢", "國仲杏", "常盤優菜", "増澤茉利子", "谷なぎさ"],
         place: "情報学環オープンスタジオ",
         description: {
             ja: "本作品は「文化的同化」へのアンチテーゼを表現する、クレイアニメーションである。ねんどで作られた個性豊かなキャラクターたちは、1,440枚の静止画を繋ぎ合わせることで命が吹き込まれ、世界を表現していく。",
@@ -82,7 +82,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "Tシャツのトポロジー最適化",
-        member: ["金田 昌也", "福田 晴紀", "増田 凌", "永田 莉紗"],
+        member: ["金田昌也", "福田晴紀", "増田凌", "永田莉紗"],
         place: "情報学環オープンスタジオ",
         description: {
             ja: "トポロジー最適化とは与えられた設計空間と機能要請のなかで最小限の材料配置を決定する設計手法のことで、工業部品の軽量化や性能向上に利用されている。では、洋服をトポロジー最適化してみたらどうなるだろうか。",
@@ -93,7 +93,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "Area of Landscape",
-        member: ["真田 将太朗", "森 達也", "八木 新平", "桶家 武尊", "池田 翔", "仲村 友杜"],
+        member: ["真田将太朗", "森達也", "八木新平", "桶家武尊", "池田翔", "仲村友杜"],
         place: "情報学環オープンスタジオ",
         description: {
             ja: "本作は、絵画の形態を決定する要素として鑑賞者の姿を積極的に取り入れている。絵画空間へと迎えられ、完成へと向かう絵画の一部となる体験を通して、差異と調和に満ちた「新しい風景」の見方を示す。キャンバスに色が置かれるたび、絵画のなかで要素どうしの関係性が生成と消滅を繰り返す。自らが抽象風景を作る一つの要素となったとき、世界の見つめ方はどのように変わるだろうか。",
@@ -103,7 +103,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "帝大下水",
-        member: ["あんどうやすし", "十河 翔"],
+        member: ["あんどうやすし", "十河翔"],
         place: "工学部2号館9階・Sky Presentation Room",
         description: {
             ja: `春は赤門に桜が舞い、夏は三四郎池に蝉時雨が降る。秋は銀杏並木が黄金色に染まり、冬は……まぁなんかさみしい。そんな東大本郷キャンパスにはあなたの知らない裏がある。「帝大下水」は目に映るキャンパスの姿を大きく変える。刮目。`,
@@ -113,7 +113,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "zip or",
-        member: ["増田 凌", "大平 麻以", "加藤 遼真", "石川 虎之介", "永田 莉紗", "金田 昌也"],
+        member: ["増田凌", "大平麻以", "加藤遼真", "石川虎之介", "永田莉紗", "金田昌也"],
         place: "工学部2号館9階・Sky Presentation Room",
         description: {
             ja: `ジッパーは「金属やプラスチック製の角張った構造が互いに噛み合い、直線を形成する」という強い人工物らしさをもっている。そんなジッパーを用いながら自然がもつ有機的な形を表現することはできるのだろうか。
@@ -128,7 +128,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "Prismatic Diary",
-        member: ["横井 総太朗", "小西 優多郎", "李 伊婧", "平林 晴馬", "吉田 翼", "都築 あい"],
+        member: ["横井総太朗", "小西優多郎", "李伊婧", "平林晴馬", "吉田翼", "都築あい"],
         place: "工学部2号館9階・Sky Presentation Room",
         description: {
             ja: `本作品では、日記の執筆中に生成AIによる複数の解釈を展開し、少し違う「私」へ出会う体験を実現した。出来事の異なった解釈の可能性に気付いた瞬間、あなたの世界の見え方は虹色に変わっていくだろう。`,
@@ -138,7 +138,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "裏地図",
-        member: ["井上 国太郎", "田中 祐玖", "機田 悠希", "花岡 桃可", "鈴木 健"],
+        member: ["井上国太郎", "田中祐玖", "機田悠希", "花岡桃可", "鈴木健"],
         place: "工学部2号館9階・Sky Presentation Room",
         description: {
             ja: "裏地図は、「三幕物」として構成される。写真とドローイングに支えられた裏地図は、一連の流れを伴う経験である。裏地図は、旗や横断幕を利用したあらゆる運動へのオマージュである。未来の「纏える」地図に向かって、裏地図は歩き始める。布という平面に描き込まれた地図は、裁断/縫合によって将来的には立体的な服に加工され、日常に溶け込む。",
@@ -149,7 +149,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "空間新聞",
-        member: ["森田 匠", "高橋 一成"],
+        member: ["森田匠", "高橋一成"],
         place: "工学部2号館9階・Sky Presentation Room",
         description: {
             ja: "本作品は、情報を人が歩いて運んでくる世界の新聞である。そのため、情報の発信源が遠いほどこの新聞に載る情報は古いものとなっていく。鑑賞者は、今まさに自分が立っている身体空間の広がりを感じることができる。メディアは、これまで遠い地域の情報を集約・分配し、距離的な隔たりを除去することで、社会の一体感や国民意識の醸成に寄与してきた。本作品では「遅いメディア」を通じて、「国民国家」や「グローバル化」が前提としてきた情報の同時性の解体に挑戦している。",
@@ -160,7 +160,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "The Tower",
-        member: ["友利 未夢", "國仲 杏", "常盤 優菜", "増澤 茉利子", "谷 なぎさ"],
+        member: ["友利未夢", "國仲杏", "常盤優菜", "増澤茉利子", "谷なぎさ"],
         place: "工学部2号館9階・Sky Presentation Room",
         description: {
             ja: "本作品は「文化的同化」へのアンチテーゼを表現する、クレイアニメーションである。ねんどで作られた個性豊かなキャラクターたちは、1,440枚の静止画を繋ぎ合わせることで命が吹き込まれ、世界を表現していく。",
@@ -171,7 +171,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "Tシャツのトポロジー最適化",
-        member: ["金田 昌也", "福田 晴紀", "増田 凌", "永田 莉紗"],
+        member: ["金田昌也", "福田晴紀", "増田凌", "永田莉紗"],
         place: "工学部2号館9階・Sky Presentation Room",
         description: {
             ja: "トポロジー最適化とは与えられた設計空間と機能要請のなかで最小限の材料配置を決定する設計手法のことで、工業部品の軽量化や性能向上に利用されている。では、洋服をトポロジー最適化してみたらどうなるだろうか。",
@@ -182,7 +182,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "Area of Landscape",
-        member: ["真田 将太朗", "森 達也", "八木 新平", "桶家 武尊", "池田 翔", "仲村 友杜"],
+        member: ["真田将太朗", "森達也", "八木新平", "桶家武尊", "池田翔", "仲村友杜"],
         place: "工学部2号館9階・Sky Presentation Room",
         description: {
             ja: "本作は、絵画の形態を決定する要素として鑑賞者の姿を積極的に取り入れている。絵画空間へと迎えられ、完成へと向かう絵画の一部となる体験を通して、差異と調和に満ちた「新しい風景」の見方を示す。キャンバスに色が置かれるたび、絵画のなかで要素どうしの関係性が生成と消滅を繰り返す。自らが抽象風景を作る一つの要素となったとき、世界の見つめ方はどのように変わるだろうか。",
@@ -192,7 +192,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "帝大下水",
-        member: ["あんどうやすし", "十河 翔"],
+        member: ["あんどうやすし", "十河翔"],
         place: "工学部2号館フォーラム",
         description: {
             ja: `春は赤門に桜が舞い、夏は三四郎池に蝉時雨が降る。秋は銀杏並木が黄金色に染まり、冬は……まぁなんかさみしい。そんな東大本郷キャンパスにはあなたの知らない裏がある。「帝大下水」は目に映るキャンパスの姿を大きく変える。刮目。`,
@@ -202,7 +202,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "zip or",
-        member: ["増田 凌", "大平 麻以", "加藤 遼真", "石川 虎之介", "永田 莉紗", "金田 昌也"],
+        member: ["増田凌", "大平麻以", "加藤遼真", "石川虎之介", "永田莉紗", "金田昌也"],
         place: "工学部2号館フォーラム",
         description: {
             ja: `ジッパーは「金属やプラスチック製の角張った構造が互いに噛み合い、直線を形成する」という強い人工物らしさをもっている。そんなジッパーを用いながら自然がもつ有機的な形を表現することはできるのだろうか。
@@ -217,7 +217,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "Prismatic Diary",
-        member: ["横井 総太朗", "小西 優多郎", "李 伊婧", "平林 晴馬", "吉田 翼", "都築 あい"],
+        member: ["横井総太朗", "小西優多郎", "李伊婧", "平林晴馬", "吉田翼", "都築あい"],
         place: "工学部2号館フォーラム",
         description: {
             ja: `本作品では、日記の執筆中に生成AIによる複数の解釈を展開し、少し違う「私」へ出会う体験を実現した。出来事の異なった解釈の可能性に気付いた瞬間、あなたの世界の見え方は虹色に変わっていくだろう。`,
@@ -227,7 +227,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "裏地図",
-        member: ["井上 国太郎", "田中 祐玖", "機田 悠希", "花岡 桃可", "鈴木 健"],
+        member: ["井上国太郎", "田中祐玖", "機田悠希", "花岡桃可", "鈴木健"],
         place: "工学部2号館フォーラム",
         description: {
             ja: "裏地図は、「三幕物」として構成される。写真とドローイングに支えられた裏地図は、一連の流れを伴う経験である。裏地図は、旗や横断幕を利用したあらゆる運動へのオマージュである。未来の「纏える」地図に向かって、裏地図は歩き始める。布という平面に描き込まれた地図は、裁断/縫合によって将来的には立体的な服に加工され、日常に溶け込む。",
@@ -238,7 +238,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "空間新聞",
-        member: ["森田 匠", "高橋 一成"],
+        member: ["森田匠", "高橋一成"],
         place: "工学部2号館フォーラム",
         description: {
             ja: "本作品は、情報を人が歩いて運んでくる世界の新聞である。そのため、情報の発信源が遠いほどこの新聞に載る情報は古いものとなっていく。鑑賞者は、今まさに自分が立っている身体空間の広がりを感じることができる。メディアは、これまで遠い地域の情報を集約・分配し、距離的な隔たりを除去することで、社会の一体感や国民意識の醸成に寄与してきた。本作品では「遅いメディア」を通じて、「国民国家」や「グローバル化」が前提としてきた情報の同時性の解体に挑戦している。",
@@ -260,7 +260,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "Tシャツのトポロジー最適化",
-        member: ["金田 昌也", "福田 晴紀", "増田 凌", "永田 莉紗"],
+        member: ["金田昌也", "福田晴紀", "増田凌", "永田莉紗"],
         place: "工学部2号館フォーラム",
         description: {
             ja: "トポロジー最適化とは与えられた設計空間と機能要請のなかで最小限の材料配置を決定する設計手法のことで、工業部品の軽量化や性能向上に利用されている。では、洋服をトポロジー最適化してみたらどうなるだろうか。",
@@ -271,7 +271,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "Area of Landscape",
-        member: ["真田 将太朗", "森 達也", "八木 新平", "桶家 武尊", "池田 翔", "仲村 友杜"],
+        member: ["真田将太朗", "森達也", "八木新平", "桶家武尊", "池田翔", "仲村友杜"],
         place: "工学部2号館フォーラム",
         description: {
             ja: "本作は、絵画の形態を決定する要素として鑑賞者の姿を積極的に取り入れている。絵画空間へと迎えられ、完成へと向かう絵画の一部となる体験を通して、差異と調和に満ちた「新しい風景」の見方を示す。キャンバスに色が置かれるたび、絵画のなかで要素どうしの関係性が生成と消滅を繰り返す。自らが抽象風景を作る一つの要素となったとき、世界の見つめ方はどのように変わるだろうか。",
@@ -291,7 +291,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "zip or",
-        member: ["増田 凌", "大平 麻以", "加藤 遼真", "石川 虎之介", "永田 莉紗", "金田 昌也"],
+        member: ["増田凌", "大平麻以", "加藤遼真", "石川虎之介", "永田莉紗", "金田昌也"],
         place: "工学部2号館展示室",
         description: {
             ja: `ジッパーは「金属やプラスチック製の角張った構造が互いに噛み合い、直線を形成する」という強い人工物らしさをもっている。そんなジッパーを用いながら自然がもつ有機的な形を表現することはできるのだろうか。
@@ -306,7 +306,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "Prismatic Diary",
-        member: ["横井 総太朗", "小西 優多郎", "李 伊婧", "平林 晴馬", "吉田 翼", "都築 あい"],
+        member: ["横井総太朗", "小西優多郎", "李伊婧", "平林晴馬", "吉田翼", "都築あい"],
         place: "工学部2号館展示室",
         description: {
             ja: `本作品では、日記の執筆中に生成AIによる複数の解釈を展開し、少し違う「私」へ出会う体験を実現した。出来事の異なった解釈の可能性に気付いた瞬間、あなたの世界の見え方は虹色に変わっていくだろう。`,
@@ -316,7 +316,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "裏地図",
-        member: ["井上 国太郎", "田中 祐玖", "機田 悠希", "花岡 桃可", "鈴木 健"],
+        member: ["井上国太郎", "田中祐玖", "機田悠希", "花岡桃可", "鈴木健"],
         place: "工学部2号館展示室",
         description: {
             ja: "裏地図は、「三幕物」として構成される。写真とドローイングに支えられた裏地図は、一連の流れを伴う経験である。裏地図は、旗や横断幕を利用したあらゆる運動へのオマージュである。未来の「纏える」地図に向かって、裏地図は歩き始める。布という平面に描き込まれた地図は、裁断/縫合によって将来的には立体的な服に加工され、日常に溶け込む。",
@@ -327,7 +327,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "空間新聞",
-        member: ["森田 匠", "高橋 一成"],
+        member: ["森田匠", "高橋一成"],
         place: "工学部2号館展示室",
         description: {
             ja: "本作品は、情報を人が歩いて運んでくる世界の新聞である。そのため、情報の発信源が遠いほどこの新聞に載る情報は古いものとなっていく。鑑賞者は、今まさに自分が立っている身体空間の広がりを感じることができる。メディアは、これまで遠い地域の情報を集約・分配し、距離的な隔たりを除去することで、社会の一体感や国民意識の醸成に寄与してきた。本作品では「遅いメディア」を通じて、「国民国家」や「グローバル化」が前提としてきた情報の同時性の解体に挑戦している。",
@@ -338,7 +338,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "The Tower",
-        member: ["友利 未夢", "國仲 杏", "常盤 優菜", "増澤 茉利子", "谷 なぎさ"],
+        member: ["友利未夢", "國仲杏", "常盤優菜", "増澤茉利子", "谷なぎさ"],
         place: "工学部2号館展示室",
         description: {
             ja: "本作品は「文化的同化」へのアンチテーゼを表現する、クレイアニメーションである。ねんどで作られた個性豊かなキャラクターたちは、1,440枚の静止画を繋ぎ合わせることで命が吹き込まれ、世界を表現していく。",
@@ -349,7 +349,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "Tシャツのトポロジー最適化",
-        member: ["金田 昌也", "福田 晴紀", "増田 凌", "永田 莉紗"],
+        member: ["金田昌也", "福田晴紀", "増田凌", "永田莉紗"],
         place: "工学部2号館展示室",
         description: {
             ja: "トポロジー最適化とは与えられた設計空間と機能要請のなかで最小限の材料配置を決定する設計手法のことで、工業部品の軽量化や性能向上に利用されている。では、洋服をトポロジー最適化してみたらどうなるだろうか。",
@@ -360,7 +360,7 @@ Zippers, with their distinct artificial quality—where metal or plastic teeth i
     },
     {
         title: "Area of Landscape",
-        member: ["真田 将太朗", "森 達也", "八木 新平", "桶家 武尊", "池田 翔", "仲村 友杜"],
+        member: ["真田将太朗", "森達也", "八木新平", "桶家武尊", "池田翔", "仲村友杜"],
         place: "工学部2号館展示室",
         description: {
             ja: "本作は、絵画の形態を決定する要素として鑑賞者の姿を積極的に取り入れている。絵画空間へと迎えられ、完成へと向かう絵画の一部となる体験を通して、差異と調和に満ちた「新しい風景」の見方を示す。キャンバスに色が置かれるたび、絵画のなかで要素どうしの関係性が生成と消滅を繰り返す。自らが抽象風景を作る一つの要素となったとき、世界の見つめ方はどのように変わるだろうか。",
