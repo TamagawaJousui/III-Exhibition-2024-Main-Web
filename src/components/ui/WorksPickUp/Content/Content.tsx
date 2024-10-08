@@ -37,7 +37,10 @@ export const Content: FC<Props> = (props) => {
                 <WithTitle title={data.title} size="2xl">
                     <p className={styles.member}>
                         {data.member.map((name, index) => (
-                            <span key={index}>{name}</span>
+                            <React.Fragment key={index}>
+                                <span>{name}</span>
+                                {index < data.member.length - 1 && <span> / </span>}
+                            </React.Fragment>
                         ))}
                     </p>
                     <p className={styles.place}>{data.place}</p>
