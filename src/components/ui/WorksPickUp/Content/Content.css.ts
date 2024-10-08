@@ -27,7 +27,6 @@ export const styles = {
         typography({ fontSize: "sm" }),
         {
             display: "flex",
-            flexDirection: "row",
             flexWrap: "wrap",
             gap: vars.spacing.xs,
             minHeight: `calc(2 * ${vars.lineHeight.sm})`,
