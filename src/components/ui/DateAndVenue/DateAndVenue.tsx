@@ -1,6 +1,6 @@
 import { FC, useRef } from "react";
 
-import { useDateAndVenue } from "./useDateAndVenue";
+import { useDateAndVenue } from "./hooks";
 
 import { styles } from "./DateAndVenue.css";
 

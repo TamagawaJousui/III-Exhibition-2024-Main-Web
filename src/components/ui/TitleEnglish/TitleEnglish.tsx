@@ -1,6 +1,6 @@
 import { FC, useRef } from "react";
 
-import { useTitleEnglish } from "./useTitleEnglish";
+import { useTitleEnglish } from "./hooks";
 
 import { styles } from "./TitleEnglish.css";
 

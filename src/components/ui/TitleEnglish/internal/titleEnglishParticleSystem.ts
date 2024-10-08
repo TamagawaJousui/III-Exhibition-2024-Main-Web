@@ -22,7 +22,7 @@ export class particleSystem {
     particleOptions: ParticleData;
     container: HTMLElement;
     planeArea: THREE.Mesh = new THREE.Mesh();
-    currenPosition: THREE.Vector3 = new THREE.Vector3();
+    currentPosition: THREE.Vector3 = new THREE.Vector3();
     particles: THREE.Points = new THREE.Points();
     outlineContours: THREE.Group<THREE.Object3DEventMap> = new THREE.Group();
     planeParticles: THREE.Points = new THREE.Points();
@@ -100,7 +100,7 @@ export class particleSystem {
 
         const pos = this.planeParticles.geometry.attributes.position;
         const copy = this.planeParticlesGeometryCopy.attributes.position;
-        const coulors = this.planeParticles.geometry.attributes.customColor;
+        const colors = this.planeParticles.geometry.attributes.customColor;
         const opacities = this.planeParticles.geometry.attributes.opacity;
         const size = this.planeParticles.geometry.attributes.size;
 
@@ -115,8 +115,8 @@ export class particleSystem {
             let py = pos.getY(i);
 
             this.colorChange.setRGB(1, 1, 1);
-            coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
-            coulors.needsUpdate = true;
+            colors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
+            colors.needsUpdate = true;
 
             size.array[i] = this.particleOptions.particleSize;
             size.needsUpdate = true;
@@ -145,8 +145,8 @@ export class particleSystem {
                     const colorIndex = Math.floor(weight * (this.colorStops.length - 1));
                     const color = this.colorStops[colorIndex];
 
-                    coulors.setXYZ(i, color.r, color.g, color.b);
-                    coulors.needsUpdate = true;
+                    colors.setXYZ(i, color.r, color.g, color.b);
+                    colors.needsUpdate = true;
 
                     size.array[i] = this.particleOptions.particleSize / 1.8;
                     size.needsUpdate = true;

@@ -64,7 +64,7 @@ export class Environment {
         this.renderer.render(this.scene, this.camera);
     }
 
-    caculateFrustum() {
+    calculateFrustum() {
         if (!this.camera) {
             throw new Error("Camera is not initialized");
         }
@@ -81,7 +81,7 @@ export class Environment {
         this.camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 1000);
         this.camera.position.set(0, 0, 100);
 
-        const frustumWidth = this.caculateFrustum();
+        const frustumWidth = this.calculateFrustum();
 
         this.camera.position.set(-frustumWidth / 2, 0, 100);
         this.camera.lookAt(-frustumWidth / 2, 0, 0);
@@ -110,7 +110,7 @@ export class Environment {
         this.camera.updateProjectionMatrix();
         this.renderer.setSize(this.container.clientWidth, this.container.clientHeight);
 
-        const frustumWidth = this.caculateFrustum();
+        const frustumWidth = this.calculateFrustum();
         this.camera.position.set(-frustumWidth / 2, 0, 100);
         this.camera.lookAt(-frustumWidth / 2, 0, 0);
     }

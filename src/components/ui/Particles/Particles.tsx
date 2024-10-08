@@ -1,6 +1,6 @@
 import { FC, useRef } from "react";
 
-import { useParticles } from "./useParticles";
+import { useParticles } from "./hooks";
 
 import { styles } from "./Particles.css";
 

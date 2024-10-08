@@ -1,15 +1,11 @@
 import { FC } from "react";
 
-import { DateAndVenue } from "@/components/ui/DateAndVenue";
 import { Particles } from "@/components/ui/Particles";
-import { Title } from "@/components/ui/Title";
-import { TitleEnglish } from "@/components/ui/TitleEnglish";
+
+import { styles } from "./HeroareaSection.css";
 
 export const HeroareaSection: FC = () => (
-    <div style={{ position: "relative" }}>
+    <div className={styles.root}>
         <Particles />
-        <Title />
-        <TitleEnglish />
-        <DateAndVenue />
     </div>
 );
