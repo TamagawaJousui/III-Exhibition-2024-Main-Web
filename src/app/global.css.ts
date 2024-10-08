@@ -73,7 +73,7 @@ globalStyle("p", {
 });
 
 globalStyle("span", {
-    fontSize: vars.fontSize.sm,
+    fontSize: vars.fontSize.base,
 });
 
 globalStyle("ul", {

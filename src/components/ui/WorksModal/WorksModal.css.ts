@@ -35,7 +35,7 @@ export const styles = {
     contentWrapper: style({
         display: "flex",
         flexDirection: "column",
-        alignItems: "flex-start",
+        alignItems: "space-between",
         width: "100%",
         padding: `${vars.spacing.sm} 0`,
         borderBottom: `1px solid ${vars.color.text}`,
@@ -47,6 +47,7 @@ export const styles = {
         alignItems: "flex-start",
         gap: vars.spacing.md,
         flexGrow: 1,
+        maxHeight: "max-content",
         overflow: "hidden",
     }),
     leftContent: style({
@@ -69,17 +70,6 @@ export const styles = {
         flex: "auto",
         height: "100%",
         overflow: "hidden",
-    }),
-    author: style({
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        width: "100%",
-        height: "max-content",
-        flexShrink: 0,
-        gap: vars.spacing.md,
-        listStyle: "none",
-        padding: 0,
     }),
     description: style({
         width: "100%",
