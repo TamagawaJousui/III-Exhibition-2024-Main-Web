@@ -35,7 +35,14 @@ export const Content: FC<Props> = (props) => {
             />
             <div className={styles.overlay}>
                 <WithTitle title={data.title} size="2xl">
-                    <p className={styles.member}>{data.member}</p>
+                    <p className={styles.member}>
+                        {data.member.map((name, index) => (
+                            <React.Fragment key={index}>
+                                <span>{name}</span>
+                                {index < data.member.length - 1 && <span> / </span>}
+                            </React.Fragment>
+                        ))}
+                    </p>
                     <p className={styles.place}>{data.place}</p>
                 </WithTitle>
 
