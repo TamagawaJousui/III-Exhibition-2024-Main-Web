@@ -8,6 +8,11 @@ export const styles = {
         position: "relative",
         width: "100vw",
         height: "100vh",
+        "@media": {
+            [mediaUtils.mobile]: {
+                overflow: "hidden",
+            },
+        },
     }),
     desktopView: style({
         display: "block",
@@ -27,23 +32,27 @@ export const styles = {
     }),
     title: style({
         position: "absolute",
-        top: "170px",
+        top: "90px",
         left: "5px",
+        zIndex: 1,
     }),
     titleEnglish: style({
         position: "absolute",
-        top: "70px",
+        top: 0,
         right: "5px",
+        zIndex: 1,
     }),
     dateAndVenue: style({
         position: "absolute",
         right: "5px",
-        bottom: "60px",
+        top: "310px",
+        zIndex: 1,
     }),
     particle: style({
         position: "absolute",
-        left: "-200px",
-        top: "-100px",
+        left: "-250px",
+        top: "-150px",
         overflow: "hidden",
+        zIndex: 0,
     }),
 };
