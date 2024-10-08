@@ -11,6 +11,7 @@ export const styles = {
         flexDirection: "column",
         justifyContent: "space-evenly",
         height: "100%",
+        minWidth: "50vw",
     }),
     concept: style({
         display: "flex",
