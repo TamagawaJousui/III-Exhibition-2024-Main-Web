@@ -12,7 +12,7 @@ export class FontOptimizationPlugin {
             const fontPath = this.options.fontPath;
             const neededChars = new Set(this.options.chars);
 
-            // 读取并解压 gzip 字体文件
+            // Read and decompress the gzip font file
             const compressedData = fs.readFileSync(fontPath);
             zlib.gunzip(compressedData, (err, buffer) => {
                 if (err) {
@@ -21,12 +21,12 @@ export class FontOptimizationPlugin {
 
                 const fontData = JSON.parse(buffer.toString("utf8"));
 
-                // 筛选需要的字符
+                // Filter the needed characters
                 fontData.glyphs = Object.fromEntries(
                     Object.entries(fontData.glyphs).filter(([char]) => neededChars.has(char))
                 );
 
-                // 写回精简后的字体文件
+                // Write back the optimized font file
                 fs.writeFileSync(this.options.outputPath, JSON.stringify(fontData));
 
                 callback();

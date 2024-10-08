@@ -13,7 +13,7 @@ export const vertexShader = /* glsl */ `
         gl_PointSize = size * ( 300.0 / -mvPosition.z );
         gl_Position = projectionMatrix * mvPosition;
     }
-`;
+` as const;
 
 export const fragmentShader = /* glsl */ `
     uniform vec3 color;
@@ -26,4 +26,4 @@ export const fragmentShader = /* glsl */ `
         gl_FragColor = vec4(color * vColor, vOpacity);
         // gl_FragColor = gl_FragColor * texture2D(pointTexture, gl_PointCoord);
     }
-`;
+` as const;
