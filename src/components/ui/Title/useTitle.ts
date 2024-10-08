@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import * as THREE from "three";
 import { SVGResult, SVGLoader } from "three/addons/loaders/SVGLoader.js";
+import { match } from "ts-pattern";
 
 import { Environment } from "./internal/environment";
 
@@ -55,6 +56,24 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
             area: 100,
             ease: 0.05,
         };
+
+        (() =>
+            match(document.readyState)
+                .with("complete", () => {
+                    preload(particleOptions);
+                })
+                .with("loading", () => {
+                    match(document.documentElement.scrollTop === 0)
+                        .with(false, () => preload(particleOptions))
+                        .otherwise(() => {
+                            document.addEventListener("DOMContentLoaded", () =>
+                                preload(particleOptions)
+                            );
+                        });
+                })
+                .otherwise(() => {
+                    document.addEventListener("DOMContentLoaded", () => preload(particleOptions));
+                }))();
 
         if (
             document.readyState === "complete" ||

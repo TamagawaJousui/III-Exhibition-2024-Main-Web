@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import * as THREE from "three";
 import { SVGResult, SVGLoader } from "three/addons/loaders/SVGLoader.js";
+import { match } from "ts-pattern";
 
 import { Environment } from "./internal/environment";
 
@@ -55,14 +56,23 @@ export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) =>
             ease: 0.05,
         };
 
-        if (
-            document.readyState === "complete" ||
-            (document.readyState !== "loading" && !document.documentElement.scrollTop)
-        ) {
-            preload(particleOptions);
-        } else {
-            document.addEventListener("DOMContentLoaded", () => preload(particleOptions));
-        }
+        (() =>
+            match(document.readyState)
+                .with("complete", () => {
+                    preload(particleOptions);
+                })
+                .with("loading", () => {
+                    match(document.documentElement.scrollTop === 0)
+                        .with(false, () => preload(particleOptions))
+                        .otherwise(() => {
+                            document.addEventListener("DOMContentLoaded", () =>
+                                preload(particleOptions)
+                            );
+                        });
+                })
+                .otherwise(() => {
+                    document.addEventListener("DOMContentLoaded", () => preload(particleOptions));
+                }))();
 
         // クリーンアップ
         return () => {
