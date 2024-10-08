@@ -2,7 +2,9 @@ import * as THREE from "three";
 import { SVGResult } from "three/examples/jsm/Addons.js";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 
-import { vertexShader, fragmentShader } from "./shader";
+import { ParticleData } from "@/models/heroarea";
+
+import { fragmentShader, vertexShader } from "./shader";
 
 export class particleSystem {
     scene: THREE.Scene;

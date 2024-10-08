@@ -23,16 +23,7 @@ declare module "react-water-wave" {
 const WaterWave: React.FC<WaterWaveProps>;
 
 export default WaterWave;
-export interface ParticleData {
-    text: string;
-    planeParticleAmount: number;
-    outlineParticleAmount: number;
-    particleSize: number;
-    particleColor: number;
-    textSize: number;
-    area: number;
-    ease: number;
-}
+
 declare module "*.vert" {
     const src: string;
     export default src;
