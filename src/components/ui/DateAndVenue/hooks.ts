@@ -24,12 +24,12 @@ export const useDateAndVenue = (titleDivRef: React.RefObject<HTMLDivElement>) =>
                 }
             };
 
-            const svgUrl = "/DateAndVenue.svg";
+            const svgUrl = "/heroarea/DateAndVenue.svg";
             new SVGLoader(manager).load(svgUrl, (data) => {
                 svg = data;
             });
 
-            const particleImgUrl = "/particle.png";
+            const particleImgUrl = "/heroarea/particle.png";
             new THREE.TextureLoader(manager).load(particleImgUrl, (texture) => {
                 particle = texture;
             });

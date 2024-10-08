@@ -24,12 +24,12 @@ export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) =>
                 }
             };
 
-            const svgUrl = "/TitleEnglish.svg";
+            const svgUrl = "/heroarea/TitleEnglish.svg";
             new SVGLoader(manager).load(svgUrl, (data) => {
                 svg = data;
             });
 
-            const particleImgUrl = "/particle.png";
+            const particleImgUrl = "/heroarea/particle.png";
             new THREE.TextureLoader(manager).load(particleImgUrl, (texture) => {
                 particle = texture;
             });
