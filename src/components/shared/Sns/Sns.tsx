@@ -22,20 +22,6 @@ const SNS_URLS = {
     facebook: "https://www.facebook.com/",
 };
 
-// Webでは動作しないので未使用
-// const X_URL = () => {
-//     var twitterAppUrl = "twitter://user?screen_name=self";
-//     var twitterWebUrl = "https://twitter.com/home";
-
-//     // まずアプリを開こうとする
-//     window.location.href = twitterAppUrl;
-
-//     // 少し遅延を入れてから、アプリが開かなかった場合にWebバージョンを開く
-//     setTimeout(function () {
-//         window.location.href = twitterWebUrl;
-//     }, 1000);
-// }
-
 export const Sns: FC<Props> = ({ size, gap = "sm", className }) => (
     <div className={clsx(styles.root({ gap }), className)}>
         <a href={SNS_URLS.instagram} target="_blank" rel="noopener noreferrer">

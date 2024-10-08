@@ -50,11 +50,7 @@ export const useWorksModal = (optionInput?: ModalOption) => {
         if (work) {
             return (
                 <div className={styles.overlay} onClick={handleClose}>
-                    <div
-                        className={styles.modal}
-                        onClick={(e) => e.stopPropagation()}
-                        onScroll={(e) => e.stopPropagation()}
-                    >
+                    <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
                         <WorksModal isOpen={isOpen} currentWork={work} />
                     </div>
                 </div>
