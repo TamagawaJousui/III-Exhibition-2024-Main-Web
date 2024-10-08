@@ -2,7 +2,6 @@ import { List, X } from "@phosphor-icons/react/dist/ssr";
 import clsx from "clsx";
 import { FC } from "react";
 
-import { useWindow } from "@/hooks/window";
 import { sectionInfo } from "@/models";
 
 import { useHeader } from "./hooks";
@@ -15,14 +14,13 @@ type Props = React.ComponentProps<"div">;
 
 export const Header: FC<Props> = (props) => {
     const { className, ...otherProps } = props;
-    const { isMobile } = useWindow();
 
     const { mobile, desktop } = useHeader();
 
     return (
         <header className={clsx(styles.root, className)} {...otherProps}>
             <h4 className={styles.title}>iii exhibition 2024</h4>
-            {isMobile ? (
+            <div className={styles.mobileView}>
                 <>
                     <List
                         size={36}
@@ -35,9 +33,10 @@ export const Header: FC<Props> = (props) => {
                         <HeaderContent onClick={mobile.handleClose} />
                     </dialog>
                 </>
-            ) : (
+            </div>
+            <div className={styles.desktopView}>
                 <HeaderContent onClick={desktop.handleScrollToSection} preventDefault />
-            )}
+            </div>
         </header>
     );
 };

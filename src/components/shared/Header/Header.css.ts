@@ -52,4 +52,20 @@ export const styles = {
         background: "rgba(182, 206, 228, 0.5)",
         zIndex: vars.zIndex.modal,
     }),
+    desktopView: style({
+        display: "block",
+        "@media": {
+            [mediaUtils.mobile]: {
+                display: "none",
+            },
+        },
+    }),
+    mobileView: style({
+        display: "none",
+        "@media": {
+            [mediaUtils.mobile]: {
+                display: "block",
+            },
+        },
+    }),
 };
