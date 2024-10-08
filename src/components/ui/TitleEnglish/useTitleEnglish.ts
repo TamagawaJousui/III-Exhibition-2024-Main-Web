@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { SVGResult, SVGLoader } from "three/addons/loaders/SVGLoader.js";
 import { match } from "ts-pattern";
 
-import { Environment } from "./internal/environment";
+import { Environment } from "./internal/titleEnglishEnvironment";
 
 export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) => {
     useEffect(() => {
