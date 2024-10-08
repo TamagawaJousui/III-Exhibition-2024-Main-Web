@@ -1,7 +1,7 @@
 import { match } from "ts-pattern";
 
 export const extraPageInfo = [
-    { id: 2024, concept: "なにいうてん" },
+    { id: 2024, concept: "なにいう展" },
     { id: 2023, concept: "voidage" },
     { id: 2022, concept: "Emulsion" },
     { id: 2021, concept: "0PUNK" },

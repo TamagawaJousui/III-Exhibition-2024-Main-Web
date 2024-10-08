@@ -4,7 +4,7 @@ import { typography } from "@/styles/typography.css";
 
 import { vars } from "@/styles";
 
-const NAME_CARD_WIDTH = "6em" as const;
+const NAME_CARD_WIDTH = "7em" as const;
 
 export const styles = {
     root: style({

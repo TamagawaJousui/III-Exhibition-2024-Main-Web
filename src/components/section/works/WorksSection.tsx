@@ -1,12 +1,9 @@
 import clsx from "clsx";
 import { FC } from "react";
 
-import { placeList } from "@/models/place";
-
 import { workList } from "../../../models/works";
 
 import { SectionContainer } from "@/components/shared/Container";
-import { WorksCarousel } from "@/components/ui/WorksCarousel";
 import { WorksPickUp } from "@/components/ui/WorksPickUp";
 
 import { styles, subContainerStyles } from "./WorksSection.css";
@@ -16,12 +13,15 @@ export const WorksSection: FC = () => (
         <SubContainer label="ピックアップ" withBorder className={styles.pickUp}>
             <WorksPickUp slides={workList} />
         </SubContainer>
-        <SubContainer label="全作品" className={styles.allWorks}>
+        {/*
+         * TODO: 作品補填後にコメントアウトを外す
+         */}
+        {/* <SubContainer label="全作品" className={styles.allWorks}>
             {placeList.map((place) => {
                 const works = workList.filter((work) => work.place === place);
                 return <WorksCarousel works={works} place={place} key={place} />;
             })}
-        </SubContainer>
+        </SubContainer> */}
     </SectionContainer>
 );
 
