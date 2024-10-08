@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import { SVGResult } from "three/addons/loaders/SVGLoader.js";
 
+import { ParticleData } from "@/models/heroarea";
+
 import { particleSystem } from "./dateAndVenueParticleSystem";
 
 // クラスベースのEnvironmentの定義

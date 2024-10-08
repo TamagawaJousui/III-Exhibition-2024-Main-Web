@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import * as THREE from "three";
-import { SVGResult, SVGLoader } from "three/addons/loaders/SVGLoader.js";
+import { SVGLoader, SVGResult } from "three/addons/loaders/SVGLoader.js";
 import { match } from "ts-pattern";
+
+import { ParticleData } from "@/models/heroarea";
 
 import { Environment } from "./internal/dateAndVenueEnvironment";
 
