@@ -22,7 +22,6 @@ export class particleSystem {
     particleOptions: ParticleData;
     container: HTMLElement;
     planeArea: THREE.Mesh = new THREE.Mesh();
-    currenPosition: THREE.Vector3 = new THREE.Vector3();
     particles: THREE.Points = new THREE.Points();
     outlineContours: THREE.Group<THREE.Object3DEventMap> = new THREE.Group();
     planeParticles: THREE.Points = new THREE.Points();
@@ -54,7 +53,7 @@ export class particleSystem {
         this.renderer = renderer;
 
         this.raycaster = new THREE.Raycaster();
-        this.mouse = new THREE.Vector2(-1, -1);
+        this.mouse = new THREE.Vector2(-1.3, -1.3);
 
         this.colorChange = new THREE.Color();
 
