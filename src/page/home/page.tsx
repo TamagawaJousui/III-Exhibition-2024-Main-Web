@@ -77,7 +77,7 @@ export const HomePage = () => {
                                     progressArray.unshift(0); // 最初のスナップポイントを追加
                                     // snap = gsap.utils.snap(progressArray); // スナップ機能のセットアップ
                                 },
-                                markers: true, // デバッグ用
+                                // markers: true, // デバッグ用
                             },
                         });
                     }
