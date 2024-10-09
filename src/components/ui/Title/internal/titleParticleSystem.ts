@@ -112,6 +112,7 @@ export class particleSystem {
 
         this.positionVariable.material.uniforms.area = { value: this.particleOptions.area };
         this.positionVariable.material.uniforms.ease = { value: this.particleOptions.ease };
+        this.positionVariable.material.uniforms.size = { value: this.particleOptions.particleSize };
         this.positionVariable.material.uniforms.mouse = { value: new THREE.Vector2(mx, my) };
 
         this.colorVariable.material.uniforms.area = { value: this.particleOptions.area };
@@ -126,10 +127,9 @@ export class particleSystem {
         // Get the computed texture
         const posTexture = this.gpuCompute.getCurrentRenderTarget(this.positionVariable).texture;
 
-        (this.planeParticles.material as THREE.ShaderMaterial).uniforms.positionTexture.value =
-            posTexture;
-        (this.planeParticles.material as THREE.ShaderMaterial).uniforms.colorTexture.value =
-            colorTexture;
+        const material = this.planeParticles.material as THREE.ShaderMaterial;
+        material.uniforms.positionTexture.value = posTexture;
+        material.uniforms.colorTexture.value = colorTexture;
     }
 
     createText() {

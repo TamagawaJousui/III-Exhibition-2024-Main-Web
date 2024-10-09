@@ -2,6 +2,7 @@ export const positionComputeFragmentShader = /* glsl */ `
   uniform sampler2D initialPosition;
   uniform float area;
   uniform float ease;
+  uniform float size;
   uniform vec2 mouse;
 
   float PI = 3.141592653589793;
@@ -16,7 +17,7 @@ export const positionComputeFragmentShader = /* glsl */ `
 
     vec2 initialPosition = texture(initialPosition, uv).xy;
     vec2 previousPosition = texture(position, uv).xy;
-    float size = 1.0;
+    float newSize = 1.0;
     vec2 nextPosition = previousPosition;
 
     vec2 mouseDelta = mouse - previousPosition;
@@ -31,16 +32,16 @@ export const positionComputeFragmentShader = /* glsl */ `
       float t = atan2(mouseDelta.y, mouseDelta.x);
       nextPosition.x += f * cos(t);
       nextPosition.y += f * sin(t);
-      size = 1.3;
+      newSize = size * 1.3;
       if(min(posDelta.x, posDelta.y) > 0.0){
-        size = 1.0 / 1.8;
+        newSize = size / 1.8;
       }
     }
 
     nextPosition += (initialPosition - nextPosition) * ease;
 
     // Set the final position
-    gl_FragColor = vec4(nextPosition.xy, 0.0, size);
+    gl_FragColor = vec4(nextPosition.xy, 0.0, newSize);
   }
 `;
 

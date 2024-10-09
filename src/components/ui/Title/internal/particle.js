@@ -26,6 +26,7 @@ export const initParticle = (size) => {
             resolution: { value: new THREE.Vector2(size, size) },
             positionTexture: { value: null },
             colorTexture: { value: null },
+            size: { value: null },
         },
         vertexShader: vertexShader,
         fragmentShader: fragmentShader,
