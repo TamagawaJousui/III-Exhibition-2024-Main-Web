@@ -9,6 +9,7 @@ export const styles = {
         alignItems: "center",
         width: "100%",
         padding: `${vars.spacing.xs} ${vars.spacing.md}`,
+        fontFamily: "var(--font-playfair)",
     }),
     title: style([
         typography({

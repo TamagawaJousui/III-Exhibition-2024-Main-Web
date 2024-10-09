@@ -33,13 +33,18 @@ globalStyle(":root", {
 
 globalStyle("a", {
     textDecoration: "none",
+    fontFamily: "var(--font-zenKaku)",
     color: vars.color.text,
 });
 
 globalStyle("h1, h2, h3, h4, h5, h6", {
-    fontFamily: "var(--font-playfair), var(--font-klee)",
+    fontFamily: "var(--font-playfair)",
     margin: 0,
     padding: 0,
+});
+
+globalStyle("h1, h2, h3", {
+    fontFamily: "var(--font-playfair), YuMincho",
 });
 
 globalStyle("h1", {

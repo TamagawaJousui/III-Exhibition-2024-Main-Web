@@ -73,3 +73,8 @@ globalStyle(`${styles.root} p`, {
         },
     },
 });
+
+globalStyle(`${styles.root} b`, {
+    whiteSpace: "nowrap",
+    textAlign: "left",
+});

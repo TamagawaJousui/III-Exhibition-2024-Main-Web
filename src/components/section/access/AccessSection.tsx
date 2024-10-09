@@ -10,6 +10,14 @@ import { SectionContainer } from "@/components/shared/Container";
 
 import { styles } from "./AccessSection.css";
 
+const withTitleConfig = {
+    font: "yuMincho",
+    size: "xl",
+    weight: "extraBold",
+    fit: true,
+    mobileAlign: "center",
+};
+
 export const AccessSection: FC = () => (
     <SectionContainer id="access" title="ACCESS" className={styles.root}>
         <div className={clsx(styles.mapContainer, styles.item)}>
@@ -21,9 +29,9 @@ export const AccessSection: FC = () => (
                 className={styles.map}
             />
         </div>
-        <WithTitle title="会場" size="xl" fit mobileAlign="center" className={styles.item}>
+        <WithTitle title="会場" {...withTitleConfig} className={styles.item}>
             <WithWordBreak className={styles.info} as="div">
-                <p>東京大学本郷キャンパス</p>
+                <b>東京大学本郷キャンパス</b>
                 <p>工学部2号館</p>
                 <p>
                     情報学環本館 <wbr />
@@ -32,7 +40,7 @@ export const AccessSection: FC = () => (
                 </p>
             </WithWordBreak>
         </WithTitle>
-        <WithTitle title="日時" size="xl" fit mobileAlign="center" className={styles.item}>
+        <WithTitle title="日時" {...withTitleConfig} className={styles.item}>
             <WithWordBreak className={styles.info} as="div">
                 <p>
                     2024/11/7(木) <wbr />- 11/11(月)
@@ -44,13 +52,7 @@ export const AccessSection: FC = () => (
             </WithWordBreak>
         </WithTitle>
 
-        <WithTitle
-            title="公共交通機関によるアクセス"
-            size="xl"
-            fit
-            mobileAlign="center"
-            className={styles.item}
-        >
+        <WithTitle title="公共交通機関によるアクセス" {...withTitleConfig} className={styles.item}>
             <WithWordBreak className={styles.info} as="div">
                 {trainInfo.map((data) => (
                     <p key={data.line}>
@@ -60,7 +62,7 @@ export const AccessSection: FC = () => (
             </WithWordBreak>
         </WithTitle>
 
-        <WithTitle title="お問い合わせ" size="xl" fit mobileAlign="center" className={styles.item}>
+        <WithTitle title="お問い合わせ" {...withTitleConfig} className={styles.item}>
             <WithWordBreak className={styles.info} as="div">
                 <p>
                     本展覧会は東京大学

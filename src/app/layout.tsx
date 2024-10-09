@@ -16,10 +16,10 @@ const playfairDisplay = Local({
     variable: "--font-playfair",
 });
 
-const kleeOne = Local({
-    src: "../../public/fonts/KleeOne-Regular.ttf",
+const zenKaku = Local({
+    src: "../../public/fonts/ZenKakuGothicNew-Regular.ttf",
     display: "swap",
-    variable: "--font-klee",
+    variable: "--font-zenkaku",
 });
 
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <html lang="ja">
         <body
             suppressHydrationWarning
-            className={`${playfairDisplay.variable} ${kleeOne.variable}`}
+            className={`${playfairDisplay.variable} ${zenKaku.variable}`}
         >
             {children}
         </body>

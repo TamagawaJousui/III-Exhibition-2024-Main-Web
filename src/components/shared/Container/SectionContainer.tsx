@@ -16,7 +16,7 @@ type Props = {
 
 export const SectionContainer: FC<Props> = ({ id, title, children, className }) => (
     <section id={id} className={styles.root}>
-        {title && <h1>{title}</h1>}
+        {title && <h1 className={styles.title}>{title}</h1>}
         <div className={clsx(styles.container, className)}>{children}</div>
     </section>
 );
