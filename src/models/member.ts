@@ -1,6 +1,6 @@
 export const teamList = [
     {
-        name: "PRODUCER",
+        name: "PROJECT DIRCTOR",
         members: [
             {
                 nameJa: "真田将太朗",
@@ -78,7 +78,7 @@ export const teamList = [
         ],
     },
     {
-        name: "ACCOUNTING",
+        name: "ACCOUNTANT",
         members: [
             {
                 nameJa: "友利未夢",
@@ -191,7 +191,7 @@ export const teamList = [
         ],
     },
     {
-        name: "VENUE DESIGN",
+        name: "GALLERY",
         members: [
             {
                 nameJa: "小西優多郎",
@@ -301,7 +301,7 @@ export const teamList = [
         ],
     },
     {
-        name: "PR",
+        name: "PUBLIC RELATIONS",
         members: [
             {
                 nameJa: "都築あい",
@@ -402,7 +402,7 @@ export const teamList = [
         ],
     },
     {
-        name: "COPY",
+        name: "PROOFREADING",
         members: [
             {
                 nameJa: "中野博貴",
