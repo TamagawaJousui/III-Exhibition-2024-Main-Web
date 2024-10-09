@@ -1,11 +1,16 @@
 import { style } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 export const styles = {
     root: style({
-        width: "100vw",
+        width: "80vw",
         padding: vars.spacing.xl,
+        "@media": {
+            [mediaUtils.mobile]: {
+                width: "100%",
+            },
+        },
     }),
     wrapper: style({
         height: "100%",
@@ -15,7 +20,6 @@ export const styles = {
         flexDirection: "column",
         justifyContent: "space-evenly",
         height: "100%",
-        minWidth: "50vw",
     }),
     concept: style({
         display: "flex",
