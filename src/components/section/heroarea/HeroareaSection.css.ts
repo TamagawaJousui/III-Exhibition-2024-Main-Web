@@ -1,12 +1,21 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
+import { mediaUtils } from "@/styles";
+
+const HEADER_HEIGHT = "2rem" as const;
+
 export const styles = {
     root: style({
         display: "flex",
         position: "relative",
         width: "100vw",
-        height: "100vh",
+        height: "100%",
+        "@media": {
+            [mediaUtils.mobile]: {
+                height: `calc(100vh - ${HEADER_HEIGHT})`,
+            },
+        },
     }),
     container: recipe({
         base: {
@@ -21,10 +30,10 @@ export const styles = {
                     height: "90%",
                 },
                 titleEnglish: {
-                    top: 0,
-                    right: 10,
-                    width: "60%",
-                    height: "20%",
+                    top: 30,
+                    right: 20,
+                    width: "50%",
+                    height: "30%",
                 },
                 dateAndVenue: {
                     bottom: 0,
