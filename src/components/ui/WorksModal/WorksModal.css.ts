@@ -35,7 +35,7 @@ export const styles = {
     contentWrapper: style({
         display: "flex",
         flexDirection: "column",
-        alignItems: "space-between",
+        justifyContent: "space-around",
         width: "100%",
         padding: `${vars.spacing.sm} 0`,
         borderBottom: `1px solid ${vars.color.text}`,
@@ -47,8 +47,12 @@ export const styles = {
         alignItems: "flex-start",
         gap: vars.spacing.md,
         flexGrow: 1,
-        maxHeight: "max-content",
         overflow: "hidden",
+        "@media": {
+            [mediaUtils.mobile]: {
+                maxHeight: "max-content",
+            },
+        },
     }),
     leftContent: style({
         alignSelf: "center",
