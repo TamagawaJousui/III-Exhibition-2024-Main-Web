@@ -20,7 +20,7 @@ export const workList = [
             ja: `絵画と人工知能を中心とした巨大作品。鑑賞者を巨大な抽象絵画のなかへと誘い込み、気づけば絵の世界を構築する一部となっている新しい知覚体験をもたらす。`,
             en: ``,
         },
-        imagePath: "/works/landscape-bw.png",
+        imagePath: "/works/landscape.jpg",
     },
     {
         title: "zip or",
@@ -30,7 +30,7 @@ export const workList = [
             ja: `ジッパーは「金属やプラスチック製の角張った構造が互いに噛み合い、直線を形成する」という強い人工物らしさをもっている。そんなジッパーを用いながら自然がもつ有機的な形を表現することはできるのだろうか。 本作品では所望の曲線に沿うようコンピュテーショナルに設計・製造されたジッパーによって形作られた立体を提示する。ジッパーは布を支える骨格となり、その開閉によって立体の形を変化させる。 服を着る。鞄にものをしまう。日常に埋もれていた｢ジッパーを開閉する｣という行為に新たな意味を見出すことができるかもしれない。`,
             en: ``,
         },
-        imagePath: "/works/zip-bw.png",
+        imagePath: "/works/zip.png",
     },
     {
         title: "Prismatic Diary",
@@ -40,7 +40,7 @@ export const workList = [
             ja: `人は出来事を解釈する際に、他に見え方があることを忘れがちだ。それは、虹の一部分だけを見て、虹が一色であると思い込むようなものと言える。 私たちは、日々の感情や考えを日記に記録しているが、もし気づかないうちに内容の解釈が変わっていたら、新しい解釈をどう受け入れるだろうか？ この作品は、リアルタイムで多様な解釈に変化していく日記を書く体験を通じて、少し違う「私」に出会うことができる体験だ。 体験者が日記を書き進めるにつれて、生成AIによる様々な解釈が同時に展開され、過去の出来事の意味が多層的に広がっていく。 出来事の異なった解釈の可能性に気付いた瞬間、あなたの世界の見え方は虹色に変わっていくだろう。`,
             en: ``,
         },
-        imagePath: "/works/prismatic-bw.png",
+        imagePath: "/works/prismatic.jpg",
     },
     {
         title: "祈りの告白",
@@ -51,7 +51,7 @@ export const workList = [
             en: ``,
         },
 
-        imagePath: "/works/newspaper-bw.png",
+        imagePath: "/works/pray.jpg",
     },
     {
         title: "Champloo ~かきまぜる ~",
@@ -62,6 +62,6 @@ export const workList = [
             en: ``,
         },
 
-        imagePath: "/works/tower-bw.png",
+        imagePath: "/works/champloo.jpg",
     },
 ] as const satisfies WorkData[];
