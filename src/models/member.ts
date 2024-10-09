@@ -442,6 +442,53 @@ export const teamList = [
         ],
     },
     {
+        name: "GUEST",
+        members: [
+            {
+                nameJa: "八木新平",
+                nameEn: "SHINPEI YAGI",
+                affiliationJa: "東京藝術大学 美術学部",
+                grade: "4年",
+                lab: "",
+            },
+            {
+                nameJa: "桶家武尊",
+                nameEn: "TAKERU OKEIE",
+                affiliationJa: "",
+                grade: "",
+                lab: "",
+            },
+            {
+                nameJa: "池田翔",
+                nameEn: "TSUBASA IKEDA",
+                affiliationJa: "東京藝術大学大学院 音楽研究科",
+                grade: "修士2年",
+                lab: "",
+            },
+            {
+                nameJa: "森達也",
+                nameEn: "TATSUYA MORI",
+                affiliationJa: "株式会社ARAYA",
+                grade: "",
+                lab: "",
+            },
+            {
+                nameJa: "谷凪彩",
+                nameEn: "NAGISA TANI",
+                affiliationJa: "多摩美術大学 美術学部",
+                grade: "3年",
+                lab: "",
+            },
+            {
+                nameJa: "永田莉紗",
+                nemeEn: "RISA NAGATA",
+                affiliationJa: "東京大学大学院 学際情報学府",
+                grade: "修士2年",
+                lab: "筧研究室",
+            },
+        ],
+    },
+    {
         name: "FACULTY ADVISER",
         members: [
             {
