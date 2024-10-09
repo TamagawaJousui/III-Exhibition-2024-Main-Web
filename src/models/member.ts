@@ -279,7 +279,7 @@ export const teamList = [
             },
             {
                 nameJa: "鈴木健",
-                nameEn: "KEN SUZUKI",
+                nameEn: "TAKERU SUZUKI",
                 affiliationJa: "東京大学大学院 情報学環教育部",
                 grade: "教育部2年",
                 lab: "",
@@ -485,6 +485,13 @@ export const teamList = [
                 affiliationJa: "東京大学大学院 学際情報学府",
                 grade: "修士2年",
                 lab: "筧研究室",
+            },
+            {
+                nameJa: "あん",
+                nameEn: "ANNE",
+                affiliationJa: "Peace Activist",
+                grade: "",
+                lab: "",
             },
         ],
     },
