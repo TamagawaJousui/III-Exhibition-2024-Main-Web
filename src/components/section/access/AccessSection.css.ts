@@ -63,4 +63,5 @@ globalStyle(`${styles.root} h3`, {
 
 globalStyle(`${styles.root} p`, {
     whiteSpace: "nowrap",
+    textAlign: "left",
 });

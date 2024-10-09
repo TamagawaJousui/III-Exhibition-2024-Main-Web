@@ -66,10 +66,10 @@ export const styles = {
         variants: {
             padding: {
                 sm: {
-                    padding: vars.spacing.sm,
+                    padding: `${vars.spacing.sm} 0`,
                 },
                 md: {
-                    padding: vars.spacing.md,
+                    padding: `${vars.spacing.md} 0`,
                 },
             },
             mobileAlign: {
