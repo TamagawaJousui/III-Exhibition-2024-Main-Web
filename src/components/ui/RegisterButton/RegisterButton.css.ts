@@ -1,32 +1,37 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
-import { typography, vars } from "@/styles";
+import { vars } from "@/styles";
 
 export const styles = {
-    root: style([
-        typography({ fontSize: "lg" }),
-        {
-            display: "flex",
-            flexDirection: "column",
-            padding: `${vars.spacing.sm} ${vars.spacing.md}`,
-            borderRadius: "2rem",
-            border: "none",
-            transition: "all 0.1s ease-in-out",
-            background: "linear-gradient(to bottom, #384A5E, #4C5E73)",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            fontFamily: "var(--font-klee)",
-            selectors: {
-                "&:hover": {
-                    background: "linear-gradient(to bottom, #384A5E, #759AC4)",
-                    boxShadow: "0 6px 8px rgba(0, 0, 0, 0.2)",
-                    transform: "translateY(-1px)",
-                },
-                "&:active": {
-                    background: "linear-gradient(to bottom, #203043, #4E76A3)",
-                    boxShadow: "0 3px 4px rgba(0, 0, 0, 0.15)",
-                    transform: "scale(0.98)",
-                },
-            },
-        },
-    ]),
+    root: style({
+        display: "inline-block",
+        position: "relative",
+        height: "20vh",
+        aspectRatio: "1 / 1",
+        border: "none",
+        padding: vars.spacing.md,
+    }),
 };
+
+globalStyle(`${styles.root} *`, {
+    transition: "all 0.1s ease-in-out",
+
+    // boxShadowの代わりにfilterを使用
+    filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))",
+
+    // "@media": {
+    //     [mediaUtils.mobile]: {
+    //         fill: "#5E91B3",
+    //     },
+    // },
+});
+
+globalStyle(`${styles.root}:hover > svg`, {
+    transform: "translateY(-1px)",
+    filter: "drop-shadow(0 6px 8px rgba(0, 0, 0, 0.3))",
+});
+
+globalStyle(`${styles.root}:active > svg`, {
+    filter: "drop-shadow(0 3px 4px rgba(0, 0, 0, 0.15))",
+    transform: "scale(0.98) translateY(0px)",
+});

@@ -8,6 +8,7 @@ import { sectionInfo } from "@/models"; // Assuming sectionInfo is typed
 
 import { HeroareaSection } from "@/components/section/heroarea";
 import { Header } from "@/components/shared/Header";
+import { RegisterButton } from "@/components/ui/RegisterButton";
 import { useWorksModal } from "@/components/ui/WorksModal";
 
 import { breakpoint } from "@/styles";
@@ -99,6 +100,7 @@ export const HomePage = () => {
                     ))}
                 </div>
             </div>
+            <RegisterButton className={styles.registerButton} />
         </div>
     );
 };
