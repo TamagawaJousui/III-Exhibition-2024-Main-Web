@@ -33,7 +33,6 @@ export const initGPUComputationRenderer = (points: Float32Array, renderer: WebGL
 
     // Check for shader errors
     const error = gpuCompute.init();
-    console.log("gpuCompute.init();");
     if (error !== null) {
         console.error(error);
     }

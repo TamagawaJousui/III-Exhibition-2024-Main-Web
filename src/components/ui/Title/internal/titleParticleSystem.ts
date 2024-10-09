@@ -83,9 +83,6 @@ export class particleSystem {
         if (!this.startTime) {
             this.startTime = performance.now();
         }
-        this.colorStops.map((color) => {
-            console.log(color.r, color.g, color.b);
-        });
     }
 
     bindEvents() {
@@ -237,7 +234,6 @@ export class particleSystem {
         geoParticles.translate(xLength / 2, -yLength / 2, 0);
 
         const translatedPoints = geoParticles.attributes.position.array as Float32Array;
-        console.log(translatedPoints);
 
         const { size, gpuCompute, positionVariable, colorVariable } = initGPUComputationRenderer(
             translatedPoints,
@@ -247,10 +243,7 @@ export class particleSystem {
         this.positionVariable = positionVariable;
         this.colorVariable = colorVariable;
 
-        console.log({ gpuCompute, positionVariable, colorVariable });
-
         const planeParticles = initParticle(size);
-        console.log(planeParticles);
 
         return planeParticles;
     }
