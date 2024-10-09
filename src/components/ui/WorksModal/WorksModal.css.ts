@@ -7,6 +7,11 @@ export const styles = {
         backgroundColor: vars.color.background.dark,
         width: "80vw",
         height: "80vh",
+        "@media": {
+            [mediaUtils.mobile]: {
+                height: "70vh",
+            },
+        },
     }),
     overlay: style({
         position: "fixed",
@@ -35,7 +40,7 @@ export const styles = {
     contentWrapper: style({
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
         width: "100%",
         padding: `${vars.spacing.sm} 0`,
         borderBottom: `1px solid ${vars.color.text}`,
@@ -44,7 +49,7 @@ export const styles = {
     }),
     content: style({
         display: "flex",
-        alignItems: "flex-start",
+        alignItems: "center",
         gap: vars.spacing.md,
         flexGrow: 1,
         overflow: "hidden",
@@ -71,8 +76,9 @@ export const styles = {
     rightContent: style({
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-around",
         flex: "auto",
-        height: "100%",
+        height: "80%",
         overflow: "hidden",
     }),
     description: style({
