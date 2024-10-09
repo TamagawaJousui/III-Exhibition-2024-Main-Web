@@ -64,7 +64,7 @@ export const AccessSection: FC = () => (
                 <p>
                     本展覧会は東京大学
                     <wbr />
-                    情報学環・学環情報学府が
+                    情報学環・学際情報学府が
                     <wbr />
                     主催しております。
                 </p>
