@@ -13,13 +13,13 @@ import { styles } from "./ConceptSection.css";
 const WaterWave = dynamic(() => import("react-water-wave"), { ssr: false });
 
 export const ConceptSection: FC = () => (
-    <SectionContainer id="concept" title="CONCEPT">
-        <WaterWave className={styles.root} dropRadius={100}>
+    <SectionContainer id="concept" title="CONCEPT" className={styles.root}>
+        <WaterWave className={styles.wrapper} dropRadius={100}>
             {() => (
-                <div className={styles.wrapper}>
+                <div className={styles.container}>
                     <div className={styles.concept}>
                         {conceptData.ja.map((concept) => (
-                            <WithWordBreak key={concept}>
+                            <WithWordBreak key={concept} as="h4">
                                 <BreakWord content={concept} optional />
                             </WithWordBreak>
                         ))}
