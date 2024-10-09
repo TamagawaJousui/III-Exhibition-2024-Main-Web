@@ -61,6 +61,6 @@ globalStyle(`${styles.root} h3`, {
     width: "fit-content",
 });
 
-globalStyle(`${styles.root} p b`, {
+globalStyle(`${styles.root} p`, {
     whiteSpace: "nowrap",
 });
