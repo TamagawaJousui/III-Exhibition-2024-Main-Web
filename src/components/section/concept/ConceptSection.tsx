@@ -19,7 +19,7 @@ export const ConceptSection: FC = () => (
                 <div className={styles.container}>
                     <div className={styles.concept}>
                         {conceptData.ja.map((concept) => (
-                            <WithWordBreak key={concept} as="h4">
+                            <WithWordBreak key={concept} as="h4" align="center">
                                 <BreakWord content={concept} optional />
                             </WithWordBreak>
                         ))}

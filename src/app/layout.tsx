@@ -16,10 +16,16 @@ const playfairDisplay = Local({
     variable: "--font-playfair",
 });
 
-const zenKaku = Local({
-    src: "../../public/fonts/ZenKakuGothicNew-Regular.ttf",
+const kleeOne = Local({
+    src: "../../public/fonts/KleeOne-Regular.ttf",
     display: "swap",
-    variable: "--font-zenkaku",
+    variable: "--font-klee",
+});
+
+const notoSansCh = Local({
+    src: "../../public/fonts/CactusClassicalSerif-Regular.ttf",
+    display: "swap",
+    variable: "--font-noto-sans-ch",
 });
 
 export const metadata: Metadata = {
@@ -58,7 +64,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <html lang="ja">
         <body
             suppressHydrationWarning
-            className={`${playfairDisplay.variable} ${zenKaku.variable}`}
+            className={`${playfairDisplay.variable} ${kleeOne.variable} ${notoSansCh.variable}`}
         >
             {children}
         </body>

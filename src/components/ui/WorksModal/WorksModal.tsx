@@ -33,12 +33,7 @@ export const WorksModal: FC<Props> = ({ isOpen, currentWork, onClose: handleClos
                             />
                         </div>
                         <div className={styles.rightContent}>
-                            <WithTitle
-                                title="コンセプト"
-                                size="xl"
-                                withScroll
-                                className={styles.description}
-                            >
+                            <WithTitle title="コンセプト" withScroll className={styles.description}>
                                 <p className={styles.descriptionText}>
                                     {currentWork.description.ja}
                                 </p>

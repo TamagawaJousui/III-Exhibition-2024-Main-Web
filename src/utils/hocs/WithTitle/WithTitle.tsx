@@ -12,9 +12,10 @@ import { styles } from "./WithTitle.css";
 
 type Props = {
     title: string;
-    font?: Extract<keyof (typeof vars)["font"], "YuMincho">;
-    size: NonNullable<React.ComponentProps<typeof typography>>["fontSize"];
-    weight?: NonNullable<React.ComponentProps<typeof typography>>["fontWeight"];
+    font?: {
+        size?: NonNullable<React.ComponentProps<typeof typography>>["fontSize"];
+        weight?: NonNullable<React.ComponentProps<typeof typography>>["fontWeight"];
+    };
     padding?: Extract<keyof (typeof vars)["spacing"], "sm" | "md">;
     fit?: boolean;
     withScroll?: boolean;
@@ -25,9 +26,7 @@ type Props = {
 
 export const WithTitle: FC<Props> = ({
     title,
-    font,
-    size,
-    weight,
+    font = { size: "xl", weight: "extraBold" },
     padding = "md",
     fit = false,
     withScroll = false,
@@ -40,15 +39,16 @@ export const WithTitle: FC<Props> = ({
         <div className={clsx(styles.root({ mobileAlign: mobileAlign }), className)}>
             <h3
                 className={clsx(
-                    typography({ fontFamily: font, fontSize: size, fontWeight: weight }),
+                    typography({
+                        fontSize: font["size"],
+                        fontWeight: font["weight"],
+                    }),
                     styles.heading({ fit: fit, mobileAlign: mobileAlign })
                 )}
             >
                 {title}
             </h3>
-            <Comp className={styles.content({ padding: padding, mobileAlign: mobileAlign })}>
-                {children}
-            </Comp>
+            <Comp className={styles.content({ padding: padding })}>{children}</Comp>
         </div>
     );
 };

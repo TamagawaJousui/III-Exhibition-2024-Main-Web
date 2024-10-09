@@ -6,13 +6,13 @@ export const typography = recipe({
     variants: {
         fontFamily: {
             playFair: {
-                fontFamily: "var(--font-playfair)",
+                fontFamily: vars.fontFamily.playfair,
             },
             kleeOne: {
-                fontFamily: "var(--font-klee)",
+                fontFamily: vars.fontFamily.kleeOne,
             },
-            yuMincho: {
-                fontFamily: "yuMincho",
+            notoSansCh: {
+                fontFamily: vars.fontFamily.notoSansCh,
             },
         },
         /**

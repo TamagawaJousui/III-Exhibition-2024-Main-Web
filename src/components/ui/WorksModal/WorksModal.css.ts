@@ -35,7 +35,7 @@ export const styles = {
     contentWrapper: style({
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-around",
+        justifyContent: "space-between",
         width: "100%",
         padding: `${vars.spacing.sm} 0`,
         borderBottom: `1px solid ${vars.color.text}`,

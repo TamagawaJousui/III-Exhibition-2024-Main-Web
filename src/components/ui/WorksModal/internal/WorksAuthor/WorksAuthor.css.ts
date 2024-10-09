@@ -11,7 +11,7 @@ export const styles = {
     authorContainer: style({
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "flex-start",
+        justifyContent: "space-around",
         width: "100%",
         height: "max-content",
         flexShrink: 0,
