@@ -11,7 +11,6 @@ export const styles = {
     authorContainer: style({
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "space-around",
         width: "100%",
         height: "max-content",
         flexShrink: 0,
@@ -20,7 +19,7 @@ export const styles = {
         padding: 0,
     }),
     author: style({
-        flex: "0 1 0",
+        flex: "1 1 0",
         minWidth: "max-content",
     }),
     info: typography({ fontSize: "xs" }),

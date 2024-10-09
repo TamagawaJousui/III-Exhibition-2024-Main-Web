@@ -19,7 +19,7 @@ type Props = {
 export const WorksModal: FC<Props> = ({ isOpen, currentWork, onClose: handleClose }) => {
     const { isMobile } = useWindow();
     return (
-        <dialog open={isOpen} className={styles.modal}>
+        <dialog open={isOpen} className={styles.modal} onClick={(e) => e.stopPropagation()}>
             <div className={styles.wrapper}>
                 <ModalHeader work={currentWork} onClose={handleClose} />
                 <div className={styles.contentWrapper}>

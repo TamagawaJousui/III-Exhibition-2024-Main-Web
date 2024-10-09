@@ -6,7 +6,8 @@ export const styles = {
     modal: style({
         backgroundColor: vars.color.background.dark,
         width: "80vw",
-        height: "80vh",
+        height: "auto",
+        maxHeight: "80vh",
     }),
     overlay: style({
         position: "fixed",
@@ -35,7 +36,7 @@ export const styles = {
     contentWrapper: style({
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
         width: "100%",
         padding: `${vars.spacing.sm} 0`,
         borderBottom: `1px solid ${vars.color.text}`,
