@@ -89,6 +89,12 @@ export const vars = createGlobalTheme(":root", {
         black: "900",
     },
 
+    fontFamily: {
+        playfair: "var(--font-playfair)",
+        kleeOne: "var(--font-klee)",
+        notoSansCh: "var(--font-noto-sans-ch)",
+    },
+
     lineHeight: {
         xs: "0.75rem",
         sm: "1rem",

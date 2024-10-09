@@ -62,6 +62,7 @@ export const styles = {
     content: recipe({
         base: {
             width: "100%",
+            textAlign: "start",
         },
         variants: {
             padding: {
@@ -70,23 +71,6 @@ export const styles = {
                 },
                 md: {
                     padding: `${vars.spacing.md} 0`,
-                },
-            },
-            mobileAlign: {
-                left: {
-                    "@media": {
-                        [mediaUtils.mobile]: {
-                            textAlign: "start",
-                        },
-                    },
-                },
-                center: {
-                    "@media": {
-                        [mediaUtils.mobile]: {
-                            textAlign: "center",
-                            margin: "0 auto",
-                        },
-                    },
                 },
             },
         },

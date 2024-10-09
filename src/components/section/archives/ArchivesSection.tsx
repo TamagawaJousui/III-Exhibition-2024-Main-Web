@@ -12,13 +12,13 @@ import { styles } from "./ArchivesSection.css";
 export const ArchivesSection: FC = () => (
     <SectionContainer id="archives" title="ARCHIVES" className={styles.root}>
         <div className={styles.content}>
-            <WithTitle title="EXTRA" size="lg" padding="sm">
+            <WithTitle title="EXTRA" font={{ size: "lg" }} padding="sm">
                 <nav>
                     <ul>
                         {extraPageInfo.map((page) => (
                             <li key={page.id}>
                                 <a href={getExtraPageLink(page.id)}>
-                                    <WithWordBreak align="left">
+                                    <WithWordBreak>
                                         {`iiiExhibition Extra ${page.id} `}
                                         <wbr />
                                         {page.concept}
@@ -29,13 +29,13 @@ export const ArchivesSection: FC = () => (
                     </ul>
                 </nav>
             </WithTitle>
-            <WithTitle title="III Exhibition" size="lg" padding="sm">
+            <WithTitle title="III Exhibition" font={{ size: "lg" }} padding="sm">
                 <nav>
                     <ul>
                         {mainPageInfo.map((page) => (
                             <li key={page.id}>
                                 <a href={getMainPageLink(page.id)}>
-                                    <WithWordBreak align="left">
+                                    <WithWordBreak>
                                         {`iiiExhibition ${page.id + 1998} `}
                                         <wbr />
                                         {page.concept}

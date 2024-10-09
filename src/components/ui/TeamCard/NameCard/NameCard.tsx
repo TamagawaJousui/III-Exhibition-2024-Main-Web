@@ -9,7 +9,7 @@ type Props = { name: { ja: string; en: string } };
 
 export const NameCard: FC<Props> = ({ name }) => (
     <div className={styles.root}>
-        <WithWordBreak as="a" align="left">
+        <WithWordBreak as="a">
             <BreakWord content={name.ja} />
         </WithWordBreak>
         <p className={styles.en}>{name.en}</p>

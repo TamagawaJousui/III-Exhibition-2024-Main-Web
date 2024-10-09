@@ -61,20 +61,6 @@ globalStyle(`${styles.root} h3`, {
     width: "fit-content",
 });
 
-globalStyle(`${styles.root} p`, {
+globalStyle(`${styles.root} p b`, {
     whiteSpace: "nowrap",
-    /**
-     * FIXME: WithTitle内で対処
-     */
-    textAlign: "left",
-    "@media": {
-        [mediaUtils.mobile]: {
-            textAlign: "center",
-        },
-    },
-});
-
-globalStyle(`${styles.root} b`, {
-    whiteSpace: "nowrap",
-    textAlign: "left",
 });

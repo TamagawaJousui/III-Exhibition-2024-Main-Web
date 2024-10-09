@@ -41,7 +41,7 @@ export const WorksCarousel: React.FC<PropType> = ({ place, works }) => {
     return (
         <div className={styles.root}>
             <div className={styles.heading} style={{ backgroundColor: placeColorPalette[place] }}>
-                <WithWordBreak as="h3" className={styles.headingText}>
+                <WithWordBreak as="h3" className={styles.headingText} align="center">
                     <BreakWord content={place} />
                 </WithWordBreak>
             </div>

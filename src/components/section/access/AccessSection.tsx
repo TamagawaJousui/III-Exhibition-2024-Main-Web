@@ -11,12 +11,9 @@ import { SectionContainer } from "@/components/shared/Container";
 import { styles } from "./AccessSection.css";
 
 const withTitleConfig = {
-    font: "yuMincho",
-    size: "xl",
-    weight: "extraBold",
     fit: true,
     mobileAlign: "center",
-};
+} as const;
 
 export const AccessSection: FC = () => (
     <SectionContainer id="access" title="ACCESS" className={styles.root}>
@@ -30,7 +27,7 @@ export const AccessSection: FC = () => (
             />
         </div>
         <WithTitle title="会場" {...withTitleConfig} className={styles.item}>
-            <WithWordBreak className={styles.info} as="div">
+            <WithWordBreak className={styles.info} align="flexible" as="div">
                 <b>東京大学本郷キャンパス</b>
                 <p>工学部2号館</p>
                 <p>
@@ -41,7 +38,7 @@ export const AccessSection: FC = () => (
             </WithWordBreak>
         </WithTitle>
         <WithTitle title="日時" {...withTitleConfig} className={styles.item}>
-            <WithWordBreak className={styles.info} as="div">
+            <WithWordBreak className={styles.info} align="flexible" as="div">
                 <p>
                     2024/11/7(木) <wbr />- 11/11(月)
                 </p>
@@ -53,7 +50,7 @@ export const AccessSection: FC = () => (
         </WithTitle>
 
         <WithTitle title="公共交通機関によるアクセス" {...withTitleConfig} className={styles.item}>
-            <WithWordBreak className={styles.info} as="div">
+            <WithWordBreak className={styles.info} align="flexible" as="div">
                 {trainInfo.map((data) => (
                     <p key={data.line}>
                         {data.line} <wbr /> {data.station} より 徒歩{data.time}分
@@ -63,7 +60,7 @@ export const AccessSection: FC = () => (
         </WithTitle>
 
         <WithTitle title="お問い合わせ" {...withTitleConfig} className={styles.item}>
-            <WithWordBreak className={styles.info} as="div">
+            <WithWordBreak className={styles.info} align="flexible" as="div">
                 <p>
                     本展覧会は東京大学
                     <wbr />

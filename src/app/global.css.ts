@@ -11,7 +11,7 @@ globalStyle("html, body", {
     msOverflowStyle: "none",
     /*スクロールバー非表示（Firefox）*/
     scrollbarWidth: "none",
-    fontFamily: "var(--font-klee), sans-serif",
+    fontFamily: "var(--font-klee), var(--font-noto-sans-ch), sans-serif",
 
     "@media": {
         [`${mediaUtils.mobile}`]: {
@@ -33,18 +33,16 @@ globalStyle(":root", {
 
 globalStyle("a", {
     textDecoration: "none",
-    fontFamily: "var(--font-zenKaku)",
     color: vars.color.text,
 });
 
-globalStyle("h1, h2, h3, h4, h5, h6", {
-    fontFamily: "var(--font-playfair)",
-    margin: 0,
-    padding: 0,
+globalStyle("h1, h2, h3", {
+    fontFamily: "var(--font-playfair), var(--font-klee), var(--font-noto-sans-ch), sans-serif",
 });
 
-globalStyle("h1, h2, h3", {
-    fontFamily: "var(--font-playfair), YuMincho",
+globalStyle("h1, h2, h3, h4, h5, h6", {
+    margin: 0,
+    padding: 0,
 });
 
 globalStyle("h1", {
