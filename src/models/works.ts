@@ -54,7 +54,7 @@ export const workList = [
         imagePath: "/works/newspaper-bw.png",
     },
     {
-        title: "Champloo/Concerto",
+        title: "Champloo ~かきまぜる ~",
         member: ["友利未夢", "國仲杏", "常盤優菜", "増澤茉利子", "谷なぎさ"],
         place: "情報学環オープンスタジオ",
         description: {
