@@ -3,9 +3,8 @@ import { GPUComputationRenderer, SVGResult, Variable } from "three/examples/jsm/
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 
 import { ParticleData } from "@/models/heroarea";
-
-import { initGPUComputationRenderer } from "./gpgpu";
-import { initParticle } from "./particle";
+import { initGPUComputationRenderer } from "@/utils/foregroundParticles/foregroundGpgpu";
+import { initParticle } from "@/utils/foregroundParticles/foregroundParticle";
 
 export class particleSystem {
     scene: THREE.Scene;

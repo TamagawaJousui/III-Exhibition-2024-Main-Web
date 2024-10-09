@@ -1,6 +1,6 @@
 import * as THREE from "three";
 
-import { vertexShader, fragmentShader } from "./shaders";
+import { vertexShader, fragmentShader } from "./foregroundShaders";
 
 export const initParticle = (size) => {
     // Create geometry with 8 vertices

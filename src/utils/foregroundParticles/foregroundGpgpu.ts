@@ -1,7 +1,7 @@
 import { WebGLRenderer } from "three";
 import { GPUComputationRenderer } from "three/examples/jsm/misc/GPUComputationRenderer.js";
 
-import { positionComputeFragmentShader, colorComputeFragmentShader } from "./shaders";
+import { positionComputeFragmentShader, colorComputeFragmentShader } from "./foregroundShaders";
 
 export const initGPUComputationRenderer = (points: Float32Array, renderer: WebGLRenderer) => {
     const numPoints = points.length / 3;

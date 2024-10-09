@@ -118,8 +118,6 @@ export const fragmentShader = /* glsl */ `
     varying float vOpacity;
 
     void main() {
-      // Apply gamma correction
-    // vec3 color = pow(vColor, vec3(1.0 / 2.2));
       
         gl_FragColor = vec4(vColor, 1.0);
     }
