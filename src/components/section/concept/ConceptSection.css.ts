@@ -4,9 +4,13 @@ import { vars } from "@/styles";
 
 export const styles = {
     root: style({
-        height: "100%",
+        width: "100vw",
+        padding: vars.spacing.xl,
     }),
     wrapper: style({
+        height: "100%",
+    }),
+    container: style({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-evenly",
