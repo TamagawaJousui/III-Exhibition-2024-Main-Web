@@ -6,8 +6,12 @@ export const styles = {
     modal: style({
         backgroundColor: vars.color.background.dark,
         width: "80vw",
-        height: "auto",
-        maxHeight: "80vh",
+        height: "80vh",
+        "@media": {
+            [mediaUtils.mobile]: {
+                height: "70vh",
+            },
+        },
     }),
     overlay: style({
         position: "fixed",
@@ -45,7 +49,7 @@ export const styles = {
     }),
     content: style({
         display: "flex",
-        alignItems: "flex-start",
+        alignItems: "center",
         gap: vars.spacing.md,
         flexGrow: 1,
         overflow: "hidden",
@@ -72,8 +76,9 @@ export const styles = {
     rightContent: style({
         display: "flex",
         flexDirection: "column",
+        justifyContent: "space-around",
         flex: "auto",
-        height: "100%",
+        height: "80%",
         overflow: "hidden",
     }),
     description: style({
