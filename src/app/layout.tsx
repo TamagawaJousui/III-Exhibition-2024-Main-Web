@@ -23,9 +23,9 @@ const kleeOne = Local({
 });
 
 const notoSansCh = Local({
-    src: "../../public/fonts/CactusClassicalSerif-Regular.ttf",
+    src: "../../public/fonts/LXGWWenKai-Light.woff2",
     display: "swap",
-    variable: "--font-noto-sans-ch",
+    variable: "--font-klee-ch-addition-5A67-7ADE",
 });
 
 export const metadata: Metadata = {
