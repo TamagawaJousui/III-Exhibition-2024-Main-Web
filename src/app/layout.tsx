@@ -22,10 +22,10 @@ const kleeOne = Local({
     variable: "--font-klee",
 });
 
-const notoSansCh = Local({
+const kleeOneCh = Local({
     src: "../../public/fonts/LXGWWenKai-Light.woff2",
     display: "swap",
-    variable: "--font-klee-ch-addition-5A67-7ADE",
+    variable: "--font-klee-ch",
 });
 
 export const metadata: Metadata = {
@@ -64,7 +64,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <html lang="ja">
         <body
             suppressHydrationWarning
-            className={`${playfairDisplay.variable} ${kleeOne.variable} ${notoSansCh.variable}`}
+            className={`${playfairDisplay.variable} ${kleeOne.variable} ${kleeOneCh.variable}`}
         >
             {children}
         </body>
