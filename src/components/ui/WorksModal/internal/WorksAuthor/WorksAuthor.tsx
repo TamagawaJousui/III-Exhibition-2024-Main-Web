@@ -13,7 +13,7 @@ export const WorksAuthor: FC<Props> = ({ work }) => (
             const authorData = findMemberByName(name);
             return (
                 <li key={`${name}-${work.place}`} className={styles.author}>
-                    <h5>{authorData?.nameJa}</h5>
+                    <h5>{authorData?.name}</h5>
                     <p className={styles.info}>{authorData?.affiliationJa}</p>
                     <p className={styles.info}>{`${authorData?.lab} ${authorData?.grade}`}</p>
                 </li>
@@ -22,9 +22,9 @@ export const WorksAuthor: FC<Props> = ({ work }) => (
     </ul>
 );
 
-const findMemberByName = (nameJa: string) => {
+const findMemberByName = (name: string) => {
     for (const team of teamList) {
-        const foundMember = team.members.find((member) => member.nameJa === nameJa);
+        const foundMember = team.members.find((member) => member.name === name);
         if (foundMember) {
             return foundMember;
         }
