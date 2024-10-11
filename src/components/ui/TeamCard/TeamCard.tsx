@@ -12,7 +12,10 @@ export const TeamCard: FC<Props> = ({ name, members }) => (
     <WithTitle title={name} font={{ size: "xl" }} fit>
         <div className={styles.members}>
             {members.map((name) => (
-                <NameCard key={name.ja} name={{ ja: name.ja, en: name.en }} />
+                <NameCard
+                    key={name.name}
+                    name={{ name: name.name, nameLang: name.nameLang, en: name.en }}
+                />
             ))}
         </div>
     </WithTitle>

@@ -11,13 +11,13 @@ const description = "東京大学制作展 2024 Mainのホームページです�
 const url = "https://iiiexhibition.com";
 
 const playfairDisplay = Local({
-    src: "../../public/fonts/PlayfairDisplaySC-Italic.ttf",
+    src: "../../public/fonts/PlayfairDisplaySC-Italic.woff2",
     display: "swap",
     variable: "--font-playfair",
 });
 
 const kleeOne = Local({
-    src: "../../public/fonts/KleeOne-Regular.ttf",
+    src: "../../public/fonts/KleeOne-Regular.woff2",
     display: "swap",
     variable: "--font-klee",
 });

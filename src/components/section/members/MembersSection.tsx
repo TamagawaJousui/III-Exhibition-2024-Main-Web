@@ -16,7 +16,8 @@ export const MembersSection: FC = () => (
                     key={team.name}
                     name={team.name}
                     members={team.members.map((member) => ({
-                        ja: member.nameJa,
+                        name: member.name,
+                        nameLang: member.nameLang,
                         en: member.nameEn,
                     }))}
                 />
