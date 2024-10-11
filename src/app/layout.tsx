@@ -22,6 +22,7 @@ const kleeOne = Local({
     variable: "--font-klee",
 });
 
+// chinese version of Klee One, only contains '婧' and '竞'
 const kleeOneCh = Local({
     src: "../../public/fonts/LXGWWenKai-Light.woff2",
     display: "swap",
