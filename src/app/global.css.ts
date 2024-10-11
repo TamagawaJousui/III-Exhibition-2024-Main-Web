@@ -11,7 +11,7 @@ globalStyle("html, body", {
     msOverflowStyle: "none",
     /*スクロールバー非表示（Firefox）*/
     scrollbarWidth: "none",
-    fontFamily: "var(--font-klee), sans-serif",
+    fontFamily: "var(--font-klee), var(--font-klee-ch), sans-serif",
 
     "@media": {
         [`${mediaUtils.mobile}`]: {
@@ -20,10 +20,6 @@ globalStyle("html, body", {
             maxWidth: "100vw",
         },
     },
-});
-
-globalStyle("span[lang='zh-Hans']", {
-    fontFamily: "var(--font-klee-ch), sans-serif",
 });
 
 globalStyle("*", {
