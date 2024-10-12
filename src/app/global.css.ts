@@ -11,7 +11,7 @@ globalStyle("html, body", {
     msOverflowStyle: "none",
     /*スクロールバー非表示（Firefox）*/
     scrollbarWidth: "none",
-    fontFamily: "var(--font-klee), var(--font-noto-sans-ch), sans-serif",
+    fontFamily: "var(--font-klee), var(--font-klee-ch), sans-serif",
     overscrollBehavior: "none",
 
     "@media": {
