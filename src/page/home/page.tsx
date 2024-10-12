@@ -23,77 +23,54 @@ export const HomePage = () => {
     const slider = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
-        if (window.innerWidth > breakpoint.mobile) {
-            const ctx = gsap.context(() => {
-                if (slider.current) {
-                    const sections = gsap.utils.toArray<HTMLDivElement>(slider.current.children);
-                    /**
-                     * NOTE: 子要素の幅を取得しているが，明示的にスタイリングを当てないと計算に含まれないので注意
-                     */
-                    const getTotalWidth = () =>
-                        sections.reduce((width, el) => width + el.offsetWidth, 0);
+        const mediaQuery = window.matchMedia(`(max-width: ${breakpoint.mobile}px)`);
 
-                    // let snap: (value: number) => number;
-
-                    if (sections.length) {
-                        gsap.to(sections, {
-                            x: () => -(getTotalWidth() - window.innerWidth), // セクション全体の幅に基づいて移動
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: component.current,
-                                pin: true,
-                                scrub: true,
-                                // snap: {
-                                //     snapTo: (value) => {
-                                //         const threshold = 0.05;
-                                //         const closestSnapPoint = snap(value); // 最も近いスナップポイントを計算
-
-                                //         /**
-                                //          * NOTE: スナップポイントとの差がしきい値以内の場合のみスナップ
-                                //          * TODO: 利用を検討・UX検討
-                                //          */
-                                //         if (Math.abs(closestSnapPoint - value) <= threshold) {
-                                //             return closestSnapPoint; // スナップ
-                                //         } else {
-                                //             return value; // スナップせず、そのままの位置にとどまる
-                                //         }
-                                //     },
-                                //     duration: { min: 0.4, max: 0.7 },
-                                //     delay: 0.01,
-                                //     ease: "sine.inOut",
-                                // },
-                                end: () =>
-                                    "+=" + (component.current!.scrollWidth - window.innerWidth), // スクロール終了を全体の幅に基づいて設定
-                                invalidateOnRefresh: true,
-                                onRefresh: () => {
-                                    let accumulatedWidth = 0;
-
-                                    // スナップポイントを動的に生成
-                                    const progressArray = sections.map((el) => {
-                                        accumulatedWidth += el.offsetWidth;
-                                        return accumulatedWidth / getTotalWidth();
-                                    });
-
-                                    progressArray.unshift(0); // 最初のスナップポイントを追加
-                                    // snap = gsap.utils.snap(progressArray); // スナップ機能のセットアップ
-                                },
-                                // markers: true, // デバッグ用
-                            },
-                        });
-                    }
-                }
-            }, component);
-
-            return () => ctx.revert();
+        if (mediaQuery.matches) {
+            return;
         }
+
+        const handleScroll = (event: WheelEvent) => {
+            event.preventDefault();
+            if (!slider.current) {
+                return;
+            }
+
+            let currentTranslateX = 0;
+            const scrollWidth = slider.current.scrollWidth - window.innerWidth;
+            if (slider.current.style.transform) {
+                try {
+                    currentTranslateX = parseFloat(
+                        slider.current.style.transform.split("(")[1].split(")")[0]
+                    );
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+
+            // Adjust the translateX value based on the wheel delta
+            currentTranslateX -= event.deltaY;
+            currentTranslateX -= event.deltaX;
+
+            // Constrain the translateX value between -totalWidth and 0
+            currentTranslateX = Math.max(Math.min(currentTranslateX, 0), -scrollWidth);
+
+            // console.log(currentTranslateX);
+            slider.current.style.transform = `translateX(${currentTranslateX}px)`;
+        };
+
+        window.addEventListener("wheel", handleScroll, { passive: false });
+
+        return () => {
+            window.removeEventListener("wheel", handleScroll);
+        };
     }, []);
 
     return (
         <div className={styles.root} ref={component}>
             {isOpen && renderModal()}
             <Header className={styles.header} />
-            <div className={styles.wrapper} ref={slider}>
-                <div className={styles.container}>
+            <div className={styles.wrapper}>
+                <div className={styles.container} ref={slider}>
                     <HeroareaSection />
                     {sectionInfo.map((section: (typeof sectionInfo)[number]) => (
                         <section.node key={section.id} />

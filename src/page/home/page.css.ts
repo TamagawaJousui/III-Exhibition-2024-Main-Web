@@ -47,8 +47,8 @@ export const styles = {
     }),
 
     registerButton: style({
-        position: "sticky",
+        position: "fixed",
         bottom: "0", // 下端に固定
-        left: "100vw", // 右端に固定
+        right: "0", // 右端に固定
     }),
 };
