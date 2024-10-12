@@ -92,7 +92,7 @@ export const vars = createGlobalTheme(":root", {
     fontFamily: {
         playfair: "var(--font-playfair)",
         kleeOne: "var(--font-klee)",
-        notoSansCh: "var(--font-noto-sans-ch)",
+        kleeOneCh: "var(--font-klee-ch)",
     },
 
     lineHeight: {
