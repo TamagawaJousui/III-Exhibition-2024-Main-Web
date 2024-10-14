@@ -11,7 +11,7 @@ globalStyle("html, body", {
     msOverflowStyle: "none",
     /*スクロールバー非表示（Firefox）*/
     scrollbarWidth: "none",
-    fontFamily: "var(--font-klee), var(--font-noto-sans-ch), sans-serif",
+    fontFamily: "var(--font-klee), sans-serif",
 
     "@media": {
         [`${mediaUtils.mobile}`]: {
@@ -36,14 +36,33 @@ globalStyle("a", {
     color: vars.color.text,
 });
 
-globalStyle("h1, h2, h3", {
-    fontFamily: "var(--font-playfair), var(--font-klee), var(--font-noto-sans-ch), sans-serif",
-});
-
 globalStyle("h1, h2, h3, h4, h5, h6", {
     margin: 0,
     padding: 0,
 });
+
+/**
+ * font family
+ */
+globalStyle("h1", {
+    fontFamily: "var(--font-playfair-italic), sans-serif",
+});
+
+globalStyle("h2", {
+    fontFamily: "var(--font-playfair), var(--font-klee), sans-serif",
+});
+
+globalStyle("h3", {
+    fontFamily: "var(--font-noto-serif), var(--font-klee), serif",
+});
+
+globalStyle("h4", {
+    fontFamily: "var(--font-noto-serif), var(--font-klee), serif",
+});
+
+/**
+ * font size
+ */
 
 globalStyle("h1", {
     fontSize: vars.fontSize["3xl"],
@@ -55,6 +74,7 @@ globalStyle("h2", {
 
 globalStyle("h3", {
     fontSize: vars.fontSize.xl,
+    fontWeight: vars.fontWeight.extraBold,
 });
 
 globalStyle("h4", {

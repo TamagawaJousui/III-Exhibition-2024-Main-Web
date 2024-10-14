@@ -33,6 +33,7 @@ export const subContainerStyles = {
     label: recipe({
         base: {
             padding: vars.spacing.xs,
+            fontFamily: "var(--font-noto-serif)",
         },
         variants: {
             withBorder: {

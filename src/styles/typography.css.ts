@@ -5,14 +5,17 @@ import { vars } from "./theme.css";
 export const typography = recipe({
     variants: {
         fontFamily: {
-            playFair: {
-                fontFamily: vars.fontFamily.playfair,
+            playfair: {
+                fontFamily: "var(--font-playfair), var(--font-klee), sans-serif",
+            },
+            playfairItalic: {
+                fontFamily: "var(--font-playfair-italic), var(--font-klee), serif",
+            },
+            notoSerif: {
+                fontFamily: "var(--font-noto-serif), var(--font-klee), serif",
             },
             kleeOne: {
-                fontFamily: vars.fontFamily.kleeOne,
-            },
-            notoSansCh: {
-                fontFamily: vars.fontFamily.notoSansCh,
+                fontFamily: "var(--font-klee-one), sans-serif",
             },
         },
         /**
