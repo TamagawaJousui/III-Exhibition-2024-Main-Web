@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 import { typography } from "@/styles/typography.css";
 
@@ -50,3 +50,7 @@ export const styles = {
         typography({ color: "black" }),
     ]),
 };
+
+globalStyle(`${styles.root} > button`, {
+    fontFamily: "var(--font-noto-serif)",
+});
