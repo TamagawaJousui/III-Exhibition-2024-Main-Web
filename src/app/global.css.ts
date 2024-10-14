@@ -38,7 +38,7 @@ globalStyle("a", {
 });
 
 globalStyle("h1, h2, h3", {
-    fontFamily: "var(--font-playfair), var(--font-klee), sans-serif",
+    fontFamily: "var(--font-playfair), var(--font-klee), var(--font-noto-sans-ch), sans-serif",
 });
 
 globalStyle("h1, h2, h3, h4, h5, h6", {

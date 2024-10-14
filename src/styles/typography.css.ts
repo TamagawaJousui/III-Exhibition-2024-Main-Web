@@ -11,8 +11,8 @@ export const typography = recipe({
             kleeOne: {
                 fontFamily: vars.fontFamily.kleeOne,
             },
-            kleeOneCh: {
-                fontFamily: vars.fontFamily.kleeOneCh,
+            notoSansCh: {
+                fontFamily: vars.fontFamily.notoSansCh,
             },
         },
         /**

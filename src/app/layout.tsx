@@ -11,22 +11,21 @@ const description = "東京大学制作展 2024 Mainのホームページです�
 const url = "https://iiiexhibition.com";
 
 const playfairDisplay = Local({
-    src: "../../public/fonts/PlayfairDisplaySC-Italic.woff2",
+    src: "../../public/fonts/PlayfairDisplaySC-Italic.ttf",
     display: "swap",
     variable: "--font-playfair",
 });
 
 const kleeOne = Local({
-    src: "../../public/fonts/KleeOne-Regular.woff2",
+    src: "../../public/fonts/KleeOne-Regular.ttf",
     display: "swap",
     variable: "--font-klee",
 });
 
-// chinese version of Klee One, only contains '婧' and '竞'
-const kleeOneCh = Local({
-    src: "../../public/fonts/LXGWWenKai-Light.woff2",
+const notoSansCh = Local({
+    src: "../../public/fonts/CactusClassicalSerif-Regular.ttf",
     display: "swap",
-    variable: "--font-klee-ch",
+    variable: "--font-noto-sans-ch",
 });
 
 export const metadata: Metadata = {
@@ -65,7 +64,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <html lang="ja">
         <body
             suppressHydrationWarning
-            className={`${playfairDisplay.variable} ${kleeOne.variable} ${kleeOneCh.variable}`}
+            className={`${playfairDisplay.variable} ${kleeOne.variable} ${notoSansCh.variable}`}
         >
             {children}
         </body>
