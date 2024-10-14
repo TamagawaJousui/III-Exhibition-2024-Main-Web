@@ -1,4 +1,5 @@
 import { createGlobalTheme } from "@vanilla-extract/css";
+
 export type colorType = RecursiveLeafKeys<typeof color>;
 
 export const color = {
@@ -87,12 +88,6 @@ export const vars = createGlobalTheme(":root", {
         bold: "600",
         extraBold: "800",
         black: "900",
-    },
-
-    fontFamily: {
-        playfair: "var(--font-playfair)",
-        kleeOne: "var(--font-klee)",
-        notoSansCh: "var(--font-noto-sans-ch)",
     },
 
     lineHeight: {

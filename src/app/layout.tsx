@@ -11,9 +11,15 @@ const description = "東京大学制作展 2024 Mainのホームページです�
 const url = "https://iiiexhibition.com";
 
 const playfairDisplay = Local({
-    src: "../../public/fonts/PlayfairDisplaySC-Italic.ttf",
+    src: "../../public/fonts/PlayfairDisplay-VariableFont_wght.ttf",
     display: "swap",
     variable: "--font-playfair",
+});
+
+const playfairItalic = Local({
+    src: "../../public/fonts/PlayfairDisplaySC-Italic.ttf",
+    display: "swap",
+    variable: "--font-playfair-italic",
 });
 
 const kleeOne = Local({
@@ -22,10 +28,10 @@ const kleeOne = Local({
     variable: "--font-klee",
 });
 
-const notoSansCh = Local({
-    src: "../../public/fonts/CactusClassicalSerif-Regular.ttf",
+const notoSerif = Local({
+    src: "../../public/fonts/NotoSerifJP-VariableFont_wght.ttf",
     display: "swap",
-    variable: "--font-noto-sans-ch",
+    variable: "--font-noto-serif",
 });
 
 export const metadata: Metadata = {
@@ -64,7 +70,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <html lang="ja">
         <body
             suppressHydrationWarning
-            className={`${playfairDisplay.variable} ${kleeOne.variable} ${notoSansCh.variable}`}
+            className={`${playfairItalic.variable} ${playfairDisplay.variable} ${kleeOne.variable} ${notoSerif.variable}`}
         >
             {children}
         </body>
