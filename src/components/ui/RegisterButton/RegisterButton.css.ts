@@ -1,15 +1,13 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
-
 export const styles = {
     root: style({
         display: "inline-block",
         position: "relative",
-        height: "20vh",
+        // height: "20vh",
         aspectRatio: "1 / 1",
         border: "none",
-        padding: vars.spacing.md,
+        // padding: vars.spacing.md,
     }),
 };
 

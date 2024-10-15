@@ -50,6 +50,17 @@ export const styles = {
         position: "fixed",
         bottom: "0", // 下端に固定
         right: "0", // 右端に固定
-        width: "29vw",
+        width: "27vw",
+        "@media": {
+            [mediaUtils.sm]: {
+                width: "170px",
+            },
+            [mediaUtils.md]: {
+                width: "190px",
+            },
+            [mediaUtils.lg]: {
+                width: "220px",
+            },
+        },
     }),
 };

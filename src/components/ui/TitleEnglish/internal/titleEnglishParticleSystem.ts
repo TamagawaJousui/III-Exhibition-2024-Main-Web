@@ -175,7 +175,7 @@ export class particleSystem {
 
         const outlineGroup = new THREE.Group();
         lineSegments.forEach((segment) => {
-            segment.translateX(-xLength - 10);
+            segment.translateX(-xLength - 5);
             segment.translateY(yLength + 10);
             outlineGroup.add(segment);
         });
@@ -230,7 +230,7 @@ export class particleSystem {
 
         const geoParticles = new THREE.BufferGeometry().setFromPoints(points);
 
-        geoParticles.translate(-xLength - 10, yLength + 10, 0);
+        geoParticles.translate(-xLength - 5, yLength + 10, 0);
 
         const translatedPoints = geoParticles.attributes.position.array as Float32Array;
 
