@@ -9,7 +9,7 @@ export const styles = {
         height: "100%",
         padding: vars.spacing.lg,
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 width: "100vw",
                 height: "auto",
             },

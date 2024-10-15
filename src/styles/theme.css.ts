@@ -33,7 +33,11 @@ export const color = {
 } as const;
 
 export const breakpoint = {
-    mobile: 750,
+    sm: 640,
+    md: 768,
+    lg: 1024,
+    xl: 1280,
+    "2xl": 1536,
 } as const;
 
 export const vars = createGlobalTheme(":root", {

@@ -26,7 +26,7 @@ export const styles = {
         gap: vars.spacing.md,
         margin: 0,
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 flexDirection: "column",
                 gap: vars.spacing.md,
                 fontFamily: "var(--font-playfair)",
@@ -38,7 +38,7 @@ export const styles = {
         display: "flex",
         gap: vars.spacing.sm,
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 flexDirection: "column",
                 gap: vars.spacing.md,
                 width: "fit-content",
@@ -57,7 +57,7 @@ export const styles = {
     desktopView: style({
         display: "block",
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 display: "none",
             },
         },
@@ -65,7 +65,7 @@ export const styles = {
     mobileView: style({
         display: "none",
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 display: "block",
             },
         },

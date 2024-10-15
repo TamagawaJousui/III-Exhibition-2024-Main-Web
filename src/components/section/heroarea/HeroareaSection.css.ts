@@ -9,7 +9,7 @@ export const styles = {
         width: "100vw",
         height: "100vh",
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 overflow: "hidden",
             },
         },
@@ -17,7 +17,7 @@ export const styles = {
     desktopView: style({
         display: "block",
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 display: "none",
             },
         },
@@ -25,28 +25,43 @@ export const styles = {
     mobileView: style({
         display: "none",
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 display: "block",
             },
         },
     }),
     title: style({
         position: "absolute",
-        top: "90px",
-        left: "5px",
         zIndex: 1,
+        "@media": {
+            [mediaUtils.md]: {
+                top: "90px",
+                left: "5px",
+                width: "90px",
+            },
+        },
     }),
     titleEnglish: style({
         position: "absolute",
-        top: 0,
-        right: "5px",
         zIndex: 1,
+        "@media": {
+            [mediaUtils.md]: {
+                top: "0",
+                right: "5px",
+                width: "270px",
+            },
+        },
     }),
     dateAndVenue: style({
         position: "absolute",
-        right: "5px",
-        top: "310px",
         zIndex: 1,
+        "@media": {
+            [mediaUtils.md]: {
+                right: "5px",
+                top: "310px",
+                width: "170px",
+            },
+        },
     }),
     particleImg: style({
         position: "absolute",

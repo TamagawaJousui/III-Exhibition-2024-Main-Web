@@ -14,7 +14,7 @@ globalStyle("html, body", {
     fontFamily: "var(--font-klee), sans-serif",
 
     "@media": {
-        [`${mediaUtils.mobile}`]: {
+        [`${mediaUtils.md}`]: {
             height: "auto",
             width: "100vw",
             maxWidth: "100vw",

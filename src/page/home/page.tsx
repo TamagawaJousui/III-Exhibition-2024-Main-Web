@@ -23,7 +23,7 @@ export const HomePage = () => {
     const slider = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
-        if (window.innerWidth > breakpoint.mobile) {
+        if (window.innerWidth > breakpoint.md) {
             const ctx = gsap.context(() => {
                 if (slider.current) {
                     const sections = gsap.utils.toArray<HTMLDivElement>(slider.current.children);

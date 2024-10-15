@@ -14,14 +14,14 @@ export const styles = {
             mobileAlign: {
                 left: {
                     "@media": {
-                        [mediaUtils.mobile]: {
+                        [mediaUtils.md]: {
                             width: "fit-content",
                         },
                     },
                 },
                 center: {
                     "@media": {
-                        [mediaUtils.mobile]: {
+                        [mediaUtils.md]: {
                             width: "100%",
                         },
                     },
@@ -43,14 +43,14 @@ export const styles = {
             mobileAlign: {
                 left: {
                     "@media": {
-                        [mediaUtils.mobile]: {
+                        [mediaUtils.md]: {
                             alignSelf: "flex-start",
                         },
                     },
                 },
                 center: {
                     "@media": {
-                        [mediaUtils.mobile]: {
+                        [mediaUtils.md]: {
                             alignSelf: "center",
                             fontSize: vars.fontSize.lg,
                         },

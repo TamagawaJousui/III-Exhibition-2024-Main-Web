@@ -31,7 +31,7 @@ export const styles = {
     }),
     headingText: style({
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 fontSize: vars.fontSize.base,
             },
         },

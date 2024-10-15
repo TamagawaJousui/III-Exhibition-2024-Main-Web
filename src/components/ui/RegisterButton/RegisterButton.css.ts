@@ -20,7 +20,7 @@ globalStyle(`${styles.root} *`, {
     filter: "drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1))",
 
     // "@media": {
-    //     [mediaUtils.mobile]: {
+    //     [mediaUtils.md]: {
     //         fill: "#5E91B3",
     //     },
     // },

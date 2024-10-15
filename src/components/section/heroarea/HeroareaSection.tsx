@@ -21,9 +21,9 @@ export const HeroareaSection: FC = () => (
             <DateAndVenue />
         </div>
         <div className={styles.mobileView}>
-            <StaticTitle className={styles.title} width={90} />
-            <StaticTitleEnglish className={styles.titleEnglish} width={270} />
-            <StaticDateAndVenue className={styles.dateAndVenue} width={170} />
+            <StaticTitle className={styles.title} />
+            <StaticTitleEnglish className={styles.titleEnglish} />
+            <StaticDateAndVenue className={styles.dateAndVenue} />
             <Image
                 className={styles.particleImg}
                 src={"/heroarea/particle_mobile.png"}

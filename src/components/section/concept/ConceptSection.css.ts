@@ -7,7 +7,7 @@ export const styles = {
         width: "80vw",
         padding: vars.spacing.xl,
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 width: "100%",
             },
         },

@@ -5,7 +5,7 @@ import { breakpoint } from "@/styles";
 export const useWindow = () => {
     const [isMobile, setIsMobile] = useState<boolean>(false);
     useEffect(() => {
-        setIsMobile(window.innerWidth <= breakpoint.mobile);
+        setIsMobile(window.innerWidth <= breakpoint.md);
     }, []);
 
     return {

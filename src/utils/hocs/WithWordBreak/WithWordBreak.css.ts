@@ -16,7 +16,7 @@ export const styles = {
                 flexible: {
                     textAlign: "left",
                     "@media": {
-                        [mediaUtils.mobile]: {
+                        [mediaUtils.md]: {
                             textAlign: "center",
                         },
                     },

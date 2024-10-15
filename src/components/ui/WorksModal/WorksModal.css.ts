@@ -8,7 +8,7 @@ export const styles = {
         width: "80vw",
         height: "80vh",
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 height: "70vh",
             },
         },
@@ -32,7 +32,7 @@ export const styles = {
         padding: `${vars.spacing.lg} ${vars.spacing.xl}`,
         height: "100%",
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 padding: `${vars.spacing.sm} ${vars.spacing.md}`,
             },
         },
@@ -54,7 +54,7 @@ export const styles = {
         flexGrow: 1,
         overflow: "hidden",
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 maxHeight: "max-content",
             },
         },
@@ -67,7 +67,7 @@ export const styles = {
         height: "80%",
         flexShrink: 0,
         "@media": {
-            [mediaUtils.mobile]: {
+            [mediaUtils.md]: {
                 width: "50%",
                 height: "auto",
             },
