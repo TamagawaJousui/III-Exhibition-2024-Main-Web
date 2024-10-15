@@ -17,7 +17,7 @@ export const styles = {
             [slideSize]: "100%",
         },
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 width: "100%",
             },
         },
@@ -26,7 +26,7 @@ export const styles = {
         height: "100%",
         width: "400px",
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 width: "100%",
             },
         },

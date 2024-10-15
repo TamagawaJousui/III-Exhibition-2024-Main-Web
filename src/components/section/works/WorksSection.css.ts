@@ -16,7 +16,7 @@ export const styles = {
 
     pickUp: style({
         "@media": {
-            [mediaUtils.md]: { height: "600px" },
+            [mediaUtils.mdMax]: { height: "600px" },
         },
     }),
 

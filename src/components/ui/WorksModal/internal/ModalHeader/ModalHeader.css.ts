@@ -21,7 +21,7 @@ export const styles = {
         base: {
             flex: 1,
             "@media": {
-                [mediaUtils.md]: {
+                [mediaUtils.mdMax]: {
                     fontSize: vars.fontSize.sm,
                 },
             },
@@ -31,7 +31,7 @@ export const styles = {
                 left: {
                     textAlign: "left",
                     "@media": {
-                        [mediaUtils.md]: {
+                        [mediaUtils.mdMax]: {
                             flex: "0 0 2rem",
                         },
                     },
@@ -46,7 +46,7 @@ export const styles = {
                 right: {
                     textAlign: "right",
                     "@media": {
-                        [mediaUtils.md]: {
+                        [mediaUtils.mdMax]: {
                             flex: "0 0 2rem",
                         },
                     },
@@ -69,7 +69,7 @@ export const styles = {
             margin: `0 ${vars.spacing.lg}`,
             backgroundColor: vars.color.white,
             "@media": {
-                [mediaUtils.md]: {
+                [mediaUtils.mdMax]: {
                     fontSize: vars.fontSize.lg,
                 },
             },

@@ -9,7 +9,7 @@ export const styles = {
         width: "100vw",
         height: "100vh",
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 overflow: "hidden",
             },
         },
@@ -17,7 +17,7 @@ export const styles = {
     desktopView: style({
         display: "block",
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 display: "none",
             },
         },
@@ -25,7 +25,7 @@ export const styles = {
     mobileView: style({
         display: "none",
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 display: "block",
             },
         },
@@ -34,7 +34,7 @@ export const styles = {
         position: "absolute",
         zIndex: 1,
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 top: "90px",
                 left: "5px",
                 width: "90px",
@@ -45,7 +45,7 @@ export const styles = {
         position: "absolute",
         zIndex: 1,
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 top: "0",
                 right: "5px",
                 width: "270px",
@@ -56,7 +56,7 @@ export const styles = {
         position: "absolute",
         zIndex: 1,
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 right: "5px",
                 top: "310px",
                 width: "170px",

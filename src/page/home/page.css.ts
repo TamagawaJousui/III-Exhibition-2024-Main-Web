@@ -12,7 +12,7 @@ export const styles = {
             width: "100%",
             position: "relative",
             "@media": {
-                [mediaUtils.md]: {
+                [mediaUtils.mdMax]: {
                     background: vars.color.background.mobile,
                 },
             },
@@ -25,7 +25,7 @@ export const styles = {
         left: 0,
         zIndex: vars.zIndex.header,
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 position: "sticky",
             },
         },
@@ -39,7 +39,7 @@ export const styles = {
         background: vars.color.background.desktop,
 
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 background: "none",
                 flexDirection: "column",
             },

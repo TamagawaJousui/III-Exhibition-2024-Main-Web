@@ -3,6 +3,7 @@ import { style } from "@vanilla-extract/css";
 import { breakpoint } from "./theme.css";
 
 export const mediaUtils = {
+    mdMax: `screen and (max-width: ${breakpoint.md}px)`,
     sm: `screen and (max-width: ${breakpoint.sm}px)`,
     md: `screen and (max-width: ${breakpoint.md}px)`,
     lg: `screen and (max-width: ${breakpoint.lg}px)`,
@@ -13,7 +14,7 @@ export const mediaUtils = {
 export const styleUtils = {
     alignVertical: style({
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 width: "100%",
                 flexDirection: "column",
             },

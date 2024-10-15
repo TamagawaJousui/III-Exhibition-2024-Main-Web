@@ -14,7 +14,7 @@ export const styles = {
         width: "100%",
         height: "100%",
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 gridTemplateColumns: "1fr",
                 gridAutoFlow: "row",
                 gridTemplateRows: "auto",
@@ -25,7 +25,7 @@ export const styles = {
     item: style({
         padding: `0 ${vars.spacing.xl}`,
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 padding: 0,
             },
         },
@@ -35,7 +35,7 @@ export const styles = {
         height: "100%",
         gridRow: "span 2",
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 width: "100%",
                 aspectRatio: "16 / 9",
                 gridRow: "auto",

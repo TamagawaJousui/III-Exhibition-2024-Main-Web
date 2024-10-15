@@ -15,7 +15,7 @@ export const styles = {
         // padding: `${vars.spacing.md} 0`,
         width: MEMBER_SECTION_WIDTH,
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 width: "100%",
             },
         },

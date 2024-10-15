@@ -31,7 +31,7 @@ export const styles = {
     }),
     headingText: style({
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 fontSize: vars.fontSize.base,
             },
         },

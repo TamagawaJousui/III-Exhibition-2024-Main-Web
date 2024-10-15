@@ -12,7 +12,7 @@ export const styles = {
         padding: `0 ${vars.spacing.lg}`,
         flex: 1,
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 width: "100%",
                 padding: 0,
             },
@@ -25,7 +25,7 @@ export const styles = {
         maxWidth: "100%",
         gap: vars.spacing.md,
         "@media": {
-            [mediaUtils.md]: {
+            [mediaUtils.mdMax]: {
                 justifyContent: "flex-start",
                 width: "100%",
             },
