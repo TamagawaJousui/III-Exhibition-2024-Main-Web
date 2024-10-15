@@ -14,8 +14,10 @@ import { styles } from "./HeroareaSection.css";
 
 export const HeroareaSection: FC = () => (
     <div className={styles.root}>
-        <div className={styles.desktopView}>
+        <div className={styles.particle}>
             <Particles />
+        </div>
+        <div className={styles.desktopView}>
             <Title />
             <TitleEnglish />
             <DateAndVenue />
@@ -24,13 +26,13 @@ export const HeroareaSection: FC = () => (
             <StaticTitle className={styles.title} />
             <StaticTitleEnglish className={styles.titleEnglish} />
             <StaticDateAndVenue className={styles.dateAndVenue} />
-            <Image
-                className={styles.particleImg}
-                src={"/heroarea/particle_mobile.png"}
-                alt="particle"
-                width={1000}
-                height={1000}
-            />
         </div>
+        <Image
+            className={styles.particleImg}
+            src={"/heroarea/particle_mobile.png"}
+            alt="particle"
+            width={1000}
+            height={1000}
+        />
     </div>
 );

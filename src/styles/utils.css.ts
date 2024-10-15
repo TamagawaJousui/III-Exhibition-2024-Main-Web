@@ -4,11 +4,11 @@ import { breakpoint } from "./theme.css";
 
 export const mediaUtils = {
     mdMax: `screen and (max-width: ${breakpoint.md}px)`,
-    sm: `screen and (max-width: ${breakpoint.sm}px)`,
-    md: `screen and (max-width: ${breakpoint.md}px)`,
-    lg: `screen and (max-width: ${breakpoint.lg}px)`,
-    xl: `screen and (max-width: ${breakpoint.xl}px)`,
-    "2xl": `screen and (max-width: ${breakpoint["2xl"]}px)`,
+    sm: `screen and (min-width: ${breakpoint.sm}px)`,
+    md: `screen and (min-width: ${breakpoint.md}px)`,
+    lg: `screen and (min-width: ${breakpoint.lg}px)`,
+    xl: `screen and (min-width: ${breakpoint.xl}px)`,
+    "2xl": `screen and (min-width: ${breakpoint["2xl"]}px)`,
 } as const;
 
 export const styleUtils = {
