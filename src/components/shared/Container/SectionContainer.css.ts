@@ -15,6 +15,10 @@ export const styles = {
             },
         },
     }),
+    title: style({
+        fontWeight: "normal",
+        paddingBottom: vars.spacing.md,
+    }),
     container: style({
         display: "flex",
         justifyContent: "center",

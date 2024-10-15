@@ -48,7 +48,7 @@ export const styles = {
         top: "310px",
         zIndex: 1,
     }),
-    particle: style({
+    particleImg: style({
         position: "absolute",
         left: "-250px",
         top: "-150px",

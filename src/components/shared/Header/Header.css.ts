@@ -9,6 +9,7 @@ export const styles = {
         alignItems: "center",
         width: "100%",
         padding: `${vars.spacing.xs} ${vars.spacing.md}`,
+        fontFamily: "var(--font-playfair)",
     }),
     title: style([
         typography({
@@ -29,7 +30,7 @@ export const styles = {
                 flexDirection: "column",
                 gap: vars.spacing.md,
                 fontFamily: "var(--font-playfair)",
-                fontSize: vars.fontSize.xl,
+                fontSize: vars.fontSize["2xl"],
             },
         },
     }),
@@ -40,6 +41,7 @@ export const styles = {
             [mediaUtils.mobile]: {
                 flexDirection: "column",
                 gap: vars.spacing.md,
+                width: "fit-content",
             },
         },
     }),
@@ -49,7 +51,7 @@ export const styles = {
         left: 0,
         width: "100vw",
         height: "100vh",
-        background: "rgba(182, 206, 228, 0.5)",
+        background: "rgba(182, 206, 228, 0.9)",
         zIndex: vars.zIndex.modal,
     }),
     desktopView: style({

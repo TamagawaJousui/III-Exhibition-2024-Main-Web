@@ -34,7 +34,7 @@ export const Content: FC<Props> = (props) => {
                 className={styles.image}
             />
             <div className={styles.overlay}>
-                <WithTitle title={data.title} size="2xl">
+                <WithTitle title={data.title} font={{ family: "playfairItalic", size: "2xl" }}>
                     <p className={styles.member}>
                         {data.member.map((name, index) => (
                             <React.Fragment key={index}>

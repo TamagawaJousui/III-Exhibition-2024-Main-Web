@@ -45,4 +45,10 @@ export const styles = {
             },
         },
     }),
+
+    registerButton: style({
+        position: "sticky",
+        bottom: "0", // 下端に固定
+        left: "100vw", // 右端に固定
+    }),
 };

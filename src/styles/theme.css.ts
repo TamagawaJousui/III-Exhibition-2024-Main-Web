@@ -1,4 +1,5 @@
 import { createGlobalTheme } from "@vanilla-extract/css";
+
 export type colorType = RecursiveLeafKeys<typeof color>;
 
 export const color = {
@@ -28,7 +29,7 @@ export const color = {
     gray: "#E4E2E2",
 
     text: "#F9F6F7",
-    textSecondary: "#EDE7E9",
+    textSecondary: "#C4C4C4",
 } as const;
 
 export const breakpoint = {

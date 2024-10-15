@@ -1,6 +1,6 @@
 export const teamList = [
     {
-        name: "PRODUCER",
+        name: "PROJECT DIRCTOR",
         members: [
             {
                 nameJa: "真田将太朗",
@@ -78,7 +78,7 @@ export const teamList = [
         ],
     },
     {
-        name: "ACCOUNTING",
+        name: "ACCOUNTANT",
         members: [
             {
                 nameJa: "友利未夢",
@@ -191,7 +191,7 @@ export const teamList = [
         ],
     },
     {
-        name: "VENUE DESIGN",
+        name: "GALLERY",
         members: [
             {
                 nameJa: "小西優多郎",
@@ -279,7 +279,7 @@ export const teamList = [
             },
             {
                 nameJa: "鈴木健",
-                nameEn: "KEN SUZUKI",
+                nameEn: "TAKERU SUZUKI",
                 affiliationJa: "東京大学大学院 情報学環教育部",
                 grade: "教育部2年",
                 lab: "",
@@ -301,7 +301,7 @@ export const teamList = [
         ],
     },
     {
-        name: "PR",
+        name: "PUBLIC RELATIONS",
         members: [
             {
                 nameJa: "都築あい",
@@ -402,7 +402,7 @@ export const teamList = [
         ],
     },
     {
-        name: "COPY",
+        name: "PROOFREADING",
         members: [
             {
                 nameJa: "中野博貴",
@@ -442,35 +442,110 @@ export const teamList = [
         ],
     },
     {
+        name: "GUEST",
+        members: [
+            {
+                nameJa: "八木新平",
+                nameEn: "SHINPEI YAGI",
+                affiliationJa: "東京藝術大学 美術学部",
+                grade: "4年",
+                lab: "",
+            },
+            {
+                nameJa: "桶家武尊",
+                nameEn: "TAKERU OKEIE",
+                affiliationJa: "",
+                grade: "",
+                lab: "",
+            },
+            {
+                nameJa: "池田翔",
+                nameEn: "TSUBASA IKEDA",
+                affiliationJa: "東京藝術大学大学院 音楽研究科",
+                grade: "修士2年",
+                lab: "",
+            },
+            {
+                nameJa: "森達也",
+                nameEn: "TATSUYA MORI",
+                affiliationJa: "株式会社ARAYA",
+                grade: "",
+                lab: "",
+            },
+            {
+                nameJa: "谷凪彩",
+                nameEn: "NAGISA TANI",
+                affiliationJa: "多摩美術大学 美術学部",
+                grade: "3年",
+                lab: "",
+            },
+            {
+                nameJa: "永田莉紗",
+                nemeEn: "RISA NAGATA",
+                affiliationJa: "東京大学大学院 学際情報学府",
+                grade: "修士2年",
+                lab: "筧研究室",
+            },
+            {
+                nameJa: "あん",
+                nameEn: "ANNE",
+                affiliationJa: "Peace Activist",
+                grade: "",
+                lab: "",
+            },
+        ],
+    },
+    {
         name: "FACULTY ADVISER",
         members: [
             {
                 nameJa: "苗村健",
                 nameEn: "TAKESHI NAEMURA",
+                affiliationJa: "",
+                grade: "",
+                lab: "",
             },
             {
                 nameJa: "筧康明",
                 nameEn: "YASUAKI KAKEHI",
+                affiliationJa: "",
+                grade: "",
+                lab: "",
             },
             {
                 nameJa: "渡邉英徳",
                 nameEn: "HIDENORI WATANAVE",
+                affiliationJa: "",
+                grade: "",
+                lab: "",
             },
             {
                 nameJa: "曽根光揮",
                 nameEn: "KOKI SONE",
+                affiliationJa: "",
+                grade: "",
+                lab: "",
             },
             {
                 nameJa: "武井祥平",
                 nameEn: "SHOHEI TAKEI",
+                affiliationJa: "",
+                grade: "",
+                lab: "",
             },
             {
                 nameJa: "倉本大資",
                 nameEn: "DAISUKE KURAMOTO",
+                affiliationJa: "",
+                grade: "",
+                lab: "",
             },
             {
                 nameJa: "増田悠紀子",
                 nameEn: "YUKIKO MASUDA",
+                affiliationJa: "",
+                grade: "",
+                lab: "",
             },
         ],
     },

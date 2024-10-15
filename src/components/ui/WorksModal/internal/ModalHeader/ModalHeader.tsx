@@ -1,9 +1,7 @@
-import { MapPin } from "@phosphor-icons/react/dist/ssr";
+import { MapPin, X } from "@phosphor-icons/react/dist/ssr";
 
 import { useWindow } from "@/hooks/window";
 import { WorkData } from "@/models/works";
-
-import { Sns } from "@/components/shared/Sns";
 
 import { typography } from "@/styles";
 
@@ -11,31 +9,38 @@ import type { FC } from "react";
 
 import { styles } from "./ModalHeader.css";
 
-type Props = { work: WorkData };
+type Props = { work: WorkData; onClose: () => void };
 
-export const ModalHeader: FC<Props> = ({ work }) => {
+export const ModalHeader: FC<Props> = ({ work, onClose: handleClose }) => {
     const { isMobile } = useWindow();
     return (
         <>
             <header className={styles.heading}>
-                {!isMobile && <LeftHeader work={work} />}
+                {isMobile ? (
+                    <div className={styles.headingContent({ align: "left" })} />
+                ) : (
+                    <LeftHeader work={work} className={styles.headingContent({ align: "left" })} />
+                )}
                 <div className={styles.headingContent({ align: "center" })}>
                     <h2 className={styles.title}>{work?.title}</h2>
                 </div>
-                {!isMobile && <RightHeader />}
+                <RightHeader
+                    onClick={handleClose}
+                    className={styles.headingContent({ align: "right" })}
+                />
             </header>
             {isMobile && (
                 <div className={styles.subHeading}>
                     <LeftHeader work={work} />
-                    <RightHeader />
                 </div>
             )}
         </>
     );
 };
 
-const LeftHeader: FC<Props> = ({ work }) => (
-    <div className={styles.headingContent({ align: "left" })}>
+type LeftProps = { work: WorkData; className?: string };
+const LeftHeader: FC<LeftProps> = ({ work, className }) => (
+    <div className={className}>
         <h5>展示場所</h5>
         <div className={styles.place}>
             <MapPin weight="fill" />
@@ -44,8 +49,9 @@ const LeftHeader: FC<Props> = ({ work }) => (
     </div>
 );
 
-const RightHeader: FC = () => (
-    <div className={styles.headingContent({ align: "right" })}>
-        <Sns />
+type RightProps = { onClick: () => void; className?: string };
+const RightHeader: FC<RightProps> = ({ onClick: handleClick, className }) => (
+    <div className={className}>
+        <X onClick={handleClick} size="2rem" className={styles.closeButton} />
     </div>
 );

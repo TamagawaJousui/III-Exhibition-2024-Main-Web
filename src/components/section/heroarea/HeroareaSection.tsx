@@ -25,7 +25,7 @@ export const HeroareaSection: FC = () => (
             <StaticTitleEnglish className={styles.titleEnglish} width={270} />
             <StaticDateAndVenue className={styles.dateAndVenue} width={170} />
             <Image
-                className={styles.particle}
+                className={styles.particleImg}
                 src={"/heroarea/particle_mobile.png"}
                 alt="particle"
                 width={1000}

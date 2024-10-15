@@ -15,11 +15,10 @@ type Props = {
 
 const ICON_SIZE = "1.5rem" as const;
 
-// SNSプロフィールのURLを定義
 const SNS_URLS = {
-    instagram: "https://www.instagram.com/",
-    twitter: "https://twitter.com/",
-    facebook: "https://www.facebook.com/",
+    instagram: "https://www.instagram.com/iiiexhibition",
+    twitter: "https://twitter.com/iiiexhibition",
+    facebook: "https://www.facebook.com/iiiexhibition",
 };
 
 export const Sns: FC<Props> = ({ size, gap = "sm", className }) => (

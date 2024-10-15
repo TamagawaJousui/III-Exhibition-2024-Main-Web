@@ -30,6 +30,11 @@ export const styles = {
             align: {
                 left: {
                     textAlign: "left",
+                    "@media": {
+                        [mediaUtils.mobile]: {
+                            flex: "0 0 2rem",
+                        },
+                    },
                 },
                 center: {
                     flexBasis: "fit-content",
@@ -39,12 +44,21 @@ export const styles = {
                     borderRight: `1px solid ${vars.color.text}`,
                 },
                 right: {
-                    display: "flex",
-                    alignItems: "flex-end",
-                    justifyContent: "flex-end",
+                    textAlign: "right",
+                    "@media": {
+                        [mediaUtils.mobile]: {
+                            flex: "0 0 2rem",
+                        },
+                    },
                 },
             },
         },
+    }),
+    subHeadingContent: style({
+        width: "100%",
+    }),
+    closeButton: style({
+        border: `1px solid ${vars.color.text}`,
     }),
     place: style({
         display: "flex",

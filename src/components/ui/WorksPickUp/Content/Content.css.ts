@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css";
+import { globalStyle, style } from "@vanilla-extract/css";
 
 import { typography } from "@/styles/typography.css";
 
@@ -24,7 +24,7 @@ export const styles = {
         borderBottom: `1px solid ${vars.color.text}`,
     }),
     member: style([
-        typography({ fontSize: "sm" }),
+        typography({ fontSize: "base" }),
         {
             display: "flex",
             flexWrap: "wrap",
@@ -32,10 +32,10 @@ export const styles = {
             minHeight: `calc(2 * ${vars.lineHeight.sm})`,
         },
     ]),
-    place: typography({ fontSize: "xs" }),
+    place: typography({ fontSize: "base" }),
     buttonContainer: style({
         width: "100%",
-        padding: vars.spacing.md,
+        padding: vars.spacing.lg,
         position: "relative",
     }),
     button: style([
@@ -50,3 +50,7 @@ export const styles = {
         typography({ color: "black" }),
     ]),
 };
+
+globalStyle(`${styles.root} > button`, {
+    fontFamily: "var(--font-noto-serif)",
+});
