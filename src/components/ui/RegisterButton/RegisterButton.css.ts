@@ -30,8 +30,8 @@ export const styles = {
         },
         "@media": {
             [mediaUtils.md]: {
-                bottom: "5px", // 下端に固定
-                right: "5px", // 右端に固定
+                bottom: "20px", // 下端に固定
+                right: "10px", // 右端に固定
                 height: "13vh",
             },
         },

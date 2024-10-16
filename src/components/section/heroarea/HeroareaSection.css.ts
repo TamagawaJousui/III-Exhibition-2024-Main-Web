@@ -74,8 +74,8 @@ export const styles = {
     }),
     particleImg: style({
         position: "absolute",
-        left: "-250px",
-        top: "-150px",
+        right: "-300px",
+        top: "-100px",
         overflow: "hidden",
         zIndex: 0,
         "@media": {
@@ -83,8 +83,6 @@ export const styles = {
                 position: "absolute",
                 left: "0px",
                 top: "0px",
-                overflow: "hidden",
-                transform: "scale(1.5)",
             },
             [mediaUtils.lg]: {
                 display: "none",

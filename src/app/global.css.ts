@@ -5,8 +5,9 @@ import { mediaUtils, vars } from "@/styles";
 globalStyle("html, body", {
     margin: 0,
 
-    height: "100vh",
-    width: "auto",
+    height: "auto",
+    width: "100vw",
+    maxWidth: "100vw",
     /*スクロールバー非表示（IE・Edge）*/
     msOverflowStyle: "none",
     /*スクロールバー非表示（Firefox）*/
@@ -15,10 +16,10 @@ globalStyle("html, body", {
     overscrollBehavior: "none",
 
     "@media": {
-        [`${mediaUtils.mdMax}`]: {
-            height: "auto",
-            width: "100vw",
-            maxWidth: "100vw",
+        [`${mediaUtils.md}`]: {
+            height: "100vh",
+            width: "auto",
+            maxWidth: "none",
         },
     },
 });

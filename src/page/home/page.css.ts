@@ -11,9 +11,10 @@ export const styles = {
             height: "100%",
             width: "100%",
             position: "relative",
+            background: vars.color.background.mobile,
             "@media": {
-                [mediaUtils.mdMax]: {
-                    background: vars.color.background.mobile,
+                [mediaUtils.md]: {
+                    background: vars.color.background.desktop,
                 },
             },
         },
@@ -31,12 +32,14 @@ export const styles = {
     }),
     container: style({
         display: "flex",
-        background: vars.color.background.desktop,
+
+        background: "none",
+        flexDirection: "column",
 
         "@media": {
-            [mediaUtils.mdMax]: {
-                background: "none",
-                flexDirection: "column",
+            [mediaUtils.md]: {
+                background: vars.color.background.desktop,
+                flexDirection: "row",
             },
         },
     }),

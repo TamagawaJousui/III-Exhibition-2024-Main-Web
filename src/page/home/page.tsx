@@ -1,7 +1,6 @@
 "use client";
 
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import debounce from "debounce";
 import { useLayoutEffect, useRef } from "react";
 
 import { sectionInfo } from "@/models"; // Assuming sectionInfo is typed
@@ -15,19 +14,13 @@ import { breakpoint } from "@/styles";
 
 import { styles } from "./page.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export const HomePage = () => {
     const { isOpen, renderModal } = useWorksModal();
     const component = useRef<HTMLDivElement>(null);
     const slider = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
-        const mediaQuery = window.matchMedia(`(max-width: ${breakpoint.mobile}px)`);
-
-        if (mediaQuery.matches) {
-            return;
-        }
+        const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
 
         const handleScroll = (event: WheelEvent) => {
             event.preventDefault();
@@ -58,10 +51,20 @@ export const HomePage = () => {
             slider.current.style.transform = `translateX(${currentTranslateX}px)`;
         };
 
-        window.addEventListener("wheel", handleScroll, { passive: false });
+        const handleResize = () => {
+            if (mediaQuery.matches) {
+                window.addEventListener("wheel", handleScroll, { passive: false });
+            } else {
+                window.removeEventListener("wheel", handleScroll);
+            }
+        };
+
+        handleResize(); // Initial check
+        window.addEventListener("resize", handleResize);
 
         return () => {
             window.removeEventListener("wheel", handleScroll);
+            window.removeEventListener("resize", debounce(handleResize, 300));
         };
     }, []);
 
