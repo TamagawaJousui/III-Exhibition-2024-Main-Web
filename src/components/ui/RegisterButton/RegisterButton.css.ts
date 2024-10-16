@@ -34,6 +34,9 @@ export const styles = {
                 right: "10px", // 右端に固定
                 height: "13vh",
             },
+            [mediaUtils.lg]: {
+                right: "30px",
+            },
         },
     }),
 };
