@@ -19,8 +19,7 @@
         ],
         "paths": {
             "@/*": ["./src/*"],
-            "@components/*": ["./src/components/*"],
-            "@public/*": ["./public/*"]
+            "@components/*": ["./src/components/*"]
         }
     },
     "files": ["node_modules/gsap/types/index.d.ts"],
