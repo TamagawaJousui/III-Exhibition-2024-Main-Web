@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { FC } from "react";
 
-import StaticDateAndVenue from "@/assets/svg/DateAndVenue.svg";
-import StaticTitle from "@/assets/svg/Title.svg";
-import StaticTitleEnglish from "@/assets/svg/TitleEnglish.svg";
+import StaticDateAndVenue from "./svg/DateAndVenue.svg";
+import StaticTitle from "./svg/Title.svg";
+import StaticTitleEnglish from "./svg/TitleEnglish.svg";
 
 import { DateAndVenue } from "@/components/ui/DateAndVenue";
 import { Particles } from "@/components/ui/Particles";

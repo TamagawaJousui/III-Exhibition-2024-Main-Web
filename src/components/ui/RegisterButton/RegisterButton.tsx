@@ -1,5 +1,6 @@
-import RegisterButtonSvg from "@/assets/svg/RegisterButton.svg";
 import { registerLink } from "@/models/register";
+
+import RegisterButtonSvg from "./svg/RegisterButton.svg";
 
 import type { FC } from "react";
 
