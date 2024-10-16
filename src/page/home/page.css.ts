@@ -24,11 +24,6 @@ export const styles = {
         top: 0,
         left: 0,
         zIndex: vars.zIndex.header,
-        "@media": {
-            [mediaUtils.mdMax]: {
-                position: "sticky",
-            },
-        },
     }),
     wrapper: style({
         display: "flex",
@@ -42,24 +37,6 @@ export const styles = {
             [mediaUtils.mdMax]: {
                 background: "none",
                 flexDirection: "column",
-            },
-        },
-    }),
-
-    registerButton: style({
-        position: "fixed",
-        bottom: "0", // 下端に固定
-        right: "0", // 右端に固定
-        width: "27vw",
-        "@media": {
-            [mediaUtils.sm]: {
-                width: "170px",
-            },
-            [mediaUtils.md]: {
-                width: "190px",
-            },
-            [mediaUtils.lg]: {
-                width: "220px",
             },
         },
     }),

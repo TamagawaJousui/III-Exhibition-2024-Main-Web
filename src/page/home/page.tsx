@@ -100,7 +100,7 @@ export const HomePage = () => {
                     ))}
                 </div>
             </div>
-            <RegisterButton className={styles.registerButton} />
+            <RegisterButton />
         </div>
     );
 };

@@ -48,12 +48,11 @@ export const styles = {
     titleEnglish: style({
         position: "absolute",
         zIndex: 1,
-        top: "2em",
+        top: "3em",
         right: "5px",
         width: "65%",
         "@media": {
             [mediaUtils.md]: {
-                top: "3em",
                 right: "10px",
                 width: "65%",
             },
@@ -63,7 +62,7 @@ export const styles = {
         position: "absolute",
         zIndex: 1,
         right: "5px",
-        bottom: "50px",
+        bottom: "20px",
         height: "45%",
         "@media": {
             [mediaUtils.md]: {
@@ -84,6 +83,7 @@ export const styles = {
                 position: "absolute",
                 left: "0px",
                 top: "0px",
+                overflow: "hidden",
                 transform: "scale(1.5)",
             },
             [mediaUtils.lg]: {
