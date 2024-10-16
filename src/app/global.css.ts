@@ -12,6 +12,7 @@ globalStyle("html, body", {
     /*スクロールバー非表示（Firefox）*/
     scrollbarWidth: "none",
     fontFamily: "var(--font-klee), sans-serif",
+    overscrollBehavior: "none",
 
     "@media": {
         [`${mediaUtils.mdMax}`]: {

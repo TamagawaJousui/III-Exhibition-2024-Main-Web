@@ -13,11 +13,14 @@ export const useHeader = () => {
         const targetElem = document.getElementById(id);
         if (targetElem) {
             const offset = targetElem.offsetLeft;
-            gsap.to(window, {
-                scrollTo: { y: offset, autoKill: false },
-                duration: 1, // Scroll duration
-                ease: "power2.inOut",
-            });
+            const slider = targetElem.parentElement;
+            if (slider) {
+                const minTranslateX = -(slider.scrollWidth - window.innerWidth);
+                const maxTranslateX = 0;
+                const clampedTranslateX = Math.max(minTranslateX, Math.min(maxTranslateX, -offset));
+
+                gsap.to(slider, { duration: 1, x: clampedTranslateX, ease: "power2.out" });
+            }
         }
     }, []);
 
