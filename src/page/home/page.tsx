@@ -56,6 +56,10 @@ export const HomePage = () => {
                 window.addEventListener("wheel", handleScroll, { passive: false });
             } else {
                 window.removeEventListener("wheel", handleScroll);
+                if (!slider.current) {
+                    return;
+                }
+                slider.current.style.transform = ``;
             }
         };
 
