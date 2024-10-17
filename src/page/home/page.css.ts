@@ -21,7 +21,7 @@ export const styles = {
     ]),
 
     header: style({
-        position: "absolute",
+        position: "fixed",
         top: 0,
         left: 0,
         zIndex: vars.zIndex.header,
