@@ -16,10 +16,10 @@ export const styles = {
         },
     }),
     desktopView: style({
-        visibility: "hidden",
+        display: "none",
         "@media": {
             [mediaUtils.lg]: {
-                visibility: "visible",
+                display: "block",
             },
         },
     }),
