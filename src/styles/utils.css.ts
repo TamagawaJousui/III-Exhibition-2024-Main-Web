@@ -3,7 +3,6 @@ import { style } from "@vanilla-extract/css";
 import { breakpoint } from "./theme.css";
 
 export const mediaUtils = {
-    mdMax: `screen and (max-width: ${breakpoint.md}px)`,
     sm: `screen and (min-width: ${breakpoint.sm}px)`,
     md: `screen and (min-width: ${breakpoint.md}px)`,
     lg: `screen and (min-width: ${breakpoint.lg}px)`,
