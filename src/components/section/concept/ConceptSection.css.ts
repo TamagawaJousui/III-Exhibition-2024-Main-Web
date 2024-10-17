@@ -4,11 +4,11 @@ import { mediaUtils, vars } from "@/styles";
 
 export const styles = {
     root: style({
-        width: "80vw",
+        width: "100%",
         padding: vars.spacing.xl,
         "@media": {
-            [mediaUtils.mdMax]: {
-                width: "100%",
+            [mediaUtils.md]: {
+                width: "80vw",
             },
         },
     }),
