@@ -57,7 +57,7 @@ export const styles = {
                     "@media": {
                         [mediaUtils.md]: {
                             alignSelf: "inherit",
-                            fontSize: "inherit",
+                            fontSize: vars.fontSize.xl,
                         },
                     },
                 },
