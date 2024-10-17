@@ -10,24 +10,24 @@ export const styles = {
     embla: style({
         height: "100%",
         maxHeight: "600px",
-        width: "fit-content",
+        width: "100%",
         vars: {
             [slideHeight]: "100%",
             [slideSpacing]: "1rem",
             [slideSize]: "100%",
         },
         "@media": {
-            [mediaUtils.mdMax]: {
-                width: "100%",
+            [mediaUtils.md]: {
+                width: "fit-content",
             },
         },
     }),
     emblaViewport: style({
         height: "100%",
-        width: "400px",
+        width: "100%",
         "@media": {
-            [mediaUtils.mdMax]: {
-                width: "100%",
+            [mediaUtils.md]: {
+                width: "400px",
             },
         },
     }),
