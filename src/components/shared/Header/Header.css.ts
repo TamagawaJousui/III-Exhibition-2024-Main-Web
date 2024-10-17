@@ -21,27 +21,29 @@ export const styles = {
     ]),
     ul: style({
         display: "flex",
+        flexDirection: "column",
         flexWrap: "wrap",
         listStyle: "none",
         gap: vars.spacing.md,
+        fontSize: vars.fontSize["2xl"],
         margin: 0,
         "@media": {
-            [mediaUtils.mdMax]: {
-                flexDirection: "column",
-                gap: vars.spacing.md,
-                fontFamily: "var(--font-playfair)",
-                fontSize: vars.fontSize["2xl"],
+            [mediaUtils.md]: {
+                flexDirection: "row",
+                fontSize: vars.fontSize["sm"],
             },
         },
     }),
     li: style({
         display: "flex",
-        gap: vars.spacing.sm,
+        flexDirection: "column",
+        gap: vars.spacing.md,
+        width: "fit-content",
         "@media": {
-            [mediaUtils.mdMax]: {
-                flexDirection: "column",
-                gap: vars.spacing.md,
-                width: "fit-content",
+            [mediaUtils.md]: {
+                flexDirection: "row",
+                gap: vars.spacing.sm,
+                width: "auto",
             },
         },
     }),
@@ -55,18 +57,18 @@ export const styles = {
         zIndex: vars.zIndex.modal,
     }),
     desktopView: style({
-        display: "block",
+        display: "none",
         "@media": {
-            [mediaUtils.mdMax]: {
-                display: "none",
+            [mediaUtils.md]: {
+                display: "block",
             },
         },
     }),
     mobileView: style({
-        display: "none",
+        display: "block",
         "@media": {
-            [mediaUtils.mdMax]: {
-                display: "block",
+            [mediaUtils.md]: {
+                display: "none",
             },
         },
     }),
