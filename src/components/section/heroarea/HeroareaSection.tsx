@@ -1,24 +1,44 @@
 import Image from "next/image";
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
+
+import { useWebGlCapability } from "@/utils/webGlCapability";
 
 import { Particles } from "@/components/ui/Particles";
 
 import { styles } from "./HeroareaSection.css";
 
-export const HeroareaSection: FC = () => (
-    <div className={styles.root}>
-        <Particles />
-        <div className={styles.container({ label: "title" })}>
-            <HeroareaText label="title" className={styles.text} />
+export const HeroareaSection: FC = () => {
+    const [isWebGlSupported, setIsWebGlSupported] = useState(false);
+
+    useEffect(() => {
+        setIsWebGlSupported(useWebGlCapability);
+    }, []);
+
+    return (
+        <div className={styles.root}>
+            {isWebGlSupported ? (
+                <Particles />
+            ) : (
+                <Image
+                    src="/heroarea/particle_backgroud.png"
+                    alt="iii exhibition background"
+                    fill
+                    style={{ objectFit: "contain" }}
+                    className={styles.particleBackground}
+                />
+            )}
+            <div className={styles.container({ label: "title" })}>
+                <HeroareaText label="title" className={styles.text} />
+            </div>
+            <div className={styles.container({ label: "titleEnglish" })}>
+                <HeroareaText label="titleEnglish" className={styles.text} />
+            </div>
+            <div className={styles.container({ label: "dateAndVenue" })}>
+                <HeroareaText label="dateAndVenue" className={styles.text} />
+            </div>
         </div>
-        <div className={styles.container({ label: "titleEnglish" })}>
-            <HeroareaText label="titleEnglish" className={styles.text} />
-        </div>
-        <div className={styles.container({ label: "dateAndVenue" })}>
-            <HeroareaText label="dateAndVenue" className={styles.text} />
-        </div>
-    </div>
-);
+    );
+};
 
 type TextProps = {
     label: string;
