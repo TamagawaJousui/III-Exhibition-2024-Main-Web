@@ -13,16 +13,18 @@ export const styles = {
         variants: {
             mobileAlign: {
                 left: {
+                    width: "fit-content",
                     "@media": {
-                        [mediaUtils.mdMax]: {
-                            width: "fit-content",
+                        [mediaUtils.md]: {
+                            width: "inherit",
                         },
                     },
                 },
                 center: {
+                    width: "100%",
                     "@media": {
-                        [mediaUtils.mdMax]: {
-                            width: "100%",
+                        [mediaUtils.md]: {
+                            width: "inherit",
                         },
                     },
                 },
@@ -42,17 +44,20 @@ export const styles = {
             },
             mobileAlign: {
                 left: {
+                    alignSelf: "flex-start",
                     "@media": {
-                        [mediaUtils.mdMax]: {
-                            alignSelf: "flex-start",
+                        [mediaUtils.md]: {
+                            alignSelf: "inherit",
                         },
                     },
                 },
                 center: {
+                    alignSelf: "center",
+                    fontSize: vars.fontSize.lg,
                     "@media": {
-                        [mediaUtils.mdMax]: {
-                            alignSelf: "center",
-                            fontSize: vars.fontSize.lg,
+                        [mediaUtils.md]: {
+                            alignSelf: "inherit",
+                            fontSize: "inherit",
                         },
                     },
                 },
