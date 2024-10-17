@@ -20,19 +20,16 @@ export const styles = {
     headingContent: recipe({
         base: {
             flex: 1,
-            "@media": {
-                [mediaUtils.mdMax]: {
-                    fontSize: vars.fontSize.sm,
-                },
-            },
+            fontSize: vars.fontSize.sm,
         },
         variants: {
             align: {
                 left: {
                     textAlign: "left",
+                    flex: "0 0 2rem",
                     "@media": {
-                        [mediaUtils.mdMax]: {
-                            flex: "0 0 2rem",
+                        [mediaUtils.md]: {
+                            flex: 1,
                         },
                     },
                 },
@@ -45,9 +42,10 @@ export const styles = {
                 },
                 right: {
                     textAlign: "right",
+                    flex: "0 0 2rem",
                     "@media": {
-                        [mediaUtils.mdMax]: {
-                            flex: "0 0 2rem",
+                        [mediaUtils.md]: {
+                            flex: 1,
                         },
                     },
                 },
@@ -68,9 +66,10 @@ export const styles = {
         {
             margin: `0 ${vars.spacing.lg}`,
             backgroundColor: vars.color.white,
+            fontSize: vars.fontSize.lg,
             "@media": {
-                [mediaUtils.mdMax]: {
-                    fontSize: vars.fontSize.lg,
+                [mediaUtils.md]: {
+                    fontSize: vars.fontSize["2xl"],
                 },
             },
         },
