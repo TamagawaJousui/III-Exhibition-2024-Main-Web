@@ -8,37 +8,39 @@ export const styles = {
     root: style({
         display: "grid",
         gap: vars.spacing.md,
-        gridTemplateRows: "repeat(auto-fill, 25vh)",
-        gridTemplateColumns: "auto",
-        gridAutoFlow: "column",
+        gridTemplateRows: "auto",
+        gridTemplateColumns: "1fr",
+        gridAutoFlow: "row",
+        height: "auto",
         width: "100%",
-        height: "100%",
         "@media": {
-            [mediaUtils.mdMax]: {
-                gridTemplateColumns: "1fr",
-                gridAutoFlow: "row",
-                gridTemplateRows: "auto",
-                height: "auto",
+            [mediaUtils.md]: {
+                gridTemplateRows: "repeat(auto-fill, 25vh)",
+                gridTemplateColumns: "auto",
+                gridAutoFlow: "column",
+                height: "100%",
             },
         },
     }),
     item: style({
-        padding: `0 ${vars.spacing.xl}`,
+        padding: 0,
+
         "@media": {
-            [mediaUtils.mdMax]: {
-                padding: 0,
+            [mediaUtils.md]: {
+                padding: `0 ${vars.spacing.xl}`,
             },
         },
     }),
     mapContainer: style({
         position: "relative",
         height: "100%",
-        gridRow: "span 2",
+        aspectRatio: "16 / 9",
+        gridRow: "auto",
+
         "@media": {
-            [mediaUtils.mdMax]: {
-                width: "100%",
-                aspectRatio: "16 / 9",
-                gridRow: "auto",
+            [mediaUtils.md]: {
+                aspectRatio: "auto",
+                gridRow: "span 2",
             },
         },
     }),
