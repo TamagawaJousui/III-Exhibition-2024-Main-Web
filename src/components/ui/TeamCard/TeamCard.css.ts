@@ -9,25 +9,27 @@ export const styles = {
         display: "flex",
         flexDirection: "column",
         gap: vars.spacing.sm,
-        padding: `0 ${vars.spacing.lg}`,
+        padding: 0,
+        width: "100%",
         flex: 1,
         "@media": {
-            [mediaUtils.mdMax]: {
-                width: "100%",
-                padding: 0,
+            [mediaUtils.md]: {
+                width: "auto",
+                padding: `0 ${vars.spacing.lg}`,
             },
         },
     }),
     members: style({
         display: "flex",
         flexWrap: "wrap",
-        width: TEAM_CARD_WIDTH,
         maxWidth: "100%",
         gap: vars.spacing.md,
+        width: "100%",
+        justifyContent: "flex-start",
         "@media": {
-            [mediaUtils.mdMax]: {
-                justifyContent: "flex-start",
-                width: "100%",
+            [mediaUtils.md]: {
+                width: TEAM_CARD_WIDTH,
+                justifyContent: "normal",
             },
         },
     }),
