@@ -16,7 +16,7 @@ export const styles = {
                     width: "fit-content",
                     "@media": {
                         [mediaUtils.md]: {
-                            width: "inherit",
+                            width: "max-content",
                         },
                     },
                 },
@@ -24,7 +24,7 @@ export const styles = {
                     width: "100%",
                     "@media": {
                         [mediaUtils.md]: {
-                            width: "inherit",
+                            width: "max-content",
                         },
                     },
                 },
