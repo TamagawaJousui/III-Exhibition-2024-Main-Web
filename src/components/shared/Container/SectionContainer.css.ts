@@ -6,12 +6,13 @@ export const styles = {
     root: style({
         display: "flex",
         flexDirection: "column",
-        height: "100%",
+        width: "100vw",
+        height: "auto",
         padding: vars.spacing.lg,
         "@media": {
-            [mediaUtils.mdMax]: {
-                width: "100vw",
-                height: "auto",
+            [mediaUtils.md]: {
+                width: "inherit",
+                height: "100%",
             },
         },
     }),
