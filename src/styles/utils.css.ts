@@ -13,10 +13,12 @@ export const mediaUtils = {
 
 export const styleUtils = {
     alignVertical: style({
+        width: "100%",
+        flexDirection: "column",
         "@media": {
-            [mediaUtils.mdMax]: {
-                width: "100%",
-                flexDirection: "column",
+            [mediaUtils.md]: {
+                width: "inherit",
+                flexDirection: "inherit",
             },
         },
     }),
