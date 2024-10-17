@@ -17,8 +17,8 @@ export const styleUtils = {
         flexDirection: "column",
         "@media": {
             [mediaUtils.md]: {
-                width: "inherit",
-                flexDirection: "inherit",
+                width: "inhiert",
+                flexDirection: "row",
             },
         },
     }),
