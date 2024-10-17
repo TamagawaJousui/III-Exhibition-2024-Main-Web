@@ -34,12 +34,14 @@ export const ConceptSection: FC = () => {
     );
 
     const waterWaveWrapper = (element: React.ReactNode) => (
-        <SectionContainer id="concept" title="CONCEPT" className={styles.root}>
-            <WaterWave className={styles.wrapper} dropRadius={100}>
-                {() => element}
-            </WaterWave>
-        </SectionContainer>
+        <WaterWave className={styles.wrapper} dropRadius={100}>
+            {() => element}
+        </WaterWave>
     );
 
-    return isWebGlSupported ? waterWaveWrapper(conceptElement) : conceptElement;
+    return (
+        <SectionContainer id="concept" title="CONCEPT" className={styles.root}>
+            {isWebGlSupported ? waterWaveWrapper(conceptElement) : conceptElement}
+        </SectionContainer>
+    );
 };
