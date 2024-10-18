@@ -27,25 +27,11 @@ export const HeroareaSection: FC = () => {
 
     return (
         <div className={styles.root}>
-            {/* Particle Background */}
-            <div className={styles.particle}>
-                {isWebGlSupported ? (
-                    <Particles />
-                ) : (
-                    <Image
-                        src="/heroarea/particle_backgroud.png"
-                        alt="iii exhibition background"
-                        fill
-                        style={{ objectFit: "contain" }}
-                        className={styles.particleBackground}
-                    />
-                )}
-            </div>
-
             {/* Desktop View */}
             <div className={styles.desktopView}>
                 {isWebGlSupported ? (
                     <>
+                        <Particles />
                         <Title />
                         <TitleEnglish />
                         <DateAndVenue />
@@ -55,6 +41,13 @@ export const HeroareaSection: FC = () => {
                         <StaticTitle className={styles.title} />
                         <StaticTitleEnglish className={styles.titleEnglish} />
                         <StaticDateAndVenue className={styles.dateAndVenue} />
+                        <Image
+                            src="/heroarea/particle_backgroud.png"
+                            alt="iii exhibition background"
+                            fill
+                            style={{ objectFit: "contain" }}
+                            className={styles.particleBackground}
+                        />
                     </>
                 )}
             </div>
@@ -64,16 +57,14 @@ export const HeroareaSection: FC = () => {
                 <StaticTitle className={styles.title} />
                 <StaticTitleEnglish className={styles.titleEnglish} />
                 <StaticDateAndVenue className={styles.dateAndVenue} />
+                <Image
+                    className={styles.particleImg}
+                    src={"/heroarea/particle_mobile.png"}
+                    alt="particle"
+                    width={1000}
+                    height={1000}
+                />
             </div>
-
-            {/* Mobile Particle Image */}
-            <Image
-                className={styles.particleImg}
-                src={"/heroarea/particle_mobile.png"}
-                alt="particle"
-                width={1000}
-                height={1000}
-            />
         </div>
     );
 };
