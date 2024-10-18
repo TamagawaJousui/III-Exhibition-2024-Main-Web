@@ -1,10 +1,8 @@
-import dynamic from "next/dynamic";
-import { FC, useEffect, useState } from "react";
+import { FC } from "react";
 
 import { conceptData } from "@/models/concept";
+// import { isWebGlCapable } from "@/utils/checkWebGLCapability";
 import { WithWordBreak } from "@/utils/hocs/WithWordBreak";
-import { isMobileDevice } from "@/utils/responsive";
-import { isWebglCompatible } from "@/utils/webglCompatibility";
 import { BreakWord } from "@/utils/wordBreak";
 
 import { SectionContainer } from "@/components/shared/Container";
@@ -12,19 +10,17 @@ import { SectionContainer } from "@/components/shared/Container";
 import { styles } from "./ConceptSection.css";
 
 // SSRを無効にしてreact-water-waveを動的にインポート
-const WaterWave = dynamic(() => import("react-water-wave"), { ssr: false });
+// const WaterWave = dynamic(() => import("react-water-wave"), { ssr: false });
 
 export const ConceptSection: FC = () => {
-    const [isWebGlSupported, setIsWebGlSupported] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
+    // const [isWebGlSupported, setIsWebGlSupported] = useState(false);
 
-    useEffect(() => {
-        const checkCompatibility = async () => {
-            setIsWebGlSupported(isWebglCompatible());
-            setIsMobile(await isMobileDevice());
-        };
-        checkCompatibility();
-    }, []);
+    // useEffect(() => {
+    //     const checkWebGLCapability = async () => {
+    //         setIsWebGlSupported(await isWebGlCapable());
+    //     };
+    //     checkWebGLCapability();
+    // }, []);
 
     const conceptElement = (
         <div className={styles.container}>
@@ -39,15 +35,15 @@ export const ConceptSection: FC = () => {
         </div>
     );
 
-    const waterWaveWrapper = (element: React.ReactNode) => (
-        <WaterWave className={styles.wrapper} dropRadius={100}>
-            {() => element}
-        </WaterWave>
-    );
+    // const waterWaveWrapper = (element: React.ReactNode) => (
+    //     <WaterWave className={styles.wrapper} dropRadius={100}>
+    //         {() => element}
+    //     </WaterWave>
+    // );
 
     return (
         <SectionContainer id="concept" title="CONCEPT" className={styles.root}>
-            {!isMobile && isWebGlSupported ? waterWaveWrapper(conceptElement) : conceptElement}
+            {conceptElement}
         </SectionContainer>
     );
 };
