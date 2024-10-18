@@ -6,7 +6,7 @@ export const styles = {
     root: style({
         display: "flex",
         position: "relative",
-        width: "100vw",
+        minWidth: "100vw",
         height: "100vh",
         overflow: "hidden",
         "@media": {
@@ -44,6 +44,15 @@ export const styles = {
                 height: "60%",
             },
         },
+    }),
+
+    particleBackground: style({
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: -1,
     }),
     titleEnglish: style({
         position: "absolute",
