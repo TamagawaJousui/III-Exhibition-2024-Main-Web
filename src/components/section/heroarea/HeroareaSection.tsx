@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 
-import { isMobileDevice } from "@/utils/responsive";
-import { isWebglCompatible } from "@/utils/webglCompatibility";
+import { isWebGlCapable } from "@/utils/checkWebGLCapability";
 
 import { Particles } from "@/components/ui/Particles";
 
@@ -10,19 +9,17 @@ import { styles } from "./HeroareaSection.css";
 
 export const HeroareaSection: FC = () => {
     const [isWebGlSupported, setIsWebGlSupported] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
         const checkCompatibility = async () => {
-            setIsWebGlSupported(isWebglCompatible());
-            setIsMobile(await isMobileDevice());
+            setIsWebGlSupported(await isWebGlCapable());
         };
         checkCompatibility();
-    }, []);
+    }, [isWebGlSupported]);
 
     return (
         <div className={styles.root}>
-            {!isMobile && isWebGlSupported ? (
+            {isWebGlSupported ? (
                 <Particles />
             ) : (
                 <Image
