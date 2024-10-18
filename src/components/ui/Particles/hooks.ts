@@ -1,7 +1,5 @@
 import { useEffect } from "react";
 
-import { isWebGlCapable } from "@/utils/checkWebGLCapability";
-
 import { trigger } from "./internal/trigger";
 
 export const useParticles = (
@@ -14,11 +12,11 @@ export const useParticles = (
         const checkWebGLAndTrigger = async () => {
             if (!particlesDivRef.current) return;
 
-            const webGLCapable = await isWebGlCapable();
-            if (!webGLCapable) {
-                console.error("WebGL is not supported or the device is mobile.");
-                return;
-            }
+            // const webGLCapable = await isWebGlCapable();
+            // if (!webGLCapable) {
+            //     console.error("WebGL is not supported or the device is mobile.");
+            //     return;
+            // }
 
             dispose = trigger(particlesDivRef.current, size, radius);
         };
