@@ -11,11 +11,11 @@ export const HeroareaSection: FC = () => {
     const [isWebGlSupported, setIsWebGlSupported] = useState(false);
 
     useEffect(() => {
-        const checkCompatibility = async () => {
+        const checkWebGLCapability = async () => {
             setIsWebGlSupported(await isWebGlCapable());
         };
-        checkCompatibility();
-    }, [isWebGlSupported]);
+        checkWebGLCapability();
+    }, []);
 
     return (
         <div className={styles.root}>
