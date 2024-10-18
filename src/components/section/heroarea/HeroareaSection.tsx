@@ -27,6 +27,7 @@ export const HeroareaSection: FC = () => {
 
     return (
         <div className={styles.root}>
+            {/* Particle Background */}
             <div className={styles.particle}>
                 {isWebGlSupported ? (
                     <Particles />
@@ -40,16 +41,32 @@ export const HeroareaSection: FC = () => {
                     />
                 )}
             </div>
+
+            {/* Desktop View */}
             <div className={styles.desktopView}>
-                <Title />
-                <TitleEnglish />
-                <DateAndVenue />
+                {isWebGlSupported ? (
+                    <>
+                        <Title />
+                        <TitleEnglish />
+                        <DateAndVenue />
+                    </>
+                ) : (
+                    <>
+                        <StaticTitle className={styles.title} />
+                        <StaticTitleEnglish className={styles.titleEnglish} />
+                        <StaticDateAndVenue className={styles.dateAndVenue} />
+                    </>
+                )}
             </div>
+
+            {/* Mobile View */}
             <div className={styles.mobileView}>
                 <StaticTitle className={styles.title} />
                 <StaticTitleEnglish className={styles.titleEnglish} />
                 <StaticDateAndVenue className={styles.dateAndVenue} />
             </div>
+
+            {/* Mobile Particle Image */}
             <Image
                 className={styles.particleImg}
                 src={"/heroarea/particle_mobile.png"}

@@ -4,13 +4,21 @@ import { SVGLoader, SVGResult } from "three/addons/loaders/SVGLoader.js";
 import { match } from "ts-pattern";
 
 import { ParticleData } from "@/models/heroarea";
+import { isWebGlCapable } from "@/utils/responsive/checkWebGLCapability";
 
 import { Environment } from "./internal/dateAndVenueEnvironment";
 
-export const useDateAndVenue = (titleDivRef: React.RefObject<HTMLDivElement>) => {
+export const useDateAndVenue = (dateAndVenueDivRef: React.RefObject<HTMLDivElement>) => {
     useEffect(() => {
         let environment: Environment | null = null;
-        if (!titleDivRef.current) return;
+        if (!dateAndVenueDivRef.current) {
+            console.error("dateAndVenueDivRef is not found");
+            return;
+        }
+        if (!isWebGlCapable()) {
+            console.error("WebGL is not supported or the device is mobile.");
+            return;
+        }
 
         // フォントとテクスチャのプリロード
         const preload = (particleOptions: ParticleData) => {
@@ -20,7 +28,12 @@ export const useDateAndVenue = (titleDivRef: React.RefObject<HTMLDivElement>) =>
             let particle: THREE.Texture | null = null;
             manager.onLoad = () => {
                 if (svg && particle) {
-                    environment = new Environment(svg, particle, titleDivRef, particleOptions);
+                    environment = new Environment(
+                        svg,
+                        particle,
+                        dateAndVenueDivRef,
+                        particleOptions
+                    );
                 }
             };
 
@@ -87,5 +100,5 @@ export const useDateAndVenue = (titleDivRef: React.RefObject<HTMLDivElement>) =>
             }
             document.removeEventListener("DOMContentLoaded", () => preload(particleOptions));
         };
-    }, [titleDivRef]);
+    }, [dateAndVenueDivRef]);
 };

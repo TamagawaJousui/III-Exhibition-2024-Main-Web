@@ -4,13 +4,21 @@ import { SVGLoader, SVGResult } from "three/addons/loaders/SVGLoader.js";
 import { match } from "ts-pattern";
 
 import { ParticleData } from "@/models/heroarea";
+import { isWebGlCapable } from "@/utils/responsive/checkWebGLCapability";
 
 import { Environment } from "./internal/titleEnvironment";
 
 export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
     useEffect(() => {
         let environment: Environment | null = null;
-        if (!titleDivRef.current) return;
+        if (!titleDivRef.current) {
+            console.error("titleDivRef is not found");
+            return;
+        }
+        if (!isWebGlCapable()) {
+            console.error("WebGL is not supported or the device is mobile.");
+            return;
+        }
 
         // フォントとテクスチャのプリロード
         const preload = (particleOptions: ParticleData) => {
