@@ -4,7 +4,7 @@ import { mediaUtils, vars } from "@/styles";
 
 export const styles = {
     root: style({
-        width: "80vw",
+        width: "100vw",
         padding: vars.spacing.xl,
         "@media": {
             [mediaUtils.mobile]: {
@@ -20,7 +20,6 @@ export const styles = {
         flexDirection: "column",
         justifyContent: "space-evenly",
         height: "100%",
-        minWidth: "100vw",
     }),
     concept: style({
         display: "flex",
