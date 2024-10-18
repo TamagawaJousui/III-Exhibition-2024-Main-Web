@@ -10,9 +10,9 @@ import { initScene } from "./scene.js";
 import { generateTransformationMatrices } from "./transformationMatrix.js";
 
 export const trigger = (particlesDiv: HTMLDivElement, size: number, radius: number) => {
-    const canvas = particlesDiv;
+    const particleContainer = particlesDiv;
 
-    const { scene, camera, renderer } = initScene(canvas);
+    const { scene, camera, renderer } = initScene(particleContainer);
 
     const params = initGUI(renderer);
 
@@ -137,8 +137,8 @@ export const trigger = (particlesDiv: HTMLDivElement, size: number, radius: numb
     renderer.setAnimationLoop(animate);
 
     const dispose = () => {
-        renderer.setAnimationLoop(null); // Stop animation loop
-        canvas.removeChild(renderer.domElement);
+        renderer.setAnimationLoop(null);
+        particleContainer.removeChild(renderer.domElement);
     };
 
     return dispose;

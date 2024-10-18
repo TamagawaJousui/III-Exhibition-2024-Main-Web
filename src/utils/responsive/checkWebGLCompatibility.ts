@@ -1,6 +1,6 @@
 "use client";
-
 import * as THREE from "three";
+
 const isWebGLSupported = (() => {
     if (typeof window === "undefined" || typeof document === "undefined") {
         return false;
