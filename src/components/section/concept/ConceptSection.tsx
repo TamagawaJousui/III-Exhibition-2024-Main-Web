@@ -1,6 +1,7 @@
 "use client";
+
 import dynamic from "next/dynamic";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { conceptData } from "@/models/concept";
 import { WithWordBreak } from "@/utils/hocs/WithWordBreak";
@@ -15,7 +16,13 @@ import { styles } from "./ConceptSection.css";
 const WaterWave = dynamic(() => import("react-water-wave"), { ssr: false });
 
 export const ConceptSection: FC = () => {
-    const [isWebGlSupported] = useState(isWebGlCapable());
+    const [isWebGlSupported, setIsWebGlSupported] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setIsWebGlSupported(isWebGlCapable());
+        }
+    }, []);
 
     const conceptElement = (
         <div className={styles.container}>

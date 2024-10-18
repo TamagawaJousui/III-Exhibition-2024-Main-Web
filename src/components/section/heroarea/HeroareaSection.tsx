@@ -1,5 +1,7 @@
+"use client";
+
 import Image from "next/image";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 
 import { isWebGlCapable } from "@/utils/responsive/checkWebGLCapability";
 
@@ -26,7 +28,13 @@ const HeroareaText: FC<TextProps> = ({ label, className }) => {
 };
 
 export const HeroareaSection: FC = () => {
-    const [isWebGlSupported] = useState(isWebGlCapable());
+    const [isWebGlSupported, setIsWebGlSupported] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            setIsWebGlSupported(isWebGlCapable());
+        }
+    }, []);
 
     return (
         <div className={styles.root}>
