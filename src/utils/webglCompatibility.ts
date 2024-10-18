@@ -1,5 +1,10 @@
+"use client";
+
 import * as THREE from "three";
 const isWebGLSupported = (() => {
+    if (typeof window === "undefined" || typeof document === "undefined") {
+        return false;
+    }
     try {
         const canvas = document.createElement("canvas");
         return !!window.WebGLRenderingContext && !!canvas.getContext("webgl");
@@ -10,6 +15,9 @@ const isWebGLSupported = (() => {
 })();
 
 const isDataTextureSupported = (() => {
+    if (typeof window === "undefined" || typeof document === "undefined") {
+        return false;
+    }
     try {
         const texture = new THREE.DataTexture(new Uint8Array(4), 1, 1, THREE.RGBAFormat);
         return texture instanceof THREE.DataTexture;
@@ -19,4 +27,4 @@ const isDataTextureSupported = (() => {
     }
 })();
 
-export const useWebGlCapability = () => isWebGLSupported && isDataTextureSupported;
+export const isWebglCompatible = () => isWebGLSupported && isDataTextureSupported;

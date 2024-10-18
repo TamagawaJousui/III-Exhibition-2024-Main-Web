@@ -3,7 +3,8 @@ import { FC, useEffect, useState } from "react";
 
 import { conceptData } from "@/models/concept";
 import { WithWordBreak } from "@/utils/hocs/WithWordBreak";
-import { useWebGlCapability } from "@/utils/webGlCapability";
+import { isMobileDevice } from "@/utils/responsive";
+import { isWebglCompatible } from "@/utils/webglCompatibility";
 import { BreakWord } from "@/utils/wordBreak";
 
 import { SectionContainer } from "@/components/shared/Container";
@@ -15,9 +16,14 @@ const WaterWave = dynamic(() => import("react-water-wave"), { ssr: false });
 
 export const ConceptSection: FC = () => {
     const [isWebGlSupported, setIsWebGlSupported] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     useEffect(() => {
-        setIsWebGlSupported(useWebGlCapability);
+        const checkCompatibility = async () => {
+            setIsWebGlSupported(isWebglCompatible());
+            setIsMobile(await isMobileDevice());
+        };
+        checkCompatibility();
     }, []);
 
     const conceptElement = (
@@ -41,7 +47,7 @@ export const ConceptSection: FC = () => {
 
     return (
         <SectionContainer id="concept" title="CONCEPT" className={styles.root}>
-            {isWebGlSupported ? waterWaveWrapper(conceptElement) : conceptElement}
+            {!isMobile && isWebGlSupported ? waterWaveWrapper(conceptElement) : conceptElement}
         </SectionContainer>
     );
 };
