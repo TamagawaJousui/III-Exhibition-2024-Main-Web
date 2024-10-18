@@ -46,7 +46,7 @@ export const styles = {
         },
     }),
 
-    particleBackground: style({
+    particleBackgroundDesktop: style({
         position: "absolute",
         top: 0,
         left: 0,
@@ -84,7 +84,7 @@ export const styles = {
             },
         },
     }),
-    particleImg: style({
+    particleBackgroundMobile: style({
         position: "absolute",
         right: "-300px",
         top: "-100px",

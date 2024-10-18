@@ -46,7 +46,7 @@ export const HeroareaSection: FC = () => {
                             alt="iii exhibition background"
                             fill
                             style={{ objectFit: "contain" }}
-                            className={styles.particleBackground}
+                            className={styles.particleBackgroundDesktop}
                         />
                     </>
                 )}
@@ -58,7 +58,7 @@ export const HeroareaSection: FC = () => {
                 <StaticTitleEnglish className={styles.titleEnglish} />
                 <StaticDateAndVenue className={styles.dateAndVenue} />
                 <Image
-                    className={styles.particleImg}
+                    className={styles.particleBackgroundMobile}
                     src={"/heroarea/particle_mobile.png"}
                     alt="particle"
                     width={1000}
