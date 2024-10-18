@@ -28,7 +28,7 @@ export const HeroareaSection: FC = () => {
     return (
         <div className={styles.root}>
             {/* Desktop View */}
-            <div className={styles.desktopView}>
+            <div className="hidden lg:block">
                 {isWebGlSupported ? (
                     <>
                         <Particles />
@@ -53,7 +53,7 @@ export const HeroareaSection: FC = () => {
             </div>
 
             {/* Mobile View */}
-            <div className={styles.mobileView}>
+            <div className="block lg:hidden">
                 <StaticTitle className={styles.title} />
                 <StaticTitleEnglish className={styles.titleEnglish} />
                 <StaticDateAndVenue className={styles.dateAndVenue} />
