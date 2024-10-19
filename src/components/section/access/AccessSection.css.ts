@@ -8,7 +8,7 @@ export const styles = {
     root: style({
         display: "grid",
         gap: vars.spacing.md,
-        gridTemplateRows: "repeat(auto-fill, 25vh)",
+        gridTemplateRows: "repeat(auto-fill, 25%)",
         gridTemplateColumns: "auto",
         gridAutoFlow: "column",
         width: "100%",
