@@ -22,7 +22,6 @@ export class particleSystem {
     particleOptions: ParticleData;
     container: HTMLElement;
     planeArea: THREE.Mesh = new THREE.Mesh();
-    currentPosition: THREE.Vector3 = new THREE.Vector3();
     particles: THREE.Points = new THREE.Points();
     outlineContours: THREE.Group<THREE.Object3DEventMap> = new THREE.Group();
     planeParticles: THREE.Points = new THREE.Points();

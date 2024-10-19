@@ -4,7 +4,7 @@ import { SVGLoader, SVGResult } from "three/addons/loaders/SVGLoader.js";
 import { match } from "ts-pattern";
 
 import { ParticleData } from "@/models/heroarea";
-import { isWebGlCapable } from "@/utils/responsive/checkWebGLCapability";
+import { isWebGlCapable } from "@/utils/responsive/checkUserEnv";
 
 import { Environment } from "./internal/titleEnvironment";
 

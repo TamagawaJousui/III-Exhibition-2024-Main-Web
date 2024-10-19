@@ -52,6 +52,7 @@ export const styles = {
         left: 0,
         width: "100%",
         height: "100%",
+        objectFit: "contain",
     }),
     titleEnglish: style({
         position: "absolute",
