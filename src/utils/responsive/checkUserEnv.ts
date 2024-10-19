@@ -1,6 +1,20 @@
 "use client";
 
 import * as THREE from "three";
+import { UAParser } from "ua-parser-js";
+
+export const isMobileDevice = () => {
+    if (typeof window === "undefined") {
+        throw new Error(
+            "[Client method] This function should be called in a client-side environment"
+        );
+    }
+
+    const ua = navigator.userAgent;
+    const device = new UAParser(ua).getDevice();
+
+    return device.type === "mobile";
+};
 
 const isWebGLSupported = (() => {
     if (typeof window === "undefined" || typeof document === "undefined") {
@@ -29,3 +43,12 @@ const isDataTextureSupported = (() => {
 })();
 
 export const isWebglCompatible = () => isWebGLSupported && isDataTextureSupported;
+
+export const isWebGlCapable = () => {
+    if (typeof window !== "undefined") {
+        const isMobile = isMobileDevice();
+        const isWebGlSupported = isWebglCompatible();
+        return !isMobile && isWebGlSupported;
+    }
+    return false;
+};

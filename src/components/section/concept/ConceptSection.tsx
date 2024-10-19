@@ -5,7 +5,7 @@ import { FC, useEffect, useState } from "react";
 
 import { conceptData } from "@/models/concept";
 import { WithWordBreak } from "@/utils/hocs/WithWordBreak";
-import { isWebGlCapable } from "@/utils/responsive/checkWebGLCapability";
+import { isWebGlCapable } from "@/utils/responsive/checkUserEnv";
 import { BreakWord } from "@/utils/wordBreak";
 
 import { SectionContainer } from "@/components/shared/Container";

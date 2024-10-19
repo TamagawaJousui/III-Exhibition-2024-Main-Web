@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { isWebGlCapable } from "@/utils/responsive/checkWebGLCapability";
+import { isWebGlCapable } from "@/utils/responsive/checkUserEnv";
 
 import { trigger } from "./internal/trigger";
 

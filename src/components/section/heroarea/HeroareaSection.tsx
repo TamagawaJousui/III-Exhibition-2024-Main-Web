@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { FC, useEffect, useState } from "react";
 
-import { isWebGlCapable } from "@/utils/responsive/checkWebGLCapability";
+import { isWebGlCapable } from "@/utils/responsive/checkUserEnv";
 
 import { Particles } from "@/components/ui/Particles";
 
