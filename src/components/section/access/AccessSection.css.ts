@@ -15,7 +15,7 @@ export const styles = {
         width: "100%",
         "@media": {
             [mediaUtils.md]: {
-                gridTemplateRows: "repeat(auto-fill, 25vh)",
+                gridTemplateRows: "repeat(auto-fill, 25%)",
                 gridTemplateColumns: "auto",
                 gridAutoFlow: "column",
                 height: "100%",
