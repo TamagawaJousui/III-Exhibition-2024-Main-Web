@@ -45,7 +45,6 @@ export const HeroareaSection: FC = () => {
                     src="/heroarea/particle_backgroud.png"
                     alt="iii exhibition background"
                     fill
-                    style={{ objectFit: "contain" }}
                     className={styles.particleBackground}
                 />
             )}
