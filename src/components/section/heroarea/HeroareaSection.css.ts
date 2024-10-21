@@ -9,13 +9,23 @@ export const styles = {
     root: style({
         display: "flex",
         position: "relative",
-        width: "100vw",
+        minWidth: "100vw",
         height: "100%",
         "@media": {
             [mediaUtils.mobile]: {
                 height: `calc(100vh - ${HEADER_HEIGHT})`,
             },
         },
+    }),
+
+    particleBackground: style({
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        zIndex: -1,
+        objectFit: "contain",
     }),
     container: recipe({
         base: {

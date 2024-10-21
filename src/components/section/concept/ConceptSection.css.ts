@@ -4,7 +4,7 @@ import { mediaUtils, vars } from "@/styles";
 
 export const styles = {
     root: style({
-        width: "80vw",
+        width: "100vw",
         padding: vars.spacing.xl,
         "@media": {
             [mediaUtils.mobile]: {
