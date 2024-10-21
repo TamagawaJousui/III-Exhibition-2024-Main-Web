@@ -50,8 +50,6 @@ export const HomePage = () => {
         };
 
         const handleMediaChange = (event: MediaQueryListEvent) => {
-            console.log("handleMediaChange");
-            console.log(event);
             if (event.matches) {
                 window.addEventListener("wheel", handleScroll, { passive: false });
             } else {

@@ -30,7 +30,6 @@ export const useParticles = (
         }
 
         const dispose = trigger(particlesDivRef.current, size, radius);
-        console.log("particles isWebGlCapable()");
 
         return dispose;
     }, [particlesDivRef, radius, size]);
