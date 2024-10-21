@@ -41,7 +41,7 @@ export const ModalHeader: FC<Props> = ({ work, onClose: handleClose }) => {
 type LeftProps = { work: WorkData; className?: string };
 const LeftHeader: FC<LeftProps> = ({ work, className }) => (
     <div className={className}>
-        <h5>展示場所</h5>
+        <h5 className={typography({ fontFamily: "notoSerif" })}>展示場所</h5>
         <div className={styles.place}>
             <MapPin weight="fill" />
             <p className={typography({ fontSize: "sm" })}>{work?.place}</p>

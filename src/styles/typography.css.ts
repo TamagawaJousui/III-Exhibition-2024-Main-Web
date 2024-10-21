@@ -17,6 +17,9 @@ export const typography = recipe({
             kleeOne: {
                 fontFamily: "var(--font-klee-one), sans-serif",
             },
+            zenkaku: {
+                fontFamily: "var(--font-zenkaku), sans-serif",
+            },
         },
         /**
          * sm: 12px, base: 14px, lg: 16px, xl: 18px, 2xl: 20px, 3xl: 24px

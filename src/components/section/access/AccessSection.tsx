@@ -8,7 +8,10 @@ import { WithWordBreak } from "@/utils/hocs/WithWordBreak";
 
 import { SectionContainer } from "@/components/shared/Container";
 
+import { typography } from "@/styles";
+
 import { styles } from "./AccessSection.css";
+
 
 const withTitleConfig = {
     fit: true,
@@ -28,7 +31,7 @@ export const AccessSection: FC = () => (
         </div>
         <WithTitle title="会場" {...withTitleConfig} className={styles.item}>
             <WithWordBreak className={styles.info} align="flexible" as="div">
-                <h4>東京大学本郷キャンパス</h4>
+                <h4 className={typography({ fontFamily: "zenkaku" })}>東京大学本郷キャンパス</h4>
                 <p>工学部2号館</p>
                 <p>
                     情報学環本館 <wbr />

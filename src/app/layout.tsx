@@ -34,6 +34,12 @@ const notoSerif = Local({
     variable: "--font-noto-serif",
 });
 
+const zenkaku = Local({
+    src: "../../public/fonts/ZenKakugothicAntique-Regular.ttf",
+    display: "swap",
+    variable: "--font-zenkaku",
+});
+
 export const metadata: Metadata = {
     title: "東京大学制作展",
 
@@ -70,7 +76,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <html lang="ja">
         <body
             suppressHydrationWarning
-            className={`${playfairItalic.variable} ${playfairDisplay.variable} ${kleeOne.variable} ${notoSerif.variable}`}
+            className={`${playfairItalic.variable} ${playfairDisplay.variable} ${kleeOne.variable} ${notoSerif.variable} ${zenkaku.variable}`}
         >
             {children}
         </body>
