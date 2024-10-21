@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: "Klee One SemiBold";
+        font-style: normal;
+        font-weight: Semi Bold;
+        font-display: swap;
+        src: url(/fonts/KleeOne-SemiBold.woff2) format("woff2");
+    }
+    @font-face {
+        font-family: "Playfair Light";
+        font-style: normal;
+        font-weight: Light;
+        font-display: swap;
+        src: url(/fonts/Playfair9pt-Light.woff2) format("woff2");
+    }
+}

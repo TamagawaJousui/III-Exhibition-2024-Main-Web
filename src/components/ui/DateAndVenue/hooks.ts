@@ -8,9 +8,19 @@ import { isWebGlCapable } from "@/utils/responsive/checkUserEnv";
 
 import { Environment } from "./internal/dateAndVenueEnvironment";
 
+import { breakpoint } from "@/styles";
+
 export const useDateAndVenue = (dateAndVenueDivRef: React.RefObject<HTMLDivElement>) => {
     useEffect(() => {
         let environment: Environment | null = null;
+
+        const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.lg}px)`);
+
+        if (!mediaQuery.matches) {
+            console.log("mediaQuery not passed");
+            return;
+        }
+
         if (!dateAndVenueDivRef.current) {
             console.error("dateAndVenueDivRef is not found");
             return;

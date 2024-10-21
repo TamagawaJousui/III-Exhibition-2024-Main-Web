@@ -1,6 +1,5 @@
 "use client";
 
-import debounce from "debounce";
 import { useLayoutEffect, useRef } from "react";
 
 import { sectionInfo } from "@/models"; // Assuming sectionInfo is typed
@@ -47,12 +46,13 @@ export const HomePage = () => {
             // Constrain the translateX value between -totalWidth and 0
             currentTranslateX = Math.max(Math.min(currentTranslateX, 0), -scrollWidth);
 
-            // console.log(currentTranslateX);
             slider.current.style.transform = `translateX(${currentTranslateX}px)`;
         };
 
-        const handleResize = () => {
-            if (mediaQuery.matches) {
+        const handleMediaChange = (event: MediaQueryListEvent) => {
+            console.log("handleMediaChange");
+            console.log(event);
+            if (event.matches) {
                 window.addEventListener("wheel", handleScroll, { passive: false });
             } else {
                 window.removeEventListener("wheel", handleScroll);
@@ -63,12 +63,15 @@ export const HomePage = () => {
             }
         };
 
-        handleResize(); // Initial check
-        window.addEventListener("resize", handleResize);
+        // Initial check
+        handleMediaChange({ matches: mediaQuery.matches } as MediaQueryListEvent);
+
+        // Add event listener for media query changes
+        mediaQuery.addEventListener("change", handleMediaChange);
 
         return () => {
             window.removeEventListener("wheel", handleScroll);
-            window.removeEventListener("resize", debounce(handleResize, 300));
+            mediaQuery.removeEventListener("change", handleMediaChange);
         };
     }, []);
 

@@ -8,9 +8,18 @@ import { isWebGlCapable } from "@/utils/responsive/checkUserEnv";
 
 import { Environment } from "./internal/titleEnglishEnvironment";
 
+import { breakpoint } from "@/styles";
+
 export const useTitleEnglish = (titleEnglishDivRef: React.RefObject<HTMLDivElement>) => {
     useEffect(() => {
         let environment: Environment | null = null;
+
+        const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.lg}px)`);
+
+        if (!mediaQuery.matches) {
+            console.log("mediaQuery not passed");
+            return;
+        }
         if (!titleEnglishDivRef.current) {
             console.error("titleEnglishDivRef is not found");
             return;

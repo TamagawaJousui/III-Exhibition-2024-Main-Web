@@ -14,14 +14,33 @@ import { Particles } from "@/components/ui/Particles";
 import { Title } from "@/components/ui/Title";
 import { TitleEnglish } from "@/components/ui/TitleEnglish";
 
+import { breakpoint } from "@/styles";
+
 import { styles } from "./HeroareaSection.css";
 
 export const HeroareaSection: FC = () => {
     const [isWebGlSupported, setIsWebGlSupported] = useState(false);
+    const [isLgBreakpoint, setIsLgBreakpoint] = useState(false);
 
     useEffect(() => {
         if (typeof window !== "undefined") {
             setIsWebGlSupported(isWebGlCapable());
+
+            const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.lg}px)`);
+
+            const handleMediaChange = (event: MediaQueryListEvent) => {
+                setIsLgBreakpoint(event.matches);
+            };
+
+            // Initial check
+            setIsLgBreakpoint(mediaQuery.matches);
+
+            // Add listener
+            mediaQuery.addEventListener("change", handleMediaChange);
+
+            return () => {
+                mediaQuery.removeEventListener("change", handleMediaChange);
+            };
         }
     }, []);
 
@@ -29,7 +48,7 @@ export const HeroareaSection: FC = () => {
         <div className={styles.root}>
             {/* Desktop View */}
             <div className="hidden lg:block">
-                {isWebGlSupported ? (
+                {isWebGlSupported && isLgBreakpoint ? (
                     <>
                         <Particles />
                         <Title />
