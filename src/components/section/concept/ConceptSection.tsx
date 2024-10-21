@@ -48,7 +48,7 @@ export const ConceptSection: FC = () => {
             id="concept"
             className="flex flex-col w-full min-h-screen p-[2rem] py-6 md:w-screen"
         >
-            {"CONCEPT" && <h1 className="font-normal">CONCEPT</h1>}
+            <h1 className="font-normal">CONCEPT</h1>
             {isWebGlSupported ? (
                 <WaterWave className="h-full w-full" dropRadius={50}>
                     {ConceptElement}
