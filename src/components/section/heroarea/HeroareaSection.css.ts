@@ -15,22 +15,6 @@ export const styles = {
             },
         },
     }),
-    desktopView: style({
-        display: "none",
-        "@media": {
-            [mediaUtils.lg]: {
-                display: "block",
-            },
-        },
-    }),
-    mobileView: style({
-        display: "block",
-        "@media": {
-            [mediaUtils.lg]: {
-                display: "none",
-            },
-        },
-    }),
     title: style({
         position: "absolute",
         zIndex: 1,
