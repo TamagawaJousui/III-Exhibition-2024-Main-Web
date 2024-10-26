@@ -18,13 +18,7 @@ export const WorksSection: FC = () => (
         <SubContainer label="全作品" className={styles.allWorks}>
             {placeList.map((place) => {
                 const works = workList.filter((work) => work.place === place);
-                return (
-                    <WorksCarousel
-                        works={works.filter((work) => work.place === place)}
-                        place={place}
-                        key={place}
-                    />
-                );
+                return <WorksCarousel works={works} place={place} key={place} />;
             })}
         </SubContainer>
     </SectionContainer>
