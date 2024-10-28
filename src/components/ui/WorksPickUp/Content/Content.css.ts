@@ -42,10 +42,13 @@ export const styles = {
         width: "100%",
     }),
     inner: style({
-        paddingTop: vars.spacing.sm,
-        paddingBottom: vars.spacing.md,
-        paddingLeft: vars.spacing.lg,
-        paddingRight: vars.spacing.lg,
+        padding: `${vars.spacing.sm} ${vars.spacing.lg} ${vars.spacing.md} ${vars.spacing.lg}`,
+
+        "@media": {
+            [mediaQuery]: {
+                paddingBottom: vars.spacing.lg,
+            },
+        },
     }),
     title: style({
         borderBottom: `1px solid ${vars.color.text}`,
@@ -78,10 +81,7 @@ export const styles = {
             position: "absolute",
             right: 0,
             width: "fit-content",
-            paddingTop: vars.spacing.xs,
-            paddingBottom: vars.spacing.xs,
-            paddingLeft: vars.spacing.md,
-            paddingRight: vars.spacing.md,
+            padding: `${vars.spacing.xs} ${vars.spacing.md}`,
             borderRadius: vars.radius["3xl"],
             border: "none",
         },

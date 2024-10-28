@@ -1,7 +1,7 @@
 import { MapPin } from "@phosphor-icons/react";
 import clsx from "clsx";
 import Image from "next/image";
-import React, { FC } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 
 import { WorkData } from "@/models/works";
 import { WithTitle } from "@/utils/hocs/WithTitle";
@@ -25,23 +25,40 @@ export const Content: FC<Props> = (props) => {
     const {
         mutator: { handleOpen },
     } = useWorksModal({ onClose: handlePlay });
+
+    const rootRef = useRef<HTMLDivElement>(null);
+    const innerRef = useRef<HTMLDivElement>(null);
+    const [imageHeight, setImageHeight] = useState<number>(0);
+
+    useEffect(() => {
+        const calculateHeight = () => {
+            if (rootRef.current && innerRef.current) {
+                const rootHeight = rootRef.current.clientHeight;
+                const innerHeight = innerRef.current.clientHeight;
+                setImageHeight(rootHeight - innerHeight);
+            }
+        };
+
+        calculateHeight();
+        window.addEventListener("resize", calculateHeight);
+        return () => window.removeEventListener("resize", calculateHeight);
+    }, [data]);
+
     return (
-        <div className={clsx(styles.root, className)} {...otherProps}>
+        <div ref={rootRef} className={clsx(styles.root, className)} {...otherProps}>
             <div className={styles.overlay}>
                 <Image
                     src={data.imagePath}
                     alt={`works image of ${data.title}`}
-                    className={styles.image}
                     width={100}
-                    height={100}
-                    layout="responsive"
-                    objectFit="cover"
+                    height={imageHeight || 100}
+                    className={styles.image}
                 />
-                <div className={styles.inner}>
+                <div ref={innerRef} className={styles.inner}>
                     <WithTitle
                         title={data.title}
                         font={{ family: "playfairItalic", size: "2xl" }}
-                        typographyClassName={styles.blackText}
+                        useBlackTitle={true}
                         padding="sm"
                     >
                         <p className={clsx(styles.member, styles.blackText)}>
