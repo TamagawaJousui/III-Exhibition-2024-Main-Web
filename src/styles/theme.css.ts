@@ -27,6 +27,7 @@ export const color = {
     white: "#f4f4f4",
     black: "#424242",
     gray: "#E4E2E2",
+    gray_light: "#D9D9D9",
 
     text: "#F9F6F7",
     textSecondary: "#C4C4C4",

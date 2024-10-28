@@ -2,10 +2,9 @@ import { globalStyle, style } from "@vanilla-extract/css";
 
 import { typography } from "@/styles/typography.css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
-// メディアクエリの定義
-const largeScreen = "screen and (min-width: 750px)"; // 例として1024px以上の画面を大きい画面とします
+const mediaQuery = mediaUtils.mobile;
 
 export const styles = {
     root: style({
@@ -13,22 +12,19 @@ export const styles = {
         top: 0,
         width: "100%",
         height: "100%",
-        background: "#D9D9D9",
-        borderRadius: "10px",
+        background: vars.color.gray_light,
+        borderRadius: vars.radius.xl,
         overflow: "hidden",
     }),
     imageContainer: style({
         width: "100%",
-        height: "60%",
-        borderRadius: "10px",
+        borderRadius: vars.radius.xl,
         position: "relative",
     }),
     image: style({
         width: "100%",
-        height: "75%",
-        minHeight: "75%",
         objectFit: "cover",
-        borderRadius: "10px",
+        borderRadius: vars.radius.xl,
         filter: "grayscale(100%)",
         transition: "filter 0.3s ease",
         ":hover": {
@@ -36,17 +32,12 @@ export const styles = {
         },
 
         "@media": {
-            [largeScreen]: {
-                height: "60%", // 768px以上の画面では高さを60%に
-                minHeight: "60%",
-            },
+            [mediaQuery]: {},
         },
     }),
     overlay: style({
         display: "flex",
         flexDirection: "column",
-        position: "absolute",
-        bottom: 0,
         height: "100%",
         width: "100%",
     }),
@@ -64,15 +55,14 @@ export const styles = {
         {
             display: "flex",
             flexWrap: "wrap",
-            lineHeight: vars.lineHeight.sm,
             gap: vars.spacing.xs,
-            minHeight: `calc(2 * ${vars.lineHeight.sm})`,
+            minHeight: `calc(2 * ${vars.lineHeight.xs})`,
         },
     ]),
     place: style([
-        typography({ fontSize: "sm" }),
+        typography({ fontSize: "xs" }),
         {
-            marginTop: vars.spacing.sm,
+            marginTop: vars.spacing.xs,
             display: "flex",
             alignItems: "center",
             gap: vars.spacing.xs,
