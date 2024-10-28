@@ -23,7 +23,7 @@ type Props = {
     mobileAlign?: "left" | "center";
     children: React.ReactNode;
     className?: string;
-    typographyClassName?: string;
+    useBlackTitle?: boolean;
 };
 
 export const WithTitle: FC<Props> = ({
@@ -35,7 +35,7 @@ export const WithTitle: FC<Props> = ({
     mobileAlign = "left",
     children,
     className,
-    typographyClassName,
+    useBlackTitle = false,
 }) => {
     const Comp = withScroll ? WithScroll : "div";
     return (
@@ -48,7 +48,7 @@ export const WithTitle: FC<Props> = ({
                         fontWeight: font["weight"],
                     }),
                     styles.heading({ fit: fit, mobileAlign: mobileAlign }),
-                    typographyClassName
+                    useBlackTitle ? styles.blackText : styles.whiteText
                 )}
             >
                 {title}

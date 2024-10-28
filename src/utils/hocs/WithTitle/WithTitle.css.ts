@@ -1,3 +1,4 @@
+import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
 
 import { mediaUtils, vars } from "@/styles";
@@ -74,5 +75,11 @@ export const styles = {
                 },
             },
         },
+    }),
+    blackText: style({
+        color: vars.color.black,
+    }),
+    whiteText: style({
+        color: vars.color.text,
     }),
 };
