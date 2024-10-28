@@ -17,4 +17,38 @@
         font-display: swap;
         src: url(/fonts/Playfair9pt-Light.woff2) format("woff2");
     }
+
+    @font-face {
+        font-family: "Zen Kaku Gothic Antique";
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(/fonts/ZenKakuGothicAntique-Light.woff2) format("woff2");
+    }
+
+    @font-face {
+        font-family: "Zen Kaku Gothic Antique";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(/fonts/ZenKakuGothicAntique-Regular.woff2) format("woff2");
+    }
+
+    @font-face {
+        font-family: "Zen Kaku Gothic Antique";
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(/fonts/ZenKakuGothicAntique-Medium.woff2) format("woff2");
+    }
+}
+
+@layer components {
+    .stroke-text {
+        @apply [-webkit-text-stroke:_0.7px_#000000;] [paint-order:stroke_fill];
+    }
+
+    .access-title {
+        @apply font-serif stroke-text text-3xl border-0 border-b-[1px] border-solid border-white w-fit self-center inline-block	leading-[1.5] border-opacity-40;
+    }
 }

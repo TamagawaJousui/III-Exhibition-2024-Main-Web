@@ -17,6 +17,8 @@ const config: Config = {
         fontFamily: {
             "conpect-ja": ["Klee One SemiBold"],
             "conpect-en": ["Playfair Light"],
+            serif: ["游明朝体", "Yu Mincho", "YuMincho"],
+            gothic: ["Zen Kaku Gothic Antique"],
         },
     },
     plugins: [],
