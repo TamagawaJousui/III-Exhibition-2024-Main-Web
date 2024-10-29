@@ -24,7 +24,10 @@ export const WorksAuthor: FC<Props> = ({ work }) => (
 
 const findMemberByName = (nameJa: string) => {
     for (const team of teamList) {
-        const foundMember = team.members.find((member) => member.nameJa === nameJa);
+        const foundMember = team.members.find(
+            // NOTE: word break用の・を削除して比較
+            (member) => member.nameJa.replace(/・/g, "") === nameJa
+        );
         if (foundMember) {
             return foundMember;
         }
