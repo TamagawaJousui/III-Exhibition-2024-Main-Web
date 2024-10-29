@@ -1,15 +1,20 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 export const styles = {
     root: style({
         display: "inline-block",
         position: "relative",
-        height: "20vh",
+        height: "30vh",
         aspectRatio: "1 / 1",
         border: "none",
         padding: vars.spacing.md,
+        "@media": {
+            [mediaUtils.mobile]: {
+                height: "20vh",
+            },
+        },
     }),
 };
 
