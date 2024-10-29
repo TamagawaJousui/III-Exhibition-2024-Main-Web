@@ -27,7 +27,7 @@ export const WorksModal: FC<Props> = ({ isOpen, currentWork, onClose: handleClos
                         <div className={styles.leftContent}>
                             <Image
                                 src={currentWork.imagePath}
-                                alt="modal work image"
+                                alt={`modal work image titled ${currentWork.title}`}
                                 fill
                                 objectFit="contain"
                             />

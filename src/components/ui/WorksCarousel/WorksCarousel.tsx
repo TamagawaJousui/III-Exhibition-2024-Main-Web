@@ -73,7 +73,7 @@ export const WorksCarousel: React.FC<PropType> = ({ place, works }) => {
                                 >
                                     <Image
                                         src={work.imagePath}
-                                        alt="works image"
+                                        alt={`works image titled &${work.title}`}
                                         width={150}
                                         height={150}
                                         className={styles.emblaSlideContent}
