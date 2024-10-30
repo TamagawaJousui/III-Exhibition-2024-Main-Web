@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 
 import { placeColorPalette, type Place } from "@/models/place";
-import { WorkData, workList } from "@/models/works";
+import { WorkData } from "@/models/works";
 import { WithWordBreak } from "@/utils/hocs/WithWordBreak";
 import { BreakWord } from "@/utils/wordBreak";
 
@@ -73,7 +73,7 @@ export const WorksCarousel: React.FC<PropType> = ({ place, works }) => {
                                 >
                                     <Image
                                         src={work.imagePath}
-                                        alt="works image"
+                                        alt={`works image titled &${work.title}`}
                                         width={150}
                                         height={150}
                                         className={styles.emblaSlideContent}
@@ -86,7 +86,7 @@ export const WorksCarousel: React.FC<PropType> = ({ place, works }) => {
                 <div className={styles.arrowButtonContainer}>
                     <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
                 </div>
-                <h3>{workList[selectedIndex].title}</h3>
+                <h3>{works[selectedIndex].title}</h3>
             </section>
         </div>
     );
