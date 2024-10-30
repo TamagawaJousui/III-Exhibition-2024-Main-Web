@@ -1,3 +1,4 @@
+import debounce from "debounce";
 import * as THREE from "three";
 import { SVGResult } from "three/addons/loaders/SVGLoader.js";
 
@@ -13,7 +14,6 @@ export class Environment {
     scene: THREE.Scene;
     camera: THREE.PerspectiveCamera | undefined;
     renderer: THREE.WebGLRenderer | undefined;
-    resizeTimeout: NodeJS.Timeout | undefined;
     particleSystem: particleSystem | undefined;
     particleOptions: ParticleData;
     constructor(
@@ -38,7 +38,7 @@ export class Environment {
     }
 
     bindEvents() {
-        window.addEventListener("resize", this.debouncedResize.bind(this));
+        window.addEventListener("resize", debounce(this.onWindowResize.bind(this), 300));
     }
 
     setup() {
@@ -113,12 +113,5 @@ export class Environment {
         const frustumWidth = this.calculateFrustum();
         this.camera.position.set(-frustumWidth / 2, 0, 100);
         this.camera.lookAt(-frustumWidth / 2, 0, 0);
-    }
-
-    debouncedResize() {
-        clearTimeout(this.resizeTimeout);
-        this.resizeTimeout = setTimeout(() => {
-            this.onWindowResize();
-        }, 300); // Adjust the debounce delay as needed
     }
 }

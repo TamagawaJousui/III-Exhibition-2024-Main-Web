@@ -14,7 +14,14 @@ const config: Config = {
                     "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
             },
         },
+        fontFamily: {
+            "conpect-ja": ["Klee One SemiBold"],
+            "conpect-en": ["Playfair Light"],
+        },
     },
     plugins: [],
+    corePlugins: {
+        preflight: false,
+    },
 };
 export default config;

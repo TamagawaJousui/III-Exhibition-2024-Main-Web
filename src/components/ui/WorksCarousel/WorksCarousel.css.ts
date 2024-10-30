@@ -30,9 +30,10 @@ export const styles = {
         justifyContent: "center",
     }),
     headingText: style({
+        fontSize: vars.fontSize.base,
         "@media": {
-            [mediaUtils.mobile]: {
-                fontSize: vars.fontSize.base,
+            [mediaUtils.md]: {
+                fontSize: "inherit",
             },
         },
     }),

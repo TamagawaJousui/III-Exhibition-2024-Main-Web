@@ -4,13 +4,31 @@ import { SVGLoader, SVGResult } from "three/addons/loaders/SVGLoader.js";
 import { match } from "ts-pattern";
 
 import { ParticleData } from "@/models/heroarea";
+import { isWebGlCapable } from "@/utils/responsive/checkUserEnv";
 
 import { Environment } from "./internal/titleEnvironment";
+
+import { breakpoint } from "@/styles";
 
 export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
     useEffect(() => {
         let environment: Environment | null = null;
-        if (!titleDivRef.current) return;
+
+        const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.lg}px)`);
+
+        if (!mediaQuery.matches) {
+            console.log("mediaQuery not passed");
+            return;
+        }
+
+        if (!titleDivRef.current) {
+            console.error("titleDivRef is not found");
+            return;
+        }
+        if (!isWebGlCapable()) {
+            console.error("WebGL is not supported or the device is mobile.");
+            return;
+        }
 
         // フォントとテクスチャのプリロード
         const preload = (particleOptions: ParticleData) => {
@@ -29,7 +47,7 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
                 svg = data;
             });
 
-            const particleImgUrl = "/heroarea/particle.png";
+            const particleImgUrl = "/heroarea/particle_texture.png";
             new THREE.TextureLoader(manager).load(particleImgUrl, (texture) => {
                 particle = texture;
             });

@@ -6,10 +6,10 @@ export const styles = {
     modal: style({
         backgroundColor: vars.color.background.dark,
         width: "80vw",
-        height: "80vh",
+        height: "70vh",
         "@media": {
-            [mediaUtils.mobile]: {
-                height: "70vh",
+            [mediaUtils.md]: {
+                height: "80vh",
             },
         },
     }),
@@ -29,11 +29,11 @@ export const styles = {
         flexDirection: "column",
         borderTop: `3px solid ${vars.color.text}`,
         borderBottom: `3px solid ${vars.color.text}`,
-        padding: `${vars.spacing.lg} ${vars.spacing.xl}`,
+        padding: `${vars.spacing.sm} ${vars.spacing.md}`,
         height: "100%",
         "@media": {
-            [mediaUtils.mobile]: {
-                padding: `${vars.spacing.sm} ${vars.spacing.md}`,
+            [mediaUtils.md]: {
+                padding: `${vars.spacing.lg} ${vars.spacing.xl}`,
             },
         },
     }),
@@ -53,9 +53,10 @@ export const styles = {
         gap: vars.spacing.md,
         flexGrow: 1,
         overflow: "hidden",
+        maxHeight: "max-content",
         "@media": {
-            [mediaUtils.mobile]: {
-                maxHeight: "max-content",
+            [mediaUtils.md]: {
+                maxHeight: "inherit",
             },
         },
     }),
@@ -64,12 +65,13 @@ export const styles = {
         position: "relative",
         aspectRatio: "1/1",
         maxWidth: "50%",
-        height: "80%",
+        width: "50%",
+        height: "auto",
         flexShrink: 0,
         "@media": {
-            [mediaUtils.mobile]: {
-                width: "50%",
-                height: "auto",
+            [mediaUtils.md]: {
+                width: "inherit",
+                height: "80%",
             },
         },
     }),
