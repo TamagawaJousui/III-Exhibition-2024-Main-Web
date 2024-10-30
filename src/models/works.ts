@@ -213,7 +213,7 @@ export const workList = [
             ja: `香道の趣をうつし、香木を燃やさずとも、静かに熱を加えてその幽けき香りを引き出す妙技に倣い、今に息づかせたる趣向なり。香木は、穏やかなる温もりを受けて、香気をそよそよと立ち昇らせ、微にして幽玄なる香りを耳に語りかける。此の技を身近なる花々や香辛のものにうつし、慎ましき電熱線にて温をたしなみ、普段は人の鼻に感じ得ぬ芳香をそっと呼び起こさんとす。漂えども決して強がらず、仄かにたゆたうその様は、虫眼鏡の如く香の細やかさをうつし取り、奥ゆかしきひとときをもたらす。かの香りの世界に心をゆだね、静謐なる時をゆるりとお楽しみあれ。`,
             en: "",
         },
-        imagePath: "/works/nozokō.png",
+        imagePath: "/works/nozoko.png",
     },
     {
         title: "ColorNote",
@@ -233,7 +233,7 @@ export const workList = [
             ja: `シュルレアリスムにおける共同制作手法である「優美な死骸」を生成AIと実践する。隣接した絵の端だけが見える状態で、次の人・AIがそれにつながる絵を描く、という作業を繰り返すことで、どのような作品が出来上がるのだろうか。`,
             en: "",
         },
-        imagePath: "/works/Exquisite_Corpse_with_Generative AI.png",
+        imagePath: "/works/Exquisite_Corpse_with_Generative_AI.png",
     },
     {
         title: "バードっち",
@@ -307,7 +307,7 @@ Powered by “CRIWARE”.CRIWARE is a trademark of CRI Middleware Co., Ltd.`,
     複雑に入り混じった現実では、二物を明確に分かつ線を引くことは難しい。 どこまでが外側で、どこからが内側なのだろう？ 浮遊する星々の中で、地平線の向こう側に広がる世界を夢想し続けたい。"`,
             en: "",
         },
-        imagePath: "/works/Siyō.png",
+        imagePath: "/works/Siyo.png",
     },
     {
         title: "Tシャツのトポロジー最適化",
