@@ -3,23 +3,20 @@
 import clsx from "clsx";
 import { FC, ReactNode } from "react";
 
-import { backgroundStyle, container, wrapper } from "./SectionContainer.css";
+import type { Section } from "@/models";
+
+import { styles } from "./SectionContainer.css";
 
 type Props = {
+    id: Section["id"];
+    title?: Section["title"];
     children: ReactNode;
-    title?: string;
-    backgroundColor?: keyof typeof backgroundStyle;
+    className?: string;
 };
 
-export const SectionContainer: FC<Props> = ({
-    children,
-    title,
-    backgroundColor = "primaryBackground",
-}) => (
-    <div className={wrapper}>
-        <section className={clsx(container, backgroundStyle[backgroundColor])}>
-            {title && <h1>{title}</h1>}
-            {children}
-        </section>
-    </div>
+export const SectionContainer: FC<Props> = ({ id, title, children, className }) => (
+    <section id={id} className={styles.root}>
+        {title && <h1 className={styles.title}>{title}</h1>}
+        <div className={clsx(styles.container, className)}>{children}</div>
+    </section>
 );

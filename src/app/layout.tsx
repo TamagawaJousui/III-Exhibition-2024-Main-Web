@@ -10,16 +10,28 @@ const siteName = "東京大学制作展";
 const description = "東京大学制作展 2024 Mainのホームページです。";
 const url = "https://iiiexhibition.com";
 
-const dotGothic = Local({
-    src: "../../public/fonts/DotGothic16-Regular.ttf",
+const playfairDisplay = Local({
+    src: "../../public/fonts/PlayfairDisplay-VariableFont_wght.ttf",
     display: "swap",
-    variable: "--font-dotgothic",
+    variable: "--font-playfair",
 });
 
-const pressStart2p = Local({
-    src: "../../public/fonts/PressStart2P-Regular.ttf",
+const playfairItalic = Local({
+    src: "../../public/fonts/PlayfairDisplaySC-Italic.ttf",
     display: "swap",
-    variable: "--font-pressstart2p",
+    variable: "--font-playfair-italic",
+});
+
+const kleeOne = Local({
+    src: "../../public/fonts/KleeOne-Regular.ttf",
+    display: "swap",
+    variable: "--font-klee",
+});
+
+const notoSerif = Local({
+    src: "../../public/fonts/NotoSerifJP-VariableFont_wght.ttf",
+    display: "swap",
+    variable: "--font-noto-serif",
 });
 
 export const metadata: Metadata = {
@@ -56,7 +68,12 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => (
     <html lang="ja">
-        <body className={`${dotGothic.variable} ${pressStart2p.variable}`}>{children}</body>
+        <body
+            suppressHydrationWarning
+            className={`${playfairItalic.variable} ${playfairDisplay.variable} ${kleeOne.variable} ${notoSerif.variable}`}
+        >
+            {children}
+        </body>
         <GoogleAnalytics gaId={guardUndef(process.env.NEXT_PUBLIC_GA_ID)} />
     </html>
 );

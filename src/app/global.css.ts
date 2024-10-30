@@ -1,15 +1,25 @@
 import { globalStyle } from "@vanilla-extract/css";
 
-import { vars } from "@/styles";
+import { mediaUtils, vars } from "@/styles";
 
 globalStyle("html, body", {
     margin: 0,
 
-    backgroundRepeat: "no-repeat repeat",
-    backgroundPosition: "center top",
-    backgroundColor: vars.color.primaryBackground,
-    fontFamily: `var(--font-dotgothic), var(--font-pressstart2p), sans-serif`,
-    scrollbarColor: `${vars.color.black} ${vars.color.primaryBackground}`,
+    height: "100vh",
+    width: "auto",
+    /*スクロールバー非表示（IE・Edge）*/
+    msOverflowStyle: "none",
+    /*スクロールバー非表示（Firefox）*/
+    scrollbarWidth: "none",
+    fontFamily: "var(--font-klee), sans-serif",
+
+    "@media": {
+        [`${mediaUtils.mobile}`]: {
+            height: "auto",
+            width: "100vw",
+            maxWidth: "100vw",
+        },
+    },
 });
 
 globalStyle("*", {
@@ -18,13 +28,7 @@ globalStyle("*", {
 });
 
 globalStyle(":root", {
-    fontSize: "min(calc(0.25rem + 2vh), 32px)",
-});
-
-globalStyle("h1, h2, h3, h4, h5, h6", {
-    fontWeight: "normal",
-    color: vars.color.black,
-    fontFamily: "var(--font-pressstart2p)",
+    fontSize: "min(calc(0.25rem + 1.75vh), calc(0.25rem + 2vw), 32px)",
 });
 
 globalStyle("a", {
@@ -32,40 +36,67 @@ globalStyle("a", {
     color: vars.color.text,
 });
 
+globalStyle("h1, h2, h3, h4, h5, h6", {
+    margin: 0,
+    padding: 0,
+});
+
+/**
+ * font family
+ */
 globalStyle("h1", {
-    fontSize: vars.fontSize.xl,
+    fontFamily: "var(--font-playfair-italic), sans-serif",
 });
 
 globalStyle("h2", {
-    fontSize: vars.fontSize.lg,
-    fontFamily: "var(--font-dotgothic)",
+    fontFamily: "var(--font-playfair), var(--font-klee), sans-serif",
 });
 
 globalStyle("h3", {
-    fontSize: vars.fontSize.base,
+    fontFamily: "var(--font-noto-serif), var(--font-klee), serif",
 });
 
 globalStyle("h4", {
-    fontSize: vars.fontSize.base,
-    fontFamily: "var(--font-dotgothic)",
+    fontFamily: "var(--font-noto-serif), var(--font-klee), serif",
+});
+
+/**
+ * font size
+ */
+
+globalStyle("h1", {
+    fontSize: vars.fontSize["3xl"],
+});
+
+globalStyle("h2", {
+    fontSize: vars.fontSize["2xl"],
+});
+
+globalStyle("h3", {
+    fontSize: vars.fontSize.xl,
+    fontWeight: vars.fontWeight.extraBold,
+});
+
+globalStyle("h4", {
+    fontSize: vars.fontSize.lg,
 });
 
 globalStyle("h5", {
-    fontSize: vars.fontSize.sm,
+    fontSize: vars.fontSize.base,
 });
 
 globalStyle("h6", {
-    fontSize: vars.fontSize.xs,
+    fontSize: vars.fontSize.sm,
 });
 
 globalStyle("p", {
-    fontSize: vars.fontSize.sm,
-    fontFamily: "var(--font-dotgothic)",
+    fontSize: vars.fontSize.base,
+    margin: 0,
+    padding: 0,
 });
 
 globalStyle("span", {
-    fontSize: vars.fontSize.sm,
-    fontFamily: "var(--font-dotgothic)",
+    fontSize: vars.fontSize.base,
 });
 
 globalStyle("ul", {
@@ -81,10 +112,5 @@ globalStyle("img", {
 });
 
 globalStyle("::-webkit-scrollbar", {
-    width: "12px",
-});
-
-globalStyle("::-webkit-scrollbar-thumb", {
-    backgroundColor: "black",
-    borderRadius: "5px",
+    display: "none",
 });

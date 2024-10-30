@@ -1,17 +1,23 @@
 import { createGlobalTheme } from "@vanilla-extract/css";
+
 export type colorType = RecursiveLeafKeys<typeof color>;
 
 export const color = {
     primary: {
-        dark: "#8E2B1D",
-        main: "#C12A20",
-        light: "#d84035",
-        ultraLight: "#ccf0f2",
+        dark: "#384A5E",
+        main: "#6C9CC4",
+        light: "#6DAAD6",
     },
     secondary: {
         dark: "#515050",
         main: "#979693",
         light: "#DDDCD6",
+    },
+    background: {
+        desktop:
+            "linear-gradient(to right, rgb(237, 231, 233) 0%, rgb(109, 170, 214) 15%, rgb(103, 100, 120) 65%, rgb(69, 60, 60) 85%, rgb(20, 20, 20) 100%)",
+        mobile: "linear-gradient(to bottom, rgb(237, 231, 233) 0%, rgb(109, 170, 214) 15%, rgb(103, 100, 120) 65%, rgb(69, 60, 60) 85%, rgb(20, 20, 20) 100%)",
+        dark: "#3B3B3B",
     },
 
     orange: "#EA542F",
@@ -19,21 +25,15 @@ export const color = {
     green: "#6EC2AB",
     blue: "#6690B4",
     white: "#f4f4f4",
-    black: "#000000",
+    black: "#424242",
     gray: "#E4E2E2",
 
-    text: "#000000",
-    textSecondary: "#909498",
-    primaryBackground: "#E1DED9",
-    secondaryBackground: "linear-gradient(to bottom,#DDDCD6, #767573)",
+    text: "#F9F6F7",
+    textSecondary: "#C4C4C4",
 } as const;
 
 export const breakpoint = {
-    xs: "0px",
-    sm: "650px",
-    md: "960px",
-    lg: "1100px",
-    xl: "1440px",
+    mobile: 750,
 } as const;
 
 export const vars = createGlobalTheme(":root", {
@@ -69,13 +69,13 @@ export const vars = createGlobalTheme(":root", {
          */
         xl: "1.125rem",
         /**
-         * 20px
+         * 30px
          */
-        "2xl": "1.25rem",
+        "2xl": "1.875rem",
         /**
-         * 24px
+         * 45px
          */
-        "3xl": "1.5rem",
+        "3xl": "2.8125rem",
     },
 
     fontWeight: {
@@ -91,6 +91,7 @@ export const vars = createGlobalTheme(":root", {
     },
 
     lineHeight: {
+        xs: "0.75rem",
         sm: "1rem",
         base: "1.25rem",
         lg: "1.5rem",
@@ -109,12 +110,10 @@ export const vars = createGlobalTheme(":root", {
         full: "9999px",
     },
 
-    breakpoint: breakpoint,
-
     zIndex: {
         background: "10",
         content: "50",
         header: "100",
-        drawer: "200",
+        modal: "200",
     },
 });

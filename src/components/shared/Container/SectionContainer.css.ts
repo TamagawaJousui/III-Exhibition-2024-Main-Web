@@ -1,36 +1,42 @@
-import { ComplexStyleRule, globalStyle, style, styleVariants } from "@vanilla-extract/css";
+import { ComplexStyleRule, style, styleVariants } from "@vanilla-extract/css";
 
-import { color, colorType } from "@/styles";
+import { color, colorType, mediaUtils, vars } from "@/styles";
 
-export const wrapper = style({
-    position: "relative",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    margin: "20px 0",
-});
-
-export const container = style({
-    marginTop: "2rem",
-    display: "flex",
-    flexDirection: "column",
-    width: "100%",
-    // maxWidth: vars.breakpoint.xl,
-    alignItems: "center",
-});
-
-globalStyle(`${container} h2`, {
-    alignSelf: "center",
-});
+export const styles = {
+    root: style({
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        padding: vars.spacing.lg,
+        "@media": {
+            [mediaUtils.mobile]: {
+                width: "100vw",
+                height: "auto",
+            },
+        },
+    }),
+    title: style({
+        fontWeight: "normal",
+        paddingBottom: vars.spacing.md,
+    }),
+    container: style({
+        display: "flex",
+        justifyContent: "center",
+        height: "100%",
+        overflow: "hidden",
+    }),
+};
 
 export const backgroundStyle = styleVariants<Record<colorType, ComplexStyleRule>>({
     "primary.dark": { background: color.primary.dark },
     "primary.main": { background: color.primary.main },
     "primary.light": { background: color.primary.light },
-    "primary.ultraLight": { background: color.primary.ultraLight },
     "secondary.dark": { background: color.secondary.dark },
     "secondary.main": { background: color.secondary.main },
     "secondary.light": { background: color.secondary.light },
+    "background.desktop": { background: color.background.desktop },
+    "background.mobile": { background: color.background.mobile },
+    "background.dark": { background: color.background.dark },
     red: { background: color.red },
     green: { background: color.green },
     blue: { background: color.blue },
@@ -40,8 +46,6 @@ export const backgroundStyle = styleVariants<Record<colorType, ComplexStyleRule>
     black: { background: color.black },
     text: { background: color.text },
     textSecondary: { background: color.textSecondary },
-    primaryBackground: { background: color.primaryBackground },
-    secondaryBackground: { background: color.secondaryBackground },
 });
 
 export const textColorStyle = styleVariants<Record<colorType | "inherit", ComplexStyleRule>>({
@@ -49,10 +53,12 @@ export const textColorStyle = styleVariants<Record<colorType | "inherit", Comple
     "primary.dark": { color: color.primary.dark },
     "primary.main": { color: color.primary.main },
     "primary.light": { color: color.primary.light },
-    "primary.ultraLight": { color: color.primary.ultraLight },
     "secondary.dark": { color: color.secondary.dark },
     "secondary.main": { color: color.secondary.main },
     "secondary.light": { color: color.secondary.light },
+    "background.desktop": { color: color.background.desktop },
+    "background.mobile": { color: color.background.mobile },
+    "background.dark": { background: color.background.dark },
     red: { color: color.red },
     green: { color: color.green },
     blue: { color: color.blue },
@@ -62,6 +68,4 @@ export const textColorStyle = styleVariants<Record<colorType | "inherit", Comple
     black: { color: color.black },
     text: { color: color.text },
     textSecondary: { color: color.textSecondary },
-    primaryBackground: { color: color.primaryBackground },
-    secondaryBackground: { color: color.secondaryBackground },
 });

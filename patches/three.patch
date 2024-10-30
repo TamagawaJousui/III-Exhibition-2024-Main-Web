@@ -1,0 +1,24 @@
+diff --git a/examples/jsm/loaders/FontLoader.js b/examples/jsm/loaders/FontLoader.js
+index 93caeb5bbaad29f01a5d8e4aa2a7c3f0090b9ed4..739da87b3c01d04f81ffc6f93731c5a216f79a50 100644
+--- a/examples/jsm/loaders/FontLoader.js
++++ b/examples/jsm/loaders/FontLoader.js
+@@ -1,7 +1,8 @@
+ import {
+ 	FileLoader,
+ 	Loader,
+-	ShapePath
++	ShapePath,
++	ShapeUtils
+ } from 'three';
+ 
+ class FontLoader extends Loader {
+@@ -59,7 +60,8 @@ class Font {
+ 
+ 		for ( let p = 0, pl = paths.length; p < pl; p ++ ) {
+ 
+-			shapes.push( ...paths[ p ].toShapes() );
++			const isCCW = !ShapeUtils.isClockWise( paths[ p ].subPaths[ 0 ].getPoints() );
++			shapes.push( ...paths[ p ].toShapes(isCCW) );
+ 
+ 		}
+ 

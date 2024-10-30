@@ -4,10 +4,31 @@ import { vars } from "./theme.css";
 
 export const typography = recipe({
     variants: {
+        fontFamily: {
+            playfair: {
+                fontFamily: "var(--font-playfair), var(--font-klee), sans-serif",
+            },
+            playfairItalic: {
+                fontFamily: "var(--font-playfair-italic), var(--font-klee), serif",
+            },
+            notoSerif: {
+                fontFamily: "var(--font-noto-serif), var(--font-klee), serif",
+            },
+            kleeOne: {
+                fontFamily: "var(--font-klee-one), sans-serif",
+            },
+        },
         /**
          * sm: 12px, base: 14px, lg: 16px, xl: 18px, 2xl: 20px, 3xl: 24px
          */
         fontSize: {
+            /**
+             * 10px
+             */
+            xs: {
+                fontSize: vars.fontSize.xs,
+                lineHeight: vars.lineHeight.xs,
+            },
             /**
              * 12px
              */
@@ -59,6 +80,9 @@ export const typography = recipe({
             bold: {
                 fontWeight: "bold",
             },
+            extraBold: {
+                fontWeight: "800",
+            },
         },
 
         color: {
@@ -73,15 +97,18 @@ export const typography = recipe({
             "text.secondary": {
                 color: vars.color.textSecondary,
             },
-
+            black: {
+                color: vars.color.black,
+            },
             background: {
-                color: vars.color.primaryBackground,
+                color: vars.color.background.dark,
             },
         },
 
         defaultVariants: {
             fontSize: "base",
             fontWeight: "regular",
+            color: "text",
         },
     },
 });
