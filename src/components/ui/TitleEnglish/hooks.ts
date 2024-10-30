@@ -4,13 +4,30 @@ import { SVGLoader, SVGResult } from "three/addons/loaders/SVGLoader.js";
 import { match } from "ts-pattern";
 
 import { ParticleData } from "@/models/heroarea";
+import { isWebGlCapable } from "@/utils/responsive/checkUserEnv";
 
 import { Environment } from "./internal/titleEnglishEnvironment";
 
-export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) => {
+import { breakpoint } from "@/styles";
+
+export const useTitleEnglish = (titleEnglishDivRef: React.RefObject<HTMLDivElement>) => {
     useEffect(() => {
         let environment: Environment | null = null;
-        if (!titleDivRef.current) return;
+
+        const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.lg}px)`);
+
+        if (!mediaQuery.matches) {
+            console.log("mediaQuery not passed");
+            return;
+        }
+        if (!titleEnglishDivRef.current) {
+            console.error("titleEnglishDivRef is not found");
+            return;
+        }
+        if (!isWebGlCapable()) {
+            console.error("WebGL is not supported or the device is mobile.");
+            return;
+        }
 
         // フォントとテクスチャのプリロード
         const preload = (particleOptions: ParticleData) => {
@@ -20,7 +37,12 @@ export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) =>
             let particle: THREE.Texture | null = null;
             manager.onLoad = () => {
                 if (svg && particle) {
-                    environment = new Environment(svg, particle, titleDivRef, particleOptions);
+                    environment = new Environment(
+                        svg,
+                        particle,
+                        titleEnglishDivRef,
+                        particleOptions
+                    );
                 }
             };
 
@@ -29,7 +51,7 @@ export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) =>
                 svg = data;
             });
 
-            const particleImgUrl = "/heroarea/particle.png";
+            const particleImgUrl = "/heroarea/particle_texture.png";
             new THREE.TextureLoader(manager).load(particleImgUrl, (texture) => {
                 particle = texture;
             });
@@ -87,5 +109,5 @@ export const useTitleEnglish = (titleDivRef: React.RefObject<HTMLDivElement>) =>
             }
             document.removeEventListener("DOMContentLoaded", () => preload(particleOptions));
         };
-    }, [titleDivRef]);
+    }, [titleEnglishDivRef]);
 };

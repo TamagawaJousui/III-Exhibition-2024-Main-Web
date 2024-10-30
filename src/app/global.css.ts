@@ -5,19 +5,21 @@ import { mediaUtils, vars } from "@/styles";
 globalStyle("html, body", {
     margin: 0,
 
-    height: "100vh",
-    width: "auto",
+    height: "auto",
+    width: "100vw",
+    maxWidth: "100vw",
     /*スクロールバー非表示（IE・Edge）*/
     msOverflowStyle: "none",
     /*スクロールバー非表示（Firefox）*/
     scrollbarWidth: "none",
     fontFamily: "var(--font-klee), sans-serif",
+    overscrollBehavior: "none",
 
     "@media": {
-        [`${mediaUtils.mobile}`]: {
-            height: "auto",
-            width: "100vw",
-            maxWidth: "100vw",
+        [`${mediaUtils.md}`]: {
+            height: "100vh",
+            width: "auto",
+            maxWidth: "none",
         },
     },
 });

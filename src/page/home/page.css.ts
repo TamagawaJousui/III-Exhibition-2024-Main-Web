@@ -11,24 +11,20 @@ export const styles = {
             height: "100%",
             width: "100%",
             position: "relative",
+            background: vars.color.background.mobile,
             "@media": {
-                [mediaUtils.mobile]: {
-                    background: vars.color.background.mobile,
+                [mediaUtils.md]: {
+                    background: vars.color.background.desktop,
                 },
             },
         },
     ]),
 
     header: style({
-        position: "absolute",
+        position: "fixed",
         top: 0,
         left: 0,
         zIndex: vars.zIndex.header,
-        "@media": {
-            [mediaUtils.mobile]: {
-                position: "sticky",
-            },
-        },
     }),
     wrapper: style({
         display: "flex",
@@ -36,19 +32,15 @@ export const styles = {
     }),
     container: style({
         display: "flex",
-        background: vars.color.background.desktop,
+
+        background: "none",
+        flexDirection: "column",
 
         "@media": {
-            [mediaUtils.mobile]: {
-                background: "none",
-                flexDirection: "column",
+            [mediaUtils.md]: {
+                background: vars.color.background.desktop,
+                flexDirection: "row",
             },
         },
-    }),
-
-    registerButton: style({
-        position: "sticky",
-        bottom: "0", // 下端に固定
-        left: "100vw", // 右端に固定
     }),
 };

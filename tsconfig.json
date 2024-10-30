@@ -24,6 +24,7 @@
     },
     "files": ["node_modules/gsap/types/index.d.ts"],
     "include": [
+        "svgr.d.ts",
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",

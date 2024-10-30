@@ -14,10 +14,10 @@ export const styles = {
                     textAlign: "center",
                 },
                 flexible: {
-                    textAlign: "left",
+                    textAlign: "center",
                     "@media": {
-                        [mediaUtils.mobile]: {
-                            textAlign: "center",
+                        [mediaUtils.md]: {
+                            textAlign: "left",
                         },
                     },
                 },

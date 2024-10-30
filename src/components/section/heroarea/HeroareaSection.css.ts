@@ -1,62 +1,97 @@
 import { style } from "@vanilla-extract/css";
-import { recipe } from "@vanilla-extract/recipes";
 
 import { mediaUtils } from "@/styles";
-
-const HEADER_HEIGHT = "2rem" as const;
 
 export const styles = {
     root: style({
         display: "flex",
         position: "relative",
         minWidth: "100vw",
-        height: "100%",
+        height: "100vh",
+        overflow: "hidden",
         "@media": {
-            [mediaUtils.mobile]: {
-                height: `calc(100vh - ${HEADER_HEIGHT})`,
+            [mediaUtils.md]: {
+                overflow: "auto",
+            },
+        },
+    }),
+    title: style({
+        position: "absolute",
+        zIndex: 1,
+        top: "10%",
+        left: "5px",
+        height: "60%",
+        "@media": {
+            [mediaUtils.md]: {
+                top: "15%",
+                left: "10px",
+                height: "60%",
             },
         },
     }),
 
-    particleBackground: style({
+    particleBackgroundDesktop: style({
         position: "absolute",
         top: 0,
         left: 0,
         width: "100%",
         height: "100%",
-        zIndex: -1,
         objectFit: "contain",
     }),
-    container: recipe({
-        base: {
-            position: "absolute",
-        },
-        variants: {
-            label: {
-                title: {
-                    bottom: 20,
-                    left: 0,
-                    width: "30%",
-                    height: "90%",
-                },
-                titleEnglish: {
-                    top: 30,
-                    right: 20,
-                    width: "50%",
-                    height: "30%",
-                },
-                dateAndVenue: {
-                    bottom: 0,
-                    right: 0,
-                    width: "40%",
-                    height: "50%",
-                },
+    titleEnglish: style({
+        position: "absolute",
+        zIndex: 1,
+        top: "3em",
+        right: "5px",
+        width: "65%",
+        "@media": {
+            [mediaUtils.md]: {
+                right: "10px",
+                width: "65%",
+            },
+            [mediaUtils.lg]: {
+                right: "10px",
+                width: "665px",
             },
         },
     }),
-    text: style({
-        position: "relative",
-        width: "100%",
-        height: "100%",
+    dateAndVenue: style({
+        position: "absolute",
+        zIndex: 1,
+        right: "5px",
+        bottom: "20px",
+        height: "45%",
+        "@media": {
+            [mediaUtils.md]: {
+                right: "10px",
+                bottom: "50px",
+                height: "50%",
+            },
+        },
+    }),
+    particleBackgroundMobile: style({
+        position: "absolute",
+        right: "-300px",
+        top: "-100px",
+        overflow: "hidden",
+        zIndex: 0,
+        "@media": {
+            [mediaUtils.sm]: {
+                position: "absolute",
+                left: "0px",
+                top: "0px",
+            },
+            [mediaUtils.lg]: {
+                display: "none",
+            },
+        },
+    }),
+    particle: style({
+        display: "none",
+        "@media": {
+            [mediaUtils.lg]: {
+                display: "block",
+            },
+        },
     }),
 };

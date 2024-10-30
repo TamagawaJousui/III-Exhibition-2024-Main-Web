@@ -1,10 +1,10 @@
 import * as THREE from "three";
-import { SVGResult } from "three/examples/jsm/Addons.js";
+import { GPUComputationRenderer, SVGResult, Variable } from "three/examples/jsm/Addons.js";
 import { SVGLoader } from "three/examples/jsm/loaders/SVGLoader.js";
 
 import { ParticleData } from "@/models/heroarea";
-
-import { fragmentShader, vertexShader } from "./shader";
+import { initGPUComputationRenderer } from "@/utils/foregroundParticles/foregroundGpgpu";
+import { initParticle } from "@/utils/foregroundParticles/foregroundParticle";
 
 export class particleSystem {
     scene: THREE.Scene;
@@ -22,7 +22,6 @@ export class particleSystem {
     particleOptions: ParticleData;
     container: HTMLElement;
     planeArea: THREE.Mesh = new THREE.Mesh();
-    currenPosition: THREE.Vector3 = new THREE.Vector3();
     particles: THREE.Points = new THREE.Points();
     outlineContours: THREE.Group<THREE.Object3DEventMap> = new THREE.Group();
     planeParticles: THREE.Points = new THREE.Points();
@@ -35,6 +34,9 @@ export class particleSystem {
         new THREE.Color(0xe4c2ca),
         new THREE.Color(0xe4c2ca),
     ];
+    gpuCompute: GPUComputationRenderer | null = null;
+    positionVariable: Variable | null = null;
+    colorVariable: Variable | null = null;
     constructor(
         scene: THREE.Scene,
         svg: SVGResult,
@@ -51,7 +53,7 @@ export class particleSystem {
         this.renderer = renderer;
 
         this.raycaster = new THREE.Raycaster();
-        this.mouse = new THREE.Vector2(-1, -1);
+        this.mouse = new THREE.Vector2(1.3, -1.3);
 
         this.colorChange = new THREE.Color();
 
@@ -98,71 +100,31 @@ export class particleSystem {
 
         if (intersects.length === 0) return;
 
-        const pos = this.planeParticles.geometry.attributes.position;
-        const copy = this.planeParticlesGeometryCopy.attributes.position;
-        const coulors = this.planeParticles.geometry.attributes.customColor;
-        const opacities = this.planeParticles.geometry.attributes.opacity;
-        const size = this.planeParticles.geometry.attributes.size;
-
         const mx = intersects[0].point.x;
         const my = intersects[0].point.y;
 
-        for (let i = 0, l = pos.count; i < l; i++) {
-            const initX = copy.getX(i);
-            const initY = copy.getY(i);
+        if (!this.positionVariable || !this.colorVariable || !this.gpuCompute) return;
 
-            let px = pos.getX(i);
-            let py = pos.getY(i);
+        this.positionVariable.material.uniforms.area = { value: this.particleOptions.area };
+        this.positionVariable.material.uniforms.ease = { value: this.particleOptions.ease };
+        this.positionVariable.material.uniforms.size = { value: this.particleOptions.particleSize };
+        this.positionVariable.material.uniforms.mouse = { value: new THREE.Vector2(mx, my) };
 
-            this.colorChange.setRGB(1, 1, 1);
-            coulors.setXYZ(i, this.colorChange.r, this.colorChange.g, this.colorChange.b);
-            coulors.needsUpdate = true;
+        this.colorVariable.material.uniforms.area = { value: this.particleOptions.area };
+        this.colorVariable.material.uniforms.ease = { value: this.particleOptions.ease };
+        this.colorVariable.material.uniforms.mouse = { value: new THREE.Vector2(mx, my) };
 
-            size.array[i] = this.particleOptions.particleSize;
-            size.needsUpdate = true;
+        this.gpuCompute.compute();
 
-            let dx = mx - px;
-            let dy = my - py;
+        // Get the computed color
+        const colorTexture = this.gpuCompute.getCurrentRenderTarget(this.colorVariable).texture;
 
-            const mouseDistance = this.distance(mx, my, px, py);
-            const d = (dx = mx - px) * dx + (dy = my - py) * dy;
-            const f = -this.particleOptions.area / d;
+        // Get the computed texture
+        const posTexture = this.gpuCompute.getCurrentRenderTarget(this.positionVariable).texture;
 
-            if (mouseDistance < this.particleOptions.area) {
-                const t = Math.atan2(dy, dx);
-                px += f * Math.cos(t);
-                py += f * Math.sin(t);
-
-                pos.setXYZ(i, px, py, 0);
-                pos.needsUpdate = true;
-
-                size.array[i] = this.particleOptions.particleSize * 1.3;
-                size.needsUpdate = true;
-
-                if (px > initX || px < initX || py > initY || py < initY) {
-                    const distance = mouseDistance / this.particleOptions.area;
-                    const weight = this.smoothstep(0, 1, distance);
-                    const colorIndex = Math.floor(weight * (this.colorStops.length - 1));
-                    const color = this.colorStops[colorIndex];
-
-                    coulors.setXYZ(i, color.r, color.g, color.b);
-                    coulors.needsUpdate = true;
-
-                    size.array[i] = this.particleOptions.particleSize / 1.8;
-                    size.needsUpdate = true;
-
-                    const opacityWeight = this.smoothstep(0, 0.1, weight);
-                    opacities.setX(i, opacityWeight);
-                    opacities.needsUpdate = true;
-                }
-            }
-
-            px += (initX - px) * this.particleOptions.ease;
-            py += (initY - py) * this.particleOptions.ease;
-
-            pos.setXYZ(i, px, py, 0);
-            pos.needsUpdate = true;
-        }
+        const material = this.planeParticles.material as THREE.ShaderMaterial;
+        material.uniforms.positionTexture.value = posTexture;
+        material.uniforms.colorTexture.value = colorTexture;
     }
 
     createText() {
@@ -212,7 +174,7 @@ export class particleSystem {
 
         const outlineGroup = new THREE.Group();
         lineSegments.forEach((segment) => {
-            segment.translateX(-xLength - 10);
+            segment.translateX(-xLength - 5);
             segment.translateY(-yLength + 10);
             outlineGroup.add(segment);
         });
@@ -267,26 +229,19 @@ export class particleSystem {
 
         const geoParticles = new THREE.BufferGeometry().setFromPoints(points);
 
-        geoParticles.translate(-xLength - 10, -yLength + 10, 0);
+        geoParticles.translate(-xLength - 5, -yLength + 10, 0);
 
-        geoParticles.setAttribute("customColor", new THREE.Float32BufferAttribute(colors, 3));
-        geoParticles.setAttribute("opacity", new THREE.Float32BufferAttribute(opacities, 1));
-        geoParticles.setAttribute("size", new THREE.Float32BufferAttribute(sizes, 1));
+        const translatedPoints = geoParticles.attributes.position.array as Float32Array;
 
-        const material = new THREE.ShaderMaterial({
-            uniforms: {
-                color: { value: new THREE.Color(0xffffff) },
-                pointTexture: { value: this.particleImg },
-            },
-            vertexShader: vertexShader,
-            fragmentShader: fragmentShader,
+        const { size, gpuCompute, positionVariable, colorVariable } = initGPUComputationRenderer(
+            translatedPoints,
+            this.renderer
+        );
+        this.gpuCompute = gpuCompute;
+        this.positionVariable = positionVariable;
+        this.colorVariable = colorVariable;
 
-            blending: THREE.AdditiveBlending,
-            depthTest: false,
-            transparent: true,
-        });
-
-        const planeParticles = new THREE.Points(geoParticles, material);
+        const planeParticles = initParticle(size);
 
         return planeParticles;
     }

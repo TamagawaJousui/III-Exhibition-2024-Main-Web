@@ -13,10 +13,10 @@ export const styles = {
         gap: vars.spacing.xs,
         height: "100%",
         // padding: `${vars.spacing.md} 0`,
-        width: MEMBER_SECTION_WIDTH,
+        width: "100%",
         "@media": {
-            [mediaUtils.mobile]: {
-                width: "100%",
+            [mediaUtils.md]: {
+                width: MEMBER_SECTION_WIDTH,
             },
         },
     }),

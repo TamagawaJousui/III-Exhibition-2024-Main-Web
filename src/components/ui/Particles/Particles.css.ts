@@ -7,6 +7,5 @@ export const styles = {
         width: "100vw",
         height: "100vh",
         minHeight: "100vh",
-        zIndex: 0,
     }),
 };
