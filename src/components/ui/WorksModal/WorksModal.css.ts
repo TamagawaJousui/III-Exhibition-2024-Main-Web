@@ -89,6 +89,6 @@ export const styles = {
         overflow: "hidden",
     }),
     descriptionText: style({
-        whiteSpace: "wrap",
+        whiteSpace: "pre-line",
     }),
 };
