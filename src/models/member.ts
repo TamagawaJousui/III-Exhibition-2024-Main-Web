@@ -566,8 +566,8 @@ export const teamList = [
             {
                 nameJa: "何婧",
                 nameEn: "KASEI",
-                affiliationJa: "",
-                grade: "",
+                affiliationJa: "華東師範大学大学院 デザイン学院",
+                grade: "修士1年",
                 lab: "",
             },
             {
