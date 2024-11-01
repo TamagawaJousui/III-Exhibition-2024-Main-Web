@@ -23,7 +23,7 @@ const playfairItalic = Local({
 });
 
 const kleeOne = Local({
-    src: "../../public/fonts/KleeOne-Regular.ttf",
+    src: "../../public/fonts/KleeOne-Regular.woff2",
     display: "swap",
     variable: "--font-klee",
 });
