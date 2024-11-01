@@ -4,11 +4,11 @@
 
 @layer base {
     @font-face {
-        font-family: "Klee One SemiBold";
+        font-family: "Klee One Regular";
         font-style: normal;
-        font-weight: Semi Bold;
+        font-weight: Regular;
         font-display: swap;
-        src: url(/fonts/KleeOne-SemiBold.woff2) format("woff2");
+        src: url(/fonts/KleeOne-Regular.woff2) format("woff2");
     }
     @font-face {
         font-family: "Playfair Light";
