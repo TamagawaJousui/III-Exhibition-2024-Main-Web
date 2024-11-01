@@ -29,7 +29,11 @@ export const AccessSection: FC = () => (
         <WithTitle title="会場" {...withTitleConfig} className={styles.item}>
             <WithWordBreak className={styles.info} align="flexible" as="div">
                 <h4>東京大学本郷キャンパス</h4>
-                <p>工学部2号館</p>
+                <p>
+                    工学部2号館 <wbr />
+                    フォーラム（2階）・ 展示室（2階） <wbr />
+                    Sky Presentation Room（9階）
+                </p>
                 <p>
                     情報学環本館 <wbr />
                     地下1階 <wbr />
