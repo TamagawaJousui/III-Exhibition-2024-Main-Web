@@ -15,7 +15,7 @@ const config: Config = {
             },
         },
         fontFamily: {
-            "conpect-ja": ["Klee One SemiBold"],
+            "conpect-ja": ["Klee One Regular"],
             "conpect-en": ["Playfair Light"],
         },
     },
