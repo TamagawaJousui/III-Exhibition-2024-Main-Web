@@ -146,8 +146,8 @@ Powered by “CRIWARE”.CRIWARE is a trademark of CRI Middleware Co., Ltd.`,
         imagePath: "/works/Birdatch.jpg",
     },
     {
-        title: "Droplens",
-        member: ["大平麻以", "森田崇文"],
+        title: "Living Lens",
+        member: ["大平麻以", "金澤政宣", "森田崇文", "吳冠儒", "岩瀬英治", "筧康明"],
         place: "工学部2号館9階・Sky Presentation Room",
         description: {
             ja: `単調な格子模様がレンズによって歪められ、有機的な曲線模様が生まれる。その時私たちが目にしているは、そこにある実態物ではなく、光によって生まれる像である。 この現象を通じて「私たちは何を見ているのか？」「実態とは何か？」という問いを提示する。`,
