@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Link from "next/link";
 import { FC } from "react";
 
 import { placeList } from "@/models/place";
@@ -15,7 +16,15 @@ export const WorksSection: FC = () => (
         <SubContainer label="ピックアップ" withBorder className={styles.pickUp}>
             <WorksPickUp slides={workList} />
         </SubContainer>
-        <SubContainer label="全作品" className={styles.allWorks}>
+        <SubContainer
+            label="全作品"
+            className={styles.allWorks}
+            sublabel={
+                <Link href="/workslist" target="_blank">
+                    （作品一覧へ）
+                </Link>
+            }
+        >
             {placeList.map((place) => {
                 const works = workList.filter((work) => work.place === place);
                 return (
@@ -34,17 +43,22 @@ type SubContainerProps = {
     label: string;
     children: React.ReactNode;
     withBorder?: boolean;
+    sublabel?: React.ReactNode;
     className?: string;
 };
 
 export const SubContainer: FC<SubContainerProps> = ({
     label,
     withBorder = false,
+    sublabel,
     children,
     className,
 }) => (
     <div className={subContainerStyles.root}>
-        <h2 className={subContainerStyles.label({ withBorder })}>{label}</h2>
+        <h2 className={subContainerStyles.label({ withBorder })}>
+            {label}
+            {sublabel && <span className={subContainerStyles.sublabel}>{sublabel}</span>}
+        </h2>
         <div className={clsx(subContainerStyles.content, className)}>{children}</div>
     </div>
 );

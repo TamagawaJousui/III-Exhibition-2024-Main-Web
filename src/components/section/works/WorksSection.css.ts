@@ -44,6 +44,11 @@ export const subContainerStyles = {
             },
         },
     }),
+    sublabel: style({
+        marginLeft: "0.5rem",
+        fontSize: "1rem",
+        textDecoration: "underline",
+    }),
     content: style({
         flex: "auto",
         overflow: "hidden",

@@ -1,0 +1,1 @@
+export { StaticWorksList } from "./StaticWorksList";
