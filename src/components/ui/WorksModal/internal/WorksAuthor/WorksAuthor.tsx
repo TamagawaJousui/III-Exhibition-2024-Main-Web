@@ -13,7 +13,7 @@ export const WorksAuthor: FC<Props> = ({ work }) => (
             const authorData = findMemberByName(name);
             return (
                 <li key={`${name}-${work.place}`} className={styles.author}>
-                    <h5>{authorData?.nameJa}</h5>
+                    <h5>{authorData?.nameJa.replace(/・/g, "")}</h5>
                     <p className={styles.info}>{authorData?.affiliationJa}</p>
                     <p className={styles.info}>{`${authorData?.lab} ${authorData?.grade}`}</p>
                 </li>
