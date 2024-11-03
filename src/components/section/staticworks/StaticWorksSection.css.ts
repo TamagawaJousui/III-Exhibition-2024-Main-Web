@@ -1,14 +1,18 @@
 import { style } from "@vanilla-extract/css";
 
-import { styleUtils, vars } from "@/styles";
+import { mediaUtils, styleUtils, vars } from "@/styles";
 
 export const styles = {
     root: style([
         styleUtils.alignVertical,
         {
             display: "flex",
+            flexWrap: "wrap",
             height: "100%",
             padding: `${vars.spacing.md} 0`,
+            "@media": {
+                [mediaUtils.xl]: { flexWrap: "nowrap" },
+            },
         },
     ]),
 };

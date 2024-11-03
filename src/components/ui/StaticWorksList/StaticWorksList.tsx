@@ -34,13 +34,16 @@ export const StaticWorksList: FC<PropType> = ({ place, works }) => {
                         className={styles.workItem}
                         onClick={() => handleOpen(work)}
                     >
-                        <Image
-                            src={work.imagePath}
-                            alt={`作品画像`}
-                            width={300}
-                            height={300}
-                            className={styles.image}
-                        />
+                        <div className={styles.workImage}>
+                            <Image
+                                src={work.imagePath}
+                                alt={`作品画像`}
+                                width={150}
+                                height={150}
+                                className={styles.image}
+                            />
+                        </div>
+                        <h4 className={styles.title}>{work.title}</h4>
                     </div>
                 ))}
             </div>

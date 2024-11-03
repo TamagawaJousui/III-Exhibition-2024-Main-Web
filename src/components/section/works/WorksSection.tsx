@@ -21,7 +21,7 @@ export const WorksSection: FC = () => (
             className={styles.allWorks}
             sublabel={
                 <Link href="/workslist" target="_blank">
-                    （作品一覧はこちら）
+                    （作品一覧へ）
                 </Link>
             }
         >

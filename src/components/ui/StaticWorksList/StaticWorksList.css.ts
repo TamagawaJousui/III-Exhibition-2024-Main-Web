@@ -35,12 +35,19 @@ export const styles = {
         padding: "1rem",
     }),
     workItem: style({
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: "0.5rem",
+    }),
+    workImage: style({
         borderRadius: "8px",
         overflow: "hidden",
-        maxWidth: "200px",
+        maxWidth: "150px",
         transition: "transform 0.3s, box-shadow 0.3s",
         selectors: {
             "&:hover": {
+                cursor: "pointer",
                 transform: "scale(1.05)",
                 boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
             },
@@ -50,5 +57,13 @@ export const styles = {
         display: "block",
         width: "100%",
         height: "100%",
+    }),
+    title: style({
+        marginTop: "0.5rem",
+        fontSize: "1rem",
+        fontWeight: "bold",
+        textAlign: "center",
+        color: vars.color.text,
+        padding: "0 0.5rem",
     }),
 };
