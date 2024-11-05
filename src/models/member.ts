@@ -14,7 +14,7 @@ export const teamList = [
                 nameEn: "YUTO ISHIZU",
                 affiliationJa: "東京大学大学院 学際情報学府",
                 grade: "修士1年",
-                lab: "葛岡・鳴海研究室",
+                lab: "葛岡・谷川・鳴海研究室",
             },
             {
                 nameJa: "中田裕紀",
@@ -66,7 +66,7 @@ export const teamList = [
                 nameEn: "SOTARO YOKOI",
                 affiliationJa: "東京大学大学院 情報理工学系研究科",
                 grade: "修士1年",
-                lab: "葛岡・鳴海研究室",
+                lab: "葛岡・谷川・鳴海研究室",
             },
             {
                 nameJa: "宮道彩乃",
@@ -104,7 +104,7 @@ export const teamList = [
                 nameEn: "ISEI LI",
                 affiliationJa: "東京大学大学院 学際情報学府",
                 grade: "修士1年",
-                lab: "葛岡・鳴海研究室",
+                lab: "葛岡・谷川・鳴海研究室",
             },
             {
                 nameJa: "李婧",
@@ -172,7 +172,7 @@ export const teamList = [
                 nameEn: "TSUBASA YOSHIDA",
                 affiliationJa: "東京大学大学院 学際情報学府",
                 grade: "修士1年",
-                lab: "葛岡・鳴海研究室",
+                lab: "葛岡・谷川・鳴海研究室",
             },
             {
                 nameJa: "王文鶴",
@@ -212,7 +212,7 @@ export const teamList = [
                 nameEn: "HARUKI FUKUDA",
                 affiliationJa: "東京大学大学院 情報理工学系研究科",
                 grade: "修士1年",
-                lab: "葛岡・鳴海研究室",
+                lab: "葛岡・谷川・鳴海研究室",
             },
             {
                 nameJa: "増子優輝",
@@ -226,7 +226,7 @@ export const teamList = [
                 nameEn: "YUSUKE ARIKAWA",
                 affiliationJa: "東京大学大学院 情報理工学系研究科",
                 grade: "修士1年",
-                lab: "葛岡・鳴海研究室",
+                lab: "葛岡・谷川・鳴海研究室",
             },
             {
                 nameJa: "足立信基",
@@ -386,7 +386,7 @@ export const teamList = [
                 lab: "出口剛司ゼミ",
             },
             {
-                nameJa: "あんどうやすし",
+                nameJa: "あんどう・やすし",
                 nameEn: "YASUSHI ANDO",
                 affiliationJa: "東京大学大学院 学際情報学府",
                 grade: "博士2年",
@@ -423,7 +423,7 @@ export const teamList = [
                 nameEn: "YOHEI OKOCHI",
                 affiliationJa: "東京大学大学院 情報理工学系研究科",
                 grade: "修士1年",
-                lab: "葛岡・鳴海研究室",
+                lab: "葛岡・谷川・鳴海研究室",
             },
             {
                 nameJa: "中根葵",
@@ -583,6 +583,41 @@ export const teamList = [
                 affiliationJa: "小学生",
                 grade: "",
                 lab: "",
+            },
+            {
+                nameJa: "金澤政宣",
+                nameEn: "",
+                affiliationJa: "東京大学大学院 学際情報学府",
+                grade: "修士1年",
+                lab: "筧研究室",
+            },
+            {
+                nameJa: "森田崇文",
+                nameEn: "",
+                affiliationJa: "東京大学大学院 学際情報学府",
+                grade: "助教",
+                lab: "筧研究室",
+            },
+            {
+                nameJa: "吳冠儒",
+                nameEn: "",
+                affiliationJa: "東京大学大学院 学際情報学府",
+                grade: "博士課程2年",
+                lab: "筧研究室",
+            },
+            {
+                nameJa: "岩瀬英治",
+                nameEn: "",
+                affiliationJa: "早稲田大学 理工学術院",
+                grade: "教授",
+                lab: "岩瀬研究室",
+            },
+            {
+                nameJa: "筧康明",
+                nameEn: "",
+                affiliationJa: "東京大学大学院 学際情報学府",
+                grade: "教授",
+                lab: "筧研究室",
             },
         ],
     },
