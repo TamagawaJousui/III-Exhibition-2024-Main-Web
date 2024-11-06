@@ -6,8 +6,8 @@ import { trainInfo } from "@/models/access";
 export const AccessSection: FC = () => (
     <section id="access" className="flex flex-col w-screen p-[2rem] py-8">
         <h1 className="font-normal">ACCESS</h1>
-        <div className="w-full h-full grid grid-cols-1 gap-8 md:grid-cols-2 md:grid-rows-3 md:grid-flow-col md:gap-4">
-            <div className="flex justify-center items-center md:col-span-2 lg:col-span-1 lg:row-span-2">
+        <div className="w-full h-full grid grid-cols-1 gap-8 md:grid-cols-2 md:grid-rows-3 md:grid-flow-col md:gap-4 xl:gap-8">
+            <div className="flex justify-center items-center md:col-span-2 xl:col-span-1 xl:row-span-2">
                 <Image
                     src="/access/map.png"
                     alt="access map"
@@ -21,7 +21,7 @@ export const AccessSection: FC = () => (
                 <h4 className="font-gothic pt-3 text-2xl font-bold md:text-xl">
                     東京大学本郷キャンパス
                 </h4>
-                <div className="font-gothic flex flex-row gap-10 justify-center pt-2 font-light text-lg whitespace-nowrap md:text-base md:whitespace-normal md:gap-4 lg:justify-start">
+                <div className="font-gothic flex flex-row gap-10 justify-center pt-2 font-light text-lg whitespace-nowrap md:text-base md:justify-start md:whitespace-normal md:gap-4 ">
                     <div className="flex flex-col gap-2 items-end justify-between ">
                         <div className="break-keep">
                             工学部
