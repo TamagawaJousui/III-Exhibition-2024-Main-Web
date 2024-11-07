@@ -1,4 +1,5 @@
 import { AccessSection } from "@/components/section/access";
+import { AnnounceSection } from "@/components/section/announce";
 import { ArchivesSection } from "@/components/section/archives";
 import { ConceptSection } from "@/components/section/concept";
 import { MembersSection } from "@/components/section/members";
@@ -19,6 +20,11 @@ export const sectionInfo = [
         id: "access",
         title: "ACCESS",
         node: AccessSection,
+    },
+    {
+        id: "announce",
+        title: "ANNOUNCE",
+        node: AnnounceSection,
     },
     {
         id: "members",

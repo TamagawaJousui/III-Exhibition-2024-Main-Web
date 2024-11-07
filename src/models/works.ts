@@ -147,7 +147,7 @@ Powered by “CRIWARE”.CRIWARE is a trademark of CRI Middleware Co., Ltd.`,
     },
     {
         title: "Living Lens",
-        member: ["大平麻以", "金澤政宣", "森田崇文", "吳冠儒", "岩瀬英治", "筧康明"],
+        member: ["大平麻以", "金澤政宜", "森田崇文", "吳冠儒", "岩瀬英治", "筧康明"],
         place: "工学部2号館9階・Sky Presentation Room",
         description: {
             ja: `単調な格子模様が液滴によって歪められ、有機的な曲線模様が浮かび上がる。
