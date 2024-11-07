@@ -585,7 +585,7 @@ export const teamList = [
                 lab: "",
             },
             {
-                nameJa: "金澤政宣",
+                nameJa: "金澤政宜",
                 nameEn: "",
                 affiliationJa: "東京大学大学院 学際情報学府",
                 grade: "修士1年",
@@ -594,9 +594,9 @@ export const teamList = [
             {
                 nameJa: "森田崇文",
                 nameEn: "",
-                affiliationJa: "東京大学大学院 学際情報学府",
+                affiliationJa: "東京大学大学院",
                 grade: "助教",
-                lab: "筧研究室",
+                lab: "情報学環",
             },
             {
                 nameJa: "吳冠儒",
@@ -611,13 +611,6 @@ export const teamList = [
                 affiliationJa: "早稲田大学 理工学術院",
                 grade: "教授",
                 lab: "岩瀬研究室",
-            },
-            {
-                nameJa: "筧康明",
-                nameEn: "",
-                affiliationJa: "東京大学大学院 学際情報学府",
-                grade: "教授",
-                lab: "筧研究室",
             },
         ],
     },
@@ -634,9 +627,9 @@ export const teamList = [
             {
                 nameJa: "筧康明",
                 nameEn: "YASUAKI KAKEHI",
-                affiliationJa: "",
-                grade: "",
-                lab: "",
+                affiliationJa: "東京大学大学院",
+                grade: "教授",
+                lab: "情報学環",
             },
             {
                 nameJa: "渡邉英徳",

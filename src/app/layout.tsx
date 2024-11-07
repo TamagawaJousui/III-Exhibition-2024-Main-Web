@@ -36,7 +36,7 @@ const notoSerif = Local({
 
 export const metadata: Metadata = {
     title: "東京大学制作展",
-
+    metadataBase: new URL(url),
     robots: {
         index: process.env.NEXT_PUBLIC_CLIENT_ENV === "prod",
         googleBot: {
