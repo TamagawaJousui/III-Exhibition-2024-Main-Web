@@ -1,9 +1,9 @@
-import { FC, useRef } from "react";
+import { useRef } from "react";
 
 import { useDateAndVenue } from "./useDateAndVenue";
 
 
-export const DateAndVenue: FC = () => {
+export default function DateAndVenue() {
   const dateAndVenueDivRef = useRef<HTMLDivElement>(null);
   useDateAndVenue(dateAndVenueDivRef);
 

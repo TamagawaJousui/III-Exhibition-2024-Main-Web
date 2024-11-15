@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 
 import Title from "./Particles/Title/Title";
 import TitleEnglish from "./Particles/TitleEnglish/TitleEnglish";
-import { DateAndVenue } from "./Particles/DateAndVenue/DateAndVenue";
+import DateAndVenue from "./Particles/DateAndVenue/DateAndVenue";
 
 export default function HeroArea() {
   const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
