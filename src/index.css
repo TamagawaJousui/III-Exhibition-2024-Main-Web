@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply overscroll-none;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply w-screen h-screen shrink-0 relative overflow-hidden;
+  }
+  .section-title {
+    @apply text-left text-4xl;
+  }
+}
+
+.hero-bg-mobile {
+  @apply absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  z-0 object-cover w-[1000px] h-[1000px] max-w-none 
+   lg:hidden;
+}
+
+.hero-bg-desktop {
+  @apply absolute top-0 z-0 left-1/2 -translate-x-1/2 object-cover h-full hidden lg:block;
+}
+
+.bg-gradient {
+  @apply overscroll-none;
+  background: linear-gradient(
+    to bottom,
+    rgb(237, 231, 233) 0%,
+    rgb(109, 170, 214) 15%,
+    rgb(103, 100, 120) 65%,
+    rgb(69, 60, 60) 85%,
+    rgb(20, 20, 20) 100%
+  );
+}
+
+@media (min-width: 768px) {
+  .bg-gradient {
+    background: linear-gradient(
+      to right,
+      rgb(237, 231, 233) 0%,
+      rgb(109, 170, 214) 15%,
+      rgb(103, 100, 120) 65%,
+      rgb(69, 60, 60) 85%,
+      rgb(20, 20, 20) 100%
+    );
+  }
+}
