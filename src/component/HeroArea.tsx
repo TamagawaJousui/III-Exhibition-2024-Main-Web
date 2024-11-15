@@ -7,7 +7,7 @@ import background_desktop from "@/assets/heroarea/background_desktop.png";
 
 import MainVisual from "./Particles/MainVisual/MainVisual";
 
-import { isWebGlCapable } from "@/utils/CheckUserEnv";
+// import { isWebGlCapable } from "@/utils/CheckUserEnv";
 import { breakpoint } from "@/utils/BreakPoint";
 import { useEffect, useState } from "react";
 
@@ -18,12 +18,14 @@ import DateAndVenue from "./Particles/DateAndVenue/DateAndVenue";
 export default function HeroArea() {
   const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
   const [showParticles, setshowParticles] = useState(
-    mediaQuery.matches && isWebGlCapable()
+    // mediaQuery.matches && isWebGlCapable()
+    false
   );
 
   useEffect(() => {
     const handleMediaChange = () => {
-      setshowParticles(mediaQuery.matches && isWebGlCapable());
+      // setshowParticles(mediaQuery.matches && isWebGlCapable());
+      setshowParticles(false)
     };
     mediaQuery.addEventListener("change", handleMediaChange);
     return () => mediaQuery.removeEventListener("change", handleMediaChange);
