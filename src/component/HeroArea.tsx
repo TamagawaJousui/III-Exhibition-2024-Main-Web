@@ -2,8 +2,8 @@ import StaticTitle from "@/assets/heroarea/Title.svg?react";
 import StaticTitleEnglish from "@/assets/heroarea/TitleEnglish.svg?react";
 import StaticDateAndVenue from "@/assets/heroarea/DateAndVenue.svg?react";
 
-import background_mobile from "@/assets/heroarea/background_mobile.png";
-import background_desktop from "@/assets/heroarea/background_desktop.png";
+import background_mobile from "@/assets/heroarea/background_mobile.webp";
+import background_desktop from "@/assets/heroarea/background_desktop.webp";
 
 import MainVisual from "./Particles/MainVisual/MainVisual";
 

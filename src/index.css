@@ -32,7 +32,15 @@
   }
 
   @font-face {
-    font-family: "Playfair Display SC Italic";
+    font-family: "Playfair Display SC";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/PlayfairDisplaySC-Regular.woff2) format("woff2");
+  }
+
+  @font-face {
+    font-family: "Playfair Display SC";
     font-style: italic;
     font-weight: 400;
     font-display: swap;
