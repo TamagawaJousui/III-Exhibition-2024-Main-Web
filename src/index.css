@@ -8,15 +8,24 @@
     @apply overscroll-none;
   }
   @font-face {
-    font-family: "Klee One Regular";
+    font-family: "Klee One";
     font-style: normal;
     font-weight: 400;
     font-display: swap;
     src: url(/fonts/KleeOne-Regular.woff2) format("woff2");
   }
+
+  @font-face {
+    font-family: "Klee One";
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url(/fonts/KleeOne-SemiBold.woff2) format("woff2");
+  }
+
   @font-face {
     font-family: "Playfair Light";
-    font-style: normal;
+    font-style: light;
     font-weight: 300;
     font-display: swap;
     src: url(/fonts/Playfair9pt-Light.woff2) format("woff2");
@@ -65,11 +74,11 @@
 
 @layer components {
   .section-container {
-    @apply w-screen h-screen relative snap-start overflow-hidden;
+    @apply w-screen min-h-screen h-max relative snap-start overflow-hidden;
   }
   .section-title {
-    @apply text-left text-6xl font-section-title italic text-primary
-      pl-10 pt-10;
+    @apply text-left text-4xl font-section-title italic text-primary
+      pl-6 pt-8;
   }
 }
 

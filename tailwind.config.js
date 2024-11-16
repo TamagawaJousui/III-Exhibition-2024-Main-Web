@@ -8,7 +8,7 @@ export default {
       },
     },
     fontFamily: {
-      "concept-ja": ["Klee One Regular"],
+      "concept-ja": ["Klee One"],
       "concept-en": ["Playfair Light"],
       "section-title": ["Playfair Display SC Italic"],
       serif: ["游明朝体", "Yu Mincho", "YuMincho"],
