@@ -25,7 +25,7 @@ export default function HeroArea() {
   useEffect(() => {
     const handleMediaChange = () => {
       // setshowParticles(mediaQuery.matches && isWebGlCapable());
-      setshowParticles(false)
+      setshowParticles(false);
     };
     mediaQuery.addEventListener("change", handleMediaChange);
     return () => mediaQuery.removeEventListener("change", handleMediaChange);
@@ -34,29 +34,15 @@ export default function HeroArea() {
   return (
     <section className="section-container">
       {showParticles ? (
-        <DynamicContent />
-      ) : (
-        <StaticContent />
-      )}
-    </section>
-  );
-}
-
-const DynamicContent = () => {
-  return (
-    <>
-    <Title /> 
+        <>
+          <Title />
           <TitleEnglish />
           <DateAndVenue />
           <MainVisual />
-    </>
-  )
-}
-
-const StaticContent = () => {
-  return (
-    <>
-    <StaticTitle className="z-10 absolute top-[10%] left-[5px] h-[60%] md:top-[15%] md:left-[10px] lg:h-[70%] xl:left-[30px]" />
+        </>
+      ) : (
+        <>
+          <StaticTitle className="z-10 absolute top-[10%] left-[5px] h-[60%] md:top-[15%] md:left-[10px] lg:h-[70%] xl:left-[30px]" />
           <StaticTitleEnglish className="z-10 absolute top-12 right-[5px] w-[65%] md:right-[10px] lg:w-[666px] xl:right-[30px]" />
           <StaticDateAndVenue className="z-10 absolute bottom-5 right-[5px] h-[45%] md:bottom-[50px] md:right-[10px] md:h-[50%] xl:right-[30px]" />
           <img
@@ -69,6 +55,8 @@ const StaticContent = () => {
             src={background_desktop}
             alt="particle"
           />
-    </>
-  )
+        </>
+      )}
+    </section>
+  );
 }

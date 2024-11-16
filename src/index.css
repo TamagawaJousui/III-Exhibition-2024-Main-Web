@@ -65,10 +65,10 @@
 
 @layer components {
   .section-container {
-    @apply w-screen h-screen relative snap-start;
+    @apply w-screen h-screen relative snap-start overflow-hidden;
   }
   .section-title {
-    @apply text-left text-6xl font-section-title text-primary
+    @apply text-left text-6xl font-section-title italic text-primary
       pl-10 pt-10;
   }
 }
