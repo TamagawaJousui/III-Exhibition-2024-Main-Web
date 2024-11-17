@@ -38,12 +38,12 @@ export default function PickUps() {
     setIsModalOpen(false);
   };
   return (
-    <>
-      <div className="second-title-stroke border-b border-line font-serif text-2xl font-extrabold text-primary">
+    <div className="flex max-w-screen-md flex-col items-center">
+      <div className="second-title-stroke w-full border-b border-line pb-2 font-serif text-2xl font-extrabold text-primary">
         ピックアップ
       </div>
       <div className="h-2"></div>
-      <div className="overflow-hidden" ref={emblaRef}>
+      <div className=" overflow-hidden" ref={emblaRef}>
         <div className="flex">
           {slides.map((slide) => (
             <div
@@ -51,8 +51,8 @@ export default function PickUps() {
               key={`${slide.title}-${slide.place}`}
               onClick={showModalDetail}
             >
-              <div className="max-w-[600px] rounded-3xl bg-pickup-background">
-                <div className="relative aspect-square w-full rounded-3xl ">
+              <div className="rounded-3xl bg-pickup-background">
+                <div className="relative aspect-square max-h-[min(100vw,100vh,768px)] w-full rounded-3xl ">
                   <img
                     src={slide.imagePath}
                     alt={`works image of ${slide.title}`}
@@ -102,6 +102,6 @@ export default function PickUps() {
         workData={workData}
         onClose={hideModalDetail}
       />
-    </>
+    </div>
   );
 }
