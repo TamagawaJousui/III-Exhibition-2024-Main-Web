@@ -128,3 +128,9 @@
   }
 }
 
+
+/* Safari 7.1+ */
+
+_::-webkit-full-page-media, _:future, :root .desktop-safari-modal-height {
+  height: auto;
+}
