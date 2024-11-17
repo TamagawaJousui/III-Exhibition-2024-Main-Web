@@ -36,6 +36,7 @@ export default function WorksModal({
         "bg-scrolling-element-when-modal-active"
       );
       dialog.showModal();
+      dialog.scrollTop = 0;
     } else {
       document.documentElement.classList.remove(
         "bg-scrolling-element-when-modal-active"
@@ -53,7 +54,7 @@ export default function WorksModal({
   return (
     <dialog
       ref={dialogRef}
-      className="w-11/12 max-w-screen-sm overscroll-contain rounded-3xl bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md "
+      className="w-[85%] max-w-screen-sm overscroll-contain rounded-3xl bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md "
       onClick={onClose}
     >
       <div
