@@ -43,7 +43,7 @@ export default function WorksModal({
   return (
     <dialog
       ref={dialogRef}
-      className="aspect-[0.5] max-h-[90vh] w-full bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md"
+      className="aspect-[0.5] max-h-[90vh] w-full rounded-3xl bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md"
       onClick={onClose}
     >
       <div
