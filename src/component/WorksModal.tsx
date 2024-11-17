@@ -2,6 +2,7 @@ import { WorkData } from "@/models/works";
 import { useEffect, useRef } from "react";
 import { LiaWindowCloseSolid } from "react-icons/lia";
 import { IoLocationSharp } from "react-icons/io5";
+import { memberMap } from "@/models/member";
 
 interface WorksModalProps {
   visible: boolean;
@@ -49,8 +50,8 @@ export default function WorksModal({
         className="flex size-full flex-col px-[8%] py-6"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Header */}
         <div className="flex flex-col">
-          {/* Title */}
           <div className="h-1 bg-works-modal-line" />
           <div className="mt-2 h-px bg-works-modal-line" />
           <div className="mt-3 flex flex-row justify-between">
@@ -81,11 +82,11 @@ export default function WorksModal({
         </div>
 
         {/* Content */}
-        <div className="flex flex-col pt-8">
+        <div className="flex flex-col pt-12">
           <div className="border-b border-line pb-2 font-serif text-xl text-white">
             コンセプト
           </div>
-          <div className="flex flex-col items-center gap-4 pt-2">
+          <div className="flex flex-col items-center gap-4 pt-4">
             <img
               className="w-11/12 rounded-3xl"
               src={workData.imagePath}
@@ -98,6 +99,33 @@ export default function WorksModal({
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Members */}
+        <div className="flex flex-col pt-12">
+          <div className="border-b border-line pb-2  font-serif text-xl text-white">
+            メンバー
+          </div>
+          <div className="grid auto-cols-fr auto-rows-fr grid-cols-2 gap-3 pt-4 font-gothic">
+            {workData.member.map((member) => (
+              <div key={member} className="ml-2">
+                <div className="text-sm text-works-modal-member">{member}</div>
+                <div className="flex flex-col text-xs text-works-modal-member-affiliationJa">
+                  {memberMap[member]?.affiliationJa
+                    .split(" ")
+                    .map((word, index) => <div key={index}>{word}</div>) ?? ""}
+                  <div>
+                    {memberMap[member]?.grade} {memberMap[member]?.lab}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        {/* Footer */}
+        <div className="mt-12 flex flex-col">
+          <div className=" h-px bg-works-modal-line" />
+          <div className="mb-6 mt-2 h-1 bg-works-modal-line" />
         </div>
       </div>
     </dialog>

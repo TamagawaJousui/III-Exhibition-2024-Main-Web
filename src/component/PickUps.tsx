@@ -12,7 +12,7 @@ export default function PickUps() {
     Fade(),
     Autoplay({
       playOnInit: true,
-      delay: 500,
+      delay: 1000,
       stopOnInteraction: false,
     }),
   ]);

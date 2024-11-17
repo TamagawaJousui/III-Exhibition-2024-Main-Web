@@ -11,6 +11,8 @@ export default {
         "works-modal-background": "#3B3B3B",
         "works-modal-line": "#F0F0F0",
         line: "#FFFFFF66",
+        "works-modal-member": "#FFFFFF",
+        "works-modal-member-affiliationJa": "#D9D9D9CC",
       },
     },
     fontFamily: {
