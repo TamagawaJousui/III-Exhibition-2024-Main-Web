@@ -58,7 +58,10 @@ export default function WorksModal({
             <h2 className="mx-2 break-keep bg-works-modal-line px-2 text-center font-works-title text-lg text-works-modal-background">
               {workData.title}
             </h2>
-            <div className="flex w-[15%] items-start justify-end border-l border-works-modal-line">
+            <div
+              className="flex w-[15%] items-start justify-end border-l border-works-modal-line"
+              onClick={onClose}
+            >
               <LiaWindowCloseSolid className="fill-works-modal-line stroke-[0.5px]" />
             </div>
           </div>
@@ -89,7 +92,7 @@ export default function WorksModal({
               alt={workData.title}
             />
 
-            <div className="flex w-full flex-col gap-4 whitespace-pre-wrap indent-4 font-serif text-xs font-extralight text-white">
+            <div className="flex w-full flex-col gap-4 whitespace-pre-wrap indent-4 font-serif text-sm font-extralight text-white">
               {workData.description.ja.split("\n").map((line, index) => (
                 <p key={index}>{line}</p>
               ))}
