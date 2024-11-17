@@ -11,7 +11,7 @@ export default function PickUps() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Fade(),
     Autoplay({
-      playOnInit: true,
+      playOnInit: false,
       delay: 1000,
       stopOnInteraction: false,
     }),

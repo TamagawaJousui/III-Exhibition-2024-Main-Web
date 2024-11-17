@@ -17,17 +17,32 @@ export default function WorksModal({
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
-    if (visible) {
-      dialogRef.current?.showModal();
-    } else {
-      dialogRef.current?.close();
+    const dialog = dialogRef.current;
+    if (!dialog) {
+      return;
     }
+
+    const handleClose = () => {
+      if (!visible) return;
+      onClose();
+    };
+
+    dialog.addEventListener("close", handleClose);
+
+    if (visible) {
+      dialog.showModal();
+    } else {
+      dialog.close();
+    }
+    return () => {
+      dialog.removeEventListener("close", handleClose);
+    };
   });
 
   return (
     <dialog
       ref={dialogRef}
-      className="aspect-[0.65] w-full bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md"
+      className="aspect-[0.5] max-h-[90vh] w-full bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md"
       onClick={onClose}
     >
       <div
@@ -40,7 +55,7 @@ export default function WorksModal({
           <div className="mt-2 h-px bg-works-modal-line" />
           <div className="mt-3 flex flex-row justify-between">
             <div className="w-[15%] border-r border-works-modal-line" />
-            <h2 className="mx-2 break-keep bg-works-modal-line px-2 text-center font-works-title text-base text-works-modal-background">
+            <h2 className="mx-2 break-keep bg-works-modal-line px-2 text-center font-works-title text-lg text-works-modal-background">
               {workData.title}
             </h2>
             <div className="flex w-[15%] items-start justify-end border-l border-works-modal-line">
@@ -63,7 +78,7 @@ export default function WorksModal({
         </div>
 
         {/* Content */}
-        <div className="flex flex-col pt-10">
+        <div className="flex flex-col pt-8">
           <div className="border-b border-line pb-2 font-serif text-xl text-white">
             コンセプト
           </div>
@@ -74,8 +89,10 @@ export default function WorksModal({
               alt={workData.title}
             />
 
-            <div className="whitespace-pre-line font-serif text-xs font-extralight text-white">
-              {workData.description.ja}
+            <div className="flex w-full flex-col gap-4 whitespace-pre-wrap indent-4 font-serif text-xs font-extralight text-white">
+              {workData.description.ja.split("\n").map((line, index) => (
+                <p key={index}>{line}</p>
+              ))}
             </div>
           </div>
         </div>
