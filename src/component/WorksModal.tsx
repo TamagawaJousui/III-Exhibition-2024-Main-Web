@@ -99,7 +99,7 @@ export default function WorksModal({
           </div>
           <div className="flex flex-col items-center gap-4 pt-4">
             <img
-              className="w-11/12 rounded-3xl"
+              className="aspect-square w-11/12 rounded-3xl object-cover"
               src={workData.imagePath}
               alt={workData.title}
             />
