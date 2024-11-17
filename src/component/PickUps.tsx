@@ -50,6 +50,7 @@ export default function PickUps() {
             <div
               className="flex min-w-0 flex-[0_0_100%] justify-center"
               key={`${slide.title}-${slide.place}`}
+              onClick={showModalDetail}
             >
               <div className="max-w-[600px] rounded-3xl bg-pickup-background">
                 <div className="relative aspect-square w-full rounded-3xl ">
@@ -86,10 +87,7 @@ export default function PickUps() {
                       </span>
                     </p>
                     <div className="flex justify-end py-2">
-                      <div
-                        className="w-24 rounded-full bg-white text-center font-serif text-base font-medium text-white [-webkit-text-stroke:_0.3px_black;] [paint-order:stroke_fill]"
-                        onClick={showModalDetail}
-                      >
+                      <div className="w-24 rounded-full bg-white text-center font-serif text-base font-medium text-white [-webkit-text-stroke:_0.3px_black;] [paint-order:stroke_fill]">
                         {/* <PickupButton /> */}
                         詳細を見る
                       </div>

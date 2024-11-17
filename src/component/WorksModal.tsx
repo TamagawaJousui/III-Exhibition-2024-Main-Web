@@ -43,7 +43,7 @@ export default function WorksModal({
   return (
     <dialog
       ref={dialogRef}
-      className="aspect-[0.5] max-h-[90vh] w-full rounded-3xl bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md"
+      className="h-svh w-full rounded-3xl bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md"
       onClick={onClose}
     >
       <div
@@ -60,10 +60,10 @@ export default function WorksModal({
               {workData.title}
             </h2>
             <div
-              className="flex w-[15%] items-start justify-end border-l border-works-modal-line"
+              className="flex w-[15%] items-center justify-center border-l border-works-modal-line"
               onClick={onClose}
             >
-              <LiaWindowCloseSolid className="fill-works-modal-line stroke-[0.5px]" />
+              <LiaWindowCloseSolid className="size-7 fill-works-modal-line stroke-[0.5px]" />
             </div>
           </div>
           <div className="mt-3 h-px bg-works-modal-line" />
