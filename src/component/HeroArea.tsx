@@ -32,7 +32,7 @@ export default function HeroArea() {
   });
 
   return (
-    <section className="section-container min-h-svh">
+    <section className="section-container h-svh min-h-svh">
       {showParticles ? (
         <>
           <Title />
@@ -42,9 +42,9 @@ export default function HeroArea() {
         </>
       ) : (
         <>
-          <StaticTitle className="absolute left-[5px] top-[10%] z-10 h-3/5 md:left-[10px] md:top-[15%] lg:h-[70%] xl:left-[30px]" />
+          <StaticTitle className="absolute left-[5px] top-[10%] z-10 h-[60svh] md:left-[10px] md:top-[15%] lg:h-[70svh] xl:left-[30px]" />
           <StaticTitleEnglish className="absolute right-[5px] top-12 z-10 w-[65%] md:right-[10px] lg:w-[666px] xl:right-[30px]" />
-          <StaticDateAndVenue className="absolute bottom-5 right-[5px] z-10 h-[45%] md:bottom-[50px] md:right-[10px] md:h-1/2 xl:right-[30px]" />
+          <StaticDateAndVenue className="absolute bottom-5 right-[5px] z-10 h-[45svh] md:bottom-[50px] md:right-[10px] md:h-[50svh] xl:right-[30px]" />
           <img
             className="hero-bg-mobile"
             src={background_mobile}
