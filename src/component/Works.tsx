@@ -4,7 +4,7 @@ export default function Works() {
   return (
     <section className="section-container">
       <div className="section-title">WORKS</div>
-      <div className="section-content pt-8">
+      <div className="section-content pt-6">
         <PickUps />
       </div>
     </section>

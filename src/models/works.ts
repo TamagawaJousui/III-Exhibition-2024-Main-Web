@@ -167,16 +167,6 @@ Powered by “CRIWARE”.CRIWARE is a trademark of CRI Middleware Co., Ltd.`,
   {
     title: "VoiceStorming",
     member: ["有川由祐", "南田桂吾", "坪山倫"],
-    place: "工学部2号館9階・Sky Presentation Room",
-    description: {
-      ja: `本展示は、鑑賞者たちが別々に話した感想を、生成AIを用いて会話として再構成した会話体験型作品である。東京大学制作展に展示されている作品の感想を語り合う2人に遭遇した体験者は、その会話の輪の中に入っていき、時間や会場の異なる鑑賞者たちと同期的に語り合うことになる。過去の自分を含む「わたしたち」との対話の中で、作品への見方はどのように変わるだろうか。`,
-      en: "",
-    },
-    imagePath: "/works/VoiceStorming.webp",
-  },
-  {
-    title: "VoiceStorming",
-    member: ["有川由祐", "南田桂吾", "坪山倫"],
     place: "工学部2号館フォーラム",
     description: {
       ja: `本展示は、鑑賞者たちが別々に話した感想を、生成AIを用いて会話として再構成した会話体験型作品である。東京大学制作展に展示されている作品の感想を語り合う2人に遭遇した体験者は、その会話の輪の中に入っていき、時間や会場の異なる鑑賞者たちと同期的に語り合うことになる。過去の自分を含む「わたしたち」との対話の中で、作品への見方はどのように変わるだろうか。`,
@@ -366,7 +356,7 @@ Powered by “CRIWARE”.CRIWARE is a trademark of CRI Middleware Co., Ltd.`,
     imagePath: "/works/prismatic.webp",
   },
   {
-    title: "Champloo ~かきまぜる~",
+    title: "Champloo \u200B ~\uFEFFかきまぜる\uFEFF~",
     member: [
       "友利未夢",
       "ルイヴィルデリーアン",

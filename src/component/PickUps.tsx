@@ -1,18 +1,46 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Fade from "embla-carousel-fade";
 import Autoplay from "embla-carousel-autoplay";
-import { workList as slides } from "@/models/works";
+import { workList as slides, WorkData } from "@/models/works";
 import { IoLocationSharp } from "react-icons/io5";
+import WorksModal from "./WorksModal";
+import { useState } from "react";
 // import PickupButton from "@/assets/works/PickupButton.svg?react";
 
 export default function PickUps() {
-  const [emblaRef] = useEmblaCarousel({ loop: true }, [
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Fade(),
-    Autoplay({ playOnInit: true, delay: 1500 }),
+    Autoplay({
+      playOnInit: true,
+      delay: 1000,
+      stopOnInteraction: false,
+    }),
   ]);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [workData, setWorkData] = useState<WorkData>(slides[0]);
+  const showModalDetail = () => {
+    if (!emblaApi) {
+      return;
+    }
+    const workData = slides[emblaApi.selectedScrollSnap()];
+    if (!workData) {
+      return;
+    }
+    emblaApi.plugins().autoplay.stop();
+    setWorkData(workData);
+    setIsModalOpen(true);
+  };
+  const hideModalDetail = () => {
+    if (!emblaApi) {
+      return;
+    }
+    emblaApi.plugins().autoplay.play();
+    setIsModalOpen(false);
+  };
   return (
     <>
-      <div className="border-b border-line font-serif text-2xl font-extrabold text-primary">
+      <div className="second-title-stroke border-b border-line font-serif text-2xl font-extrabold text-primary">
         ピックアップ
       </div>
       <div className="h-2"></div>
@@ -20,15 +48,15 @@ export default function PickUps() {
         <div className="flex">
           {slides.map((slide) => (
             <div
-              className="min-w-0 flex-[0_0_100%]"
+              className="flex min-w-0 flex-[0_0_100%] justify-center"
               key={`${slide.title}-${slide.place}`}
             >
-              <div className="aspect-[1.618] max-w-screen-sm rounded-3xl bg-pickup-background">
+              <div className="max-w-[600px] rounded-3xl bg-pickup-background">
                 <div className="relative aspect-square w-full rounded-3xl ">
                   <img
                     src={slide.imagePath}
                     alt={`works image of ${slide.title}`}
-                    className="aspect-square w-full rounded-3xl"
+                    className="aspect-square w-screen rounded-3xl"
                   />
                   <img
                     src="/works/random_texture.webp"
@@ -36,7 +64,7 @@ export default function PickUps() {
                     className="absolute left-0 top-0 aspect-square w-full rounded-3xl"
                   />
                 </div>
-                <div className="flex h-full flex-col justify-between px-4 pt-4 text-pickup-text">
+                <div className="flex h-52 flex-col justify-between px-4 pt-4 text-pickup-text md:h-48">
                   <div>
                     <div className="w-fit break-keep border-b border-pickup-text pb-2 font-works-title text-2xl italic">
                       {slide.title}
@@ -58,7 +86,10 @@ export default function PickUps() {
                       </span>
                     </p>
                     <div className="flex justify-end py-2">
-                      <div className="h-6 w-24 rounded-full bg-white text-center font-serif text-base text-white [-webkit-text-stroke:_0.4px_black;] [paint-order:stroke_fill]">
+                      <div
+                        className="w-24 rounded-full bg-white text-center font-serif text-base font-medium text-white [-webkit-text-stroke:_0.3px_black;] [paint-order:stroke_fill]"
+                        onClick={showModalDetail}
+                      >
                         {/* <PickupButton /> */}
                         詳細を見る
                       </div>
@@ -70,6 +101,11 @@ export default function PickUps() {
           ))}
         </div>
       </div>
+      <WorksModal
+        visible={isModalOpen}
+        workData={workData}
+        onClose={hideModalDetail}
+      />
     </>
   );
 }

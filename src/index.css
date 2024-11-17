@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -90,6 +91,10 @@
   }
   .section-content {
     @apply flex flex-col px-6 pt-16 pb-16 md:px-12 md:pt-24;
+  }
+
+  .second-title-stroke {
+    @apply [-webkit-text-stroke:_0.2px_black;] [paint-order:stroke_fill];
   }
 }
 
@@ -220,3 +225,4 @@
     }
   }
 }
+
