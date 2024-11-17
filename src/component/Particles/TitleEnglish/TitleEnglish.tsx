@@ -6,5 +6,5 @@ export default function TitleEnglish() {
   const titleEnglishDivRef = useRef<HTMLDivElement>(null);
   useTitleEnglish(titleEnglishDivRef);
 
-  return <div className="absolute w-full h-full" ref={titleEnglishDivRef}></div>;
+  return <div className="absolute size-full" ref={titleEnglishDivRef}></div>;
 };

@@ -19,9 +19,6 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
       let particle: THREE.Texture | null = null;
       manager.onLoad = () => {
         if (svg && particle) {
-          console.log("environment");
-          console.log(svg);
-          console.log(particle);
           environment = new Environment(
             svg,
             particle,
@@ -36,7 +33,7 @@ export const useTitle = (titleDivRef: React.RefObject<HTMLDivElement>) => {
         svg = data;
       });
 
-      const particleImgUrl = "/heroarea/particle_Texture.png";
+      const particleImgUrl = import.meta.env.VITE_PARTICLE_TEXTURE_URL;
       new THREE.TextureLoader(manager).load(particleImgUrl, (texture) => {
         particle = texture;
       });

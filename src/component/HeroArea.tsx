@@ -17,15 +17,15 @@ import DateAndVenue from "./Particles/DateAndVenue/DateAndVenue";
 
 export default function HeroArea() {
   const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
-  const [showParticles, setshowParticles] = useState(
+  const [showParticles, setShowParticles] = useState(
     // mediaQuery.matches && isWebGlCapable()
     false
   );
 
   useEffect(() => {
     const handleMediaChange = () => {
-      // setshowParticles(mediaQuery.matches && isWebGlCapable());
-      setshowParticles(false);
+      // setShowParticles(mediaQuery.matches && isWebGlCapable());
+      setShowParticles(false);
     };
     mediaQuery.addEventListener("change", handleMediaChange);
     return () => mediaQuery.removeEventListener("change", handleMediaChange);
@@ -42,9 +42,9 @@ export default function HeroArea() {
         </>
       ) : (
         <>
-          <StaticTitle className="z-10 absolute top-[10%] left-[5px] h-[60%] md:top-[15%] md:left-[10px] lg:h-[70%] xl:left-[30px]" />
-          <StaticTitleEnglish className="z-10 absolute top-12 right-[5px] w-[65%] md:right-[10px] lg:w-[666px] xl:right-[30px]" />
-          <StaticDateAndVenue className="z-10 absolute bottom-5 right-[5px] h-[45%] md:bottom-[50px] md:right-[10px] md:h-[50%] xl:right-[30px]" />
+          <StaticTitle className="absolute left-[5px] top-[10%] z-10 h-3/5 md:left-[10px] md:top-[15%] lg:h-[70%] xl:left-[30px]" />
+          <StaticTitleEnglish className="absolute right-[5px] top-12 z-10 w-[65%] md:right-[10px] lg:w-[666px] xl:right-[30px]" />
+          <StaticDateAndVenue className="absolute bottom-5 right-[5px] z-10 h-[45%] md:bottom-[50px] md:right-[10px] md:h-1/2 xl:right-[30px]" />
           <img
             className="hero-bg-mobile"
             src={background_mobile}

@@ -35,7 +35,7 @@ export const useTitleEnglish = (
         svg = data;
       });
 
-      const particleImgUrl = "/heroarea/particle_texture.png";
+      const particleImgUrl = import.meta.env.VITE_PARTICLE_TEXTURE_URL;
       new THREE.TextureLoader(manager).load(particleImgUrl, (texture) => {
         particle = texture;
       });
