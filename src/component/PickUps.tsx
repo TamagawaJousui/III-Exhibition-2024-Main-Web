@@ -5,14 +5,13 @@ import { workList as slides, WorkData } from "@/models/works";
 import { IoLocationSharp } from "react-icons/io5";
 import WorksModal from "./WorksModal";
 import { useState } from "react";
-// import PickupButton from "@/assets/works/PickupButton.svg?react";
 
 export default function PickUps() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Fade(),
     Autoplay({
       playOnInit: true,
-      delay: 1000,
+      delay: 500,
       stopOnInteraction: false,
     }),
   ]);
@@ -86,9 +85,8 @@ export default function PickUps() {
                         {slide.place}
                       </span>
                     </p>
-                    <div className="flex justify-end py-2">
-                      <div className="w-24 rounded-full bg-white text-center font-serif text-base font-medium text-white [-webkit-text-stroke:_0.3px_black;] [paint-order:stroke_fill]">
-                        {/* <PickupButton /> */}
+                    <div className="flex justify-end pb-2 pt-1">
+                      <div className="rounded-full bg-white px-4 py-2 text-center font-serif text-base font-medium leading-none">
                         詳細を見る
                       </div>
                     </div>

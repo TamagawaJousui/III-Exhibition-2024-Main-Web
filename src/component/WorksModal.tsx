@@ -57,7 +57,7 @@ export default function WorksModal({
       onClick={onClose}
     >
       <div
-        className="flex size-full h-max flex-col px-[8%] py-6"
+        className="flex size-full h-max flex-col px-[8%] py-8"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
@@ -134,8 +134,8 @@ export default function WorksModal({
         </div>
         {/* Footer */}
         <div className="mt-12 flex flex-col">
-          <div className=" h-px bg-works-modal-line" />
-          <div className="mb-6 mt-2 h-1 bg-works-modal-line" />
+          <div className="h-px bg-works-modal-line" />
+          <div className="mt-2 h-1 bg-works-modal-line" />
         </div>
       </div>
     </dialog>
