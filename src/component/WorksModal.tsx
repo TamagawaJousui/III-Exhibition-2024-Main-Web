@@ -28,13 +28,14 @@ export default function WorksModal({
       onClose();
     };
 
-    dialog.addEventListener("close", handleClose);
-
     if (visible) {
       dialog.showModal();
     } else {
       dialog.close();
     }
+
+    dialog.addEventListener("close", handleClose);
+
     return () => {
       dialog.removeEventListener("close", handleClose);
     };
@@ -43,7 +44,7 @@ export default function WorksModal({
   return (
     <dialog
       ref={dialogRef}
-      className="desktop-safari-modal-height h-max w-11/12 max-w-[600px] rounded-3xl bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md [@supports(-webkit-touch-callout:none)]:h-auto"
+      className="desktop-safari-modal-height h-max w-11/12 max-w-screen-sm overscroll-contain rounded-3xl bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md [@supports(-webkit-touch-callout:none)]:h-auto"
       onClick={onClose}
     >
       <div
