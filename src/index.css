@@ -85,7 +85,7 @@
 
 @layer components {
   .section-container {
-    @apply w-screen min-h-screen h-max relative snap-start overflow-hidden;
+    @apply w-screen min-h-screen h-max md:h-screen relative snap-start overflow-hidden;
   }
   .section-title {
     @apply text-left text-4xl font-section-title italic text-primary
