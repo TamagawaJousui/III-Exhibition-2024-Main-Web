@@ -25,12 +25,21 @@ export default function WorksModal({
 
     const handleClose = () => {
       if (!visible) return;
+      document.documentElement.classList.remove(
+        "bg-scrolling-element-when-modal-active"
+      );
       onClose();
     };
 
     if (visible) {
+      document.documentElement.classList.add(
+        "bg-scrolling-element-when-modal-active"
+      );
       dialog.showModal();
     } else {
+      document.documentElement.classList.remove(
+        "bg-scrolling-element-when-modal-active"
+      );
       dialog.close();
     }
 
@@ -44,11 +53,11 @@ export default function WorksModal({
   return (
     <dialog
       ref={dialogRef}
-      className="desktop-safari-modal-height h-max w-11/12 max-w-screen-sm overscroll-contain rounded-3xl bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md [@supports(-webkit-touch-callout:none)]:h-auto"
+      className="w-11/12 max-w-screen-sm overscroll-contain rounded-3xl bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md "
       onClick={onClose}
     >
       <div
-        className="flex size-full flex-col px-[8%] py-6"
+        className="flex size-full h-max flex-col px-[8%] py-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
