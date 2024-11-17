@@ -32,7 +32,7 @@ export default function HeroArea() {
   });
 
   return (
-    <section className="section-container">
+    <section className="section-container min-h-svh">
       {showParticles ? (
         <>
           <Title />
