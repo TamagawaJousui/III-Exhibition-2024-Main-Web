@@ -9,7 +9,7 @@ import Archives from "./component/Archives";
 
 function App() {
   return (
-    <div className="bg-gradient grid snap-mandatory grid-flow-row overflow-auto md:snap-x md:grid-flow-col [@media_(min-height:900px)_and_(max-width:768px)]:h-svh [@media_(min-height:900px)_and_(max-width:768px)]:snap-y">
+    <div className="bg-gradient grid w-max grid-flow-row md:grid-flow-col">
       <HeroArea />
       <Concept />
       <Works />
