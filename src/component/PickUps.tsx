@@ -38,7 +38,7 @@ export default function PickUps() {
     setIsModalOpen(false);
   };
   return (
-    <>
+    <div className="">
       <div className="second-title-stroke border-b border-line font-serif text-2xl font-extrabold text-primary">
         ピックアップ
       </div>
@@ -51,7 +51,7 @@ export default function PickUps() {
               key={`${slide.title}-${slide.place}`}
               onClick={showModalDetail}
             >
-              <div className="max-w-[600px] rounded-3xl bg-pickup-background">
+              <div className="max-w-[min(calc(50dvh),500px)] rounded-3xl bg-pickup-background">
                 <div className="relative aspect-square w-full rounded-3xl ">
                   <img
                     src={slide.imagePath}
@@ -102,6 +102,6 @@ export default function PickUps() {
         workData={workData}
         onClose={hideModalDetail}
       />
-    </>
+    </div>
   );
 }
