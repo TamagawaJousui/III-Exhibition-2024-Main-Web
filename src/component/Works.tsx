@@ -1,4 +1,5 @@
-import PickUps from "./PickUps";
+import AllWorks from "@/component/AllWorks";
+import PickUps from "@/component/PickUps";
 
 export default function Works() {
   return (
@@ -6,6 +7,7 @@ export default function Works() {
       <div className="section-title">WORKS</div>
       <div className="section-content pb-0 pt-2 md:pt-10">
         <PickUps />
+        <AllWorks />
       </div>
     </section>
   );

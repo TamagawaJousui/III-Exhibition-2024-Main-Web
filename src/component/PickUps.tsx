@@ -11,7 +11,7 @@ export default function PickUps() {
     Fade(),
     Autoplay({
       playOnInit: true,
-      delay: 500,
+      delay: 3000,
       stopOnInteraction: false,
     }),
   ]);
@@ -38,8 +38,8 @@ export default function PickUps() {
     setIsModalOpen(false);
   };
   return (
-    <div className="">
-      <div className="second-title-stroke border-b border-line font-serif text-2xl font-extrabold text-primary">
+    <div className="max-w-[min(calc(50dvh),640px)]">
+      <div className="second-title">
         ピックアップ
       </div>
       <div className="h-2"></div>
@@ -51,7 +51,7 @@ export default function PickUps() {
               key={`${slide.title}-${slide.place}`}
               onClick={showModalDetail}
             >
-              <div className="max-w-[min(calc(50dvh),500px)] rounded-3xl bg-pickup-background">
+              <div className="max-w-[min(calc(50dvh),640px)] rounded-3xl bg-pickup-background">
                 <div className="relative aspect-square w-full rounded-3xl ">
                   <img
                     src={slide.imagePath}

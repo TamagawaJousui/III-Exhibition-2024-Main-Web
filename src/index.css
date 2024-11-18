@@ -4,142 +4,142 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    @apply h-screen w-screen snap-both snap-mandatory overflow-auto overscroll-none;
-  }
-  body {
-    @apply overscroll-none;
-  }
-  @font-face {
-    font-family: "Klee One";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/fonts/KleeOne-Regular.woff2) format("woff2");
-  }
+    :root {
+        --gradient-colors: rgb(237, 231, 233) 0%, rgb(109, 170, 214) 15%,
+            rgb(103, 100, 120) 65%, rgb(69, 60, 60) 85%, rgb(20, 20, 20) 100%;
+    }
+    html {
+        @apply h-screen w-screen snap-both snap-mandatory overflow-auto overscroll-none;
+    }
+    body {
+        @apply overscroll-none;
+    }
+    @font-face {
+        font-family: 'Klee One';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(/fonts/KleeOne-Regular.woff2) format('woff2');
+    }
 
-  @font-face {
-    font-family: "Klee One";
-    font-style: normal;
-    font-weight: 600;
-    font-display: swap;
-    src: url(/fonts/KleeOne-SemiBold.woff2) format("woff2");
-  }
+    @font-face {
+        font-family: 'Klee One';
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url(/fonts/KleeOne-SemiBold.woff2) format('woff2');
+    }
 
-  @font-face {
-    font-family: "Playfair Light";
-    font-style: light;
-    font-weight: 300;
-    font-display: swap;
-    src: url(/fonts/Playfair9pt-Light.woff2) format("woff2");
-  }
+    @font-face {
+        font-family: 'Playfair Light';
+        font-style: light;
+        font-weight: 300;
+        font-display: swap;
+        src: url(/fonts/Playfair9pt-Light.woff2) format('woff2');
+    }
 
-  @font-face {
-    font-family: "Playfair Display SC";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/fonts/PlayfairDisplaySC-Regular.woff2) format("woff2");
-  }
+    @font-face {
+        font-family: 'Playfair Display SC';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(/fonts/PlayfairDisplaySC-Regular.woff2) format('woff2');
+    }
 
-  @font-face {
-    font-family: "Playfair Display SC";
-    font-style: italic;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/fonts/PlayfairDisplaySC-Italic.woff2) format("woff2");
-  }
+    @font-face {
+        font-family: 'Playfair Display SC';
+        font-style: italic;
+        font-weight: 400;
+        font-display: swap;
+        src: url(/fonts/PlayfairDisplaySC-Italic.woff2) format('woff2');
+    }
 
-  @font-face {
-    font-family: "Zen Kaku Gothic Antique";
-    font-style: normal;
-    font-weight: 300;
-    font-display: swap;
-    src: url(/fonts/ZenKakuGothicAntique-Light.woff2) format("woff2");
-  }
+    @font-face {
+        font-family: 'Zen Kaku Gothic Antique';
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+        src: url(/fonts/ZenKakuGothicAntique-Light.woff2) format('woff2');
+    }
 
-  @font-face {
-    font-family: "Zen Kaku Gothic Antique";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/fonts/ZenKakuGothicAntique-Regular.woff2) format("woff2");
-  }
+    @font-face {
+        font-family: 'Zen Kaku Gothic Antique';
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url(/fonts/ZenKakuGothicAntique-Regular.woff2) format('woff2');
+    }
 
-  @font-face {
-    font-family: "Zen Kaku Gothic Antique";
-    font-style: normal;
-    font-weight: 500;
-    font-display: swap;
-    src: url(/fonts/ZenKakuGothicAntique-Medium.woff2) format("woff2");
-  }
+    @font-face {
+        font-family: 'Zen Kaku Gothic Antique';
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url(/fonts/ZenKakuGothicAntique-Medium.woff2) format('woff2');
+    }
 
-  @font-face {
-    font-family: "Zen Kaku Gothic Antique";
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-    src: url(/fonts/ZenKakuGothicAntique-Bold.woff2) format("woff2");
-  }
+    @font-face {
+        font-family: 'Zen Kaku Gothic Antique';
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url(/fonts/ZenKakuGothicAntique-Bold.woff2) format('woff2');
+    }
 }
 
 @layer components {
-  .section-container {
-    @apply w-screen min-h-screen h-max md:h-screen relative snap-start overflow-hidden;
-  }
-  .section-title {
-    @apply text-left text-4xl font-section-title italic text-primary
-      pl-6 pt-8 md:text-[4rem] md:pl-12 md:pt-16;
-  }
-  .section-content {
-    @apply flex flex-col px-6 pt-16 pb-16 md:px-12 md:pt-24;
-  }
+    .section-container {
+        @apply relative h-max min-h-screen w-screen snap-start overflow-hidden md:h-screen;
+    }
+    .section-title {
+        @apply pl-6 pt-8 text-left font-section-title text-4xl italic text-primary md:pl-12 md:pt-16 md:text-[4rem];
+    }
+    .section-content {
+        @apply flex flex-col px-6 pb-16 pt-16 md:px-12 md:pt-24;
+    }
 
-  .second-title-stroke {
-    @apply [-webkit-text-stroke:_0.2px_black;] [paint-order:stroke_fill];
-  }
+    .second-title {
+        @apply second-title-stroke border-b border-line font-serif text-2xl font-extrabold text-primary;
+    }
+
+    .hero-bg-mobile {
+        @apply absolute left-1/2 top-1/2 z-0 h-[1000px] w-[1000px] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover lg:hidden;
+    }
+
+    .hero-bg-desktop {
+        @apply absolute left-1/2 top-0 z-0 hidden h-full -translate-x-1/2 object-cover lg:block;
+    }
+
+    .bg-gradient {
+        background: linear-gradient(to bottom, var(--gradient-colors));
+    }
+
+    @media (min-width: 768px) {
+        .bg-gradient {
+            background: linear-gradient(to right, var(--gradient-colors));
+        }
+    }
 }
 
-.hero-bg-mobile {
-  @apply absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2  z-0 object-cover w-[1000px] h-[1000px] max-w-none 
-   lg:hidden;
-}
+@layer utilities {
+    .second-title-stroke {
+        @apply [-webkit-text-stroke:_0.2px_black;] [paint-order:stroke_fill];
+    }
 
-.hero-bg-desktop {
-  @apply absolute top-0 z-0 left-1/2 -translate-x-1/2 object-cover h-full hidden lg:block;
-}
+    /* Safari 7.1+ */
 
-:root {
-  --gradient-colors: 
-    rgb(237, 231, 233) 0%,
-    rgb(109, 170, 214) 15%,
-    rgb(103, 100, 120) 65%,
-    rgb(69, 60, 60) 85%,
-    rgb(20, 20, 20) 100%;
-}
+    _::-webkit-full-page-media,
+    _:future,
+    :root .desktop-safari-modal-height {
+        height: auto;
+    }
 
-.bg-gradient {
-  background: linear-gradient(to bottom, var(--gradient-colors));
-}
-
-@media (min-width: 768px) {
-  .bg-gradient {
-    background: linear-gradient(to right, var(--gradient-colors));
-  }
-}
-
-
-/* Safari 7.1+ */
-
-_::-webkit-full-page-media, _:future, :root .desktop-safari-modal-height {
-  height: auto;
-}
-
-.bg-scrolling-element-when-modal-active {
-  /* when modal active */
-  touch-action: none;
-  -webkit-overflow-scrolling: none;
-  overflow: hidden;
-  /* Other browsers */
-  overscroll-behavior: none;
+    .bg-scrolling-element-when-modal-active {
+        /* when modal active */
+        touch-action: none;
+        -webkit-overflow-scrolling: none;
+        overflow: hidden;
+        /* Other browsers */
+        overscroll-behavior: none;
+    }
 }
