@@ -4,7 +4,7 @@ export default function AllWorks() {
     const [emblaRef] = useEmblaCarousel({ loop: true })
     return (
         <div className="mt-24 h-[90dvh] max-w-[min(calc(50svh),640px)] snap-start scroll-m-8">
-            <div className="second-title">全作品</div>
+            <div className="second-title border-0">全作品</div>
             {/* in case nest embla don't work */}
             {/* <div className="mt-2 flex h-[90%] w-full snap-x snap-mandatory flex-row justify-around gap-4 overflow-x-auto">
                 <div className="ml-4 w-11/12 shrink-0 snap-center bg-blue-500"></div>
@@ -15,14 +15,14 @@ export default function AllWorks() {
             </div>
             <div className="text-center">Scroll For More</div> */}
             <div className="mt-2 overflow-hidden" ref={emblaRef}>
-                <div className="-ml-4 flex touch-pan-y touch-pinch-zoom">
+                <div className="-ml-1 flex touch-pan-y touch-pinch-zoom">
                     {[0, 1, 2, 3].map((number) => (
                         <div
                             key={number}
-                            className="flex min-w-0 flex-[0_0_80%] pl-4"
+                            className="flex min-w-0 flex-[0_0_80%] pl-1"
                         >
                             <div className="h-[85dvh] w-full">
-                                <VerticalCarousel />
+                                <VerticalCarousel index={number} />
                             </div>
                         </div>
                     ))}
