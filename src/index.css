@@ -89,7 +89,7 @@
 
 @layer components {
     .section-container {
-        @apply relative h-max min-h-screen w-screen snap-start overflow-hidden md:h-screen;
+        @apply relative h-max min-h-screen w-screen snap-start md:h-screen;
     }
     .section-title {
         @apply pl-6 pt-8 text-left font-section-title text-4xl italic text-primary md:pl-12 md:pt-16 md:text-[4rem];
@@ -99,7 +99,7 @@
     }
 
     .second-title {
-        @apply second-title-stroke border-b border-line font-serif text-2xl font-extrabold text-primary;
+        @apply second-title-stroke border-b border-divider-line font-serif text-2xl font-extrabold text-primary;
     }
 
     .hero-bg-mobile {

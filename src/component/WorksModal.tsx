@@ -94,7 +94,7 @@ export default function WorksModal({
 
         {/* Content */}
         <div className="flex flex-col pt-12">
-          <div className="border-b border-line pb-2 font-serif text-xl text-white">
+          <div className="border-b border-divider-line pb-2 font-serif text-xl text-white">
             コンセプト
           </div>
           <div className="flex flex-col items-center gap-4 pt-4">
@@ -114,7 +114,7 @@ export default function WorksModal({
 
         {/* Members */}
         <div className="flex flex-col pt-12">
-          <div className="border-b border-line pb-2  font-serif text-xl text-white">
+          <div className="border-b border-divider-line pb-2 font-serif text-xl text-white">
             メンバー
           </div>
           <div className="grid auto-cols-fr auto-rows-fr grid-cols-2 gap-3 pt-4 font-gothic">

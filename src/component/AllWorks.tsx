@@ -1,8 +1,33 @@
+import useEmblaCarousel from 'embla-carousel-react'
+import VerticalCarousel from './VerticalCarousel'
 export default function AllWorks() {
-  return (<div className="max-w-[min(calc(50dvh),640px)]">
-  <div className="second-title-stroke border-b border-line font-serif text-2xl font-extrabold text-primary">
-        全作品
-      </div>
-    </div>
-  );
+    const [emblaRef] = useEmblaCarousel({ loop: true })
+    return (
+        <div className="mt-24 h-[90dvh] max-w-[min(calc(50svh),640px)] snap-start scroll-m-8">
+            <div className="second-title">全作品</div>
+            {/* in case nest embla don't work */}
+            {/* <div className="mt-2 flex h-[90%] w-full snap-x snap-mandatory flex-row justify-around gap-4 overflow-x-auto">
+                <div className="ml-4 w-11/12 shrink-0 snap-center bg-blue-500"></div>
+                <div className="w-11/12 shrink-0 snap-center bg-green-500"></div>
+                <div className="w-11/12 shrink-0 snap-center bg-red-500"></div>
+                <div className="mr-4 w-11/1
+                2 shrink-0 snap-center bg-yellow-500"></div>
+            </div>
+            <div className="text-center">Scroll For More</div> */}
+            <div className="mt-2 overflow-hidden" ref={emblaRef}>
+                <div className="-ml-4 flex touch-pan-y touch-pinch-zoom">
+                    {[0, 1, 2, 3].map((number) => (
+                        <div
+                            key={number}
+                            className="flex min-w-0 flex-[0_0_80%] pl-4"
+                        >
+                            <div className="h-[85dvh] w-full">
+                                <VerticalCarousel />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
 }
