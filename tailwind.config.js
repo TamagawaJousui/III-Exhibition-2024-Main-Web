@@ -34,4 +34,9 @@ export default {
         },
     },
     plugins: [tailwind3dTransformPlugin],
+    safelist: [
+        {
+            pattern: /bg-(works-.*)/,
+        },
+    ],
 }

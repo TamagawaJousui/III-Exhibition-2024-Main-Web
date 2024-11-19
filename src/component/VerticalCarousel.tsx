@@ -1,8 +1,9 @@
 import useEmblaCarousel from 'embla-carousel-react'
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { EmblaCarouselType } from 'embla-carousel'
 import { placeList, placeColorPalette } from '@/models/place'
 import { workList } from '@/models/works'
+import WorksModal from './WorksModal'
 
 // import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
 
@@ -16,6 +17,19 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
     const bgColor = `bg-${placeColorPalette[place]}`
     const progressBarRef = useRef<HTMLDivElement>(null)
     const slides = workList.filter((work) => work.place === place)
+
+    const [selectedIndex, setSelectedIndex] = useState(0)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const workData = slides[selectedIndex]
+
+    const showModalDetail = () => {
+        setIsModalOpen(true)
+    }
+    const hideModalDetail = () => {
+        setIsModalOpen(false)
+    }
+
+    const workName = slides[selectedIndex].title
 
     const [emblaRef, emblaApi] = useEmblaCarousel(
         {
@@ -91,6 +105,8 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
                     next2.style.opacity = '0.4'
                 }
             }
+
+            setSelectedIndex(selectedScrollSnap - 2)
         },
         [emblaApi]
     )
@@ -138,12 +154,13 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
                             <div
                                 key={slide.title}
                                 className="my-1 flex min-h-0 w-full flex-[0_0_100%] items-center justify-center"
+                                onClick={showModalDetail}
                             >
                                 <div className="relative aspect-square h-full rounded-3xl">
                                     <img
                                         src={slide.imagePath}
                                         alt={slide.title}
-                                        className='rounded-3xl'
+                                        className="rounded-3xl"
                                     />
                                 </div>
                             </div>
@@ -204,7 +221,18 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
                 </div>
             </div>
             {/* footer */}
-            <div className="h-12 w-full bg-black"></div>
+            <div className="flex h-12 w-full items-center justify-center">
+                <div className="bg-works-carousel-progress h-1 w-1 rounded-full drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"></div>
+                <div className="second-title-stroke mx-2 break-keep text-center font-works-title text-lg font-semibold italic text-white">
+                    {workName}
+                </div>
+                <div className="bg-works-carousel-progress h-1 w-1 rounded-full drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"></div>
+            </div>
+            <WorksModal
+                visible={isModalOpen}
+                workData={workData}
+                onClose={hideModalDetail}
+            />
         </div>
     )
 }

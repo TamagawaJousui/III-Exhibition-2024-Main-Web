@@ -362,7 +362,7 @@ export const workList = [
     imagePath: "/works/champloo.webp",
   },
   {
-    title: "帝大下水（閉店しました）",
+    title: "帝大下水\u200B（閉店しました）",
     member: ["あんどうやすし", "十河翔"],
     place: "情報学環オープンスタジオ",
     description: {
