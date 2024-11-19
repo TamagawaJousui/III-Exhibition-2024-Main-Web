@@ -1,7 +1,13 @@
 import useEmblaCarousel from 'embla-carousel-react'
 import VerticalCarousel from './VerticalCarousel'
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
+
 export default function AllWorks() {
-    const [emblaRef] = useEmblaCarousel({ loop: true })
+    const [emblaRef] = useEmblaCarousel({ loop: true, skipSnaps: true }, 
+        // [
+        // WheelGesturesPlugin(),
+        // ]
+    )
     return (
         <div className="mt-24 h-[90dvh] max-w-[min(calc(50svh),640px)] snap-start scroll-m-8">
             <div className="second-title border-0">全作品</div>
@@ -19,7 +25,7 @@ export default function AllWorks() {
                     {[0, 1, 2, 3].map((number) => (
                         <div
                             key={number}
-                            className="flex min-w-0 flex-[0_0_80%] pl-1"
+                            className="ml-1 flex min-w-0 flex-[0_0_80%]"
                         >
                             <div className="h-[85dvh] w-full">
                                 <VerticalCarousel index={number} />
