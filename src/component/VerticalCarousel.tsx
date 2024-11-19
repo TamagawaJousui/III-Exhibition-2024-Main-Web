@@ -220,7 +220,7 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
                         </div>
 
                         {/* down arrow */}
-                        <div className="text-works-carousel-progress flex h-5 w-5 items-end">
+                        <div className="text-works-carousel-progress flex h-5 w-5 flex-col justify-end">
                             <svg viewBox="0 0 14 11" fill="none">
                                 <path
                                     d="M2.47809 2.4005L6.67264 7.13281L10.8672 2.4005"
