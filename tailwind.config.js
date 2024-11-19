@@ -20,7 +20,8 @@ export default {
                 'works-carousel-exhibition': '#BE9783',
                 'works-carousel-sky': '#A0B5A0',
                 'works-carousel-open': '#B89393',
-                'works-carousel-placeholder': '#FFFCF5B3',
+                'works-carousel-progress': '#FFFCF5B3',
+                'works-carousel-progress-line': '#C5C4CC',
             },
         },
         fontFamily: {

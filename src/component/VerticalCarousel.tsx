@@ -1,5 +1,5 @@
 import useEmblaCarousel from 'embla-carousel-react'
-import { useCallback, useEffect } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { EmblaCarouselType } from 'embla-carousel'
 
 // import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
@@ -40,6 +40,7 @@ const getPlace = (index: number) => {
 export default function VerticalCarousel({ index }: VerticalCarouselProps) {
     const place = getPlace(index)
     const bgColor = getBgColor(index)
+    const progressBarRef = useRef<HTMLDivElement>(null)
 
     const [emblaRef, emblaApi] = useEmblaCarousel(
         {
@@ -56,7 +57,32 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
             const selectedScrollSnap = emblaApi.selectedScrollSnap()
             const slidesCount = emblaApi.slideNodes().length
 
-            // 处理边界情况
+            // Update progress bar position
+            if (progressBarRef.current) {
+                const scrollProgress = emblaApi.scrollProgress()
+                const totalSlides = emblaApi.slideNodes().length
+
+                const actualProgress = Math.max(
+                    0,
+                    Math.min(
+                        1,
+                        (Math.round(scrollProgress * totalSlides) - 2) /
+                            (totalSlides - 4)
+                    )
+                )
+
+                const topPosition = actualProgress * 75
+                progressBarRef.current.style.top = `${topPosition}%`
+
+                console.log(
+                    scrollProgress,
+                    scrollProgress * totalSlides,
+                    actualProgress,
+                    topPosition
+                )
+            }
+
+            // scroll back when overscroll
             if (selectedScrollSnap <= 1) {
                 emblaApi.scrollTo(2)
                 return
@@ -158,36 +184,55 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
                     <PlaceHolder />
                 </div>
                 {/* progress bar */}
-            <div className="absolute right-6 flex h-full flex-col justify-center">
-                <div className="flex flex-col items-center gap-2">
-                    {/* up arrow */}
-                    <div className="h-4 w-4">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 4l-8 8h16l-8-8z" />
-                        </svg>
-                    </div>
+                <div className="absolute right-4 flex h-full flex-col justify-center">
+                    <div className="flex h-2/5 flex-col items-center justify-between gap-4">
+                        {/* up arrow */}
+                        <div className="text-works-carousel-progress h-5 w-5">
+                            <svg viewBox="0 0 14 11" fill="none">
+                                <path
+                                    d="M10.8672 7.13281L6.67264 2.4005L2.47809 7.13281"
+                                    stroke="currentColor"
+                                    strokeWidth="2.1"
+                                    strokeLinecap="round"
+                                    className="drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
+                                />
+                            </svg>
+                        </div>
 
-                    {/* vertical line */}
-                    <div className="h-32 w-[2px] bg-gray-400"></div>
-
-                    {/* dots */}
-                    <div className="flex flex-col gap-1.5">
-                        {[...Array(10)].map((_, i) => (
+                        {/* dots container */}
+                        <div className="relative flex flex-1 flex-col justify-between gap-1">
+                            {/* moving line */}
                             <div
-                                key={i}
-                                className="h-1 w-1 rounded-full bg-gray-400"
-                            ></div>
-                        ))}
-                    </div>
+                                ref={progressBarRef}
+                                className="bg-works-carousel-progress-line absolute left-1/2 z-10 h-[25%] w-1 -translate-x-1/2 rounded-full"
+                                style={{
+                                    top: '0%',
+                                    transition: 'top 0.3s ease',
+                                }}
+                            />
 
-                    {/* down arrow */}
-                    <div className="h-4 w-4">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 20l-8-8h16l-8 8z" />
-                        </svg>
+                            {[...Array(16)].map((_, i) => (
+                                <div
+                                    key={i}
+                                    className="bg-works-carousel-progress h-1 w-1 rounded-full drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
+                                ></div>
+                            ))}
+                        </div>
+
+                        {/* down arrow */}
+                        <div className="text-works-carousel-progress flex h-5 w-5 items-end">
+                            <svg viewBox="0 0 14 11" fill="none">
+                                <path
+                                    d="M2.47809 2.4005L6.67264 7.13281L10.8672 2.4005"
+                                    stroke="currentColor"
+                                    strokeWidth="2.1"
+                                    strokeLinecap="round"
+                                    className="drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
+                                />
+                            </svg>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     )
