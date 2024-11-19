@@ -1,6 +1,6 @@
 import useEmblaCarousel from 'embla-carousel-react'
 import VerticalCarousel from './VerticalCarousel'
-import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
+// import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
 
 export default function AllWorks() {
     const [emblaRef] = useEmblaCarousel({ loop: true, skipSnaps: true }, 

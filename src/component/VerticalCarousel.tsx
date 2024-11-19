@@ -2,7 +2,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import { useCallback, useEffect } from 'react'
 import { EmblaCarouselType } from 'embla-carousel'
 
-import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
+// import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
 
 interface VerticalCarouselProps {
     index: number
@@ -124,7 +124,8 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
     }, [emblaApi])
 
     return (
-        <div className="border-divider-line size-full border">
+        <div className="border-divider-line relative size-full border">
+            {/* title */}
             <div
                 className={`h-12 w-full ${bgColor} flex items-center justify-center`}
             >
@@ -156,6 +157,37 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
                     <PlaceHolder />
                     <PlaceHolder />
                 </div>
+                {/* progress bar */}
+            <div className="absolute right-6 flex h-full flex-col justify-center">
+                <div className="flex flex-col items-center gap-2">
+                    {/* up arrow */}
+                    <div className="h-4 w-4">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 4l-8 8h16l-8-8z" />
+                        </svg>
+                    </div>
+
+                    {/* vertical line */}
+                    <div className="h-32 w-[2px] bg-gray-400"></div>
+
+                    {/* dots */}
+                    <div className="flex flex-col gap-1.5">
+                        {[...Array(10)].map((_, i) => (
+                            <div
+                                key={i}
+                                className="h-1 w-1 rounded-full bg-gray-400"
+                            ></div>
+                        ))}
+                    </div>
+
+                    {/* down arrow */}
+                    <div className="h-4 w-4">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 20l-8-8h16l-8 8z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
             </div>
         </div>
     )
