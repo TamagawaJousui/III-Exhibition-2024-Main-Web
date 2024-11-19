@@ -46,7 +46,6 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
         {
             axis: 'y',
             skipSnaps: true,
-            startIndex: 2,
         }
         // [WheelGesturesPlugin()]
     )
@@ -59,27 +58,11 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
 
             // Update progress bar position
             if (progressBarRef.current) {
-                const scrollProgress = emblaApi.scrollProgress()
-                const totalSlides = emblaApi.slideNodes().length
-
-                const actualProgress = Math.max(
-                    0,
-                    Math.min(
-                        1,
-                        (Math.round(scrollProgress * totalSlides) - 2) /
-                            (totalSlides - 4)
-                    )
-                )
+                const actualProgress =
+                    (selectedScrollSnap - 2) / (slidesCount - 5)
 
                 const topPosition = actualProgress * 75
                 progressBarRef.current.style.top = `${topPosition}%`
-
-                console.log(
-                    scrollProgress,
-                    scrollProgress * totalSlides,
-                    actualProgress,
-                    topPosition
-                )
             }
 
             // scroll back when overscroll
@@ -141,9 +124,10 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
         if (!emblaApi) return
 
         emblaApi.on('select', onSelect)
+        setTimeout(() => {
+            emblaApi.scrollTo(2)
+        }, 300)
 
-        // emblaApi.scrollTo(2, true)
-        onSelect(emblaApi)
         return () => {
             emblaApi.off('select', onSelect)
         }
