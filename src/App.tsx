@@ -1,11 +1,12 @@
 import "./App.css";
-import HeroArea from "./component/HeroArea";
-import Concept from "./component/Concept";
-import Works from "./component/Works";
-import Access from "./component/Access";
-import Announce from "./component/Announce";
-import Members from "./component/Members";
-import Archives from "./component/Archives";
+import { lazy } from 'react';
+const HeroArea = lazy(() => import("./component/HeroArea"));
+const Concept = lazy(() => import("./component/Concept"));
+const Works = lazy(() => import("./component/Works"));
+const Access = lazy(() => import("./component/Access"));
+const Announce = lazy(() => import("./component/Announce"));
+const Members = lazy(() => import("./component/Members"));
+const Archives = lazy(() => import("./component/Archives"));
 
 function App() {
   return (
