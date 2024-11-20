@@ -5,7 +5,7 @@ export default function Concept() {
     <section className="section-container w-screen">
       <div className="section-title">CONCEPT</div>
       <div className="section-content">
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 md:gap-12">
           {conceptData.ja.map((item) => (
             <div
               key={item}
@@ -15,8 +15,8 @@ export default function Concept() {
             </div>
           ))}
         </div>
-        <div className="h-16"></div>
-        <div className="flex flex-col gap-4 snap-start scroll-m-16">
+        <div className="h-16 md:h-24"></div>
+        <div className="flex flex-col gap-4 snap-start scroll-m-16 md:gap-8">
           {conceptData.en.map((item) => (
             <div
               key={item}
