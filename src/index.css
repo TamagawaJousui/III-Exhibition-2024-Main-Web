@@ -89,7 +89,7 @@
 
 @layer components {
     .section-container {
-        @apply relative h-max min-h-screen w-screen snap-start md:h-screen;
+        @apply relative h-max min-h-screen min-w-[100vw] w-screen md:w-fit snap-start md:h-screen;
     }
     .section-title {
         @apply pl-6 pt-8 text-left font-section-title text-4xl italic text-primary md:pl-12 md:pt-16 md:text-[4rem];

@@ -38,8 +38,10 @@ export default function PickUps() {
         setIsModalOpen(false)
     }
     return (
-        <div className="flex w-full flex-col items-center">
-            <div className="second-title w-full snap-start scroll-m-2">ピックアップ</div>
+        <div className="flex w-full flex-col items-center md:max-w-screen-sm md:items-start">
+            <div className="second-title w-full max-w-[min(calc(50svh),768px,100%)] snap-start scroll-m-2">
+                ピックアップ
+            </div>
             <div className="h-2"></div>
             <div className="max-w-[min(calc(50svh),768px,100%)]">
                 <div className="overflow-hidden" ref={emblaRef}>

@@ -32,7 +32,7 @@ export default function HeroArea() {
     })
 
     return (
-        <section className="section-container h-svh min-h-svh overflow-hidden">
+        <section className="section-container w-screen h-svh min-h-svh overflow-hidden">
             {showParticles ? (
                 <>
                     <Title />

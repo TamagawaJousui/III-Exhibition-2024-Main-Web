@@ -22,16 +22,16 @@ export default function AllWorks() {
         })
     }, [emblaApi])
     return (
-        <div className="mt-24 h-[90dvh] snap-start scroll-m-4">
+        <div className="mt-24 h-[90dvh] snap-start scroll-m-4 md:w-screen md:mt-0 md:h-[75dvh] md:ml-4">
             <div className="second-title border-0">全作品</div>
             <div className="mt-2 overflow-hidden" ref={emblaRef}>
                 <div className="-ml-1 flex touch-pan-y touch-pinch-zoom">
                     {placeList.map((place, index) => (
                         <div
                             key={place}
-                            className="ml-1 flex min-w-0 flex-[0_0_80%]"
+                            className="ml-1 flex min-w-0 flex-[0_0_80%] md:flex-[0_0_400px]"
                         >
-                            <div className="h-[85dvh] w-full">
+                            <div className="h-[85dvh] w-full md:h-[70dvh]">
                                 <VerticalCarousel
                                     index={index}
                                     inView={inViewCarousel === index}
