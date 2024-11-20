@@ -10,9 +10,13 @@ import WorksModal from './WorksModal'
 interface VerticalCarouselProps {
     // should be 0-3
     index: number
+    inView: boolean
 }
 
-export default function VerticalCarousel({ index }: VerticalCarouselProps) {
+export default function VerticalCarousel({
+    index,
+    inView,
+}: VerticalCarouselProps) {
     const place = placeList[index]
     const bgColor = `bg-${placeColorPalette[place]}`
     const progressBarRef = useRef<HTMLDivElement>(null)
@@ -125,13 +129,13 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
     }, [emblaApi])
 
     return (
-        <div className="border-divider-line relative size-full border">
+        <div className="relative size-full border border-divider-line">
             {/* title */}
             <div
                 className={`h-12 w-full ${bgColor} flex items-center justify-center`}
             >
                 <div
-                    className={`text-works-carousel-title whitespace-pre-wrap text-center font-serif font-medium ${
+                    className={`whitespace-pre-wrap text-center font-serif font-medium text-works-carousel-title ${
                         place === placeList[2]
                             ? 'text-base leading-4'
                             : 'text-xl'
@@ -143,11 +147,11 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
             {/* embla__viewport */}
             <div className="h-[calc(100%-6rem)] w-full">
                 <div
-                    className="perspective-400 perspective-origin-center flex h-full w-full items-center justify-center overflow-hidden"
+                    className="flex h-full w-full items-center justify-center overflow-hidden perspective-origin-center perspective-400"
                     ref={emblaRef}
                 >
                     {/* embla__container */}
-                    <div className="transform-style-3d flex h-1/3 w-full touch-pan-x touch-pinch-zoom flex-col items-center">
+                    <div className="flex h-1/3 w-full touch-pan-x touch-pinch-zoom flex-col items-center transform-style-3d">
                         <PlaceHolder />
                         <PlaceHolder />
                         {slides.map((slide) => (
@@ -169,10 +173,14 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
                         <PlaceHolder />
                     </div>
                     {/* progress bar */}
-                    <div className="absolute right-4 flex h-full flex-col justify-center">
+                    <div
+                        className={`absolute right-4 flex h-full flex-col justify-center ${
+                            !inView ? 'hidden' : ''
+                        }`}
+                    >
                         <div className="flex h-2/5 flex-col items-center justify-between gap-4">
                             {/* up arrow */}
-                            <div className="text-works-carousel-progress h-5 w-5">
+                            <div className="h-5 w-5 text-works-carousel-progress">
                                 <svg viewBox="0 0 14 11" fill="none">
                                     <path
                                         d="M10.8672 7.13281L6.67264 2.4005L2.47809 7.13281"
@@ -189,7 +197,7 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
                                 {/* moving line */}
                                 <div
                                     ref={progressBarRef}
-                                    className="bg-works-carousel-progress-line absolute left-1/2 z-10 h-[25%] w-1 -translate-x-1/2 rounded-full"
+                                    className="absolute left-1/2 z-10 h-[25%] w-1 -translate-x-1/2 rounded-full bg-works-carousel-progress-line"
                                     style={{
                                         top: '0%',
                                         transition: 'top 0.3s ease',
@@ -199,13 +207,13 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
                                 {[...Array(16)].map((_, i) => (
                                     <div
                                         key={i}
-                                        className="bg-works-carousel-progress h-1 w-1 rounded-full drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
+                                        className="h-1 w-1 rounded-full bg-works-carousel-progress drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
                                     ></div>
                                 ))}
                             </div>
 
                             {/* down arrow */}
-                            <div className="text-works-carousel-progress flex h-5 w-5 flex-col justify-end">
+                            <div className="flex h-5 w-5 flex-col justify-end text-works-carousel-progress">
                                 <svg viewBox="0 0 14 11" fill="none">
                                     <path
                                         d="M2.47809 2.4005L6.67264 7.13281L10.8672 2.4005"
@@ -218,15 +226,51 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
                             </div>
                         </div>
                     </div>
+                    {/* scroll arrow */}
+
+                    <div
+                        className={`absolute left-3 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 opacity-30 ${
+                            inView ? 'hidden' : ''
+                        }`}
+                    >
+                        <div className="h-5 w-5 text-works-carousel-progress">
+                            <svg viewBox="0 0 14 11" fill="none">
+                                <path
+                                    d="M10.8672 7.13281L6.67264 2.4005L2.47809 7.13281"
+                                    stroke="currentColor"
+                                    strokeWidth="2.1"
+                                    strokeLinecap="round"
+                                    className="drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
+                                />
+                            </svg>
+                        </div>
+                    </div>
+                    <div
+                        className={`absolute right-3 top-1/2 -translate-y-1/2 translate-x-1/2 -rotate-90 opacity-30 ${
+                            inView ? 'hidden' : ''
+                        }`}
+                    >
+                        <div className="h-5 w-5 text-works-carousel-progress">
+                            <svg viewBox="0 0 14 11" fill="none">
+                                <path
+                                    d="M10.8672 7.13281L6.67264 2.4005L2.47809 7.13281"
+                                    stroke="currentColor"
+                                    strokeWidth="2.1"
+                                    strokeLinecap="round"
+                                    className="drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
+                                />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
             {/* footer */}
             <div className="flex h-12 w-full items-center justify-center">
-                <div className="bg-works-carousel-progress h-1 w-1 rounded-full drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"></div>
+                <div className="h-1 w-1 rounded-full bg-works-carousel-progress drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"></div>
                 <div className="second-title-stroke mx-2 break-keep text-center font-works-title text-lg font-semibold italic text-white">
                     {workName}
                 </div>
-                <div className="bg-works-carousel-progress h-1 w-1 rounded-full drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"></div>
+                <div className="h-1 w-1 rounded-full bg-works-carousel-progress drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"></div>
             </div>
             <WorksModal
                 visible={isModalOpen}

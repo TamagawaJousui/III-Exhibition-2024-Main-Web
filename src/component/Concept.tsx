@@ -16,7 +16,7 @@ export default function Concept() {
           ))}
         </div>
         <div className="h-16"></div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-4 snap-start scroll-m-16">
           {conceptData.en.map((item) => (
             <div
               key={item}

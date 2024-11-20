@@ -114,6 +114,23 @@
         background: linear-gradient(to bottom, var(--gradient-colors));
     }
 
+    .pickup-title {
+        @apply w-fit break-keep border-b border-pickup-text pb-2 font-works-title text-2xl italic;
+    }
+
+    .pickup-member {
+        @apply pt-2 font-gothic text-base;
+    }
+
+    @media (max-height: 600px) {
+        .pickup-title {
+            @apply text-xl;
+        }
+        .pickup-member {
+            @apply text-sm;
+        }
+    }
+
     @media (min-width: 768px) {
         .bg-gradient {
             background: linear-gradient(to right, var(--gradient-colors));
