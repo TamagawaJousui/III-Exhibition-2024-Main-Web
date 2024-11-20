@@ -89,7 +89,7 @@
 
 @layer components {
     .section-container {
-        @apply relative h-max min-h-screen min-w-[100vw] w-screen md:w-fit snap-start md:h-screen;
+        @apply relative h-max min-h-screen w-screen min-w-[100vw] snap-start md:h-screen md:w-fit;
     }
     .section-title {
         @apply pl-6 pt-8 text-left font-section-title text-4xl italic text-primary md:pl-12 md:pt-16 md:text-[4rem];
@@ -100,6 +100,14 @@
 
     .second-title {
         @apply second-title-stroke border-b border-divider-line font-serif text-2xl font-extrabold text-primary;
+    }
+
+    .access-title {
+        @apply stroke-text inline-block w-fit self-center border-0 border-b-[1px] border-solid border-white border-opacity-40 font-serif font-extrabold text-3xl leading-[1.5];
+    }
+
+    .stroke-text {
+        @apply [-webkit-text-stroke:_0.7px_#000000;] [paint-order:stroke_fill];
     }
 
     .hero-bg-mobile {
