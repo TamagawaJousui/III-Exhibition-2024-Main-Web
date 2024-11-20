@@ -1,5 +1,5 @@
-import map from '@/assets/access/map.webp'
-import { trainInfo } from '@/models/access'
+// import map from '@/assets/access/map.webp'
+// import { trainInfo } from '@/models/access'
 
 export default function Access() {
     return (
