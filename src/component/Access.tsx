@@ -4,7 +4,7 @@ import { trainInfo } from '@/models/access'
 export default function Access() {
     return (
         <section className="section-container md:w-screen md:h-screen md:overflow-hidden">
-            <div className="section-title">Access</div>
+            <div className="section-title">ACCESS</div>
             <div className="section-content">
                 <div className="grid h-fit w-full grid-cols-1 gap-8 text-primary md:grid-flow-col md:grid-cols-2 md:grid-rows-3 md:gap-4 xl:gap-8">
                     <div className="flex items-center justify-center md:col-span-2 xl:col-span-1 xl:row-span-2">
