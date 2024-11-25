@@ -14,18 +14,18 @@ import { useEffect, useState } from 'react'
 import Title from './Particles/Title/Title'
 import TitleEnglish from './Particles/TitleEnglish/TitleEnglish'
 import DateAndVenue from './Particles/DateAndVenue/DateAndVenue'
+import { isWebGlCapable } from '@/utils/CheckUserEnv'
 
 export default function HeroArea() {
     const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`)
     const [showParticles, setShowParticles] = useState(
-        // mediaQuery.matches && isWebGlCapable()
-        false
+        mediaQuery.matches && isWebGlCapable()
+
     )
 
     useEffect(() => {
         const handleMediaChange = () => {
-            // setShowParticles(mediaQuery.matches && isWebGlCapable());
-            setShowParticles(false)
+            setShowParticles(mediaQuery.matches && isWebGlCapable())
         }
         mediaQuery.addEventListener('change', handleMediaChange)
         return () => mediaQuery.removeEventListener('change', handleMediaChange)
