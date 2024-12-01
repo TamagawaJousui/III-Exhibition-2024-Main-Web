@@ -54,7 +54,7 @@
     }
 
     .second-title {
-        @apply second-title-stroke border-b border-divider-line font-serif text-2xl font-extrabold text-primary;
+        @apply second-title-stroke pb-2 border-b border-divider-line font-serif text-2xl font-extrabold text-primary;
     }
 
     .access-title {

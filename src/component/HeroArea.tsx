@@ -7,7 +7,6 @@ import background_desktop from '@/assets/heroarea/background_desktop.webp'
 
 import MainVisual from './Particles/MainVisual/MainVisual'
 
-// import { isWebGlCapable } from "@/utils/CheckUserEnv";
 import { breakpoint } from '@/utils/BreakPoint'
 import { useEffect, useState } from 'react'
 
@@ -20,7 +19,6 @@ export default function HeroArea() {
     const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`)
     const [showParticles, setShowParticles] = useState(
         mediaQuery.matches && isWebGlCapable()
-
     )
 
     useEffect(() => {
@@ -32,8 +30,8 @@ export default function HeroArea() {
     })
 
     return (
-        <section className="section-container w-screen h-svh min-h-svh overflow-hidden">
-            {showParticles ? (
+        <section className="section-container h-svh min-h-svh w-screen overflow-hidden">
+            {false ? (
                 <>
                     <Title />
                     <TitleEnglish />
