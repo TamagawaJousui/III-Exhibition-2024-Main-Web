@@ -9,7 +9,7 @@ export default function Archives() {
   return (
     <section className="section-container">
       <div className="section-title">ARCHIVES</div>
-      <div className="section-content grid gap-16 md:grid-flow-row md:grid-cols-[minmax(0,_500px)_minmax(0,_550px)] 2xl:grid-cols-[minmax(0,_768px)_minmax(0,_768px)]">
+      <div className="section-content grid gap-16 md:grid-flow-row md:grid-cols-[minmax(0,_500px)_minmax(0,_550px)] md:pt-16 2xl:grid-cols-[minmax(0,_768px)_minmax(0,_768px)]">
         <div className="max-w-screen-sm 2xl:max-w-none">
           <div className="second-title text-2xl md:text-3xl 2xl:text-4xl">
             EXTRA
@@ -33,7 +33,7 @@ export default function Archives() {
         </div>
         <div className="max-w-screen-sm md:pt-0 2xl:max-w-none">
           <div className="second-title text-2xl md:text-3xl 2xl:text-4xl">
-            MAIN
+            III Exhibition
           </div>
           <nav className="pt-4 font-gothic text-base text-primary md:text-lg 2xl:text-2xl">
             <ul className="flex flex-col gap-4 md:gap-6">
