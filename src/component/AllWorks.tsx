@@ -1,45 +1,22 @@
-import useEmblaCarousel from "embla-carousel-react";
 import VerticalCarousel from "./VerticalCarousel";
 import { placeList } from "@/models/place";
-import { useEffect, useState } from "react";
 // import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
 
 export default function AllWorks() {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, skipSnaps: true }
-    // [
-    // WheelGesturesPlugin(),
-    // ]
-  );
-  const [inViewCarousel, setInViewCarousel] = useState(0);
-
-  useEffect(() => {
-    if (!emblaApi) {
-      return;
-    }
-    emblaApi.on("select", () => {
-      setInViewCarousel(emblaApi.selectedScrollSnap());
-    });
-  }, [emblaApi]);
   return (
-    <div className="mt-24 h-[90dvh] snap-start scroll-m-4 md:ml-4 md:mt-0 md:h-[75dvh] md:w-screen">
+    <div className="md: mt-24 snap-start scroll-m-4 md:ml-8 md:mt-0">
       <div className="second-title border-0">全作品</div>
-      <div className="mt-2 overflow-hidden" ref={emblaRef}>
-        <div className="-ml-1 flex touch-pan-y touch-pinch-zoom">
-          {placeList.map((place, index) => (
-            <div
-              key={place}
-              className="ml-1 flex min-w-0 flex-[0_0_80%] md:flex-[0_0_400px]"
-            >
-              <div className="h-[85dvh] w-full md:h-[70dvh]">
-                <VerticalCarousel
-                  index={index}
-                  inView={inViewCarousel === index}
-                />
-              </div>
+      <div className="flex flex-col gap-8 pt-4 md:max-w-[1800px] md:flex-row md:overflow-hidden md:pt-0">
+        {placeList.map((place, index) => (
+          <div
+            key={place}
+            className="ml-1 flex min-w-0 flex-[0_0_80%] snap-start scroll-m-4 md:flex-[0_0_400px]"
+          >
+            <div className="h-[80vh] w-full">
+              <VerticalCarousel index={index} />
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
     </div>
   );

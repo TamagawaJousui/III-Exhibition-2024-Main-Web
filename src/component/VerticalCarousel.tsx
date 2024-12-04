@@ -10,13 +10,9 @@ import WorksModal from "./WorksModal";
 interface VerticalCarouselProps {
   // should be 0-3
   index: number;
-  inView: boolean;
 }
 
-export default function VerticalCarousel({
-  index,
-  inView,
-}: VerticalCarouselProps) {
+export default function VerticalCarousel({ index }: VerticalCarouselProps) {
   const place = placeList[index];
   const bgColor = `bg-${placeColorPalette[place]}`;
   const progressBarRef = useRef<HTMLDivElement>(null);
@@ -115,11 +111,11 @@ export default function VerticalCarousel({
 
     emblaApi.on("select", onSelect);
     setTimeout(() => {
-      emblaApi.scrollTo(2);
+      emblaApi.scrollTo(4);
     }, 300);
 
     return () => {
-      emblaApi.off("select", onSelect);
+      // emblaApi.off("select", onSelect);
     };
   }, [emblaApi, onSelect]);
 
@@ -130,7 +126,7 @@ export default function VerticalCarousel({
         className={`h-12 w-full ${bgColor} flex items-center justify-center`}
       >
         <div
-          className={`whitespace-pre-wrap text-center font-serif font-medium text-works-carousel-title ${
+          className={`whitespace-pre-wrap text-center font-serif font-medium text-primary ${
             place === placeList[2] ? "text-base leading-4" : "text-xl"
           } `}
         >
@@ -144,7 +140,7 @@ export default function VerticalCarousel({
           ref={emblaRef}
         >
           {/* embla__container */}
-          <div className="flex h-1/3 w-full touch-pan-x touch-pinch-zoom flex-col items-center transform-style-3d">
+          <div className="flex h-1/3 w-full flex-col items-center transform-style-3d">
             <PlaceHolder />
             <PlaceHolder />
             {slides.map((slide) => (
@@ -166,25 +162,8 @@ export default function VerticalCarousel({
             <PlaceHolder />
           </div>
           {/* progress bar */}
-          <div
-            className={`absolute right-4 flex h-full flex-col justify-center ${
-              !inView ? "hidden" : ""
-            }`}
-          >
+          <div className="absolute right-4 flex h-full flex-col justify-center">
             <div className="flex h-2/5 flex-col items-center justify-between gap-4">
-              {/* up arrow */}
-              <div className="size-5 text-works-carousel-progress">
-                <svg viewBox="0 0 14 11" fill="none">
-                  <path
-                    d="M10.8672 7.13281L6.67264 2.4005L2.47809 7.13281"
-                    stroke="currentColor"
-                    strokeWidth="2.1"
-                    strokeLinecap="round"
-                    className="drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
-                  />
-                </svg>
-              </div>
-
               {/* dots container */}
               <div className="relative flex flex-1 flex-col justify-between gap-1">
                 {/* moving line */}
@@ -204,55 +183,6 @@ export default function VerticalCarousel({
                   ></div>
                 ))}
               </div>
-
-              {/* down arrow */}
-              <div className="flex size-5 flex-col justify-end text-works-carousel-progress">
-                <svg viewBox="0 0 14 11" fill="none">
-                  <path
-                    d="M2.47809 2.4005L6.67264 7.13281L10.8672 2.4005"
-                    stroke="currentColor"
-                    strokeWidth="2.1"
-                    strokeLinecap="round"
-                    className="drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
-          {/* scroll arrow */}
-
-          <div
-            className={`absolute left-3 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 opacity-30 ${
-              inView ? "hidden" : ""
-            }`}
-          >
-            <div className="size-5 text-works-carousel-progress">
-              <svg viewBox="0 0 14 11" fill="none">
-                <path
-                  d="M10.8672 7.13281L6.67264 2.4005L2.47809 7.13281"
-                  stroke="currentColor"
-                  strokeWidth="2.1"
-                  strokeLinecap="round"
-                  className="drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
-                />
-              </svg>
-            </div>
-          </div>
-          <div
-            className={`absolute right-3 top-1/2 -translate-y-1/2 translate-x-1/2 -rotate-90 opacity-30 ${
-              inView ? "hidden" : ""
-            }`}
-          >
-            <div className="size-5 text-works-carousel-progress">
-              <svg viewBox="0 0 14 11" fill="none">
-                <path
-                  d="M10.8672 7.13281L6.67264 2.4005L2.47809 7.13281"
-                  stroke="currentColor"
-                  strokeWidth="2.1"
-                  strokeLinecap="round"
-                  className="drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
-                />
-              </svg>
             </div>
           </div>
         </div>
