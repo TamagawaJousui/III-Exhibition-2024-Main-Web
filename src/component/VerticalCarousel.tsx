@@ -5,8 +5,6 @@ import { placeList, placeColorPalette } from "@/models/place";
 import { workList } from "@/models/works";
 import WorksModal from "./WorksModal";
 
-// import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
-
 interface VerticalCarouselProps {
   // should be 0-3
   index: number;
@@ -31,13 +29,10 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
 
   const workName = slides[selectedIndex].title;
 
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    {
-      axis: "y",
-      skipSnaps: true,
-    }
-    // [WheelGesturesPlugin()]
-  );
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    axis: "y",
+    skipSnaps: true,
+  });
 
   const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
     if (!emblaApi) return;
@@ -115,7 +110,7 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
     }, 300);
 
     return () => {
-      // emblaApi.off("select", onSelect);
+      emblaApi.off("select", onSelect);
     };
   }, [emblaApi, onSelect]);
 
