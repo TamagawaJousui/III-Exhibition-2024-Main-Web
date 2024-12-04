@@ -58,11 +58,7 @@
   }
 
   .access-title {
-    @apply stroke-text inline-block w-fit self-center border-0 border-b-[1px] border-solid border-white border-opacity-40 font-serif text-3xl font-extrabold leading-[1.5];
-  }
-
-  .stroke-text {
-    @apply [-webkit-text-stroke:_0.7px_#000000;] [paint-order:stroke_fill];
+    @apply second-title-stroke w-fit border-b border-divider-line pb-2 font-serif text-2xl font-extrabold lg:text-3xl;
   }
 
   .hero-bg-mobile {
