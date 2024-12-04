@@ -15,7 +15,7 @@ export default function Announce() {
             className="max-h-40 w-auto rounded-xl object-contain"
           />
         </div>
-        <div className="flex flex-col gap-8 pt-8 font-gothic text-primary md:text-lg">
+        <div className="flex flex-col gap-8 pt-8 font-gothic text-base  text-primary md:text-lg">
           <p>
             この度、東京大学制作展は企画や運営、制作活動を担う学生たちの活動の
             幅を広げ、支援することを目的とする新たな基金を設置いたします。
