@@ -9,7 +9,7 @@ export default function Concept() {
           {conceptData.ja.map((item) => (
             <div
               key={item}
-              className="font-concept-ja text-lg font-semibold text-primary sm:whitespace-pre-wrap md:text-2xl lg:text-3xl"
+              className="font-concept-ja text-lg font-semibold text-primary sm:whitespace-pre-wrap sm:text-2xl"
             >
               {item}
             </div>
@@ -20,7 +20,7 @@ export default function Concept() {
           {conceptData.en.map((item) => (
             <div
               key={item}
-              className="font-concept-en text-lg font-light text-primary sm:whitespace-pre-wrap md:text-2xl lg:text-3xl"
+              className="font-concept-en text-lg font-light text-primary sm:whitespace-pre-wrap sm:text-2xl"
             >
               {item}
             </div>
