@@ -36,17 +36,17 @@ export default function Header() {
 
   return (
     <div className="fixed z-20 flex w-full items-center justify-between px-3 pt-1 font-header italic backdrop-blur-[2px]">
+      {/* Title */}
       <div className="text-xl md:text-lg lg:text-xl">
-        III EXHIBITION{" "}
-        <span className="text-[1.5rem] leading-3 md:text-lg lg:text-xl">
-          2024
-        </span>
+        III EXHIBITION <span className="text-[1.5rem] leading-3">2024</span>
       </div>
+      {/* Menu Mobile */}
       <List
         className="text-4xl md:hidden"
         weight="light"
         onClick={handleOpen}
       />
+      {/* Dialog For Mobile */}
       <dialog
         ref={dialogRef}
         className="size-full max-h-screen max-w-screen-md bg-header-background/70 outline-none backdrop-blur-sm md:hidden"
@@ -104,7 +104,7 @@ export default function Header() {
           </div>
         </div>
       </dialog>
-
+      {/* Menu For Desktop */}
       <div className="hidden text-primary md:flex lg:text-lg lg:[&>span:nth-child(even)]:mx-4">
         <span
           onClick={(e) => handleNavClick(e, "CONCEPT")}
@@ -146,6 +146,14 @@ export default function Header() {
           className="cursor-pointer"
         >
           ARCHIVES
+        </span>
+      </div>
+      <div className="absolute right-0 top-8 hidden text-primary md:flex">
+        <span className="lg:text-lg">SCROLL FOR MORE</span>
+        <span className="mx-4 flex w-36 items-center justify-center">
+          <div className="size-0 border-y-4 border-r-4 border-y-transparent border-r-primary"></div>
+          <div className="h-0.5 w-4/5 bg-primary"></div>
+          <div className="size-0 border-y-4 border-l-4 border-y-transparent border-l-primary"></div>
         </span>
       </div>
     </div>
