@@ -1,3 +1,4 @@
+/* eslint-disable no-constant-condition */
 import StaticTitle from "@/assets/heroarea/Title.svg?react";
 import StaticTitleEnglish from "@/assets/heroarea/TitleEnglish.svg?react";
 import StaticDateAndVenue from "@/assets/heroarea/DateAndVenue.svg?react";
@@ -31,7 +32,6 @@ export default function HeroArea() {
 
   return (
     <section className="section-container h-svh min-h-svh w-screen overflow-hidden">
-      // eslint-disable-next-line no-constant-condition
       {showParticles && false ? (
         <>
           <Title />
