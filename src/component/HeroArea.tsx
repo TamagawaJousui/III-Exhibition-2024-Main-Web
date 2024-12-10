@@ -31,7 +31,8 @@ export default function HeroArea() {
 
   return (
     <section className="section-container h-svh min-h-svh w-screen overflow-hidden">
-      {false ? (
+      // eslint-disable-next-line no-constant-condition
+      {showParticles && false ? (
         <>
           <Title />
           <TitleEnglish />
