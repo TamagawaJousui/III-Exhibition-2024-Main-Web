@@ -29,6 +29,7 @@ export default {
       "concept-ja": ["Klee One"],
       "concept-en": ["Playfair Light"],
       "section-title": ["Playfair Display SC"],
+      header: ["Playfair Display SC"],
       "works-title": ["Playfair Display SC", "Noto Serif JP"],
       serif: ["Noto Serif JP"],
       gothic: ["Zen Kaku Gothic Antique"],

@@ -10,6 +10,8 @@
     "preview": "vite preview --host"
   },
   "dependencies": {
+    "@phosphor-icons/react": "^2.1.7",
+    "clsx": "^2.1.1",
     "debounce": "^2.2.0",
     "embla-carousel": "^8.4.0",
     "embla-carousel-autoplay": "^8.3.1",

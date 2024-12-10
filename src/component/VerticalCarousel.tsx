@@ -185,7 +185,7 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
       {/* footer */}
       <div className="flex h-12 w-full items-center justify-center">
         <div className="size-1 rounded-full bg-works-carousel-progress drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"></div>
-        <div className="second-title-stroke mx-2 break-keep text-center font-works-title text-lg font-semibold italic text-white">
+        <div className="second-title-stroke mx-2 break-keep text-center font-works-title text-lg italic text-white">
           {workName}
         </div>
         <div className="size-1 rounded-full bg-works-carousel-progress drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"></div>

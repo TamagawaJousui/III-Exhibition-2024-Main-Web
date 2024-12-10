@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -19,26 +20,10 @@
 
   @font-face {
     font-family: "Playfair Light";
-    font-style: light;
+    font-style: normal;
     font-weight: 300;
     font-display: swap;
     src: url(/fonts/Playfair9pt-Light.woff2) format("woff2");
-  }
-
-  @font-face {
-    font-family: "Playfair Display SC";
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/fonts/PlayfairDisplaySC-Regular.woff2) format("woff2");
-  }
-
-  @font-face {
-    font-family: "Playfair Display SC";
-    font-style: italic;
-    font-weight: 400;
-    font-display: swap;
-    src: url(/fonts/PlayfairDisplaySC-Italic.woff2) format("woff2");
   }
 }
 
@@ -47,7 +32,7 @@
     @apply relative h-max min-h-screen w-screen min-w-[100vw] snap-start md:h-screen md:w-fit md:overflow-y-hidden;
   }
   .section-title {
-    @apply pl-6 pt-8 text-left font-section-title text-4xl italic text-primary md:pl-12 md:pt-16 md:text-[4rem];
+    @apply pl-6 pt-11 text-left font-section-title text-4xl italic text-primary md:pl-12 md:pt-16 md:text-[4rem];
   }
   .section-content {
     @apply flex flex-col px-6 pb-16 pt-16 md:px-12 md:pt-24;
