@@ -15,8 +15,11 @@ export default function Members() {
               <div className="flex flex-row flex-wrap gap-6 pt-4 md:gap-10">
                 {team.members.map((member) => (
                   <div className="flex w-32 flex-col gap-0 md:w-40">
-                    <div key={member.nameJa} className="text-base md:text-lg">
-                      {member.nameJa}
+                    <div
+                      key={member.nameJa}
+                      className="whitespace-pre-wrap text-base md:text-lg"
+                    >
+                      {member.nameJa.replace("・", "\n")}
                     </div>
                     <div
                       key={member.nameEn}
