@@ -7,7 +7,7 @@ import {
 
 export default function Archives() {
   return (
-    <section className="section-container">
+    <section className="section-container" id="ARCHIVES">
       <div className="section-title">ARCHIVES</div>
       <div className="section-content grid gap-16 md:grid-flow-row md:grid-cols-[minmax(0,_500px)_minmax(0,_550px)] md:pt-16 2xl:grid-cols-[minmax(0,_768px)_minmax(0,_768px)]">
         <div className="max-w-screen-sm 2xl:max-w-none">

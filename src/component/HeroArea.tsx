@@ -31,7 +31,7 @@ export default function HeroArea() {
 
   return (
     <section className="section-container h-svh min-h-svh w-screen overflow-hidden">
-      {showParticles ? (
+      {false ? (
         <>
           <Title />
           <TitleEnglish />

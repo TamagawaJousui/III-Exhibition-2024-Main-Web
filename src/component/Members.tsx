@@ -2,7 +2,7 @@ import { teamList } from "@/models/member";
 
 export default function Members() {
   return (
-    <section className="section-container">
+    <section className="section-container" id="MEMBERS">
       <div className="section-title">MEMBERS</div>
       <div className="section-content flex flex-col gap-12 text-primary md:max-h-[95vh] md:flex-wrap md:gap-24 md:pb-0 md:pt-16">
         {teamList

@@ -2,7 +2,7 @@ import { conceptData } from "@/models/concept";
 
 export default function Concept() {
   return (
-    <section className="section-container w-screen">
+    <section className="section-container w-screen" id="CONCEPT">
       <div className="section-title">CONCEPT</div>
       <div className="section-content">
         <div className="flex flex-col gap-4 md:gap-12">

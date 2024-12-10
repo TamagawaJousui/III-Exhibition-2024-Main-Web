@@ -2,7 +2,7 @@ import announce from "@/assets/announce/announce.webp";
 import { LuExternalLink } from "react-icons/lu";
 export default function Announce() {
   return (
-    <section className="section-container md:w-screen">
+    <section className="section-container md:w-screen" id="ANNOUNCE">
       <div className="section-title">ANNOUNCE</div>
       <div className="section-content md:pt-16">
         <div className="second-title w-fit text-2xl">

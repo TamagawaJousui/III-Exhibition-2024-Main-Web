@@ -7,6 +7,7 @@ export default {
     extend: {
       colors: {
         primary: "#F9F6F7",
+        "header-background": "#B6CEE4",
         "pickup-background": "#D9D9D9",
         "pickup-text": "#5E5E5E",
         "pickup-button": "#2E2E2E",

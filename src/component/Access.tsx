@@ -3,7 +3,7 @@ import { trainInfo } from "@/models/access";
 
 export default function Access() {
   return (
-    <section className="section-container md:w-screen">
+    <section className="section-container md:w-screen" id="ACCESS">
       <div className="section-title">ACCESS</div>
       <div className="section-content pt-4 md:pt-8">
         <div className="flex flex-col items-center text-center font-gothic text-primary xl:hidden">
