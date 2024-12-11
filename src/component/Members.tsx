@@ -14,7 +14,10 @@ export default function Members() {
               </div>
               <div className="flex flex-row flex-wrap gap-6 pt-4 md:gap-10">
                 {team.members.map((member) => (
-                  <div className="flex w-32 flex-col gap-0 md:w-40">
+                  <div
+                    className="flex w-32 flex-col gap-0 md:w-40"
+                    key={member.nameJa}
+                  >
                     <div
                       key={member.nameJa}
                       className="whitespace-pre-wrap text-base md:text-lg"
