@@ -1,7 +1,38 @@
+import { breakpoint } from "@/utils/BreakPoint";
 import { List, X } from "@phosphor-icons/react";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
+
 export default function Header() {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollLeft = window.scrollX;
+      const scrollWidth =
+        document.documentElement.scrollWidth - window.innerWidth;
+      const progress = (scrollLeft / scrollWidth) * 100;
+      setProgress(progress);
+      console.log(progress);
+    };
+
+    const handleMediaChange = (e: MediaQueryListEvent | MediaQueryList) => {
+      if (e.matches) {
+        window.addEventListener("scroll", handleScroll);
+      } else {
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    handleMediaChange(mediaQuery);
+    mediaQuery.addEventListener("change", handleMediaChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleMediaChange);
+      window.removeEventListener("scroll", handleScroll);
+    };
+  });
 
   const handleOpen = () => {
     if (!dialogRef.current) {
@@ -116,14 +147,33 @@ export default function Header() {
       <div className="hidden text-xl leading-9 text-primary md:flex md:[&>span:nth-child(even)]:mx-[-0.06rem] min-[950px]:[&>span:nth-child(even)]:mx-0.5  lg:[&>span:nth-child(even)]:mx-2 xl:[&>span:nth-child(even)]:mx-3 2xl:[&>span:nth-child(even)]:mx-4">
         {Menu}
       </div>
-      {/* <div className="absolute right-0 top-8 hidden text-primary [text-shadow:_0_1px_2px_rgba(0,0,0,0)] md:flex">
-        <span className="lg:text-lg">SCROLL FOR MORE</span>
-        <span className="mx-4 flex w-36 items-center justify-center">
-          <div className="size-0 border-y-4 border-r-4 border-y-transparent border-r-primary"></div>
-          <div className="h-0.5 w-4/5 bg-primary"></div>
-          <div className="size-0 border-y-4 border-l-4 border-y-transparent border-l-primary"></div>
-        </span>
-      </div> */}
+      <div className="absolute right-0 top-8 hidden text-primary [text-shadow:_0_1px_2px_rgba(0,0,0,0)] md:flex">
+        <div
+          className={`text-lg transition-opacity duration-300 ${progress > 3 ? "opacity-0" : "opacity-100"}`}
+        >
+          SCROLL FOR MORE
+        </div>
+        <div className="mx-4 flex w-36 items-center justify-between gap-4">
+          {/* progress bar container */}
+          <div className="relative flex flex-1 justify-between gap-1">
+            {/* moving line */}
+            <div
+              className="absolute  z-10 h-full w-12 rounded-full bg-primary"
+              style={{
+                left: "0%",
+                transition: "top 0.3s ease",
+              }}
+            />
+            {/* dots */}
+            {[...Array(16)].map((_, i) => (
+              <div
+                key={i}
+                className="size-1 rounded-full bg-primary drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
+              ></div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
