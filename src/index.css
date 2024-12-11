@@ -12,7 +12,7 @@
       rgb(103, 100, 120) 65%, rgb(69, 60, 60) 85%, rgb(20, 20, 20) 100%;
   }
   html {
-    @apply h-screen w-screen snap-both snap-mandatory overflow-auto overscroll-none;
+    @apply h-screen w-screen snap-both snap-mandatory overflow-auto overscroll-none md:snap-none;
   }
   body {
     @apply overscroll-none;
