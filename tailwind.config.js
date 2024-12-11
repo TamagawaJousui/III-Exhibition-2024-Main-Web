@@ -25,6 +25,21 @@ export default {
         "works-carousel-progress-line": "#C5C4CC",
         "member-name-english": "#C4C4C4",
       },
+      keyframes: {
+        "bounce-x": {
+          "0%, 100%": {
+            transform: "translateX(-10%)",
+            animationTimingFunction: "cubic-bezier(0.8,0,1,1)",
+          },
+          "50%": {
+            transform: "none",
+            animationTimingFunction: "cubic-bezier(0,0,0.2,1)",
+          },
+        },
+      },
+      animation: {
+        "bounce-x": "bounce-x 2s infinite",
+      },
     },
     fontFamily: {
       "concept-ja": ["Klee One"],

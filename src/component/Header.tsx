@@ -1,6 +1,7 @@
 import { breakpoint } from "@/utils/BreakPoint";
 import { List, X } from "@phosphor-icons/react";
 import { useRef, useEffect, useState } from "react";
+import clsx from "clsx";
 
 export default function Header() {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -112,7 +113,7 @@ export default function Header() {
   );
 
   return (
-    <div className="fixed z-20 flex w-full items-center justify-between px-3 pt-1 font-header italic backdrop-blur-[2px] md:px-2">
+    <div className="fixed z-20 flex w-full items-center justify-between px-3 pt-1 font-header italic backdrop-blur-[2px] md:px-2 lg:px-4">
       {/* Title */}
       <div className="text-xl leading-9">
         <span>III</span>{" "}
@@ -144,35 +145,16 @@ export default function Header() {
         </div>
       </dialog>
       {/* Menu For Desktop */}
-      <div className="hidden text-xl leading-9 text-primary md:flex md:[&>span:nth-child(even)]:mx-[-0.06rem] min-[950px]:[&>span:nth-child(even)]:mx-0.5  lg:[&>span:nth-child(even)]:mx-2 xl:[&>span:nth-child(even)]:mx-3 2xl:[&>span:nth-child(even)]:mx-4">
+      <div className="hidden text-xl leading-9 text-primary md:flex md:[&>span:nth-child(even)]:mx-[-0.06rem] min-[950px]:[&>span:nth-child(even)]:mx-0.5 lg:[&>span:nth-child(even)]:mx-2 xl:[&>span:nth-child(even)]:mx-3 2xl:[&>span:nth-child(even)]:mx-4">
         {Menu}
       </div>
-      <div className="absolute right-0 top-8 hidden text-primary [text-shadow:_0_1px_2px_rgba(0,0,0,0)] md:flex">
-        <div
-          className={`text-lg transition-opacity duration-300 ${progress > 3 ? "opacity-0" : "opacity-100"}`}
-        >
-          SCROLL FOR MORE
-        </div>
-        <div className="mx-4 flex w-36 items-center justify-between gap-4">
-          {/* progress bar container */}
-          <div className="relative flex flex-1 justify-between gap-1">
-            {/* moving line */}
-            <div
-              className="absolute  z-10 h-full w-12 rounded-full bg-primary"
-              style={{
-                left: "0%",
-                transition: "top 0.3s ease",
-              }}
-            />
-            {/* dots */}
-            {[...Array(16)].map((_, i) => (
-              <div
-                key={i}
-                className="size-1 rounded-full bg-primary drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
-              ></div>
-            ))}
-          </div>
-        </div>
+      <div
+        className={clsx(
+          "absolute right-0 top-8 hidden animate-bounce-x text-lg text-primary transition-opacity duration-300 md:flex md:pr-2 lg:pr-4",
+          `${progress > 3 ? "opacity-0" : "opacity-100"}`
+        )}
+      >
+        SCROLL
       </div>
     </div>
   );
