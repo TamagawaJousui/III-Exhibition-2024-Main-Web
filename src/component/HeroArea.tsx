@@ -31,7 +31,10 @@ export default function HeroArea() {
   });
 
   return (
-    <section className="section-container h-svh min-h-svh w-screen overflow-hidden">
+    <section
+      className="section-container h-svh min-h-svh w-screen overflow-hidden"
+      id="HEROAREA"
+    >
       {showParticles && false ? (
         <>
           <Title />

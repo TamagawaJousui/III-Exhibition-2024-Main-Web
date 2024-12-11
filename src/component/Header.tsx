@@ -1,39 +1,73 @@
 import { breakpoint } from "@/utils/BreakPoint";
 import { List, X } from "@phosphor-icons/react";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, Fragment } from "react";
 import clsx from "clsx";
 
 export default function Header() {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
-  const [progress, setProgress] = useState(0);
+  // const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
+  // const [progress, setProgress] = useState(0);
+  const [activeSection, setActiveSection] = useState("");
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     requestAnimationFrame(() => {
+  //       const scrollLeft = window.scrollX;
+  //       const scrollWidth =
+  //         document.documentElement.scrollWidth - window.innerWidth;
+  //       const progress = (scrollLeft / scrollWidth) * 100;
+  //       setProgress(progress);
+  //     });
+  //   };
+
+  //   const handleMediaChange = (e: MediaQueryListEvent | MediaQueryList) => {
+  //     if (e.matches) {
+  //       window.addEventListener("scroll", handleScroll, { passive: true });
+  //     } else {
+  //       window.removeEventListener("scroll", handleScroll);
+  //     }
+  //   };
+
+  //   handleMediaChange(mediaQuery);
+  //   mediaQuery.addEventListener("change", handleMediaChange, { passive: true });
+
+  //   return () => {
+  //     mediaQuery.removeEventListener("change", handleMediaChange);
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [mediaQuery]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollLeft = window.scrollX;
-      const scrollWidth =
-        document.documentElement.scrollWidth - window.innerWidth;
-      const progress = (scrollLeft / scrollWidth) * 100;
-      setProgress(progress);
-      console.log(progress);
-    };
-
-    const handleMediaChange = (e: MediaQueryListEvent | MediaQueryList) => {
-      if (e.matches) {
-        window.addEventListener("scroll", handleScroll);
-      } else {
-        window.removeEventListener("scroll", handleScroll);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-50% -50%",
+        threshold: 0,
       }
-    };
+    );
 
-    handleMediaChange(mediaQuery);
-    mediaQuery.addEventListener("change", handleMediaChange);
+    const sections = [
+      "HEROAREA",
+      "CONCEPT",
+      "WORKS",
+      "ACCESS",
+      "ANNOUNCE",
+      "MEMBERS",
+      "ARCHIVES",
+    ];
+    sections.forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
 
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaChange);
-      window.removeEventListener("scroll", handleScroll);
-    };
-  });
+    return () => observer.disconnect();
+  }, []);
 
   const handleOpen = () => {
     if (!dialogRef.current) {
@@ -68,47 +102,26 @@ export default function Header() {
 
   const Menu = (
     <>
-      <span
-        onClick={(e) => handleNavClick(e, "CONCEPT")}
-        className="cursor-pointer"
-      >
-        CONCEPT
-      </span>
-      <span>・</span>
-      <span
-        onClick={(e) => handleNavClick(e, "WORKS")}
-        className="cursor-pointer"
-      >
-        WORKS
-      </span>
-      <span>・</span>
-      <span
-        onClick={(e) => handleNavClick(e, "ACCESS")}
-        className="cursor-pointer"
-      >
-        ACCESS
-      </span>
-      <span>・</span>
-      <span
-        onClick={(e) => handleNavClick(e, "ANNOUNCE")}
-        className="cursor-pointer"
-      >
-        ANNOUNCE
-      </span>
-      <span>・</span>
-      <span
-        onClick={(e) => handleNavClick(e, "MEMBERS")}
-        className="cursor-pointer"
-      >
-        MEMBERS
-      </span>
-      <span>・</span>
-      <span
-        onClick={(e) => handleNavClick(e, "ARCHIVES")}
-        className="cursor-pointer"
-      >
-        ARCHIVES
-      </span>
+      {["CONCEPT", "WORKS", "ACCESS", "ANNOUNCE", "MEMBERS", "ARCHIVES"].map(
+        (id) => (
+          <Fragment key={id}>
+            <span
+              onClick={(e) => handleNavClick(e, id)}
+              className={clsx(
+                "cursor-pointer transition-all duration-300",
+                activeSection === "HEROAREA"
+                  ? "opacity-100 hover:scale-110"
+                  : activeSection === id
+                    ? "scale-105 opacity-100"
+                    : "opacity-70 hover:scale-110 hover:opacity-100"
+              )}
+            >
+              {id}
+            </span>
+            {id !== "ARCHIVES" && <span>・</span>}
+          </Fragment>
+        )
+      )}
     </>
   );
 
@@ -151,7 +164,7 @@ export default function Header() {
       <div
         className={clsx(
           "absolute right-0 top-8 hidden animate-bounce-x text-lg text-primary transition-opacity duration-300 md:flex md:pr-2 lg:pr-4",
-          `${progress > 3 ? "opacity-0" : "opacity-100"}`
+          `${activeSection !== "HEROAREA" ? "opacity-0" : "opacity-100"}`
         )}
       >
         SCROLL
