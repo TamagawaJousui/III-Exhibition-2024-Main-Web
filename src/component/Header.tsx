@@ -1,41 +1,10 @@
-import { breakpoint } from "@/utils/BreakPoint";
 import { List, X } from "@phosphor-icons/react";
 import { useRef, useEffect, useState, Fragment } from "react";
 import clsx from "clsx";
 
 export default function Header() {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  // const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
-  // const [progress, setProgress] = useState(0);
   const [activeSection, setActiveSection] = useState("");
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     requestAnimationFrame(() => {
-  //       const scrollLeft = window.scrollX;
-  //       const scrollWidth =
-  //         document.documentElement.scrollWidth - window.innerWidth;
-  //       const progress = (scrollLeft / scrollWidth) * 100;
-  //       setProgress(progress);
-  //     });
-  //   };
-
-  //   const handleMediaChange = (e: MediaQueryListEvent | MediaQueryList) => {
-  //     if (e.matches) {
-  //       window.addEventListener("scroll", handleScroll, { passive: true });
-  //     } else {
-  //       window.removeEventListener("scroll", handleScroll);
-  //     }
-  //   };
-
-  //   handleMediaChange(mediaQuery);
-  //   mediaQuery.addEventListener("change", handleMediaChange, { passive: true });
-
-  //   return () => {
-  //     mediaQuery.removeEventListener("change", handleMediaChange);
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, [mediaQuery]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -110,10 +79,10 @@ export default function Header() {
               className={clsx(
                 "cursor-pointer transition-all duration-300",
                 activeSection === "HEROAREA"
-                  ? "opacity-100 hover:scale-110"
+                  ? "opacity-100 hover:scale-105"
                   : activeSection === id
                     ? "scale-105 opacity-100"
-                    : "opacity-70 hover:scale-110 hover:opacity-100"
+                    : "opacity-70 hover:scale-105 hover:opacity-100"
               )}
             >
               {id}
