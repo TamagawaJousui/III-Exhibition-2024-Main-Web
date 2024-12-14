@@ -12,7 +12,7 @@ export type WorkData = {
   imagePath: string;
 };
 
-export const workList = [
+export const workList: WorkData[] = [
   {
     workId: "landscape",
     title: "Area of Landscape",
