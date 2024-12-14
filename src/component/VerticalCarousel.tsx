@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { EmblaCarouselType } from "embla-carousel";
 import { placeList, placeColorPalette } from "@/models/place";
 import { workList } from "@/models/works";
-import WorksModal from "./WorksModal";
+import { useModalStore } from "@/store/modalStore";
 
 interface VerticalCarouselProps {
   // should be 0-3
@@ -15,16 +15,13 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
   const bgColor = `bg-${placeColorPalette[place]}`;
   const progressBarRef = useRef<HTMLDivElement>(null);
   const slides = workList.filter((work) => work.place === place);
+  const { openModal } = useModalStore();
 
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const workData = slides[selectedIndex];
+  const workId = slides[selectedIndex].workId;
 
   const showModalDetail = () => {
-    setIsModalOpen(true);
-  };
-  const hideModalDetail = () => {
-    setIsModalOpen(false);
+    openModal(workId);
   };
 
   const workName = slides[selectedIndex].title;
@@ -223,11 +220,6 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
         </div>
         <div className="size-1 rounded-full bg-works-carousel-progress drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"></div>
       </div>
-      <WorksModal
-        visible={isModalOpen}
-        workData={workData}
-        onClose={hideModalDetail}
-      />
     </div>
   );
 }

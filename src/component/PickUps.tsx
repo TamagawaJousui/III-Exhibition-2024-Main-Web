@@ -1,10 +1,9 @@
 import useEmblaCarousel from "embla-carousel-react";
 import Fade from "embla-carousel-fade";
 import Autoplay from "embla-carousel-autoplay";
-import { workList as slides, WorkData } from "@/models/works";
+import { workList as slides } from "@/models/works";
 import { IoLocationSharp } from "react-icons/io5";
-import WorksModal from "./WorksModal";
-import { useState } from "react";
+import { useModalStore } from "@/store/modalStore";
 
 export default function PickUps() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
@@ -15,28 +14,25 @@ export default function PickUps() {
       stopOnInteraction: false,
     }),
   ]);
+  const { openModal } = useModalStore();
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [workData, setWorkData] = useState<WorkData>(slides[0]);
-  const showModalDetail = () => {
-    if (!emblaApi) {
-      return;
-    }
-    const workData = slides[emblaApi.selectedScrollSnap()];
-    if (!workData) {
-      return;
-    }
-    emblaApi.plugins().autoplay.stop();
-    setWorkData(workData);
-    setIsModalOpen(true);
-  };
-  const hideModalDetail = () => {
+  const onModalClose = () => {
     if (!emblaApi) {
       return;
     }
     emblaApi.plugins().autoplay.play();
-    setIsModalOpen(false);
   };
+
+  const showModalDetail = () => {
+    if (!emblaApi) {
+      return;
+    }
+    emblaApi.plugins().autoplay.stop();
+
+    const workId = slides[emblaApi.selectedScrollSnap()].workId;
+    openModal(workId, onModalClose);
+  };
+
   return (
     <div className="flex w-full flex-col items-center md:max-w-screen-sm md:items-start">
       <div className="second-title w-full max-w-[min(calc(50svh),768px,100%)] snap-start scroll-m-2 md:snap-none">
@@ -97,11 +93,6 @@ export default function PickUps() {
           </div>
         </div>
       </div>
-      <WorksModal
-        visible={isModalOpen}
-        workData={workData}
-        onClose={hideModalDetail}
-      />
     </div>
   );
 }

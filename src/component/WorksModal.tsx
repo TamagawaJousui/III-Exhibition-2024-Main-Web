@@ -1,50 +1,35 @@
-import { WorkData } from "@/models/works";
+import { workList } from "@/models/works";
 import { useEffect, useRef } from "react";
 import { LiaWindowCloseSolid } from "react-icons/lia";
 import { IoLocationSharp } from "react-icons/io5";
 import { memberMap } from "@/models/member";
 import { useModalStore } from "@/store/modalStore";
 
-interface WorksModalProps {
-  visible: boolean;
-  workData: WorkData;
-  onClose: () => void;
-}
-
-export default function WorksModal({
-  visible,
-  workData,
-  onClose,
-}: WorksModalProps) {
+export default function WorksModal() {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const { isModalOpen, setIsModalOpen } = useModalStore();
+  const { isModalOpen, currentWorkId, closeModal } = useModalStore();
 
-  // 处理模态框的显示状态
+  // handle modal open and close
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
 
-    if (visible && !dialog.open) {
+    if (isModalOpen && !dialog.open) {
       document.documentElement.classList.add(
         "bg-scrolling-element-when-modal-active"
       );
-      if (!isModalOpen) {
-        setIsModalOpen(true);
-      }
       dialog.showModal();
       dialog.scrollTop = 0;
-    } else if (!visible && dialog.open) {
+    } else if (!isModalOpen && dialog.open) {
       document.documentElement.classList.remove(
         "bg-scrolling-element-when-modal-active"
       );
-      if (isModalOpen) {
-        setIsModalOpen(false);
-      }
       dialog.close();
+      closeModal();
     }
-  }, [visible, isModalOpen, setIsModalOpen]);
+  }, [isModalOpen, closeModal]);
 
-  // 处理用户手动关闭事件（ESC键）
+  // handle esc key caused close
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
@@ -54,22 +39,28 @@ export default function WorksModal({
         "bg-scrolling-element-when-modal-active"
       );
       if (isModalOpen) {
-        setIsModalOpen(false);
+        closeModal();
       }
-      onClose();
     };
 
     dialog.addEventListener("close", handleClose);
     return () => {
       dialog.removeEventListener("close", handleClose);
     };
-  }, [onClose, setIsModalOpen, isModalOpen]);
+  }, [isModalOpen, closeModal]);
+
+  const workData = workList.find((work) => work.workId === currentWorkId);
+
+  // when workData is not found, return null
+  if (!workData) {
+    return null;
+  }
 
   return (
     <dialog
       ref={dialogRef}
       className="w-[85%] max-w-screen-sm overscroll-contain rounded-3xl bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md "
-      onClick={onClose}
+      onClick={closeModal}
     >
       <div
         className="flex size-full h-max flex-col px-[8%] py-8"
@@ -86,7 +77,7 @@ export default function WorksModal({
             </h2>
             <div
               className="flex w-[15%] items-center justify-center border-l border-works-modal-line"
-              onClick={onClose}
+              onClick={closeModal}
             >
               <LiaWindowCloseSolid className="size-7 fill-works-modal-line stroke-[0.5px]" />
             </div>

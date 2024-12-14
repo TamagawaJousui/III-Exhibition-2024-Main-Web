@@ -3,6 +3,7 @@ import { lazy, useEffect } from "react";
 import Header from "./component/Header";
 import { breakpoint } from "./utils/BreakPoint";
 import { useModalStore } from "./store/modalStore";
+import WorksModal from "./component/WorksModal";
 const HeroArea = lazy(() => import("./component/HeroArea"));
 const Concept = lazy(() => import("./component/Concept"));
 const Works = lazy(() => import("./component/Works"));
@@ -69,6 +70,7 @@ function App() {
         <Members />
         <Archives />
       </div>
+      <WorksModal />
     </>
   );
 }
