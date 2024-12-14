@@ -159,6 +159,23 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
           {/* progress bar */}
           <div className="absolute right-4 flex h-full flex-col justify-center">
             <div className="flex h-2/5 flex-col items-center justify-between gap-4">
+              {/* up arrow */}
+              <div className="size-5 text-works-carousel-progress">
+                <svg
+                  viewBox="0 0 14 11"
+                  fill="none"
+                  onClick={() => emblaApi?.scrollPrev()}
+                >
+                  <path
+                    d="M10.8672 7.13281L6.67264 2.4005L2.47809 7.13281"
+                    stroke="currentColor"
+                    strokeWidth="2.1"
+                    strokeLinecap="round"
+                    className="drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
+                  />
+                </svg>
+              </div>
+
               {/* dots container */}
               <div className="relative flex flex-1 flex-col justify-between gap-1">
                 {/* moving line */}
@@ -178,6 +195,22 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
                   ></div>
                 ))}
               </div>
+
+              {/* down arrow */}
+              <div
+                className="flex size-5 flex-col justify-end text-works-carousel-progress"
+                onClick={() => emblaApi?.scrollNext()}
+              >
+                <svg viewBox="0 0 14 11" fill="none">
+                  <path
+                    d="M2.47809 2.4005L6.67264 7.13281L10.8672 2.4005"
+                    stroke="currentColor"
+                    strokeWidth="2.1"
+                    strokeLinecap="round"
+                    className="drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
         </div>
@@ -185,7 +218,7 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
       {/* footer */}
       <div className="flex h-12 w-full items-center justify-center">
         <div className="size-1 rounded-full bg-works-carousel-progress drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"></div>
-        <div className="second-title-stroke mx-2 break-keep text-center font-works-title text-lg italic text-white">
+        <div className="second-title-stroke mx-2 break-keep text-center font-works-title text-lg font-bold italic text-white">
           {workName}
         </div>
         <div className="size-1 rounded-full bg-works-carousel-progress drop-shadow-[0_1.4px_1.4px_rgba(0,0,0,0.25)]"></div>
