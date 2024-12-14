@@ -1,6 +1,7 @@
 import { Place } from "@/models/place";
 
 export type WorkData = {
+  workId: string;
   title: string;
   member: string[];
   place: Place;
@@ -13,6 +14,7 @@ export type WorkData = {
 
 export const workList = [
   {
+    workId: "landscape",
     title: "Area of Landscape",
     member: ["真田将太朗", "森達也", "八木新平", "桶家武尊", "池田翔"],
     place: "工学部2号館フォーラム",
@@ -23,6 +25,7 @@ export const workList = [
     imagePath: "/works/landscape.webp",
   },
   {
+    workId: "Whole_Teidai_Gesui_Catalog",
     title: "Whole Teidai Gesui Catalog",
     member: ["あんどうやすし"],
     place: "工学部2号館フォーラム",
@@ -33,6 +36,7 @@ export const workList = [
     imagePath: "/works/Whole_Teidai_Gesui_Catalog.webp",
   },
   {
+    workId: "umoru",
     title: "umoru",
     member: ["宮道彩乃", "中根葵", "澤田智佳"],
     place: "工学部2号館フォーラム",
@@ -43,6 +47,7 @@ export const workList = [
     imagePath: "/works/umoru.webp",
   },
   {
+    workId: "The_Mirror",
     title: "鏡",
     member: ["王文鶴", "中野博貴", "徐錦芸"],
     place: "工学部2号館9階・Sky Presentation Room",
@@ -53,6 +58,7 @@ export const workList = [
     imagePath: "/works/The_Mirror.webp",
   },
   {
+    workId: "Remain",
     title: "存える",
     member: ["星杏優菜", "鈴木健", "足立信基", "花岡桃可"],
     place: "工学部2号館フォーラム",
@@ -63,6 +69,7 @@ export const workList = [
     imagePath: "/works/Remain.webp",
   },
   {
+    workId: "The_Flavor_of_Hearts",
     title: "心の味わい",
     member: ["余楚韵", "王文鶴", "莫子敏", "席竞帆", "李嘉懿", "何婧"],
     place: "工学部2号館9階・Sky Presentation Room",
@@ -73,6 +80,7 @@ export const workList = [
     imagePath: "/works/The_Flavor_of_Hearts.webp",
   },
   {
+    workId: "CottonSketchPen",
     title: "CottonSketchPen",
     member: ["金澤政宜", "中田裕紀", "岡空来", "南田桂吾"],
     place: "工学部2号館9階・Sky Presentation Room",
@@ -83,6 +91,7 @@ export const workList = [
     imagePath: "/works/CottonSketchPen.webp",
   },
   {
+    workId: "Geocussion",
     title: "Geocussion",
     member: ["岡空来", "金澤政宜", "中田裕紀", "南田桂吾"],
     place: "工学部2号館9階・Sky Presentation Room",
@@ -93,6 +102,7 @@ export const workList = [
     imagePath: "/works/Geocussion.webp",
   },
   {
+    workId: "nozoko",
     title: "覗香",
     member: ["岡空来", "金澤政宜", "中田裕紀", "南田桂吾"],
     place: "工学部2号館9階・Sky Presentation Room",
@@ -103,6 +113,7 @@ export const workList = [
     imagePath: "/works/nozoko.webp",
   },
   {
+    workId: "ColorNote",
     title: "ColorNote",
     member: ["金澤政宜"],
     place: "工学部2号館9階・Sky Presentation Room",
@@ -113,6 +124,7 @@ export const workList = [
     imagePath: "/works/ColorNote.webp",
   },
   {
+    workId: "Exquisite_Corpse_with_Generative_AI",
     title: "生成AIと優美な死骸",
     member: ["梅田悠哉", "中野博貴", "平林晴馬"],
     place: "工学部2号館9階・Sky Presentation Room",
@@ -123,6 +135,7 @@ export const workList = [
     imagePath: "/works/Exquisite_Corpse_with_Generative_AI.webp",
   },
   {
+    workId: "Birdatch",
     title: "バードっち",
     member: [
       "李伊婧",
@@ -142,6 +155,7 @@ export const workList = [
     imagePath: "/works/Birdatch.webp",
   },
   {
+    workId: "Droplens",
     title: "Living Lens",
     member: [
       "大平麻以",
@@ -159,6 +173,7 @@ export const workList = [
     imagePath: "/works/Droplens.webp",
   },
   {
+    workId: "VoiceStorming",
     title: "VoiceStorming",
     member: ["有川由祐", "南田桂吾", "坪山倫"],
     place: "工学部2号館フォーラム",
@@ -169,6 +184,7 @@ export const workList = [
     imagePath: "/works/VoiceStorming.webp",
   },
   {
+    workId: "Hongo_Campus_Treasure_Hunting_Tour_-_The_Missing_of_A_-",
     title: "本郷キャンパス謎巡り \u200B ーAさんの消失ー",
     member: ["李嘉懿", "莫子敏", "席竞帆", "胡欣雨"],
     place: "工学部2号館フォーラム",
@@ -180,6 +196,7 @@ export const workList = [
       "/works/Hongo_Campus_Treasure_Hunting_Tour_-_The_Missing_of_A_-.webp",
   },
   {
+    workId: "The_Dance_of_Death_of_Coral_Polyps",
     title: "サンゴポリプのシノブトウ",
     member: ["カモクセイ"],
     place: "工学部2号館9階・Sky Presentation Room",
@@ -190,6 +207,7 @@ export const workList = [
     imagePath: "/works/The_Dance_of_Death_of_Coral_Polyps.webp",
   },
   {
+    workId: "Hand",
     title: "Hand",
     member: ["中根葵"],
     place: "工学部2号館フォーラム",
@@ -200,6 +218,7 @@ export const workList = [
     imagePath: "/works/Hand.webp",
   },
   {
+    workId: "chaosync",
     title: "chaosync",
     member: ["ウォンマタイ", "カーアーネスト・航太"],
     place: "工学部2号館9階・Sky Presentation Room",
@@ -210,6 +229,7 @@ export const workList = [
     imagePath: "/works/chaosync.webp",
   },
   {
+    workId: "Puflica",
     title: "Puflica",
     member: ["中田裕紀", "金澤政宜", "岡空来", "南田桂吾"],
     place: "工学部2号館9階・Sky Presentation Room",
@@ -220,6 +240,7 @@ export const workList = [
     imagePath: "/works/Puflica.webp",
   },
   {
+    workId: "pray",
     title: "祈りの余白",
     member: ["森田匠", "高橋一成"],
     place: "工学部2号館展示室",
@@ -227,10 +248,10 @@ export const workList = [
       ja: "あなたの記憶に残る大切な他者や甚大な災害、凄惨な事件への関心は、時間が経つれて変化していく。本作品では、自分とそれらを想起させるモノの間を寄せては返す振り子を観ながら、鑑賞者は自身の関心を振り子に重ねることで、関心の移ろいを感じることができる。",
       en: "",
     },
-
     imagePath: "/works/pray.webp",
   },
   {
+    workId: "zip",
     title: "zip or",
     member: [
       "増田凌",
@@ -248,6 +269,7 @@ export const workList = [
     imagePath: "/works/zip.webp",
   },
   {
+    workId: "Protophysica",
     title: "Protophysica",
     member: ["南田桂吾", "金澤政宜", "中田裕紀", "岡空来"],
     place: "工学部2号館展示室",
@@ -258,6 +280,7 @@ export const workList = [
     imagePath: "/works/Protophysica.webp",
   },
   {
+    workId: "Metransfer",
     title: "Metransfer",
     member: ["南田桂吾", "金澤政宜", "中田裕紀", "岡空来"],
     place: "工学部2号館展示室",
@@ -268,6 +291,7 @@ export const workList = [
     imagePath: "/works/Metransfer.webp",
   },
   {
+    workId: "suzumushi",
     title: "suzumushi",
     member: ["増田凌"],
     place: "工学部2号館展示室",
@@ -278,6 +302,7 @@ export const workList = [
     imagePath: "/works/suzumushi.webp",
   },
   {
+    workId: "WHEEL_of_MOON_PHASE",
     title: "月々輪廻",
     member: ["李伊婧", "姚思妤", "王文鶴"],
     place: "工学部2号館展示室",
@@ -288,6 +313,7 @@ export const workList = [
     imagePath: "/works/WHEEL_of_MOON_PHASE.webp",
   },
   {
+    workId: "Mental_Health_Reflection",
     title: "メンヘラ・リフレクション",
     member: ["西岡春菜"],
     place: "工学部2号館展示室",
@@ -298,6 +324,7 @@ export const workList = [
     imagePath: "/works/Mental_Health_Reflection.webp",
   },
   {
+    workId: "Siyo",
     title: "揺現",
     member: ["仲村友杜"],
     place: "工学部2号館展示室",
@@ -308,6 +335,7 @@ export const workList = [
     imagePath: "/works/Siyo.webp",
   },
   {
+    workId: "A_Bedroom_Time_Capsule",
     title: "寝床タイムカプセル",
     member: ["井上国太郎", "中村雅人"],
     place: "工学部2号館展示室",
@@ -318,6 +346,7 @@ export const workList = [
     imagePath: "/works/A_Bedroom_Time_Capsule.webp",
   },
   {
+    workId: "SHODO_trajectory_of_handwriting",
     title: "書動",
     member: ["小西優多郎", "田中祐玖", "都築あい", "席竞帆"],
     place: "情報学環オープンスタジオ",
@@ -328,6 +357,7 @@ export const workList = [
     imagePath: "/works/SHODO_trajectory_of_handwriting.webp",
   },
   {
+    workId: "prismatic",
     title: "Prismatic Diary",
     member: [
       "横井総太朗",
@@ -345,6 +375,7 @@ export const workList = [
     imagePath: "/works/prismatic.webp",
   },
   {
+    workId: "champloo",
     title: "Champloo \u200B ~\uFEFFかきまぜる\uFEFF~",
     member: [
       "友利未夢",
@@ -358,10 +389,10 @@ export const workList = [
       ja: "鑑賞者は、別の誰かが創り出したさまざまな要素をあるテーマに沿ってコラージュし、新たな作品を創り出す。世界に1つしかないその作品は、最後、あなたに何かを問うだろう。1つ1つの要素は一見するとバラバラなようでいて、どこか同じ部分を見出すこともできるからだ。",
       en: "",
     },
-
     imagePath: "/works/champloo.webp",
   },
   {
+    workId: "Teidai_Gesui",
     title: "帝大下水\u200B（閉店しました）",
     member: ["あんどうやすし", "十河翔"],
     place: "情報学環オープンスタジオ",
@@ -372,6 +403,7 @@ export const workList = [
     imagePath: "/works/Teidai_Gesui.webp",
   },
   {
+    workId: "Fragments_of_the_City",
     title: "都市の断片",
     member: ["足立信基", "機田悠希", "仲村友杜"],
     place: "情報学環オープンスタジオ",
@@ -382,6 +414,7 @@ export const workList = [
     imagePath: "/works/Fragments_of_the_City.webp",
   },
   {
+    workId: "The_Scent_of_Waterfall",
     title: "滝の香り",
     member: ["石津悠人"],
     place: "情報学環オープンスタジオ",
@@ -392,6 +425,7 @@ export const workList = [
     imagePath: "/works/The_Scent_of_Waterfall.webp",
   },
   {
+    workId: "Another_Path",
     title: "Another Path",
     member: ["大河内洋平", "牛島百合子", "増子優輝"],
     place: "情報学環オープンスタジオ",
@@ -402,6 +436,7 @@ export const workList = [
     imagePath: "/works/Another_Path.webp",
   },
   {
+    workId: "Topology_optimization_of_T-shirts",
     title: "Tシャツのトポロジー最適化",
     member: ["金田昌也", "福田晴紀"],
     place: "情報学環オープンスタジオ",
@@ -412,6 +447,7 @@ export const workList = [
     imagePath: "/works/Topology_optimization_of_T-shirts.webp",
   },
   {
+    workId: "Tangible_Impossible_Object",
     title: "触れる不可能立体",
     member: ["横井総太朗"],
     place: "情報学環オープンスタジオ",
