@@ -14,6 +14,11 @@ export const useModalStore = create<ModalState>((set) => ({
   onCloseCallback: null,
   openModal: (workId, onClose) => {
     console.log(`Opening modal for work: ${workId}`);
+
+    const url = new URL(window.location.href);
+    url.searchParams.set("workId", workId);
+    window.history.pushState({}, "", url);
+
     set({
       isModalOpen: true,
       currentWorkId: workId,
@@ -22,6 +27,12 @@ export const useModalStore = create<ModalState>((set) => ({
   },
   closeModal: () => {
     console.log("Closing modal");
+
+    // remain the url
+    // const url = new URL(window.location.href);
+    // url.searchParams.delete("workId");
+    // window.history.pushState({}, "", url);
+
     set((state) => {
       if (state.onCloseCallback) {
         state.onCloseCallback();
