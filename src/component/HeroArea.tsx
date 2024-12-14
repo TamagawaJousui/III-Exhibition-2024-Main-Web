@@ -1,4 +1,3 @@
-/* eslint-disable no-constant-condition */
 import StaticTitle from "@/assets/heroarea/Title.svg?react";
 import StaticTitleEnglish from "@/assets/heroarea/TitleEnglish.svg?react";
 import StaticDateAndVenue from "@/assets/heroarea/DateAndVenue.svg?react";
@@ -17,25 +16,24 @@ import DateAndVenue from "./Particles/DateAndVenue/DateAndVenue";
 import { isWebGlCapable } from "@/utils/CheckUserEnv";
 
 export default function HeroArea() {
-  const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
-  const [showParticles, setShowParticles] = useState(
-    mediaQuery.matches && isWebGlCapable()
-  );
+  const [showParticles, setShowParticles] = useState(false);
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
     const handleMediaChange = () => {
       setShowParticles(mediaQuery.matches && isWebGlCapable());
     };
+    handleMediaChange();
     mediaQuery.addEventListener("change", handleMediaChange);
     return () => mediaQuery.removeEventListener("change", handleMediaChange);
-  });
+  }, []);
 
   return (
     <section
       className="section-container h-svh min-h-svh w-screen overflow-hidden"
       id="HEROAREA"
     >
-      {showParticles && false ? (
+      {showParticles ? (
         <>
           <Title />
           <TitleEnglish />

@@ -12,10 +12,10 @@ const Members = lazy(() => import("./component/Members"));
 const Archives = lazy(() => import("./component/Archives"));
 
 function App() {
-  const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
   const { isModalOpen } = useModalStore();
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
     if (isModalOpen) {
       return;
     }
@@ -55,7 +55,7 @@ function App() {
         capture: true,
       });
     };
-  }, [mediaQuery, isModalOpen]);
+  }, [isModalOpen]);
 
   return (
     <>
