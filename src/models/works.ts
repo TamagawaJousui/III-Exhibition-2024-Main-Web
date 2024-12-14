@@ -14,7 +14,7 @@ export type WorkData = {
 
 export const workList: WorkData[] = [
   {
-    workId: "landscape",
+    workId: "Area_of_Landscape",
     title: "Area of Landscape",
     member: ["真田将太朗", "森達也", "八木新平", "桶家武尊", "池田翔"],
     place: "工学部2号館フォーラム",

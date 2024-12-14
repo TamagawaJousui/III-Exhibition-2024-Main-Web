@@ -4,6 +4,7 @@ import Header from "./component/Header";
 import { breakpoint } from "./utils/BreakPoint";
 import { useModalStore } from "./store/modalStore";
 import WorksModal from "./component/WorksModal";
+import { workList } from "./models/works";
 const HeroArea = lazy(() => import("./component/HeroArea"));
 const Concept = lazy(() => import("./component/Concept"));
 const Works = lazy(() => import("./component/Works"));
@@ -13,7 +14,22 @@ const Members = lazy(() => import("./component/Members"));
 const Archives = lazy(() => import("./component/Archives"));
 
 function App() {
-  const { isModalOpen } = useModalStore();
+  const { isModalOpen, openModal } = useModalStore();
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const workId = urlParams.get("workId");
+
+    if (workId && workList.find((work) => work.workId === workId)) {
+      const workSection = document.getElementById("WORKS");
+      if (workSection) {
+        workSection.scrollIntoView({ behavior: "smooth" });
+      }
+      openModal(workId);
+    } else {
+      window.history.replaceState({}, "", "/");
+    }
+  }, [openModal]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
