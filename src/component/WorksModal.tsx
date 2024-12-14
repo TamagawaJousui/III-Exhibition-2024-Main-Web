@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { LiaWindowCloseSolid } from "react-icons/lia";
 import { IoLocationSharp } from "react-icons/io5";
 import { memberMap } from "@/models/member";
+import { useModalStore } from "@/store/modalStore";
 
 interface WorksModalProps {
   visible: boolean;
@@ -16,40 +17,53 @@ export default function WorksModal({
   onClose,
 }: WorksModalProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
+  const { isModalOpen, setIsModalOpen } = useModalStore();
 
+  // 处理模态框的显示状态
   useEffect(() => {
     const dialog = dialogRef.current;
-    if (!dialog) {
-      return;
-    }
+    if (!dialog) return;
 
-    const handleClose = () => {
-      if (!visible) return;
-      document.documentElement.classList.remove(
-        "bg-scrolling-element-when-modal-active"
-      );
-      onClose();
-    };
-
-    if (visible) {
+    if (visible && !dialog.open) {
       document.documentElement.classList.add(
         "bg-scrolling-element-when-modal-active"
       );
+      if (!isModalOpen) {
+        setIsModalOpen(true);
+      }
       dialog.showModal();
       dialog.scrollTop = 0;
-    } else {
+    } else if (!visible && dialog.open) {
       document.documentElement.classList.remove(
         "bg-scrolling-element-when-modal-active"
       );
+      if (isModalOpen) {
+        setIsModalOpen(false);
+      }
       dialog.close();
     }
+  }, [visible, isModalOpen, setIsModalOpen]);
+
+  // 处理用户手动关闭事件（ESC键）
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) return;
+
+    const handleClose = () => {
+      document.documentElement.classList.remove(
+        "bg-scrolling-element-when-modal-active"
+      );
+      if (isModalOpen) {
+        setIsModalOpen(false);
+      }
+      onClose();
+    };
 
     dialog.addEventListener("close", handleClose);
-
     return () => {
       dialog.removeEventListener("close", handleClose);
     };
-  });
+  }, [onClose, setIsModalOpen, isModalOpen]);
 
   return (
     <dialog

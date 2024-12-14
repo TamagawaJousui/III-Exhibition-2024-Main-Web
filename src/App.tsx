@@ -2,6 +2,7 @@ import "./App.css";
 import { lazy, useEffect } from "react";
 import Header from "./component/Header";
 import { breakpoint } from "./utils/BreakPoint";
+import { useModalStore } from "./store/modalStore";
 const HeroArea = lazy(() => import("./component/HeroArea"));
 const Concept = lazy(() => import("./component/Concept"));
 const Works = lazy(() => import("./component/Works"));
@@ -12,8 +13,13 @@ const Archives = lazy(() => import("./component/Archives"));
 
 function App() {
   const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
+  const { isModalOpen } = useModalStore();
 
   useEffect(() => {
+    if (isModalOpen) {
+      return;
+    }
+
     const handleWheel = (e: WheelEvent) => {
       e.preventDefault();
       const scrollSpeed = 1;
@@ -49,7 +55,7 @@ function App() {
         capture: true,
       });
     };
-  }, [mediaQuery]);
+  }, [mediaQuery, isModalOpen]);
 
   return (
     <>
