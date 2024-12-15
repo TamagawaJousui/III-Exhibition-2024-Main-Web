@@ -399,7 +399,7 @@ export const teamList: Team[] = [
         lab: "出口剛司ゼミ",
       },
       {
-        nameJa: "あんどう・やすし",
+        nameJa: "あんどうやすし",
         nameEn: "YASUSHI ANDO",
         affiliationJa: "東京大学大学院 学際情報学府",
         grade: "博士2年",
