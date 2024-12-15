@@ -58,6 +58,25 @@ export default function Header() {
     dialogRef.current.close();
   };
 
+  // handle esc key caused close
+  useEffect(() => {
+    const dialog = dialogRef.current;
+    if (!dialog) {
+      return;
+    }
+
+    const removeClassOnClose = () => {
+      document.documentElement.classList.remove(
+        "bg-scrolling-element-when-modal-active"
+      );
+    };
+
+    dialog.addEventListener("cancel", removeClassOnClose);
+    return () => {
+      dialog.removeEventListener("cancel", removeClassOnClose);
+    };
+  }, []);
+
   const handleNavClick = (e: React.MouseEvent<HTMLSpanElement>, id: string) => {
     e.preventDefault();
     handleClose();
@@ -97,7 +116,10 @@ export default function Header() {
   return (
     <div className="fixed z-20 flex w-full items-center justify-between px-3 pt-1 font-header italic backdrop-blur-[2px] md:px-2 lg:px-4">
       {/* Title */}
-      <div className="text-xl leading-9">
+      <div
+        className="cursor-pointer text-xl leading-9 "
+        onClick={(e) => handleNavClick(e, "HEROAREA")}
+      >
         <span>III</span>{" "}
         <span className="md:hidden min-[900px]:inline">EXHIBITION</span>{" "}
         <span className="text-2xl">2024</span>
