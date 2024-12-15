@@ -63,7 +63,7 @@ export default function WorksModal() {
     <dialog
       ref={dialogRef}
       className="w-[85%] max-w-screen-sm overscroll-contain rounded-3xl bg-works-modal-background outline-none backdrop:bg-black/50 backdrop:backdrop-blur-md 
-      lg:h-[90%] lg:max-w-none lg:backdrop:bg-black/30 lg:backdrop:backdrop-blur-sm"
+      lg:h-[90%] lg:max-w-screen-lg lg:backdrop:bg-black/30 lg:backdrop:backdrop-blur-sm "
       onClick={closeModal}
     >
       <div
@@ -75,7 +75,7 @@ export default function WorksModal() {
           <div className="h-1 bg-works-modal-line" />
           <div className="mt-2 h-px bg-works-modal-line" />
           <div className="mt-3 flex flex-row justify-between">
-            <div className="w-[15%] border-r border-works-modal-line lg:w-[23%]">
+            <div className="mr-4 w-[15%] border-r border-works-modal-line lg:mr-8 lg:w-[23%]">
               {/* Place and Link (desktop more than lg) */}
               <div className="hidden justify-between lg:flex">
                 <div className="flex flex-col">
@@ -94,11 +94,11 @@ export default function WorksModal() {
                 </div>
               </div>
             </div>
-            <h2 className="mx-2 flex items-center break-keep bg-works-modal-line px-2 text-center font-works-title text-lg text-works-modal-background lg:text-2xl">
+            <h2 className="mx-2 flex flex-1 items-center justify-center break-keep bg-works-modal-line px-2 text-center font-works-title text-lg text-works-modal-background lg:text-2xl">
               {workData.title}
             </h2>
 
-            <div className="flex w-[15%] items-center justify-end border-l border-works-modal-line lg:w-[23%] lg:justify-between">
+            <div className="ml-4 flex w-[15%] items-center justify-end border-l border-works-modal-line lg:ml-8 lg:w-[23%] lg:justify-between">
               <IoShareOutline
                 className="ml-4 hidden size-6 cursor-pointer text-works-modal-line lg:block"
                 onClick={copyLink}
