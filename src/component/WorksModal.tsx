@@ -9,11 +9,13 @@ export default function WorksModal() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const { isModalOpen, currentWorkId, closeModal } = useModalStore();
 
+  const workData =
+    workList.find((work) => work.workId === currentWorkId) ?? workList[0];
+
   // handle modal open and close
   useEffect(() => {
     const dialog = dialogRef.current;
     if (!dialog) return;
-
     if (isModalOpen && !dialog.open) {
       document.documentElement.classList.add(
         "bg-scrolling-element-when-modal-active"
@@ -32,9 +34,11 @@ export default function WorksModal() {
   // handle esc key caused close
   useEffect(() => {
     const dialog = dialogRef.current;
-    if (!dialog) return;
+    if (!dialog) {
+      return;
+    }
 
-    const handleClose = () => {
+    const removeClassOnClose = () => {
       document.documentElement.classList.remove(
         "bg-scrolling-element-when-modal-active"
       );
@@ -43,18 +47,11 @@ export default function WorksModal() {
       }
     };
 
-    dialog.addEventListener("close", handleClose);
+    dialog.addEventListener("cancel", removeClassOnClose);
     return () => {
-      dialog.removeEventListener("close", handleClose);
+      dialog.removeEventListener("cancel", removeClassOnClose);
     };
   }, [isModalOpen, closeModal]);
-
-  const workData = workList.find((work) => work.workId === currentWorkId);
-
-  // when workData is not found, return null
-  if (!workData) {
-    return null;
-  }
 
   return (
     <dialog
