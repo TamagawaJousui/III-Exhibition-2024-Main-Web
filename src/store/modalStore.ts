@@ -15,9 +15,10 @@ export const useModalStore = create<ModalState>((set) => ({
   openModal: (workId, onClose) => {
     console.log(`Opening modal for work: ${workId}`);
 
-    const url = new URL(window.location.href);
-    url.searchParams.set("workId", workId);
-    window.history.pushState({}, "", url);
+    // change the url
+    // const url = new URL(window.location.href);
+    // url.searchParams.set("workId", workId);
+    // window.history.pushState({}, "", url);
 
     set({
       isModalOpen: true,
