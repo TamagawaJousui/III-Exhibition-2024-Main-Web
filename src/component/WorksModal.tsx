@@ -1,7 +1,7 @@
 import { workList } from "@/models/works";
 import { useEffect, useRef } from "react";
 import { LiaWindowCloseSolid } from "react-icons/lia";
-import { IoLocationSharp } from "react-icons/io5";
+import { IoLocationSharp, IoShareSocialOutline } from "react-icons/io5";
 import { memberMap } from "@/models/member";
 import { useModalStore } from "@/store/modalStore";
 
@@ -9,6 +9,12 @@ export default function WorksModal() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const { isModalOpen, currentWorkId, closeModal } = useModalStore();
 
+  const copyLink = () => {
+    navigator.clipboard.writeText(
+      window.location.href + "?workId=" + currentWorkId
+    );
+    alert("リンクをコピーしました");
+  };
   const workData =
     workList.find((work) => work.workId === currentWorkId) ?? workList[0];
 
@@ -76,21 +82,26 @@ export default function WorksModal() {
               className="flex w-[15%] items-center justify-center border-l border-works-modal-line"
               onClick={closeModal}
             >
-              <LiaWindowCloseSolid className="size-7 fill-works-modal-line stroke-[0.5px]" />
+              <LiaWindowCloseSolid className="size-7 cursor-pointer fill-works-modal-line stroke-[0.5px]" />
             </div>
           </div>
           <div className="mt-3 h-px bg-works-modal-line" />
         </div>
-        {/* Place */}
-        <div className="flex flex-col pt-2">
-          <div className="font-serif text-sm font-extrabold tracking-[0.15rem] text-white">
-            展示場所
+        {/* Place and Link */}
+        <div className="flex justify-between pt-2">
+          <div className="flex flex-col">
+            <div className="font-serif text-sm font-extrabold tracking-[0.15rem] text-white">
+              展示場所
+            </div>
+            <div className="flex items-center pt-1 text-white">
+              <IoLocationSharp />
+              <span className="pl-2 font-serif text-xs font-extralight">
+                {workData.place}
+              </span>
+            </div>
           </div>
-          <div className="flex items-center pt-1 text-white">
-            <IoLocationSharp />
-            <span className="pl-2 font-serif text-xs font-extralight">
-              {workData.place}
-            </span>
+          <div className="flex items-center text-white" onClick={copyLink}>
+            <IoShareSocialOutline className="size-7 cursor-pointer text-works-modal-line" />
           </div>
         </div>
 
