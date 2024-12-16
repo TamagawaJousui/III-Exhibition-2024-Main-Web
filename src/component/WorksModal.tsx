@@ -10,8 +10,9 @@ export default function WorksModal() {
   const { isModalOpen, currentWorkId, closeModal } = useModalStore();
 
   const copyLink = () => {
+    const url = new URL(window.location.href);
     navigator.clipboard.writeText(
-      window.location.href + "?workId=" + currentWorkId
+      url.origin + "/" + "?workId=" + currentWorkId
     );
     alert("リンクをコピーしました");
   };
@@ -33,7 +34,6 @@ export default function WorksModal() {
         "bg-scrolling-element-when-modal-active"
       );
       dialog.close();
-      closeModal();
     }
   }, [isModalOpen, closeModal]);
 

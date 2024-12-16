@@ -58,6 +58,10 @@
     background: linear-gradient(to bottom, var(--gradient-colors));
   }
 
+  .all-works-bg-gradient {
+    background: linear-gradient(to bottom, var(--gradient-colors));
+  }
+
   .pickup-title {
     @apply w-fit break-keep border-b border-pickup-text pb-2 font-works-title text-2xl italic;
   }

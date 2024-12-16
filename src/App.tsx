@@ -5,6 +5,7 @@ import { breakpoint } from "./utils/BreakPoint";
 import { useModalStore } from "./store/modalStore";
 import WorksModal from "./component/WorksModal";
 import { workList } from "./models/works";
+import AllWorksModal from "./component/AllWorksModal";
 const HeroArea = lazy(() => import("./component/HeroArea"));
 const Concept = lazy(() => import("./component/Concept"));
 const Works = lazy(() => import("./component/Works"));
@@ -14,26 +15,31 @@ const Members = lazy(() => import("./component/Members"));
 const Archives = lazy(() => import("./component/Archives"));
 
 function App() {
-  const { isModalOpen, openModal } = useModalStore();
+  const { isModalOpen, isGalleryModalOpen, openModal, openGalleryModal } =
+    useModalStore();
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const workId = urlParams.get("workId");
+    const pathname = window.location.pathname;
 
-    if (workId && workList.find((work) => work.workId === workId)) {
+    if (pathname === "/workslist") {
+      openGalleryModal();
+    } else if (workId && workList.find((work) => work.workId === workId)) {
       const workSection = document.getElementById("WORKS");
       if (workSection) {
         workSection.scrollIntoView({ behavior: "smooth" });
       }
       openModal(workId);
     } else {
+      console.log("replaceState", "/");
       window.history.replaceState({}, "", "/");
     }
-  }, [openModal]);
+  }, [openModal, openGalleryModal]);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(`(min-width: ${breakpoint.md}px)`);
-    if (isModalOpen) {
+    if (isModalOpen || isGalleryModalOpen) {
       return;
     }
 
@@ -72,7 +78,7 @@ function App() {
         capture: true,
       });
     };
-  }, [isModalOpen]);
+  }, [isModalOpen, isGalleryModalOpen]);
 
   return (
     <>
@@ -87,6 +93,7 @@ function App() {
         <Archives />
       </div>
       <WorksModal />
+      <AllWorksModal />
     </>
   );
 }

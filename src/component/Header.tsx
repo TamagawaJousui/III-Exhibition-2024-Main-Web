@@ -133,7 +133,7 @@ export default function Header() {
       {/* Dialog For Mobile */}
       <dialog
         ref={dialogRef}
-        className="size-full max-h-screen max-w-screen-md bg-header-background/70 outline-none backdrop-blur-sm md:hidden"
+        className="size-full max-h-screen max-w-screen-md overscroll-contain bg-header-background/70 outline-none backdrop-blur-sm md:hidden"
       >
         <div
           className="flex h-full flex-col text-primary "

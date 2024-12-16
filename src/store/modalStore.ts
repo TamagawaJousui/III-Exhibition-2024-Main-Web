@@ -6,6 +6,10 @@ interface ModalState {
   onCloseCallback: (() => void) | null;
   openModal: (workId: string, onClose?: () => void) => void;
   closeModal: () => void;
+
+  isGalleryModalOpen: boolean;
+  openGalleryModal: () => void;
+  closeGalleryModal: () => void;
 }
 
 export const useModalStore = create<ModalState>((set) => ({
@@ -15,11 +19,6 @@ export const useModalStore = create<ModalState>((set) => ({
   openModal: (workId, onClose) => {
     console.log(`Opening modal for work: ${workId}`);
 
-    // change the url
-    // const url = new URL(window.location.href);
-    // url.searchParams.set("workId", workId);
-    // window.history.pushState({}, "", url);
-
     set({
       isModalOpen: true,
       currentWorkId: workId,
@@ -28,11 +27,6 @@ export const useModalStore = create<ModalState>((set) => ({
   },
   closeModal: () => {
     console.log("Closing modal");
-
-    // remain the url
-    // const url = new URL(window.location.href);
-    // url.searchParams.delete("workId");
-    // window.history.pushState({}, "", url);
 
     set((state) => {
       if (state.onCloseCallback) {
@@ -45,5 +39,15 @@ export const useModalStore = create<ModalState>((set) => ({
         onCloseCallback: null,
       };
     });
+  },
+
+  isGalleryModalOpen: false,
+  openGalleryModal: () => {
+    console.log("Opening gallery modal");
+    set({ isGalleryModalOpen: true });
+  },
+  closeGalleryModal: () => {
+    console.log("Closing gallery modal");
+    set({ isGalleryModalOpen: false });
   },
 }));
