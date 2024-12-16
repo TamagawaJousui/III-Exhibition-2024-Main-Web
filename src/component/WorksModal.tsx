@@ -100,11 +100,11 @@ export default function WorksModal() {
 
             <div className="ml-4 flex w-[15%] items-center justify-end border-l border-works-modal-line lg:ml-8 lg:w-[23%] lg:justify-between">
               <IoShareOutline
-                className="ml-4 hidden size-6 cursor-pointer text-works-modal-line lg:block"
+                className="ml-4 hidden size-6 cursor-pointer text-works-modal-line transition-all duration-300 hover:scale-125 lg:block"
                 onClick={copyLink}
               />
               <LiaWindowCloseSolid
-                className="size-7 cursor-pointer fill-works-modal-line stroke-[0.5px] lg:size-9"
+                className="size-7 cursor-pointer fill-works-modal-line stroke-[0.5px] transition-all duration-300 hover:scale-110 lg:size-9"
                 onClick={closeModal}
               />
             </div>
@@ -125,7 +125,7 @@ export default function WorksModal() {
             </div>
           </div>
           <div className="flex items-center text-white" onClick={copyLink}>
-            <IoShareOutline className="size-6 cursor-pointer" />
+            <IoShareOutline className="size-6 cursor-pointer transition-all duration-300 hover:scale-125" />
           </div>
         </div>
 
