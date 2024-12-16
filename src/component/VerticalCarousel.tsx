@@ -4,6 +4,7 @@ import { EmblaCarouselType } from "embla-carousel";
 import { placeList, placeColorPalette } from "@/models/place";
 import { workList } from "@/models/works";
 import { useModalStore } from "@/store/modalStore";
+import clsx from "clsx";
 
 interface VerticalCarouselProps {
   // should be 0-3
@@ -135,7 +136,7 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
           <div className="flex h-1/3 w-full flex-col items-center transform-style-3d">
             <PlaceHolder />
             <PlaceHolder />
-            {slides.map((slide) => (
+            {slides.map((slide, index) => (
               <div
                 key={slide.title}
                 className="my-1 flex min-h-0 w-full flex-[0_0_100%] items-center justify-center"
@@ -145,7 +146,10 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
                   <img
                     src={slide.imagePath}
                     alt={slide.title}
-                    className="rounded-3xl"
+                    className={clsx(
+                      "rounded-3xl transition-all duration-300",
+                      index === selectedIndex && "hover:scale-105"
+                    )}
                   />
                 </div>
               </div>
