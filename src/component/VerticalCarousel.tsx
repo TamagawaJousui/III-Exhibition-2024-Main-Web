@@ -161,11 +161,12 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
           <div className="absolute right-4 flex h-full flex-col justify-center">
             <div className="flex h-2/5 flex-col items-center justify-between gap-4">
               {/* up arrow */}
-              <div className="size-5 text-works-carousel-progress">
+              <div className="size-5 text-works-carousel-progress transition-colors hover:text-white">
                 <svg
                   viewBox="0 0 14 11"
                   fill="none"
                   onClick={() => emblaApi?.scrollPrev()}
+                  className="cursor-pointer drop-shadow-[0_0_4px_rgba(255,255,255,0.5)] hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"
                 >
                   <path
                     d="M10.8672 7.13281L6.67264 2.4005L2.47809 7.13281"
@@ -199,10 +200,14 @@ export default function VerticalCarousel({ index }: VerticalCarouselProps) {
 
               {/* down arrow */}
               <div
-                className="flex size-5 flex-col justify-end text-works-carousel-progress"
+                className="flex size-5 flex-col justify-end text-works-carousel-progress transition-colors hover:text-white"
                 onClick={() => emblaApi?.scrollNext()}
               >
-                <svg viewBox="0 0 14 11" fill="none">
+                <svg
+                  viewBox="0 0 14 11"
+                  fill="none"
+                  className="cursor-pointer drop-shadow-[0_0_4px_rgba(255,255,255,0.5)] hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]"
+                >
                   <path
                     d="M2.47809 2.4005L6.67264 7.13281L10.8672 2.4005"
                     stroke="currentColor"
