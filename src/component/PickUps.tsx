@@ -39,7 +39,7 @@ export default function PickUps() {
         ピックアップ
       </div>
       <div className="h-2"></div>
-      <div className="max-w-[min(calc(50svh),768px,100%)]">
+      <div className="max-w-[min(calc(50svh),768px,100%)] transition-all duration-300 hover:scale-[101%]">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
             {slides.map((slide) => (
