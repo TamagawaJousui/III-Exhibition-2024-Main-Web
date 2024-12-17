@@ -39,7 +39,7 @@ export default function PickUps() {
         ピックアップ
       </div>
       <div className="h-2"></div>
-      <div className="max-w-[min(calc(50svh),768px,100%)] transition-all duration-300 hover:scale-[101%] short:max-w-80">
+      <div className="max-w-[min(calc(50svh),768px,100%)] transition-all duration-300 hover:scale-[101%] md:short:max-w-80">
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex">
             {slides.map((slide) => (
@@ -48,7 +48,7 @@ export default function PickUps() {
                 key={`${slide.title}-${slide.place}`}
                 onClick={showModalDetail}
               >
-                <div className="max-w-[min(calc(50svh),768px,100%)] rounded-3xl bg-pickup-background short:max-w-80">
+                <div className="max-w-[min(calc(50svh),768px,100%)] rounded-3xl bg-pickup-background md:short:max-w-80">
                   <div className="relative aspect-square w-full rounded-3xl">
                     <img
                       src={slide.imagePath}
@@ -61,7 +61,7 @@ export default function PickUps() {
                       className="absolute left-0 top-0 aspect-square w-full rounded-3xl"
                     />
                   </div>
-                  <div className="flex h-52 flex-col justify-between px-4 pt-4 text-pickup-text short:h-56">
+                  <div className="flex h-52 flex-col justify-between px-4 pt-4 text-pickup-text md:short:h-56">
                     <div>
                       <div className="pickup-title">{slide.title}</div>
                       <p className="pickup-member">
