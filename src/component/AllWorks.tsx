@@ -17,7 +17,7 @@ export default function AllWorks() {
           <LuExternalLink className="ml-1 inline-block size-5 stroke-[1px]" />)
         </a>
       </div>
-      <div className="flex flex-col gap-8 pt-4 md:flex-row md:pt-0">
+      <div className="flex flex-col gap-8 pt-4 md:flex-row md:pt-0 md:short:gap-4">
         {placeList.map((place, index) => (
           <div
             key={place}
