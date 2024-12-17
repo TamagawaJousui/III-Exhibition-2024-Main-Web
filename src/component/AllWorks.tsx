@@ -21,7 +21,7 @@ export default function AllWorks() {
         {placeList.map((place, index) => (
           <div
             key={place}
-            className="h-[80vh] w-full snap-start scroll-m-12 md:w-96"
+            className="h-[80vh] w-full snap-start scroll-m-12 md:w-96  md:short:h-[75vh]"
           >
             <VerticalCarousel index={index} />
           </div>
