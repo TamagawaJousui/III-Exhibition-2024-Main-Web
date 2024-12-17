@@ -7,7 +7,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="flex flex-col items-center justify-center gap-2 pb-12 font-serif text-primary md:pt-8">
+    <footer className="flex flex-col items-center justify-center gap-2 pb-12 font-serif text-primary">
       <div className="text-lg font-extrabold md:text-2xl">
         iiiExhibition 2024
       </div>
