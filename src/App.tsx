@@ -32,7 +32,6 @@ function App() {
       }
       openModal(workId);
     } else {
-      console.log("replaceState", "/");
       window.history.replaceState({}, "", "/");
     }
   }, [openModal, openGalleryModal]);
