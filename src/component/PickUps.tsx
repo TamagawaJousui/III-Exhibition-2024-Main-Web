@@ -61,7 +61,7 @@ export default function PickUps() {
                       className="absolute left-0 top-0 aspect-square w-full rounded-3xl"
                     />
                   </div>
-                  <div className="flex h-52 flex-col justify-between px-4 pt-4 text-pickup-text md:h-48">
+                  <div className="flex h-52 flex-col justify-between px-4 pt-4 text-pickup-text short:h-56">
                     <div>
                       <div className="pickup-title">{slide.title}</div>
                       <p className="pickup-member">
