@@ -7,7 +7,11 @@ export default function Access() {
       <div className="section-title">ACCESS</div>
       <div className="section-content pt-4 md:pt-8">
         <div className="flex flex-col items-center text-center font-gothic text-primary xl:hidden">
-          <img src={map} alt="map" className="w-full max-w-screen-md" />
+          <img
+            src={map}
+            alt="map"
+            className="aspect-video w-full max-w-screen-md short:w-96"
+          />
           <div className="md:grid md:grid-cols-2 md:gap-x-12 md:gap-y-10 md:pt-6 lg:gap-x-14 lg:gap-y-16">
             {/* 会場 */}
             <div className="flex flex-col items-center">
@@ -72,8 +76,8 @@ export default function Access() {
             </div>
           </div>
         </div>
-        <div className="hidden gap-x-10 gap-y-16 text-center font-gothic text-primary xl:grid xl:grid-flow-col xl:auto-rows-fr xl:grid-cols-2 xl:grid-rows-3">
-          <div className="row-span-2 flex flex-col items-start justify-center">
+        <div className="hidden gap-x-10 gap-y-16 text-center font-gothic text-primary xl:grid xl:grid-flow-col xl:auto-rows-fr xl:grid-cols-2 xl:grid-rows-3 xl:short:grid-cols-3 xl:short:grid-rows-2">
+          <div className="row-span-2 flex flex-col items-start justify-center short:row-span-1">
             <img src={map} alt="map" className="w-full max-w-screen-sm" />
           </div>
 
