@@ -4,6 +4,7 @@ import {
   getExtraPageLink,
   getMainPageLink,
 } from "@/models/archives";
+import Footer from "./Footer";
 
 export default function Archives() {
   return (
@@ -49,6 +50,7 @@ export default function Archives() {
           </nav>
         </div>
       </div>
+      <Footer />
     </section>
   );
 }
