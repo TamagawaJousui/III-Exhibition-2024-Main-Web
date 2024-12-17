@@ -4,8 +4,8 @@ export default function Concept() {
   return (
     <section className="section-container w-screen" id="CONCEPT">
       <div className="section-title">CONCEPT</div>
-      <div className="section-content">
-        <div className="flex flex-col gap-4 md:gap-12">
+      <div className="section-content flex flex-col short:pt-12">
+        <div className="flex flex-col gap-4 md:gap-12 short:gap-3">
           {conceptData.ja.map((item) => (
             <div
               key={item}
@@ -15,8 +15,8 @@ export default function Concept() {
             </div>
           ))}
         </div>
-        <div className="h-16 md:h-24"></div>
-        <div className="flex snap-start scroll-m-16 flex-col gap-4 md:snap-align-none md:scroll-m-0 md:gap-8">
+        <div className="h-16 md:h-24 short:h-12"></div>
+        <div className="flex snap-start scroll-m-16 flex-col gap-4 md:snap-align-none md:scroll-m-0 md:gap-8 short:gap-3">
           {conceptData.en.map((item) => (
             <div
               key={item}

@@ -40,6 +40,9 @@ export default {
       animation: {
         "bounce-x": "bounce-x 2s infinite",
       },
+      screens: {
+        short: { raw: "(max-height: 950px)" },
+      },
     },
     fontFamily: {
       "concept-ja": ["Klee One"],
