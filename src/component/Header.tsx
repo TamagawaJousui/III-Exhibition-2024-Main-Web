@@ -121,7 +121,7 @@ export default function Header() {
         onClick={(e) => handleNavClick(e, "HEROAREA")}
       >
         <span>III</span>{" "}
-        <span className="md:hidden min-[900px]:inline">EXHIBITION</span>{" "}
+        <span className="md:hidden title:inline">EXHIBITION</span>{" "}
         <span className="text-2xl">2024</span>
       </div>
       {/* Menu Mobile */}
@@ -149,7 +149,7 @@ export default function Header() {
         </div>
       </dialog>
       {/* Menu For Desktop */}
-      <div className="hidden text-xl leading-9 text-primary md:flex md:[&>span:nth-child(even)]:mx-[-0.06rem] min-[950px]:[&>span:nth-child(even)]:mx-0.5 lg:[&>span:nth-child(even)]:mx-2 xl:[&>span:nth-child(even)]:mx-3 2xl:[&>span:nth-child(even)]:mx-4">
+      <div className="min-[950px]:[&>span:nth-child(even)]:mx-0.5 hidden text-xl leading-9 text-primary md:flex md:[&>span:nth-child(even)]:mx-[-0.06rem] lg:[&>span:nth-child(even)]:mx-2 xl:[&>span:nth-child(even)]:mx-3 2xl:[&>span:nth-child(even)]:mx-4">
         {Menu}
       </div>
       <div

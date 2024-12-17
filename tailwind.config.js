@@ -42,6 +42,7 @@ export default {
       },
       screens: {
         short: { raw: "(max-height: 950px)" },
+        title: "900px",
       },
     },
     fontFamily: {
