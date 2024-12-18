@@ -1,1 +1,0 @@
-export { WorksListPage } from "./workslist";
