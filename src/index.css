@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Klee+One:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --gradient-colors: rgb(237, 231, 233) 0%, rgb(109, 170, 214) 15%,
+      rgb(103, 100, 120) 65%, rgb(69, 60, 60) 85%, rgb(20, 20, 20) 100%;
+  }
+  html {
+    @apply h-screen w-screen snap-both snap-mandatory overflow-auto overscroll-none md:snap-none;
+  }
+  body {
+    @apply overscroll-none;
+  }
+
+  @font-face {
+    font-family: "Playfair Light";
+    font-style: normal;
+    font-weight: 300;
+    font-display: swap;
+    src: url(/fonts/Playfair9pt-Light.woff2) format("woff2");
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply relative h-max min-h-screen w-screen min-w-[100vw] snap-start md:h-screen md:w-fit md:overflow-y-hidden;
+  }
+  .section-title {
+    @apply pl-6 pt-11 text-left font-section-title text-4xl italic text-primary md:pl-12 md:pt-16 md:text-[4rem];
+  }
+  .section-content {
+    @apply flex flex-col px-6 pb-16 pt-16 md:px-12 md:pt-24;
+  }
+
+  .second-title {
+    @apply second-title-stroke pb-2 border-b border-divider-line font-serif text-2xl font-extrabold text-primary;
+  }
+
+  .access-title {
+    @apply second-title-stroke w-fit border-b border-divider-line pb-2 font-serif text-2xl font-extrabold lg:text-3xl;
+  }
+
+  .hero-bg-mobile {
+    @apply absolute left-1/2 top-1/2 z-0 h-[1000px] w-[1000px] max-w-none -translate-x-1/2 -translate-y-1/2 object-cover lg:hidden;
+  }
+
+  .hero-bg-desktop {
+    @apply absolute left-1/2 top-0 z-0 hidden h-full -translate-x-1/2 object-cover lg:block;
+  }
+
+  .bg-gradient {
+    background: linear-gradient(to bottom, var(--gradient-colors));
+  }
+
+  .all-works-bg-gradient {
+    background: linear-gradient(to bottom, var(--gradient-colors));
+  }
+
+  .pickup-title {
+    @apply w-fit break-keep border-b border-pickup-text pb-2 font-works-title text-2xl italic;
+  }
+
+  .pickup-member {
+    @apply pt-2 font-gothic text-base;
+  }
+
+  @media (max-height: 600px) {
+    .pickup-title {
+      @apply text-xl;
+    }
+    .pickup-member {
+      @apply text-sm;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .bg-gradient {
+      background: linear-gradient(to right, var(--gradient-colors));
+    }
+  }
+}
+
+@layer utilities {
+  .second-title-stroke {
+    @apply [-webkit-text-stroke:_0.2px_black;] [paint-order:stroke_fill];
+  }
+
+  /* Safari 7.1+ */
+
+  _::-webkit-full-page-media,
+  _:future,
+  :root .desktop-safari-modal-height {
+    height: auto;
+  }
+
+  .bg-scrolling-element-when-modal-active {
+    /* when modal active */
+    touch-action: none;
+    -webkit-overflow-scrolling: none;
+    overflow: hidden;
+    /* Other browsers */
+    overscroll-behavior: none;
+  }
+}
